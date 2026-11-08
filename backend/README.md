@@ -243,27 +243,25 @@ Variantlarda "Yuqoridagilarning hammasi" kabi joyiga bog'liq javoblar yozmang: a
 
 ### Tayyor test: 4-sinf bitiruvchilari uchun diagnostika
 
-`content/diagnostika_4_sinf.py`: 30 ta savol (matematika, mantiqiy fikrlash, ona tili, har biridan 10 ta: 3 oson,
-4 o'rta, 3 qiyin), 9 tasi rasmli. Rasmlar SVG bo'lib skriptning o'zida chiziladi. O'zgartirish uchun skriptni tahrirlab,
-JSON'ni qayta yarating va import qiling:
+**Serverga yuboriladigan fayl `content/imtihonlar.json`:** bitta test, 30 ta savol, har fandan 10 tadan (3 oson, 4 o'rta,
+3 qiyin). 1–10 matematika, 11–20 mantiqiy fikrlash: ular admin'da tahrirlangan lokal bazadan olingan. 21–30 ingliz
+tili: `content/ingliz-tili-4-sinf.json`dagi 30 ta savoldan tanlangan 10 tasi. Test 60 daqiqa, har bir javob 1 ball,
+savol va variantlar tartibi har kimda boshqacha, hamma 4-sinflarga. Javoblarni ko'rsatish o'chiq, chunki savollar
+hammaga bir xil: oldin tugatganlar javoblarni keyingilarga yetkazib qo'yishi mumkin. Serverga yuklash:
 
-```powershell
-python content/diagnostika_4_sinf.py
-python manage.py import_exam content/diagnostika-4-sinf.json
+```bash
+python manage.py reset_exams --publish --yes     # test server: hammasini tozalab, qayta yuklaydi
+python manage.py import_exam content/imtihonlar.json --update --publish   # natijalar saqlanib qoladi
 ```
 
-Import qilingan test e'lon qilinmagan bo'ladi va barcha 4-sinflarga biriktiriladi. Javoblarni ko'rsatish o'chiq, chunki
-savollar hammaga bir xil: oldin tugatganlar javoblarni keyingilarga yetkazib qo'yishi mumkin.
+Testni o'zgartirish: lokal bazaga yuklab, admin'da tahrirlang, keyin `python manage.py export_exams` faylni yangilaydi.
 
-### Tayyor test: 4-sinf ingliz tili
+**Boshqa fayllar.** `content/diagnostika_4_sinf.py` (`diagnostika-4-sinf.json`) testning birinchi varianti: matematika va
+mantiq rasmlari SVG bo'lib shu skriptda chiziladi, oxirgi 10 tasi esa o'zbek tilidagi savollar. `content/ingliz-tili-4-sinf.json`
+30 ta ingliz tili savoli: manbasi `content/sources/ingliz_tili_4_sinf_turli_testlar_v2.json`, uni
+`python content/ingliz_tili_4_sinf.py` qayta yaratadi (variant harflari va javobni tekshiradi, qiyinlik qo'yadi).
 
-`content/ingliz-tili-4-sinf.json`: 30 ta savol (so'z boyligi, `to be`, ko'plik, muloqot), har biri 1 ball, 45 daqiqa,
-savol va variantlar tartibi har kimda boshqacha, hamma 4-sinflarga. Manba ro'yxat
-`content/sources/ingliz_tili_4_sinf_turli_testlar_v2.json`; JSON'ni `python content/ingliz_tili_4_sinf.py` qayta
-yaratadi (variant harflari va javobni tekshiradi, qiyinlik darajasini qo'yadi). U `content/imtihonlar.json` ichida ham
-bor, shuning uchun serverga `import_exam content/imtihonlar.json --update --publish` bilan tushadi.
-
-Fan kodi `language`: u endi **Ingliz tili** (avval Ona tili edi; `0005_subject_english`).
+Fan kodi `language`: u endi **Ingliz tili** (avval Ona tili edi; migratsiya `0005_subject_english`).
 
 ## Admin vazifalari
 

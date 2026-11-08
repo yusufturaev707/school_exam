@@ -306,16 +306,36 @@ class TestEnglishTest:
             assert item["answer"].startswith(f"{correct['label']})")
             assert question["subject"] == "language"
 
-    def test_it_loads_with_the_diagnostic_test_in_one_command(self):
+    def test_ten_of_them_are_in_the_diagnostic_test(self):
+        english = {
+            q["prompt"]: q for q in json.loads(ENGLISH.read_text(encoding="utf-8"))["questions"]
+        }
+        (diagnostic_test,) = json.loads(READY.read_text(encoding="utf-8"))
+        chosen = [q for q in diagnostic_test["questions"] if q["subject"] == "language"]
+        assert len(chosen) == 10
+        for question in chosen:
+            source = english[question["prompt"]]
+            assert question["options"] == source["options"]  # same answer key as the full test
+
+
+class TestReadyBundle:
+    """content/imtihonlar.json: one 4th-grade test, 10 questions in each of the three subjects."""
+
+    def test_ten_questions_per_subject_and_three_levels_in_each(self):
+        (exam,) = json.loads(READY.read_text(encoding="utf-8"))
+        assert [s["subject"] for s in exam["sections"]] == ["math", "iq", "language"]
+        assert [s["title"] for s in exam["sections"]][-1] == "Ingliz tili"
+        assert [q["number"] for q in exam["questions"]] == list(range(1, 31))
+        for subject in ("math", "iq", "language"):
+            levels = [q["difficulty"] for q in exam["questions"] if q["subject"] == subject]
+            assert sorted(levels) == [1, 1, 1, 2, 2, 2, 2, 3, 3, 3]
+
+    def test_loads_in_one_command(self):
         out = io.StringIO()
-        call_command("import_exam", str(READY), "--update", "--publish", stdout=out)
-        english = Exam.objects.get(title="4-sinf bitiruvchilari uchun ingliz tili testi")
-        assert english.questions.count() == 30
-        assert english.is_published
-        assert list(english.sections.values_list("subject", "title")) == [
-            ("language", "Ingliz tili")
-        ]
-        assert Exam.objects.count() == 2
+        call_command("reset_exams", str(READY), "--publish", "--yes", stdout=out)
+        exam = Exam.objects.get()
+        assert exam.questions.count() == 30 and exam.is_published
+        assert list(exam.targets.values_list("grade", flat=True)) == [4]
 
 
 class TestResetExams:

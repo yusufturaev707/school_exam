@@ -1,7 +1,7 @@
 [
  {
   "title": "4-sinf bitiruvchilari uchun diagnostik test",
-  "description": "Matematika, mantiqiy fikrlash va ona tili bo‘yicha 30 ta savol. Har bir to‘g‘ri javob 1 ball, eng yuqori natija 30 ball.",
+  "description": "Matematika, mantiqiy fikrlash va ingliz tili bo‘yicha 30 ta savol (har biridan 10 ta). Har bir to‘g‘ri javob 1 ball, eng yuqori natija 30 ball.",
   "durationMinutes": 60,
   "pointsPerQuestion": 1,
   "reviewEnabled": false,
@@ -21,7 +21,7 @@
    },
    {
     "subject": "language",
-    "title": "Ona tili"
+    "title": "Ingliz tili"
    }
   ],
   "questions": [
@@ -650,367 +650,6 @@
     "subject": "language",
     "type": "single_choice",
     "difficulty": 1,
-    "prompt": "<p>Qaysi so‘z unli tovush bilan boshlangan?</p>",
-    "passage": "",
-    "explanation": "<p>«Olma» so‘zi «o» unli tovushi bilan boshlangan.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>kitob</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>olma</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>daftar</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>maktab</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 22,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p><b>Issiq</b> so‘zining zid ma’noli (antonim) so‘zini toping.</p>",
-    "passage": "",
-    "explanation": "<p>Issiq — sovuq. «Iliq» va «qaynoq» ma’nosi yaqin so‘zlar.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>iliq</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>qaynoq</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>sovuq</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>yoz</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 23,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p><b>Chiroyli</b> so‘zining ma’nodosh (sinonim) so‘zini toping.</p>",
-    "passage": "",
-    "explanation": "<p>Chiroyli — go‘zal. «Xunuk» esa uning zid ma’nolisi.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>go‘zal</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "B",
-      "content": "<p>xunuk</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>katta</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>tez</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 24,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>Qaysi qatorda faqat fe’llar berilgan?</p>",
-    "passage": "",
-    "explanation": "<p>Yugurdi, o‘qidi, yozmoq — harakatni bildiradi, «nima qildi?», «nima qilmoq?» so‘roqlariga javob beradi.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>kitob, yozdi, qizil</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>chiroyli, katta, baland</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>yugurdi, o‘qidi, yozmoq</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>uch, beshta, o‘n</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 25,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p><b>Maktabga</b> so‘zi qaysi kelishikda turibdi?</p>",
-    "passage": "",
-    "explanation": "<p>-ga qo‘shimchasi jo‘nalish kelishigining qo‘shimchasi: «qayerga?» so‘rog‘iga javob beradi.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>o‘rin-payt kelishigida</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>jo‘nalish kelishigida</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>chiqish kelishigida</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>tushum kelishigida</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 26,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>Qaysi so‘z bo‘g‘inlarga to‘g‘ri ajratilgan?</p>",
-    "passage": "",
-    "explanation": "<p>Har bir bo‘g‘inda bitta unli bo‘ladi: da-raxt-lar.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>dar-ax-tlar</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>dara-xt-lar</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>da-raxt-lar</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>d-arax-tlar</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 27,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>Qaysi so‘z to‘g‘ri yozilgan?</p>",
-    "passage": "",
-    "explanation": "<p>To‘g‘ri yozilishi: mustaqillik (mustaqil + lik).</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>mustaqilik</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>mustakillik</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>mustaqillig</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>mustaqillik</p>",
-      "isCorrect": true
-     }
-    ]
-   },
-   {
-    "number": 28,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 3,
-    "prompt": "<p>Matnga ko‘ra laylaklar nima uchun uchib ketishdi?</p>",
-    "passage": "<p>Kuz kirib, kunlar salqinlasha boshladi. Laylakning bolalari ulg‘ayib, uchishni o‘rganib olishdi. Bir kuni ertalab laylaklar to‘da bo‘lib osmonga ko‘tarilishdi va uzoq, issiq o‘lkalar tomon uchib ketishdi. Bahor kelib, havo isigach, ular yana o‘z uyalariga qaytib kelishadi.</p>",
-    "explanation": "<p>Matnda kuz kirib, kunlar salqinlashgani va laylaklar issiq o‘lkalarga uchib ketgani aytilgan.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Kuz kelib, havo sovuy boshlagani uchun</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "B",
-      "content": "<p>Bolalari uchishni bilmagani uchun</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Bahor kelgani uchun</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Uyalari buzilib qolgani uchun</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 29,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 3,
-    "prompt": "<p>Gapning egasini toping: <b>Kichkina qizcha bog‘da chiroyli gullarni sug‘ordi.</b></p>",
-    "passage": "",
-    "explanation": "<p>«Kim sug‘ordi?» — qizcha. Ega «kim?» yoki «nima?» so‘rog‘iga javob beradi.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>bog‘da</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>gullarni</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>sug‘ordi</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>qizcha</p>",
-      "isCorrect": true
-     }
-    ]
-   },
-   {
-    "number": 30,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 3,
-    "prompt": "<p>Qaysi so‘zda so‘z yasovchi qo‘shimcha bor?</p>",
-    "passage": "",
-    "explanation": "<p>«Paxtakor» so‘zi «paxta» so‘ziga -kor qo‘shimchasi qo‘shilib, yangi so‘z yasalgan. -lar, -ga, -m, -ning esa so‘zning shaklini o‘zgartiradi.</p>",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>kitoblar</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>paxtakor</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>maktabga</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>ukamning</p>",
-      "isCorrect": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "title": "4-sinf bitiruvchilari uchun ingliz tili testi",
-  "description": "Ingliz tili bo‘yicha 30 ta savol: so‘z boyligi, grammatika (to be, ko‘plik) va muloqot. Har bir to‘g‘ri javob 1 ball, eng yuqori natija 30 ball.",
-  "durationMinutes": 45,
-  "pointsPerQuestion": 1,
-  "reviewEnabled": false,
-  "shuffleQuestions": true,
-  "shuffleOptions": true,
-  "grades": [
-   4
-  ],
-  "sections": [
-   {
-    "subject": "language",
-    "title": "Ingliz tili"
-   }
-  ],
-  "questions": [
-   {
-    "number": 1,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>‘Apple’ so‘zining o‘zbekcha tarjimasi nima?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Olma</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "B",
-      "content": "<p>Nok</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Uzum</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Banan</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 2,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
     "prompt": "<p>‘Kitob’ so‘zining inglizcha tarjimasi qaysi?</p>",
     "passage": "",
     "explanation": "",
@@ -1038,565 +677,7 @@
     ]
    },
    {
-    "number": 3,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>Qaysi so‘z ‘qizil’ rangini anglatadi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Blue</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Red</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Green</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Yellow</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 4,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>‘School’ so‘zi nimani anglatadi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Bozor</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Uy</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Maktab</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>Bog‘</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 5,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>‘Ona’ so‘zining inglizcha muqobili qaysi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Sister</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Mother</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Father</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Brother</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 6,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>Qaysi so‘z hayvon emas?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Dog</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Cat</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Elephant</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Pen</p>",
-      "isCorrect": true
-     }
-    ]
-   },
-   {
-    "number": 7,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>Meva nomini toping:</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Banana</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "B",
-      "content": "<p>Dog</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Car</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Table</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 8,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>Qaysi so‘z rang bildirmaydi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Green</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Yellow</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Milk</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>White</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 9,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>Oila a’zosini toping:</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Teacher</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Sister</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Doctor</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Student</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 10,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>Qaysi so‘z o‘quv quroli hisoblanadi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Pencil</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "B",
-      "content": "<p>Cat</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Sun</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Water</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 11,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>To‘g‘ri shaklni tanlang: 'I ___ a student.'</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>am</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "B",
-      "content": "<p>is</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>are</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>be</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 12,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>To‘g‘ri shaklni tanlang: 'He ___ my friend.'</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>am</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>is</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>are</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>be</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 13,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>To‘g‘ri shaklni tanlang: 'They ___ playing.'</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>am</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>is</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>are</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>be</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 14,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>Qaysi kishilik olmoshi bilan 'am' ishlatiladi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>He</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>She</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>You</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>I</p>",
-      "isCorrect": true
-     }
-    ]
-   },
-   {
-    "number": 15,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>To‘g‘ri gapni tanlang:</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>She is a girl.</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "B",
-      "content": "<p>She am a girl.</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>She are a girl.</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>She be a girl.</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 16,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>'Cat' so‘zining ko‘plik shakli qaysi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Cates</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Cats</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Catis</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Cat</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 17,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 3,
-    "prompt": "<p>'Box' so‘zining ko‘plik shakli to‘g‘ri ko‘rsatilgan javobni tanlang:</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Boxs</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Boxes</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Boxies</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Boxen</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 18,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>Bir nechta kitoblarga nisbatan qaysi so‘z ishlatiladi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Book</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Books</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Bookes</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>A book</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 19,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>Qaysi so‘z birlikda turibdi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Dogs</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Pens</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Apple</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>Cars</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 20,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>'Two ___' nuqtalar o‘rniga to‘g‘ri keladigan so‘zni toping.</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>ball</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>balls</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>a ball</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>balles</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 21,
+    "number": 22,
     "subject": "language",
     "type": "single_choice",
     "difficulty": 1,
@@ -1627,131 +708,7 @@
     ]
    },
    {
-    "number": 22,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>'How are you?' savoliga qanday javob beriladi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>I am 9 years old.</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>I am fine, thank you.</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>My name is Ali.</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Yes, it is.</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
     "number": 23,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>'Ismingiz nima?' deb so‘rash uchun qaysi ibora ishlatiladi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>How old are you?</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Where are you from?</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>What is your name?</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>How are you?</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 24,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>'Rahmat' demoqchi bo‘lsangiz, nima deysiz?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Please</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Thank you</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Sorry</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Hello</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 25,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 1,
-    "prompt": "<p>Xayrlashganda qaysi so‘z ishlatiladi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Hello</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Hi</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "C",
-      "content": "<p>Goodbye</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "D",
-      "content": "<p>Welcome</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 26,
     "subject": "language",
     "type": "single_choice",
     "difficulty": 1,
@@ -1782,10 +739,165 @@
     ]
    },
    {
+    "number": 24,
+    "subject": "language",
+    "type": "single_choice",
+    "difficulty": 2,
+    "prompt": "<p>To‘g‘ri shaklni tanlang: 'I ___ a student.'</p>",
+    "passage": "",
+    "explanation": "",
+    "options": [
+     {
+      "label": "A",
+      "content": "<p>am</p>",
+      "isCorrect": true
+     },
+     {
+      "label": "B",
+      "content": "<p>is</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "C",
+      "content": "<p>are</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "D",
+      "content": "<p>be</p>",
+      "isCorrect": false
+     }
+    ]
+   },
+   {
+    "number": 25,
+    "subject": "language",
+    "type": "single_choice",
+    "difficulty": 2,
+    "prompt": "<p>To‘g‘ri shaklni tanlang: 'They ___ playing.'</p>",
+    "passage": "",
+    "explanation": "",
+    "options": [
+     {
+      "label": "A",
+      "content": "<p>am</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "B",
+      "content": "<p>is</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "C",
+      "content": "<p>are</p>",
+      "isCorrect": true
+     },
+     {
+      "label": "D",
+      "content": "<p>be</p>",
+      "isCorrect": false
+     }
+    ]
+   },
+   {
+    "number": 26,
+    "subject": "language",
+    "type": "single_choice",
+    "difficulty": 2,
+    "prompt": "<p>'Cat' so‘zining ko‘plik shakli qaysi?</p>",
+    "passage": "",
+    "explanation": "",
+    "options": [
+     {
+      "label": "A",
+      "content": "<p>Cates</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "B",
+      "content": "<p>Cats</p>",
+      "isCorrect": true
+     },
+     {
+      "label": "C",
+      "content": "<p>Catis</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "D",
+      "content": "<p>Cat</p>",
+      "isCorrect": false
+     }
+    ]
+   },
+   {
     "number": 27,
     "subject": "language",
     "type": "single_choice",
     "difficulty": 2,
+    "prompt": "<p>'Ismingiz nima?' deb so‘rash uchun qaysi ibora ishlatiladi?</p>",
+    "passage": "",
+    "explanation": "",
+    "options": [
+     {
+      "label": "A",
+      "content": "<p>How old are you?</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "B",
+      "content": "<p>Where are you from?</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "C",
+      "content": "<p>What is your name?</p>",
+      "isCorrect": true
+     },
+     {
+      "label": "D",
+      "content": "<p>How are you?</p>",
+      "isCorrect": false
+     }
+    ]
+   },
+   {
+    "number": 28,
+    "subject": "language",
+    "type": "single_choice",
+    "difficulty": 3,
+    "prompt": "<p>'Box' so‘zining ko‘plik shakli to‘g‘ri ko‘rsatilgan javobni tanlang:</p>",
+    "passage": "",
+    "explanation": "",
+    "options": [
+     {
+      "label": "A",
+      "content": "<p>Boxs</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "B",
+      "content": "<p>Boxes</p>",
+      "isCorrect": true
+     },
+     {
+      "label": "C",
+      "content": "<p>Boxies</p>",
+      "isCorrect": false
+     },
+     {
+      "label": "D",
+      "content": "<p>Boxen</p>",
+      "isCorrect": false
+     }
+    ]
+   },
+   {
+    "number": 29,
+    "subject": "language",
+    "type": "single_choice",
+    "difficulty": 3,
     "prompt": "<p>‘Big’ so‘zining qarama-qarshi (antonim) ma’nosi qaysi?</p>",
     "passage": "",
     "explanation": "",
@@ -1808,68 +920,6 @@
      {
       "label": "D",
       "content": "<p>Fast</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 28,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>'Five + Two = ?' Javobni ingliz tilida toping:</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Six</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Seven</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Eight</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Ten</p>",
-      "isCorrect": false
-     }
-    ]
-   },
-   {
-    "number": 29,
-    "subject": "language",
-    "type": "single_choice",
-    "difficulty": 2,
-    "prompt": "<p>Quyidagi sifatlardan qaysisi 'quvnoq / xursand' ma’nosini bildiradi?</p>",
-    "passage": "",
-    "explanation": "",
-    "options": [
-     {
-      "label": "A",
-      "content": "<p>Sad</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "B",
-      "content": "<p>Happy</p>",
-      "isCorrect": true
-     },
-     {
-      "label": "C",
-      "content": "<p>Big</p>",
-      "isCorrect": false
-     },
-     {
-      "label": "D",
-      "content": "<p>Cold</p>",
       "isCorrect": false
      }
     ]
