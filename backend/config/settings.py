@@ -13,7 +13,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 from apps.core.editor_palette import TEXT_COLOURS
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 # backend/  (.env shu yerda)
 ROOT_DIR = BASE_DIR.parent
 
