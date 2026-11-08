@@ -50,7 +50,7 @@ CSRF_COOKIE_SAMESITE = "Strict"
 
 # --------------------------------------------------------------------------- HTTPS
 USE_TLS = env.bool("USE_TLS", default=not DEBUG)
-SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS", default=31536000 if USE_TLS else 0)
+SECURE_HSTS_SECONDS = 31536000
 
 INSTALLED_APPS = [
     "django.contrib.admin",
