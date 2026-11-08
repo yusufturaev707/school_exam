@@ -1,0 +1,58 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<title>Bilimdon</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; width: 480px; height: 288px; }
+  .brand { fill: var(--brand); }
+  .sun { fill: var(--sun); }
+  .math { fill: var(--math); }
+  .lang { fill: var(--lang); }
+  .tint { fill: var(--brand-soft); }
+  .xl { rx: var(--radius-xl); }
+  .lg { rx: var(--radius-lg); }
+    .dot { fill: var(--brand-soft); opacity: .9; }
+  .words { position: absolute; left: var(--space-8); bottom: var(--space-8); max-width: 440px; }
+  .name { margin: 0; font-size: 88px; line-height: .92; font-weight: 900; letter-spacing: -.03em; color: var(--ink); }
+  .tag { margin: var(--space-3) 0 0 4px; font-size: 14px; line-height: 20px; font-weight: 600; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      brand 216×248 slab bleeding off the top (the identity green, largest) · sun 72×120 as the bookmark ribbon on it · math 120×120 and lang 120×96 satellites · brand-soft 96×96 tint for relief — ≈40% of 960×288
+  arrangement one tall green "book" slab with a sun bookmark notch, subject blocks stacked beside it, bottoms on one line space-8 above the edge
+  pattern     discs from "soft, friendly, large radii" (radius-full chips, round mascot eyes): a 4×6 grid of space-3 discs at a space-6 pitch cut out of the slab in brand-soft
+  scales      sides in space-6 multiples; gutters space-4; pitch space-6; corners radius-xl (slab), radius-lg (blocks), discs r = space-3/2 … radius-full
+-->
+<rect class="brand xl" x="24" y="-24" width="216" height="280" rx="22"/>
+<path class="sun" d="M168 -8h48v112l-24-20-24 20z"/>
+<g class="dot">
+  <circle cx="60" cy="96" r="6"/><circle cx="84" cy="96" r="6"/><circle cx="108" cy="96" r="6"/><circle cx="132" cy="96" r="6"/>
+  <circle cx="60" cy="120" r="6"/><circle cx="84" cy="120" r="6"/><circle cx="108" cy="120" r="6"/><circle cx="132" cy="120" r="6"/>
+  <circle cx="60" cy="144" r="6"/><circle cx="84" cy="144" r="6"/><circle cx="108" cy="144" r="6"/><circle cx="132" cy="144" r="6"/>
+  <circle cx="60" cy="168" r="6"/><circle cx="84" cy="168" r="6"/><circle cx="108" cy="168" r="6"/><circle cx="132" cy="168" r="6"/>
+  <circle cx="60" cy="192" r="6"/><circle cx="84" cy="192" r="6"/><circle cx="108" cy="192" r="6"/><circle cx="132" cy="192" r="6"/>
+  <circle cx="60" cy="216" r="6"/><circle cx="84" cy="216" r="6"/><circle cx="108" cy="216" r="6"/><circle cx="132" cy="216" r="6"/>
+</g>
+<rect class="math lg" x="256" y="40" width="120" height="120" rx="18"/>
+<rect class="lang lg" x="256" y="176" width="120" height="80" rx="18"/>
+<rect class="tint lg" x="392" y="136" width="96" height="120" rx="18"/>
+<circle class="sun" cx="440" cy="80" r="32"/>
+</svg>
+</div>
+<div class="words">
+  <h1 class="name">Bilimdon</h1>
+  <p class="tag">Bilim, imtihon va mantiqiy oʻyinlar — quvnoq, ixcham, doʻstona.</p>
+</div>
+</div>
+</body>
+</html>

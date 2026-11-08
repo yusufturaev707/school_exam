@@ -14,8 +14,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/backend/lib/
+/backend/lib64/
 parts/
 sdist/
 var/
@@ -50,7 +50,7 @@ coverage.xml
 *.lcov
 .hypothesis/
 .pytest_cache/
-cover/
+/backend/cover/
 
 # Translations
 *.mo
@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Python's template ignores lib/, lib64/ and cover/ anywhere, which also hid frontend/src/lib/
+# (the app's HTTP client) and a design-system folder. They are anchored to backend/ above.
+# Built by `npm run mock:data` from src/mocks/games:
+/frontend/postman/mocks/bilimdon-api/lib/
