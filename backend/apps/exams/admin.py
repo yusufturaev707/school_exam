@@ -1,10 +1,13 @@
+from django import forms
 from django.contrib import admin, messages
 from django.core.exceptions import ValidationError
 from django.forms.models import BaseInlineFormSet
 from django.utils.html import format_html, format_html_join
 from django.utils.safestring import mark_safe
 from django_ckeditor_5.widgets import CKEditor5Widget
+from import_export.forms import ConfirmImportForm
 
+from apps.core.sheets import ExcelFormat, JsonFormat, SheetAdminMixin, SheetImportForm
 from apps.schools.filters import hierarchy_filters
 
 from .models import (
@@ -18,6 +21,7 @@ from .models import (
     Question,
     Subject,
 )
+from .resources import QuestionResource
 from .selectors import attempt_questions
 
 NO_TARGETS = "Hech kimga (biriktirilmagan)"
@@ -85,14 +89,62 @@ class AnswerOptionInline(admin.TabularInline):
     extra = 0
 
 
+def _exam_field(**kwargs):
+    return forms.ModelChoiceField(
+        queryset=Exam.objects.order_by("-created_at"), label="Imtihon", **kwargs
+    )
+
+
+class QuestionImportForm(SheetImportForm):
+    exam = _exam_field(
+        help_text="Fayldagi hamma savollar shu imtihonga yoziladi: raqami bor savol yangilanadi, "
+        "yangi raqam qo‘shiladi."
+    )
+    field_order = ["exam", "import_file"]
+
+
+class QuestionConfirmImportForm(ConfirmImportForm):
+    exam = _exam_field(widget=forms.HiddenInput)
+
+
 @admin.register(Question)
-class QuestionAdmin(admin.ModelAdmin):
+class QuestionAdmin(SheetAdminMixin, admin.ModelAdmin):
+    resource_classes = [QuestionResource]
+    # A question with a picture doesn't fit into an Excel cell; JSON carries it whole.
+    formats = [ExcelFormat, JsonFormat]
+    import_form_class = QuestionImportForm
+    confirm_form_class = QuestionConfirmImportForm
     list_display = ["number", "exam", "subject", "difficulty", "type"]
     list_filter = ["exam", "subject", "difficulty"]
     list_select_related = ["exam"]
     readonly_fields = ["preview"]
     list_display_links = ("exam", "subject")
     inlines = [AnswerOptionInline]
+
+    # ------------------------------------------------------------------- import/export
+
+    def get_import_resource_kwargs(self, request, **kwargs):
+        form = kwargs.pop("form", None)
+        exam = getattr(form, "cleaned_data", {}).get("exam") if form is not None else None
+        return {**super().get_import_resource_kwargs(request, **kwargs), "exam": exam}
+
+    def get_import_form_initial(self, request):
+        # "Fayldan yuklash" pressed on a list filtered by one exam: that exam is preselected.
+        return {"exam": request.GET.get("exam")}
+
+    def get_confirm_form_initial(self, request, import_form):
+        initial = super().get_confirm_form_initial(request, import_form)
+        if import_form is not None:
+            initial["exam"] = import_form.cleaned_data["exam"].pk
+        return initial
+
+    def changelist_view(self, request, extra_context=None):
+        exam = request.GET.get("exam__id__exact")
+        extra_context = {**(extra_context or {}), "import_query": f"?exam={exam}" if exam else ""}
+        return super().changelist_view(request, extra_context)
+
+    def get_export_queryset(self, request):
+        return super().get_export_queryset(request).prefetch_related("options")
 
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         # The question text gets the full toolbar; passages, explanations and the answer options

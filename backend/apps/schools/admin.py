@@ -25,9 +25,11 @@ from apps.accounts.pupil_import import (
     plan_import,
     read_rows,
 )
+from apps.core.sheets import SheetAdminMixin
 
 from .filters import graduated_filter, hierarchy_filters
 from .models import FINAL_GRADE, Classroom, District, Region, School
+from .resources import DistrictResource, RegionResource, SchoolResource
 from .services import PromotionError, promote_school
 
 # Checked rows wait here between the preview and "Tasdiqlash". They hold IMIE hashes, not IMIEs.
@@ -93,7 +95,8 @@ class ClassroomInline(admin.TabularInline):
 
 
 @admin.register(Region)
-class RegionAdmin(admin.ModelAdmin):
+class RegionAdmin(SheetAdminMixin, admin.ModelAdmin):
+    resource_classes = [RegionResource]
     list_display = ["number", "name", "district_count", "status"]
     list_display_links = ["name"]
     list_filter = ["status"]
@@ -109,7 +112,8 @@ class RegionAdmin(admin.ModelAdmin):
 
 
 @admin.register(District)
-class DistrictAdmin(NarrowedByParentPlaces, admin.ModelAdmin):
+class DistrictAdmin(SheetAdminMixin, NarrowedByParentPlaces, admin.ModelAdmin):
+    resource_classes = [DistrictResource]
     autocomplete_parents = {"region": "region"}
     list_display = ["number", "name", "region", "school_count", "status"]
     list_display_links = ["name"]
@@ -140,7 +144,8 @@ class PupilImportForm(forms.Form):
 
 
 @admin.register(School)
-class SchoolAdmin(NarrowedByParentPlaces, admin.ModelAdmin):
+class SchoolAdmin(SheetAdminMixin, NarrowedByParentPlaces, admin.ModelAdmin):
+    resource_classes = [SchoolResource]
     autocomplete_parents = {"region": "district__region", "district": "district"}
     list_display = [
         "number",

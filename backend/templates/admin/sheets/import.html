@@ -1,0 +1,149 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls %}
+{# Import page of apps/core/sheets.py: file → check (dry run, nothing saved) → confirm. #}
+{% block breadcrumbs %}{% include "admin/sheets/_breadcrumbs.html" with last="Fayldan yuklash" %}{% endblock %}
+{% block content %}
+<div id="content-main" class="md-page sheet-import">
+
+{% if result %}
+  {% if result.has_errors or result.has_validation_errors %}
+    {% include "admin/sheets/_steps.html" with step=2 failed=True %}
+    <div class="md-banner md-banner--error" role="alert">
+      {% include "admin/md/icon.html" with name="error" %}
+      <div>
+        <p><b>Faylda xato bor. Hech narsa saqlanmadi.</b></p>
+        <p>Xatolarni tuzatib, faylni qayta yuklang. Qator raqami fayldagi qatorga mos keladi (1-qator: ustun nomlari).</p>
+      </div>
+    </div>
+
+    <section class="md-card md-card--flush">
+      <div class="md-card__header">
+        <span class="md-avatar md-avatar--error">{% include "admin/md/icon.html" with name="error" %}</span>
+        <h2 class="md-card__title">Xatolar</h2>
+      </div>
+      <div class="md-table-scroll">
+        <table class="md-table" data-sheet-errors>
+          <thead><tr><th>Qator</th><th>Ustun</th><th>Xato</th></tr></thead>
+          <tbody>
+            {% for error in result.base_errors %}
+              <tr><td class="muted">—</td><td class="muted">—</td><td>{{ error.error }}</td></tr>
+            {% endfor %}
+            {% for line, errors in result.row_errors %}
+              {% for error in errors %}
+                <tr><td class="muted">{{ line|add:1 }}</td><td class="muted">—</td><td>{{ error.error }}</td></tr>
+              {% endfor %}
+            {% endfor %}
+            {% for row in result.invalid_rows|slice:":300" %}
+              {% for column, messages in row.field_specific_errors.items %}
+                {% for message in messages %}
+                  <tr><td class="muted">{{ row.number|add:1 }}</td><td><span class="md-chip">{{ column }}</span></td><td>{{ message }}</td></tr>
+                {% endfor %}
+              {% endfor %}
+              {% for message in row.non_field_specific_errors %}
+                <tr><td class="muted">{{ row.number|add:1 }}</td><td class="muted">—</td><td>{{ message }}</td></tr>
+              {% endfor %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if result.invalid_rows|length > 300 %}<div class="md-foot">Birinchi 300 ta qator ko‘rsatilgan, xatoli qatorlar jami {{ result.invalid_rows|length }} ta.</div>{% endif %}
+    </section>
+    {% include "admin/sheets/_import_form.html" with title="Tuzatilgan faylni yuklang" %}
+
+  {% else %}
+    {% include "admin/sheets/_steps.html" with step=2 %}
+    <div class="md-stats">
+      <div class="md-stat md-stat--primary"><span class="md-stat__value" data-stat="new">{{ result.totals.new }}</span><span class="md-stat__label">Yangi qo‘shiladi</span></div>
+      <div class="md-stat md-stat--success"><span class="md-stat__value" data-stat="update">{{ result.totals.update }}</span><span class="md-stat__label">Yangilanadi</span></div>
+      <div class="md-stat"><span class="md-stat__value" data-stat="skip">{{ result.totals.skip }}</span><span class="md-stat__label">O‘zgarmaydi</span></div>
+    </div>
+
+    {% if result.valid_rows %}
+      <section class="md-card md-card--flush">
+        <div class="md-card__header">
+          <span class="md-avatar">{% include "admin/md/icon.html" with name="table" %}</span>
+          <div>
+            <h2 class="md-card__title">Nima o‘zgaradi</h2>
+            <p class="md-card__subtitle">Yangilanadigan yozuvlarda o‘chiriladigan qism <del>qizil</del>, qo‘shiladigani <ins>yashil</ins>. Uzun matnlar qisqartirib ko‘rsatilgan.</p>
+          </div>
+        </div>
+        <div class="md-table-scroll">
+          <table class="md-table sheet-diff">
+            <thead><tr><th></th>{% for header in result.diff_headers %}<th>{{ header }}</th>{% endfor %}</tr></thead>
+            <tbody>
+              {% for row in result.valid_rows|slice:":500" %}
+                <tr class="is-{{ row.import_type }}">
+                  <td><span class="md-chip{% if row.import_type == 'new' %} md-chip--accent{% endif %}">{% if row.import_type == "new" %}Yangi{% else %}Yangilanadi{% endif %}</span></td>
+                  {% for cell in row.diff %}<td>{{ cell }}</td>{% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% if result.valid_rows|length > 500 %}<div class="md-foot">Birinchi 500 tasi ko‘rsatilgan, jami {{ result.valid_rows|length }} ta.</div>{% endif %}
+      </section>
+    {% endif %}
+
+    {% if result.totals.new or result.totals.update %}
+      <form action="{% url opts|admin_urlname:'process_import' %}" method="post" class="md-actionbar" data-submit-once>
+        {% csrf_token %}
+        {% for field in confirm_form %}{{ field.as_hidden }}{% endfor %}
+        <span class="md-actionbar__text">Hali hech narsa saqlanmadi. <b>Tasdiqlang</b>, shunda hammasi birdaniga saqlanadi.</span>
+        <span class="md-actions">
+          <a href="{% url opts|admin_urlname:'import' %}" class="md-btn md-btn--text">Boshqa fayl yuklash</a>
+          <button type="submit" name="confirm" value="1" class="md-btn">{% include "admin/md/icon.html" with name="done" %}Tasdiqlash va saqlash</button>
+        </span>
+      </form>
+    {% else %}
+      <div class="md-banner md-banner--success">
+        {% include "admin/md/icon.html" with name="check" %}
+        <p>Fayldagi ma’lumot bazadagi bilan bir xil, saqlanadigan narsa yo‘q.</p>
+      </div>
+      <p><a class="md-btn md-btn--tonal" href="{% url opts|admin_urlname:'import' %}">{% include "admin/md/icon.html" with name="upload" %}Boshqa fayl yuklash</a></p>
+    {% endif %}
+  {% endif %}
+
+{% elif confirm_form %}
+  {# "Tasdiqlash" came back without its file: it was already used or has expired. #}
+  <div class="md-banner md-banner--error" role="alert">
+    {% include "admin/md/icon.html" with name="error" %}
+    <p>Bu yuklash eskirgan. Faylni qayta yuklang.</p>
+  </div>
+  <p><a class="md-btn" href="{% url opts|admin_urlname:'import' %}">{% include "admin/md/icon.html" with name="upload" %}Faylni qayta yuklash</a></p>
+
+{% else %}
+  {% include "admin/sheets/_steps.html" with step=1 %}
+  <div class="md-grid md-grid--split">
+    {% include "admin/sheets/_import_form.html" with title="Faylni tanlang" %}
+
+    <aside class="md-card md-card--tonal">
+      <div class="md-card__header">
+        <span class="md-avatar">{% include "admin/md/icon.html" with name="table" %}</span>
+        <h2 class="md-card__title">Fayl qanday bo‘lishi kerak</h2>
+      </div>
+      <p class="md-text">Birinchi qatorda ustun nomlari, keyingi qatorlarda ma’lumot. Ustunlar tartibi muhim emas, keraksizini olib tashlash mumkin: faylda yo‘q ustunga tegilmaydi.</p>
+      <div class="md-table-scroll" style="margin-bottom: 20px">
+        <table class="md-table sheet-columns">
+          <tbody>
+            {% for column in columns %}
+              <tr>
+                <td><span class="md-chip{% if column.required %} md-chip--accent{% endif %}">{{ column.name }}</span>{% if column.required %}<br><small>majburiy</small>{% endif %}</td>
+                <td>{{ column.help }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <ul class="md-list">
+        <li>{% include "admin/md/icon.html" with name="swap" class="sm" %}<span>Bazada bor yozuv yangilanadi, yangisi qo‘shiladi. Faylda yo‘q yozuvlarga tegilmaydi, hech narsa o‘chirilmaydi.</span></li>
+        <li>{% include "admin/md/icon.html" with name="download" class="sm" %}<span>Eng oson yo‘li: ro‘yxatdan <b>“Yuklab olish”</b> bilan fayl oling, Excel'da tuzating va shu yerga qaytaring.</span></li>
+        <li>{% include "admin/md/icon.html" with name="check" class="sm" %}<span>Avval nima o‘zgarishi ko‘rsatiladi. <b>“Tasdiqlash” bosilmaguncha hech narsa saqlanmaydi.</b> Bitta qatorda xato bo‘lsa ham hech narsa saqlanmaydi.</span></li>
+      </ul>
+      <p style="margin: 20px 0 0">
+        <a class="md-btn md-btn--tonal" href="{% url sample_url %}">{% include "admin/md/icon.html" with name="download" %}Namuna faylni yuklab olish (.xlsx)</a>
+      </p>
+    </aside>
+  </div>
+{% endif %}
+</div>
+{% endblock %}

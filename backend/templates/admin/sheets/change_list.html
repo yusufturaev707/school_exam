@@ -1,0 +1,12 @@
+{% extends "admin/import_export/change_list.html" %}
+{% load admin_urls %}
+{# "Fayldan yuklash" and "Yuklab olish" on a changelist (apps/core/sheets.py). Export keeps the list's filters and search. #}
+{% block object-tools-items %}
+  {% if has_import_permission %}
+    <li><a href="{% url opts|admin_urlname:'import' %}{{ import_query }}" class="import_link">Fayldan yuklash</a></li>
+  {% endif %}
+  {% if has_export_permission %}
+    <li><a href="{% url opts|admin_urlname:'export' %}{{ cl.get_query_string }}" class="export_link">Yuklab olish</a></li>
+  {% endif %}
+  {{ block.super }}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load admin_urls %}
+<section class="md-card">
+  <div class="md-card__header">
+    <span class="md-avatar">{% include "admin/md/icon.html" with name="upload" %}</span>
+    <div>
+      <h2 class="md-card__title">{{ title }}</h2>
+      <p class="md-card__subtitle">{{ opts.verbose_name_plural|capfirst }}</p>
+    </div>
+  </div>
+
+  <form method="post" action="{% url opts|admin_urlname:'import' %}" enctype="multipart/form-data" data-submit-once>
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="md-banner md-banner--error">{{ form.non_field_errors }}</div>{% endif %}
+    {% for field in form.hidden_fields %}{{ field }}{% endfor %}
+
+    {% for field in form.visible_fields %}
+      {% if field.name == "import_file" %}
+        <div class="md-field">
+          <label class="md-dropzone{% if field.errors %} has-error{% endif %}" data-dropzone for="{{ field.id_for_label }}">
+            {{ field }}
+            {% include "admin/md/icon.html" with name="upload" %}
+            <span class="md-dropzone__title" data-file-title>Faylni shu yerga tashlang yoki <u>kompyuterdan tanlang</u></span>
+            <span class="md-dropzone__hint" data-file-hint>{{ form.extensions }} · {{ max_file_mb }} MB gacha · {{ max_rows }} tagacha qator</span>
+          </label>
+          {{ field.errors }}
+        </div>
+      {% else %}
+        <div class="md-field">
+          <label class="md-field__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {% if field.help_text %}<p class="md-field__help">{{ field.help_text }}</p>{% endif %}
+          {{ field.errors }}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="md-field">
+      <div class="md-actions md-actions--end">
+        <a class="md-btn md-btn--text" href="{% url opts|admin_urlname:'changelist' %}">Bekor qilish</a>
+        <button type="submit" class="md-btn">{% include "admin/md/icon.html" with name="arrow" %}Tekshirish</button>
+      </div>
+    </div>
+  </form>
+</section>

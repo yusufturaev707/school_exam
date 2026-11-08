@@ -1,0 +1,54 @@
+{% extends "admin/base_site.html" %}
+{# Export page of apps/core/sheets.py. The list's filters and search arrive in the query string and stay in it. #}
+{% block breadcrumbs %}{% include "admin/sheets/_breadcrumbs.html" with last="Yuklab olish" %}{% endblock %}
+{% block content %}
+<div id="content-main" class="md-page sheet-export">
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form.hidden_fields %}{{ field }}{% endfor %}
+    {% if form.non_field_errors %}<div class="md-banner md-banner--error" role="alert">{% include "admin/md/icon.html" with name="error" %}<div>{{ form.non_field_errors }}</div></div>{% endif %}
+
+    <div class="md-grid md-grid--split">
+      <section class="md-card">
+        <div class="md-card__header">
+          <span class="md-avatar">{% include "admin/md/icon.html" with name="download" %}</span>
+          <div>
+            <h2 class="md-card__title">{{ export_count }} ta yozuv yuklab olinadi</h2>
+            <p class="md-card__subtitle">Ro‘yxatdagi filtr va qidiruv bo‘yicha. Hammasini olish uchun ro‘yxatda filtrni tozalang.</p>
+          </div>
+        </div>
+
+        <div class="md-field">
+          <span class="md-field__label">{{ form.format.label }}</span>
+          <div class="sheet-formats">{{ form.format }}</div>
+          {{ form.format.errors }}
+        </div>
+
+        <div class="md-field">
+          <div class="md-actions md-actions--end">
+            <a class="md-btn md-btn--text" href="javascript:history.back()">Bekor qilish</a>
+            <button type="submit" class="md-btn"{% if not export_count %} disabled{% endif %}>{% include "admin/md/icon.html" with name="download" %}Yuklab olish</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="md-card md-card--tonal">
+        <div class="md-card__header">
+          <span class="md-avatar">{% include "admin/md/icon.html" with name="table" %}</span>
+          <div>
+            <h2 class="md-card__title">Ustunlar</h2>
+            <p class="md-card__subtitle">Keraksizini olib tashlang. Fayldan qayta yuklashda yo‘q ustunga tegilmaydi.</p>
+          </div>
+        </div>
+        <div class="sheet-columns-pick">
+          {% for field in form.visible_fields %}
+            {% if field.field.is_selectable_field %}
+              <label class="md-check">{{ field }} <span>{{ field.label }}</span></label>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </aside>
+    </div>
+  </form>
+</div>
+{% endblock %}

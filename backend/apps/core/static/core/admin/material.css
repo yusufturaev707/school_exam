@@ -1773,3 +1773,112 @@ body {
   border-top: 1px dashed var(--md-outline-variant);
   color: var(--md-on-surface-variant);
 }
+
+/* ------------------------------------------------- file import/export (templates/admin/sheets) */
+
+/* What the check page will change. diff-match-patch paints with inline light colours; these keep
+   the marks readable in the dark theme too. */
+/* As wide as its content (it scrolls inside its card); long texts wrap at a readable width. */
+#content .sheet-diff {
+  width: max-content;
+  min-width: 100%;
+}
+
+#content .sheet-diff th,
+#content .sheet-diff td {
+  vertical-align: top;
+  max-width: 280px;
+  padding: 10px 14px;
+  overflow-wrap: break-word;
+}
+
+#content .sheet-diff td:first-child .md-chip {
+  white-space: nowrap;
+}
+
+#content .sheet-diff tr.is-new td {
+  background: color-mix(in srgb, var(--md-primary-container) 35%, transparent);
+}
+
+#content .sheet-diff ins,
+#content .md-card__subtitle ins {
+  background: var(--md-success-container) !important;
+  color: var(--md-on-success-container);
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+#content .sheet-diff del,
+#content .md-card__subtitle del {
+  background: var(--md-error-container) !important;
+  color: var(--md-on-error-container);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+#content .sheet-diff span[style] {
+  background: none !important;
+}
+
+#content .sheet-columns td {
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+#content .sheet-columns td:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
+#content .sheet-columns small {
+  color: var(--md-on-surface-variant);
+  font-size: 0.6875rem;
+}
+
+/* Export: file types as a list of choices, columns as ticks. */
+#content .sheet-formats > div {
+  display: grid;
+  gap: 8px;
+}
+
+#content .sheet-formats label,
+#content .md-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--md-surface-low);
+  color: var(--md-on-surface);
+  font-size: 0.875rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+#content .sheet-formats label:has(input:checked) {
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+#content .sheet-formats input,
+#content .md-check input {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--md-primary);
+}
+
+#content .sheet-columns-pick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+#content .sheet-columns-pick .md-check {
+  background: var(--md-surface-lowest);
+}
+
+#content .sheet-import select {
+  min-width: min(100%, 420px);
+}

@@ -161,6 +161,31 @@ Maktab sahifasi → **"O'quvchilarni yuklash (Excel)"**. Shu sahifada namuna fay
 - **JSHSHIR** sessiyada ham saqlanmaydi: tekshiruv va tasdiqlash orasida faqat hash turadi.
 - **Excel xatolari aniq aytiladi:** JSHSHIR `3,12E+13` ko'rinishiga aylangan bo'lsa yoki sinf harfi kirillcha bo'lsa.
 
+## Viloyat, tuman, maktab va savollarni fayl bilan yuklash / yuklab olish
+
+Ro'yxat sahifasida (Viloyatlar, Tumanlar, Maktablar, Savollar) **"Fayldan yuklash"** va **"Yuklab olish"** tugmalari bor
+(`django-import-export` asosida, umumiy qismi `apps/core/sheets.py`, ustunlar `apps/*/resources.py`).
+
+- **Yuklab olish** ro'yxatdagi filtr va qidiruv bo'yicha bo'ladi (masalan, faqat bitta imtihon savollari), keraksiz
+  ustunni olib tashlash mumkin. Formatlar: joylar uchun `.xlsx`, `.csv` (Excel uchun BOM bilan), savollar uchun
+  `.xlsx`, `.json`. Faqat `view` huquqi kerak.
+- **Fayldan yuklash** `add` va `change` huquqlarini talab qiladi. Uch qadam: fayl → tekshirish (nima qo'shiladi va
+  nima o'zgaradi, xatolar qator va ustun bilan) → "Tasdiqlash". Bitta qatorda xato bo'lsa, hech narsa saqlanmaydi;
+  tekshiruvdan keyin baza o'zgarib qolgan bo'lsa ham hammasi qaytariladi. Fayl hech narsani o'chirmaydi.
+- **Ustunlar:** joylar uchun `Viloyat, Tuman, Raqami, Nomi, Faol`. Savollar uchun `Raqami, Fan, Qiyinlik, Savol matni,
+  O'qish uchun matn, Izoh, A…F, To'g'ri javob`. Har bir sahifada ustunlar izohi va namuna `.xlsx` bor. Eng oson yo'li:
+  avval yuklab olish, Excel'da tuzatish, keyin qaytarib yuklash.
+- **Yozuv qanday topiladi:** viloyat raqami yoki nomi bilan, tuman viloyat ichida, maktab tuman ichida (avval raqam,
+  keyin nom bilan). Topilsa yangilanadi, aks holda qo'shiladi. `Farg'ona`, `Farg‘ona`, `Fargʻona` bir xil nom deb
+  olinadi, ustun nomlarida katta-kichik harf va bo'sh joy ahamiyatsiz. Bo'sh `Faol` katagi joriy holatni o'zgartirmaydi.
+- **Savollar** yuklash sahifasida tanlangan imtihonga yoziladi, raqami bo'yicha topiladi. Variantlar harfi bo'yicha
+  yangilanadi, ya'ni ularning `id`si saqlanadi va o'quvchilarning javoblari buzilmaydi. O'quvchilar ishlagan
+  imtihonda variantni o'chirib bo'lmaydi. Variant ustunlari faylda umuman bo'lmasa, variantlarga tegilmaydi.
+- **Matn** muharrir HTML'i bo'lishi mumkin (eksport shuni beradi) yoki oddiy matn: har bir qator `<p>` bo'ladi.
+  Hammasi `RichTextField` orqali tozalanadi. Formulalar `$…$` ichida.
+- **Rasmli savol** Excel katagiga sig'maydi (32 767 belgi). Bunday savollar bo'lsa, `.xlsx` eksport aniq xabar bilan
+  to'xtaydi, JSON formatni tanlang. Eksportda `=` bilan boshlanadigan matn formula emas, matn bo'lib qoladi.
+
 ## Yangi o'quv yili
 
 Maktablar ro'yxati → maktablarni belgilang (yoki filtr + "hammasini tanlash") → **"Keyingi o'quv yiliga o'tkazish"**.
