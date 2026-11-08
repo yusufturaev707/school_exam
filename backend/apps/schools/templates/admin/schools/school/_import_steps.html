@@ -1,0 +1,10 @@
+{# The three steps of the pupil import. `step` is 1 (file) or 2 (check); `failed` marks step 2 red. #}
+<ol class="md-steps" aria-label="Bosqichlar">
+  <li class="{% if step == 1 %}is-active{% else %}is-done{% endif %}"{% if step == 1 %} aria-current="step"{% endif %}>
+    <span class="md-steps__num">{% if step == 1 %}1{% else %}{% include "admin/md/icon.html" with name="done" class="sm" %}{% endif %}</span>Fayl
+  </li>
+  <li class="{% if step == 2 %}{% if failed %}is-failed{% else %}is-active{% endif %}{% endif %}"{% if step == 2 %} aria-current="step"{% endif %}>
+    <span class="md-steps__num">{% if failed %}!{% else %}2{% endif %}</span>Tekshirish
+  </li>
+  <li><span class="md-steps__num">3</span>Saqlash</li>
+</ol>

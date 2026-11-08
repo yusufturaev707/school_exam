@@ -1,0 +1,10 @@
+﻿version: 1
+id: 9bf10d53-1967-492d-b58c-831ae4da923e
+name: bilimdon-api
+slug: bilimdon-api
+protocol: http
+port: 8000
+scenarios:
+  - name: default
+    path: ./default.js
+    default: true

@@ -1,0 +1,276 @@
+@import 'tailwindcss';
+/* Dizayn tizimi: bilimdon-dizayn/dizayn-tizimi (tokens.css + components/bundle.css) */
+@import './tokens.css';
+@import './bilimdon.css' layer(components);
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Tailwind ranglari dizayn tokenlariga (CSS oʻzgaruvchilari) ulangan. data-theme <html> da turadi,
+ * shuning uchun yorugʻ/qorongʻi rejim almashganda hamma utility oʻzi yangilanadi.
+ * Eski nomlar (primary, canvas, surface, muted, math, iq…) mos tokenlarga yoʻnaltirilgan.
+ */
+@theme static {
+  --font-sans: 'Nunito Variable', Nunito, 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* — dizayn tokenlari (README: React + Tailwind) — */
+  --color-bg: var(--bg);
+  --color-bg-tint: var(--bg-tint);
+  --color-card: var(--card);
+  --color-card-cream: var(--card-cream);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
+  --color-on-brand: var(--on-brand);
+  --color-hero: var(--hero);
+  --color-hero-strong: var(--hero-strong);
+  --color-on-hero: var(--on-hero);
+  --color-sun: var(--sun);
+  --color-on-sun: var(--on-sun);
+  --color-logic: var(--logic);
+  --color-logic-soft: var(--logic-soft);
+  --color-logic-ink: var(--logic-ink);
+  --color-lang: var(--lang);
+  --color-lang-soft: var(--lang-soft);
+  --color-lang-ink: var(--lang-ink);
+  --color-math-solid: var(--math);
+  --color-math-soft: var(--math-soft);
+  --color-math-ink: var(--math-ink);
+  --color-memory-solid: var(--memory);
+  --color-memory-soft: var(--memory-soft);
+  --color-memory-ink: var(--memory-ink);
+  --color-attn: var(--attn);
+  --color-attn-soft: var(--attn-soft);
+  --color-attn-ink: var(--attn-ink);
+  --color-spatial-solid: var(--spatial);
+  --color-spatial-soft: var(--spatial-soft);
+  --color-spatial-ink: var(--spatial-ink);
+  --color-streak: var(--streak);
+  --color-streak-soft: var(--streak-soft);
+  --color-streak-ink: var(--streak-ink);
+  --color-star: var(--star);
+  --color-star-soft: var(--star-soft);
+  --color-star-ink: var(--star-ink);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-ink: var(--success-ink);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-danger-ink: var(--danger-ink);
+  --color-focus: var(--focus);
+
+  /* — eski nomlar → tokenlar — */
+  --color-primary: var(--brand);
+  --color-primary-dark: var(--brand-ink);
+  --color-primary-light: var(--brand-soft);
+  --color-canvas: var(--bg);
+  --color-surface: var(--card);
+  --color-muted: var(--ink-2);
+  --color-success-strong: var(--success-ink);
+  --color-success-light: var(--success-soft);
+  --color-warning: var(--star);
+  --color-warning-strong: var(--logic-ink);
+  --color-warning-light: var(--logic-soft);
+  --color-error: var(--danger);
+  --color-error-strong: var(--danger-ink);
+  --color-error-light: var(--danger-soft);
+  --color-math: var(--math-soft);
+  --color-iq: var(--logic-soft);
+  --color-iq-ink: var(--logic-ink);
+  --color-language: var(--lang-soft);
+  --color-language-ink: var(--lang-ink);
+  --color-memory: var(--memory-soft);
+  --color-attention: var(--attn-soft);
+  --color-attention-ink: var(--attn-ink);
+  --color-spatial: var(--spatial-soft);
+
+  /* tokens.css dagi radiuslar bilan bir xil (nomlar mos, shuning uchun qiymat bilan) */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+  --radius-card: 18px;
+  --radius-control: 14px;
+
+  /* --shadow-sm / --shadow-md / --shadow-press tokens.css dan keladi */
+  --shadow-soft: var(--shadow-sm);
+  --shadow-lift: var(--shadow-md);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: light;
+  }
+  html[data-theme='dark'] {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+  /* Phones: no 300ms double-tap-zoom delay on anything tappable */
+  a,
+  button,
+  label,
+  summary,
+  input,
+  [role='button'] {
+    touch-action: manipulation;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--brand) 22%, transparent);
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@layer components {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Tap targets that should not start a text selection / callout on long-press */
+  .tap-card {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  /* Sticky bottom action area that fades the content scrolling underneath it */
+  .bottom-fade {
+    background: linear-gradient(to top, var(--bg) 62%, transparent);
+  }
+}
+
+/* Exam screen behaves like an app: no accidental pull-to-refresh / overscroll bounce */
+html.exam-mode,
+html.exam-mode body {
+  overscroll-behavior: none; /* y: pull-to-refresh, x: swipe-to-go-back history navigation */
+}
+/* The question area handles horizontal swipes itself; the browser only scrolls vertically there */
+.swipe-area {
+  touch-action: pan-y pinch-zoom;
+}
+
+/* KaTeX: inherit our colour and keep formulas from overflowing on phones */
+.katex {
+  font-size: 1.08em;
+}
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+  margin: 0.6em 0;
+}
+/* Formulas inside answer options must be as easy to read as the text around them */
+.option-math .katex {
+  font-size: 1.22em;
+}
+
+/* Text from the admin's editor. Tailwind's reset removes list markers and table borders. */
+.rich-html > * + * {
+  margin-top: 0.6em;
+}
+.rich-html ul {
+  list-style: disc;
+  padding-left: 1.4em;
+}
+.rich-html ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+.rich-html h2,
+.rich-html h3,
+.rich-html h4 {
+  font-weight: 800;
+  font-size: 1.1em;
+}
+.rich-html blockquote {
+  border-left: 3px solid var(--line);
+  padding-left: 0.8em;
+}
+.rich-html figure {
+  margin-inline: 0;
+  max-width: 100%;
+}
+.rich-html figcaption {
+  margin-top: 0.4em;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+.rich-html img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  max-height: 46vh;
+  margin-inline: auto;
+  border-radius: 12px;
+}
+.rich-html img[role='button'] {
+  cursor: zoom-in;
+}
+/* A wide table scrolls inside itself, so it never widens the whole page on a phone. */
+.rich-html table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-weight: 500;
+}
+.rich-html th,
+.rich-html td {
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+}
+.rich-html--inline {
+  display: block;
+  min-width: 0;
+}
+.rich-html--inline img {
+  max-height: 6rem;
+  margin-inline: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

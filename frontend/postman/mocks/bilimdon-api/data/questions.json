@@ -1,0 +1,2868 @@
+[
+  {
+    "id": "q01",
+    "number": 1,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Ifodaning qiymatini toping:"
+      },
+      {
+        "type": "math",
+        "latex": "\\frac{3}{4} + \\frac{1}{8}"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q01-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "math",
+            "latex": "\\frac{4}{12}"
+          }
+        ]
+      },
+      {
+        "id": "q01-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "1"
+          }
+        ]
+      },
+      {
+        "id": "q01-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "math",
+            "latex": "\\frac{5}{8}"
+          }
+        ]
+      },
+      {
+        "id": "q01-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "math",
+            "latex": "\\frac{7}{8}"
+          }
+        ]
+      }
+    ],
+    "correct": "q01-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "3/4 = 6/8, demak 6/8 + 1/8 = 7/8."
+      }
+    ]
+  },
+  {
+    "id": "q02",
+    "number": 2,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Hisoblang: $2^5 - 3^2$"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q02-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "16"
+          }
+        ]
+      },
+      {
+        "id": "q02-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "41"
+          }
+        ]
+      },
+      {
+        "id": "q02-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "23"
+          }
+        ]
+      },
+      {
+        "id": "q02-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "1"
+          }
+        ]
+      }
+    ],
+    "correct": "q02-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "2⁵ = 32, 3² = 9, 32 − 9 = 23."
+      }
+    ]
+  },
+  {
+    "id": "q03",
+    "number": 3,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Hisoblang:"
+      },
+      {
+        "type": "math",
+        "latex": "\\sqrt{81} + \\sqrt{16}"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q03-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "97"
+          }
+        ]
+      },
+      {
+        "id": "q03-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "13"
+          }
+        ]
+      },
+      {
+        "id": "q03-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "25"
+          }
+        ]
+      },
+      {
+        "id": "q03-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "10"
+          }
+        ]
+      }
+    ],
+    "correct": "q03-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "√81 = 9, √16 = 4, jami 13."
+      }
+    ]
+  },
+  {
+    "id": "q04",
+    "number": 4,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Tenglamani yeching: $3x + 7 = 25$"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q04-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "x = 6"
+          }
+        ]
+      },
+      {
+        "id": "q04-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "x = 4"
+          }
+        ]
+      },
+      {
+        "id": "q04-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "x = 8"
+          }
+        ]
+      },
+      {
+        "id": "q04-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "x = 18"
+          }
+        ]
+      }
+    ],
+    "correct": "q04-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "3x = 25 − 7 = 18, x = 6."
+      }
+    ]
+  },
+  {
+    "id": "q05",
+    "number": 5,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "To‘g‘ri to‘rtburchakning perimetrini toping."
+      },
+      {
+        "type": "image",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20190%22%20width%3D%22320%22%20height%3D%22190%22%20font-family%3D%22Nunito%2C%20Arial%2C%20sans-serif%22%3E%3Crect%20x%3D%2260%22%20y%3D%2240%22%20width%3D%22200%22%20height%3D%22110%22%20rx%3D%224%22%20fill%3D%22%23E9EEFF%22%20stroke%3D%22%236C7EE8%22%20stroke-width%3D%224%22%2F%3E%0A%20%20%20%3Ctext%20x%3D%22160%22%20y%3D%2230%22%20text-anchor%3D%22middle%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E8%20sm%3C%2Ftext%3E%0A%20%20%20%3Ctext%20x%3D%2240%22%20y%3D%22102%22%20text-anchor%3D%22middle%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E5%20sm%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "alt": "Tomonlari 8 sm va 5 sm bo‘lgan to‘g‘ri to‘rtburchak",
+        "width": 320,
+        "height": 190
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q05-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "40 sm"
+          }
+        ]
+      },
+      {
+        "id": "q05-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "13 sm"
+          }
+        ]
+      },
+      {
+        "id": "q05-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "30 sm"
+          }
+        ]
+      },
+      {
+        "id": "q05-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "26 sm"
+          }
+        ]
+      }
+    ],
+    "correct": "q05-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "P = 2 · (8 + 5) = 26 sm."
+      }
+    ]
+  },
+  {
+    "id": "q06",
+    "number": 6,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "240 ning 15% i nechaga teng?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q06-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "30"
+          }
+        ]
+      },
+      {
+        "id": "q06-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "48"
+          }
+        ]
+      },
+      {
+        "id": "q06-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "36"
+          }
+        ]
+      },
+      {
+        "id": "q06-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "24"
+          }
+        ]
+      }
+    ],
+    "correct": "q06-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "240 · 0,15 = 36."
+      }
+    ]
+  },
+  {
+    "id": "q07",
+    "number": 7,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Uchburchakning noma’lum burchagini toping."
+      },
+      {
+        "type": "image",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20210%22%20width%3D%22320%22%20height%3D%22210%22%20font-family%3D%22Nunito%2C%20Arial%2C%20sans-serif%22%3E%3Cpath%20d%3D%22M40%20180L280%20180L120%2030Z%22%20fill%3D%22%23FFF1D9%22%20stroke%3D%22%23F2B84B%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%20%3Ctext%20x%3D%2270%22%20y%3D%22170%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E50%C2%B0%3C%2Ftext%3E%0A%20%20%20%3Ctext%20x%3D%22232%22%20y%3D%22170%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E70%C2%B0%3C%2Ftext%3E%0A%20%20%20%3Ctext%20x%3D%22112%22%20y%3D%2272%22%20font-size%3D%2222%22%20font-weight%3D%22800%22%20fill%3D%22%2317776a%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "alt": "Ikki burchagi 50° va 70° bo‘lgan uchburchak",
+        "width": 320,
+        "height": 210
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q07-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "80°"
+          }
+        ]
+      },
+      {
+        "id": "q07-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "60°"
+          }
+        ]
+      },
+      {
+        "id": "q07-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "50°"
+          }
+        ]
+      },
+      {
+        "id": "q07-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "70°"
+          }
+        ]
+      }
+    ],
+    "correct": "q07-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Uchburchak burchaklari yig‘indisi 180°: 180 − 50 − 70 = 60°."
+      }
+    ]
+  },
+  {
+    "id": "q08",
+    "number": 8,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Hisoblang: $1{,}2 \\cdot 0{,}5$"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q08-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "0,6"
+          }
+        ]
+      },
+      {
+        "id": "q08-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "6"
+          }
+        ]
+      },
+      {
+        "id": "q08-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "0,06"
+          }
+        ]
+      },
+      {
+        "id": "q08-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "1,7"
+          }
+        ]
+      }
+    ],
+    "correct": "q08-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "12 · 5 = 60, verguldan keyin ikki xona: 0,60."
+      }
+    ]
+  },
+  {
+    "id": "q09",
+    "number": 9,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qaysi kasr eng kichik?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q09-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "math",
+            "latex": "\\frac{3}{5}"
+          }
+        ]
+      },
+      {
+        "id": "q09-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "math",
+            "latex": "\\frac{5}{8}"
+          }
+        ]
+      },
+      {
+        "id": "q09-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "math",
+            "latex": "\\frac{7}{12}"
+          }
+        ]
+      },
+      {
+        "id": "q09-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "math",
+            "latex": "\\frac{2}{3}"
+          }
+        ]
+      }
+    ],
+    "correct": "q09-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "7/12 ≈ 0,58 — qolganlaridan kichik."
+      }
+    ]
+  },
+  {
+    "id": "q10",
+    "number": 10,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Avtomobil 3 soatda 180 km yo‘l bosdi. Uning tezligi qancha?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q10-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "540 km/soat"
+          }
+        ]
+      },
+      {
+        "id": "q10-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "50 km/soat"
+          }
+        ]
+      },
+      {
+        "id": "q10-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "60 km/soat"
+          }
+        ]
+      },
+      {
+        "id": "q10-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "90 km/soat"
+          }
+        ]
+      }
+    ],
+    "correct": "q10-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "v = 180 : 3 = 60 km/soat."
+      }
+    ]
+  },
+  {
+    "id": "q11",
+    "number": 11,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Hisoblang: $(-4) \\cdot (-6) + (-10)$"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q11-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "−14"
+          }
+        ]
+      },
+      {
+        "id": "q11-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "14"
+          }
+        ]
+      },
+      {
+        "id": "q11-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "−34"
+          }
+        ]
+      },
+      {
+        "id": "q11-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "34"
+          }
+        ]
+      }
+    ],
+    "correct": "q11-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "(−4)·(−6) = 24, 24 − 10 = 14."
+      }
+    ]
+  },
+  {
+    "id": "q12",
+    "number": 12,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Tomoni 7 sm bo‘lgan kvadratning yuzi qancha?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q12-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "49 sm²"
+          }
+        ]
+      },
+      {
+        "id": "q12-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "28 sm²"
+          }
+        ]
+      },
+      {
+        "id": "q12-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "14 sm²"
+          }
+        ]
+      },
+      {
+        "id": "q12-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "21 sm²"
+          }
+        ]
+      }
+    ],
+    "correct": "q12-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "S = 7 · 7 = 49 sm²."
+      }
+    ]
+  },
+  {
+    "id": "q13",
+    "number": 13,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "35 ning $\\frac{2}{5}$ qismini toping."
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q13-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "7"
+          }
+        ]
+      },
+      {
+        "id": "q13-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "10"
+          }
+        ]
+      },
+      {
+        "id": "q13-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "21"
+          }
+        ]
+      },
+      {
+        "id": "q13-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "14"
+          }
+        ]
+      }
+    ],
+    "correct": "q13-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "35 : 5 · 2 = 14."
+      }
+    ]
+  },
+  {
+    "id": "q14",
+    "number": 14,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Ketma-ketlikni davom ettiring: 3, 7, 11, 15, …"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q14-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "20"
+          }
+        ]
+      },
+      {
+        "id": "q14-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "21"
+          }
+        ]
+      },
+      {
+        "id": "q14-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "19"
+          }
+        ]
+      },
+      {
+        "id": "q14-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "18"
+          }
+        ]
+      }
+    ],
+    "correct": "q14-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har bir son oldingisidan 4 ga katta."
+      }
+    ]
+  },
+  {
+    "id": "q15",
+    "number": 15,
+    "subject": "math",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Radiusi 5 sm bo‘lgan aylana uzunligini toping ($\\pi \\approx 3{,}14$)."
+      },
+      {
+        "type": "math",
+        "latex": "C = 2\\pi r"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q15-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "10 sm"
+          }
+        ]
+      },
+      {
+        "id": "q15-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "31,4 sm"
+          }
+        ]
+      },
+      {
+        "id": "q15-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "15,7 sm"
+          }
+        ]
+      },
+      {
+        "id": "q15-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "78,5 sm"
+          }
+        ]
+      }
+    ],
+    "correct": "q15-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "C = 2 · 3,14 · 5 = 31,4 sm."
+      }
+    ]
+  },
+  {
+    "id": "q16",
+    "number": 16,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qatorni davom ettiring: 2, 4, 8, 16, …"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q16-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "32"
+          }
+        ]
+      },
+      {
+        "id": "q16-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "24"
+          }
+        ]
+      },
+      {
+        "id": "q16-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "20"
+          }
+        ]
+      },
+      {
+        "id": "q16-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "64"
+          }
+        ]
+      }
+    ],
+    "correct": "q16-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har bir son ikki barobar ortadi."
+      }
+    ]
+  },
+  {
+    "id": "q17",
+    "number": 17,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qatorni davom ettiring: 1, 1, 2, 3, 5, 8, …"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q17-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "11"
+          }
+        ]
+      },
+      {
+        "id": "q17-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "10"
+          }
+        ]
+      },
+      {
+        "id": "q17-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "16"
+          }
+        ]
+      },
+      {
+        "id": "q17-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "13"
+          }
+        ]
+      }
+    ],
+    "correct": "q17-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har bir son oldingi ikki sonning yig‘indisi: 5 + 8 = 13."
+      }
+    ]
+  },
+  {
+    "id": "q18",
+    "number": 18,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "So‘roq belgisi o‘rnida qaysi shakl bo‘lishi kerak?"
+      },
+      {
+        "type": "image",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%2080%22%20width%3D%22400%22%20height%3D%2280%22%20font-family%3D%22Nunito%2C%20Arial%2C%20sans-serif%22%3E%3Ccircle%20cx%3D%2236%22%20cy%3D%2240%22%20r%3D%2226%22%20fill%3D%22%2317776a%22%2F%3E%3Crect%20x%3D%2276%22%20y%3D%2216%22%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%226%22%20fill%3D%22%236C7EE8%22%2F%3E%3Cpath%20d%3D%22M164%2014L192%2064H136Z%22%20fill%3D%22%23F2B84B%22%2F%3E%3Ccircle%20cx%3D%22228%22%20cy%3D%2240%22%20r%3D%2226%22%20fill%3D%22%2317776a%22%2F%3E%3Crect%20x%3D%22268%22%20y%3D%2216%22%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%226%22%20fill%3D%22%236C7EE8%22%2F%3E%3Crect%20x%3D%22332%22%20y%3D%2212%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23183B36%22%20stroke-width%3D%223%22%20stroke-dasharray%3D%226%205%22%2F%3E%3Ctext%20x%3D%22360%22%20y%3D%2251%22%20text-anchor%3D%22middle%22%20font-size%3D%2232%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "alt": "Doira, kvadrat, uchburchak, doira, kvadrat va so‘roq belgisi",
+        "width": 400,
+        "height": 80
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q18-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kvadrat"
+          }
+        ]
+      },
+      {
+        "id": "q18-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yulduz"
+          }
+        ]
+      },
+      {
+        "id": "q18-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Uchburchak"
+          }
+        ]
+      },
+      {
+        "id": "q18-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Doira"
+          }
+        ]
+      }
+    ],
+    "correct": "q18-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Shakllar doira → kvadrat → uchburchak tartibida takrorlanadi."
+      }
+    ]
+  },
+  {
+    "id": "q19",
+    "number": 19,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qaysi shakl boshqalaridan farq qiladi?"
+      },
+      {
+        "type": "image",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20110%22%20width%3D%22400%22%20height%3D%22110%22%20font-family%3D%22Nunito%2C%20Arial%2C%20sans-serif%22%3E%3Cpath%20d%3D%22M50%2022L78%2072H22Z%22%20fill%3D%22%23F2B84B%22%2F%3E%3Cpath%20d%3D%22M150%2022L178%2072H122Z%22%20fill%3D%22%23E58FB4%22%2F%3E%3Crect%20x%3D%22226%22%20y%3D%2226%22%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%226%22%20fill%3D%22%236C7EE8%22%2F%3E%3Cpath%20d%3D%22M350%2022L378%2072H322Z%22%20fill%3D%22%236C7EE8%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3EA%3C%2Ftext%3E%3Ctext%20x%3D%22150%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3EB%3C%2Ftext%3E%3Ctext%20x%3D%22250%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3EC%3C%2Ftext%3E%3Ctext%20x%3D%22350%22%20y%3D%22100%22%20text-anchor%3D%22middle%22%20font-size%3D%2218%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3ED%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "alt": "A, B va D — uchburchaklar, C — kvadrat",
+        "width": 400,
+        "height": 110
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q19-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "A"
+          }
+        ]
+      },
+      {
+        "id": "q19-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "B"
+          }
+        ]
+      },
+      {
+        "id": "q19-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "C"
+          }
+        ]
+      },
+      {
+        "id": "q19-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "D"
+          }
+        ]
+      }
+    ],
+    "correct": "q19-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Faqat C kvadrat, qolganlari uchburchak."
+      }
+    ]
+  },
+  {
+    "id": "q20",
+    "number": 20,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Barcha mushuklar — hayvon. Mosh — mushuk. Demak…"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q20-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mosh — hayvon"
+          }
+        ]
+      },
+      {
+        "id": "q20-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Barcha hayvonlar — mushuk"
+          }
+        ]
+      },
+      {
+        "id": "q20-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Mosh — it"
+          }
+        ]
+      },
+      {
+        "id": "q20-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Hech narsa deyish mumkin emas"
+          }
+        ]
+      }
+    ],
+    "correct": "q20-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Mosh mushuklar guruhida, mushuklar esa hayvonlar guruhida."
+      }
+    ]
+  },
+  {
+    "id": "q21",
+    "number": 21,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qo‘l : qo‘lqop = oyoq : ?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q21-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shim"
+          }
+        ]
+      },
+      {
+        "id": "q21-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shlyapa"
+          }
+        ]
+      },
+      {
+        "id": "q21-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ro‘mol"
+          }
+        ]
+      },
+      {
+        "id": "q21-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Paypoq"
+          }
+        ]
+      }
+    ],
+    "correct": "q21-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Qo‘lqop qo‘lga, paypoq oyoqqa kiyiladi."
+      }
+    ]
+  },
+  {
+    "id": "q22",
+    "number": 22,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Jadvaldagi qonuniyatni toping. So‘roq o‘rnida qaysi son turadi?"
+      },
+      {
+        "type": "image",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20240%20240%22%20width%3D%22240%22%20height%3D%22240%22%20font-family%3D%22Nunito%2C%20Arial%2C%20sans-serif%22%3E%3Crect%20x%3D%2210%22%20y%3D%2210%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%2244%22%20y%3D%2256%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E2%3C%2Ftext%3E%3Crect%20x%3D%2286%22%20y%3D%2210%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22120%22%20y%3D%2256%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E4%3C%2Ftext%3E%3Crect%20x%3D%22162%22%20y%3D%2210%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22196%22%20y%3D%2256%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E6%3C%2Ftext%3E%3Crect%20x%3D%2210%22%20y%3D%2286%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%2244%22%20y%3D%22132%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E3%3C%2Ftext%3E%3Crect%20x%3D%2286%22%20y%3D%2286%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22120%22%20y%3D%22132%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E6%3C%2Ftext%3E%3Crect%20x%3D%22162%22%20y%3D%2286%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22196%22%20y%3D%22132%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E9%3C%2Ftext%3E%3Crect%20x%3D%2210%22%20y%3D%22162%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%2244%22%20y%3D%22208%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E4%3C%2Ftext%3E%3Crect%20x%3D%2286%22%20y%3D%22162%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23E5F4F0%22%20stroke%3D%22%2317776a%22%20stroke-width%3D%223%22%20%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22120%22%20y%3D%22208%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E8%3C%2Ftext%3E%3Crect%20x%3D%22162%22%20y%3D%22162%22%20width%3D%2268%22%20height%3D%2268%22%20rx%3D%2212%22%20fill%3D%22%23fff%22%20stroke%3D%22%23183B36%22%20stroke-width%3D%223%22%20stroke-dasharray%3D%226%205%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22196%22%20y%3D%22208%22%20text-anchor%3D%22middle%22%20font-size%3D%2228%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "alt": "Jadval: 2, 4, 6; 3, 6, 9; 4, 8 va so‘roq belgisi",
+        "width": 240,
+        "height": 240
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q22-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "16"
+          }
+        ]
+      },
+      {
+        "id": "q22-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "9"
+          }
+        ]
+      },
+      {
+        "id": "q22-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "12"
+          }
+        ]
+      },
+      {
+        "id": "q22-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "10"
+          }
+        ]
+      }
+    ],
+    "correct": "q22-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har bir qatorda sonlar birinchi sonning 1, 2, 3 barobari: 4, 8, 12."
+      }
+    ]
+  },
+  {
+    "id": "q23",
+    "number": 23,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Harflar qatorini davom ettiring: A, C, E, G, …"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q23-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "K"
+          }
+        ]
+      },
+      {
+        "id": "q23-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "I"
+          }
+        ]
+      },
+      {
+        "id": "q23-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "H"
+          }
+        ]
+      },
+      {
+        "id": "q23-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "J"
+          }
+        ]
+      }
+    ],
+    "correct": "q23-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har safar bitta harf tashlab ketiladi."
+      }
+    ]
+  },
+  {
+    "id": "q24",
+    "number": 24,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Nuqtalar soni qanday o‘zgaryapti? Keyingi rasmda nechta nuqta bo‘ladi?"
+      },
+      {
+        "type": "image",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20110%22%20width%3D%22400%22%20height%3D%22110%22%20font-family%3D%22Nunito%2C%20Arial%2C%20sans-serif%22%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2230%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22170%22%20cy%3D%2230%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22159%22%20cy%3D%2252%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22181%22%20cy%3D%2252%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%2230%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22269%22%20cy%3D%2252%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22291%22%20cy%3D%2252%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22258%22%20cy%3D%2274%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22280%22%20cy%3D%2274%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Ccircle%20cx%3D%22302%22%20cy%3D%2274%22%20r%3D%228%22%20fill%3D%22%2317776a%22%2F%3E%3Crect%20x%3D%22322%22%20y%3D%2224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23183B36%22%20stroke-width%3D%223%22%20stroke-dasharray%3D%226%205%22%2F%3E%3Ctext%20x%3D%22350%22%20y%3D%2263%22%20text-anchor%3D%22middle%22%20font-size%3D%2232%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "alt": "1, 3 va 6 ta nuqtadan iborat uchburchaklar",
+        "width": 400,
+        "height": 110
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q24-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "10"
+          }
+        ]
+      },
+      {
+        "id": "q24-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "9"
+          }
+        ]
+      },
+      {
+        "id": "q24-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "12"
+          }
+        ]
+      },
+      {
+        "id": "q24-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "8"
+          }
+        ]
+      }
+    ],
+    "correct": "q24-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har gal yangi qator qo‘shiladi: 1, 1+2, 1+2+3, 1+2+3+4 = 10."
+      }
+    ]
+  },
+  {
+    "id": "q25",
+    "number": 25,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qaysi raqam ko‘zguda (chap-o‘ng) o‘zgarmasdan ko‘rinadi?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q25-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "2"
+          }
+        ]
+      },
+      {
+        "id": "q25-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "4"
+          }
+        ]
+      },
+      {
+        "id": "q25-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "7"
+          }
+        ]
+      },
+      {
+        "id": "q25-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "8"
+          }
+        ]
+      }
+    ],
+    "correct": "q25-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "8 raqami ikki tomoni bir xil — simmetrik."
+      }
+    ]
+  },
+  {
+    "id": "q26",
+    "number": 26,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Kubning nechta qirrasi bor?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q26-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "8"
+          }
+        ]
+      },
+      {
+        "id": "q26-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "24"
+          }
+        ]
+      },
+      {
+        "id": "q26-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "12"
+          }
+        ]
+      },
+      {
+        "id": "q26-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "6"
+          }
+        ]
+      }
+    ],
+    "correct": "q26-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Kubda 12 ta qirra, 6 ta yoq va 8 ta uch bor."
+      }
+    ]
+  },
+  {
+    "id": "q27",
+    "number": 27,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Ali Validan baland. Vali Solidan baland. Kim eng past?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q27-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Aniqlab bo‘lmaydi"
+          }
+        ]
+      },
+      {
+        "id": "q27-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Soli"
+          }
+        ]
+      },
+      {
+        "id": "q27-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ali"
+          }
+        ]
+      },
+      {
+        "id": "q27-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Vali"
+          }
+        ]
+      }
+    ],
+    "correct": "q27-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Ali > Vali > Soli, demak Soli eng past."
+      }
+    ]
+  },
+  {
+    "id": "q28",
+    "number": 28,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "5 ta mashina 5 daqiqada 5 ta o‘yinchoq yasaydi. 100 ta mashina 100 ta o‘yinchoqni necha daqiqada yasaydi?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q28-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "5 daqiqa"
+          }
+        ]
+      },
+      {
+        "id": "q28-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "100 daqiqa"
+          }
+        ]
+      },
+      {
+        "id": "q28-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "20 daqiqa"
+          }
+        ]
+      },
+      {
+        "id": "q28-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "1 daqiqa"
+          }
+        ]
+      }
+    ],
+    "correct": "q28-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har bir mashina 5 daqiqada 1 ta o‘yinchoq yasaydi."
+      }
+    ]
+  },
+  {
+    "id": "q29",
+    "number": 29,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Strelka qaysi tomonga buriladi?"
+      },
+      {
+        "type": "image",
+        "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%2080%22%20width%3D%22400%22%20height%3D%2280%22%20font-family%3D%22Nunito%2C%20Arial%2C%20sans-serif%22%3E%3Cg%20transform%3D%22translate(40%2040)%20rotate(0)%22%3E%3Cpath%20d%3D%22M0%20-26L18%20-4H7V24H-7V-4H-18Z%22%20fill%3D%22%2317776a%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(120%2040)%20rotate(90)%22%3E%3Cpath%20d%3D%22M0%20-26L18%20-4H7V24H-7V-4H-18Z%22%20fill%3D%22%2317776a%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(200%2040)%20rotate(180)%22%3E%3Cpath%20d%3D%22M0%20-26L18%20-4H7V24H-7V-4H-18Z%22%20fill%3D%22%2317776a%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%22262%22%20y%3D%2212%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2212%22%20fill%3D%22none%22%20stroke%3D%22%23183B36%22%20stroke-width%3D%223%22%20stroke-dasharray%3D%226%205%22%2F%3E%3Ctext%20x%3D%22290%22%20y%3D%2251%22%20text-anchor%3D%22middle%22%20font-size%3D%2232%22%20font-weight%3D%22800%22%20fill%3D%22%23183B36%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E",
+        "alt": "Strelkalar: yuqoriga, o‘ngga, pastga va so‘roq belgisi",
+        "width": 400,
+        "height": 80
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q29-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yuqoriga"
+          }
+        ]
+      },
+      {
+        "id": "q29-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "O‘ngga"
+          }
+        ]
+      },
+      {
+        "id": "q29-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Pastga"
+          }
+        ]
+      },
+      {
+        "id": "q29-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Chapga"
+          }
+        ]
+      }
+    ],
+    "correct": "q29-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Strelka har safar soat mili bo‘yicha chorak aylanadi."
+      }
+    ]
+  },
+  {
+    "id": "q30",
+    "number": 30,
+    "subject": "iq",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qatorni davom ettiring: 3, 9, 27, …"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q30-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "36"
+          }
+        ]
+      },
+      {
+        "id": "q30-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "30"
+          }
+        ]
+      },
+      {
+        "id": "q30-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "81"
+          }
+        ]
+      },
+      {
+        "id": "q30-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "54"
+          }
+        ]
+      }
+    ],
+    "correct": "q30-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Har bir son 3 ga ko‘paytiriladi."
+      }
+    ]
+  },
+  {
+    "id": "q31",
+    "number": 31,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Nilufar ko‘chatni qachon ekdi?"
+      }
+    ],
+    "passage": [
+      {
+        "type": "text",
+        "text": "Nilufar bahorda bobosi bilan hovliga o‘rik ko‘chati ekdi. Har kuni maktabdan qaytgach, ko‘chatga suv quyar, atrofidagi o‘tlarni yulardi. Yoz kelib, ko‘chat bo‘yi Nilufarning beligacha yetdi.\n\nBir kuni qattiq shamol turdi. Nilufar yugurib chiqib, ko‘chatni qoziqqa bog‘lab qo‘ydi. Bobosi uni maqtab: “Daraxt ham xuddi bola kabi g‘amxo‘rlikni sevadi”, — dedi."
+      }
+    ],
+    "options": [
+      {
+        "id": "q31-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Qishda"
+          }
+        ]
+      },
+      {
+        "id": "q31-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bahorda"
+          }
+        ]
+      },
+      {
+        "id": "q31-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Yozda"
+          }
+        ]
+      },
+      {
+        "id": "q31-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Kuzda"
+          }
+        ]
+      }
+    ],
+    "correct": "q31-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Matnning birinchi gapida aytilgan."
+      }
+    ]
+  },
+  {
+    "id": "q32",
+    "number": 32,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Shamol turganda Nilufar nima qildi?"
+      }
+    ],
+    "passage": [
+      {
+        "type": "text",
+        "text": "Nilufar bahorda bobosi bilan hovliga o‘rik ko‘chati ekdi. Har kuni maktabdan qaytgach, ko‘chatga suv quyar, atrofidagi o‘tlarni yulardi. Yoz kelib, ko‘chat bo‘yi Nilufarning beligacha yetdi.\n\nBir kuni qattiq shamol turdi. Nilufar yugurib chiqib, ko‘chatni qoziqqa bog‘lab qo‘ydi. Bobosi uni maqtab: “Daraxt ham xuddi bola kabi g‘amxo‘rlikni sevadi”, — dedi."
+      }
+    ],
+    "options": [
+      {
+        "id": "q32-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ko‘chatni qoziqqa bog‘ladi"
+          }
+        ]
+      },
+      {
+        "id": "q32-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Uyga yashirindi"
+          }
+        ]
+      },
+      {
+        "id": "q32-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Ko‘chatga suv quydi"
+          }
+        ]
+      },
+      {
+        "id": "q32-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bobosini chaqirdi"
+          }
+        ]
+      }
+    ],
+    "correct": "q32-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Matnning ikkinchi xatboshisida yozilgan."
+      }
+    ]
+  },
+  {
+    "id": "q33",
+    "number": 33,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Bobosining so‘zlari qanday asosiy fikrni ifodalaydi?"
+      }
+    ],
+    "passage": [
+      {
+        "type": "text",
+        "text": "Nilufar bahorda bobosi bilan hovliga o‘rik ko‘chati ekdi. Har kuni maktabdan qaytgach, ko‘chatga suv quyar, atrofidagi o‘tlarni yulardi. Yoz kelib, ko‘chat bo‘yi Nilufarning beligacha yetdi.\n\nBir kuni qattiq shamol turdi. Nilufar yugurib chiqib, ko‘chatni qoziqqa bog‘lab qo‘ydi. Bobosi uni maqtab: “Daraxt ham xuddi bola kabi g‘amxo‘rlikni sevadi”, — dedi."
+      }
+    ],
+    "options": [
+      {
+        "id": "q33-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Daraxt ekish qiyin"
+          }
+        ]
+      },
+      {
+        "id": "q33-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Shamol xavfli"
+          }
+        ]
+      },
+      {
+        "id": "q33-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Bolalar ko‘p o‘ynashi kerak"
+          }
+        ]
+      },
+      {
+        "id": "q33-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "G‘amxo‘rlik har bir tirik narsaga kerak"
+          }
+        ]
+      }
+    ],
+    "correct": "q33-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Bobo daraxtni bolaga o‘xshatib, g‘amxo‘rlik muhimligini aytmoqda."
+      }
+    ]
+  },
+  {
+    "id": "q34",
+    "number": 34,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qaysi so‘z ot (narsa nomi)?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q34-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "yugurmoq"
+          }
+        ]
+      },
+      {
+        "id": "q34-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "tez"
+          }
+        ]
+      },
+      {
+        "id": "q34-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "kitob"
+          }
+        ]
+      },
+      {
+        "id": "q34-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "chiroyli"
+          }
+        ]
+      }
+    ],
+    "correct": "q34-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "“Kitob” — narsa nomi, “nima?” so‘rog‘iga javob beradi."
+      }
+    ]
+  },
+  {
+    "id": "q35",
+    "number": 35,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "“Katta” so‘zining zid ma’noli so‘zi (antonimi) qaysi?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q35-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "keng"
+          }
+        ]
+      },
+      {
+        "id": "q35-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "kichik"
+          }
+        ]
+      },
+      {
+        "id": "q35-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "ulkan"
+          }
+        ]
+      },
+      {
+        "id": "q35-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "baland"
+          }
+        ]
+      }
+    ],
+    "correct": "q35-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Katta — kichik."
+      }
+    ]
+  },
+  {
+    "id": "q36",
+    "number": 36,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "“Chiroyli” so‘zining ma’nodoshi (sinonimi) qaysi?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q36-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "go‘zal"
+          }
+        ]
+      },
+      {
+        "id": "q36-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "xunuk"
+          }
+        ]
+      },
+      {
+        "id": "q36-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "katta"
+          }
+        ]
+      },
+      {
+        "id": "q36-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "tez"
+          }
+        ]
+      }
+    ],
+    "correct": "q36-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Chiroyli — go‘zal."
+      }
+    ]
+  },
+  {
+    "id": "q37",
+    "number": 37,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Qaysi so‘z to‘g‘ri yozilgan?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q37-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "mahtab"
+          }
+        ]
+      },
+      {
+        "id": "q37-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "maktap"
+          }
+        ]
+      },
+      {
+        "id": "q37-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "matkab"
+          }
+        ]
+      },
+      {
+        "id": "q37-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "maktab"
+          }
+        ]
+      }
+    ],
+    "correct": "q37-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "To‘g‘ri yozilishi: maktab."
+      }
+    ]
+  },
+  {
+    "id": "q38",
+    "number": 38,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "“Daftar” so‘zining ko‘plik shakli qaysi?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q38-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "daftarchi"
+          }
+        ]
+      },
+      {
+        "id": "q38-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "daftarim"
+          }
+        ]
+      },
+      {
+        "id": "q38-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "daftarlar"
+          }
+        ]
+      },
+      {
+        "id": "q38-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "daftarlik"
+          }
+        ]
+      }
+    ],
+    "correct": "q38-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Ko‘plik -lar qo‘shimchasi bilan yasaladi."
+      }
+    ]
+  },
+  {
+    "id": "q39",
+    "number": 39,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "“Alpomish” qanday janrdagi asar?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q39-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Maqol"
+          }
+        ]
+      },
+      {
+        "id": "q39-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Doston"
+          }
+        ]
+      },
+      {
+        "id": "q39-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "Masal"
+          }
+        ]
+      },
+      {
+        "id": "q39-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Topishmoq"
+          }
+        ]
+      }
+    ],
+    "correct": "q39-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "“Alpomish” — o‘zbek xalq qahramonlik dostoni."
+      }
+    ]
+  },
+  {
+    "id": "q40",
+    "number": 40,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "“O‘tkan kunlar” romanining muallifi kim?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q40-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "Abdulla Qodiriy"
+          }
+        ]
+      },
+      {
+        "id": "q40-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "Oybek"
+          }
+        ]
+      },
+      {
+        "id": "q40-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "G‘afur G‘ulom"
+          }
+        ]
+      },
+      {
+        "id": "q40-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cho‘lpon"
+          }
+        ]
+      }
+    ],
+    "correct": "q40-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Roman Abdulla Qodiriy tomonidan yozilgan."
+      }
+    ]
+  },
+  {
+    "id": "q41",
+    "number": 41,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "So‘roq gap oxiriga qaysi tinish belgisi qo‘yiladi?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q41-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "id": "q41-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "!"
+          }
+        ]
+      },
+      {
+        "id": "q41-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": ","
+          }
+        ]
+      },
+      {
+        "id": "q41-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "?"
+          }
+        ]
+      }
+    ],
+    "correct": "q41-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "So‘roq gaplar so‘roq belgisi bilan tugaydi."
+      }
+    ]
+  },
+  {
+    "id": "q42",
+    "number": 42,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "“O‘zbekiston” so‘zi nechta bo‘g‘indan iborat?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q42-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "5"
+          }
+        ]
+      },
+      {
+        "id": "q42-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "2"
+          }
+        ]
+      },
+      {
+        "id": "q42-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "4"
+          }
+        ]
+      },
+      {
+        "id": "q42-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "3"
+          }
+        ]
+      }
+    ],
+    "correct": "q42-c",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "O‘z-be-kis-ton — 4 bo‘g‘in."
+      }
+    ]
+  },
+  {
+    "id": "q43",
+    "number": 43,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "“Bolalar bog‘da o‘ynashdi” gapidagi fe’lni toping."
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q43-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "fe’l yo‘q"
+          }
+        ]
+      },
+      {
+        "id": "q43-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "o‘ynashdi"
+          }
+        ]
+      },
+      {
+        "id": "q43-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "bolalar"
+          }
+        ]
+      },
+      {
+        "id": "q43-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "bog‘da"
+          }
+        ]
+      }
+    ],
+    "correct": "q43-b",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "“O‘ynashdi” — harakatni bildiradi."
+      }
+    ]
+  },
+  {
+    "id": "q44",
+    "number": 44,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Gapni to‘ldiring: “Men har kuni … o‘qiyman.”"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q44-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "kitob"
+          }
+        ]
+      },
+      {
+        "id": "q44-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "tez"
+          }
+        ]
+      },
+      {
+        "id": "q44-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "qizil"
+          }
+        ]
+      },
+      {
+        "id": "q44-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "baland"
+          }
+        ]
+      }
+    ],
+    "correct": "q44-a",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "“Kitob o‘qiyman” — ma’noli gap."
+      }
+    ]
+  },
+  {
+    "id": "q45",
+    "number": 45,
+    "subject": "language",
+    "type": "single_choice",
+    "prompt": [
+      {
+        "type": "text",
+        "text": "Alisher Navoiy qaysi asrda yashab ijod qilgan?"
+      }
+    ],
+    "passage": null,
+    "options": [
+      {
+        "id": "q45-a",
+        "label": "A",
+        "content": [
+          {
+            "type": "text",
+            "text": "XII asr"
+          }
+        ]
+      },
+      {
+        "id": "q45-b",
+        "label": "B",
+        "content": [
+          {
+            "type": "text",
+            "text": "XVIII asr"
+          }
+        ]
+      },
+      {
+        "id": "q45-c",
+        "label": "C",
+        "content": [
+          {
+            "type": "text",
+            "text": "XX asr"
+          }
+        ]
+      },
+      {
+        "id": "q45-d",
+        "label": "D",
+        "content": [
+          {
+            "type": "text",
+            "text": "XV asr"
+          }
+        ]
+      }
+    ],
+    "correct": "q45-d",
+    "explanation": [
+      {
+        "type": "text",
+        "text": "Navoiy 1441–1501-yillarda yashagan."
+      }
+    ]
+  }
+]

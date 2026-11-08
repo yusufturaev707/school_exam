@@ -1,0 +1,74 @@
+{% extends "admin/base_site.html" %}
+{% block breadcrumbs %}{% include "admin/schools/school/_import_breadcrumbs.html" %}{% endblock %}
+{% block content %}
+<div id="content-main" class="md-page">
+  {% include "admin/schools/school/_import_steps.html" with step=1 %}
+
+  <div class="md-grid md-grid--split">
+    <section class="md-card">
+      <div class="md-card__header">
+        <span class="md-avatar">{% include "admin/md/icon.html" with name="upload" %}</span>
+        <div>
+          <h2 class="md-card__title">Faylni tanlang</h2>
+          <p class="md-card__subtitle">{{ school }}</p>
+        </div>
+      </div>
+
+      <form method="post" enctype="multipart/form-data" data-submit-once>
+        {% csrf_token %}
+        {% if form.non_field_errors %}<div class="md-banner md-banner--error">{{ form.non_field_errors }}</div>{% endif %}
+
+        <div class="md-field">
+          <label class="md-dropzone{% if form.file.errors %} has-error{% endif %}" data-dropzone for="{{ form.file.id_for_label }}">
+            {{ form.file }}
+            {% include "admin/md/icon.html" with name="upload" %}
+            <span class="md-dropzone__title" data-file-title>Faylni shu yerga tashlang yoki <u>kompyuterdan tanlang</u></span>
+            <span class="md-dropzone__hint" data-file-hint>.xlsx yoki .csv · {{ max_file_mb }} MB gacha · {{ max_rows }} tagacha o‘quvchi</span>
+          </label>
+          {{ form.file.errors }}
+        </div>
+
+        <div class="md-field">
+          <label class="md-switch" for="{{ form.create_classrooms.id_for_label }}">
+            {{ form.create_classrooms }}
+            <span class="md-switch__text">
+              <b>Yo‘q sinflarni avtomatik yaratish</b>
+              <small>Faylda bor, lekin maktabda hali yo‘q sinflar (masalan, 6-B) qo‘shiladi. O‘chirilsa, bunday qatorlar xato deb ko‘rsatiladi.</small>
+            </span>
+          </label>
+          {{ form.create_classrooms.errors }}
+        </div>
+
+        <div class="md-field">
+          <div class="md-actions md-actions--end">
+            <a class="md-btn md-btn--text" href="{% url 'admin:schools_school_change' school.pk %}">Bekor qilish</a>
+            <button type="submit" class="md-btn">{% include "admin/md/icon.html" with name="arrow" %}Tekshirish</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <aside class="md-card md-card--tonal">
+      <div class="md-card__header">
+        <span class="md-avatar">{% include "admin/md/icon.html" with name="table" %}</span>
+        <h2 class="md-card__title">Fayl qanday bo‘lishi kerak</h2>
+      </div>
+      <p class="md-text">Bitta fayl bitta maktab uchun. Birinchi varaqdagi jadval o‘qiladi, ustunlar tartibi muhim emas:</p>
+      <div class="md-chips" style="margin-bottom: 20px">
+        {% for column in columns %}
+          <span class="md-chip md-chip--accent">{{ column }}{% if column == "Otasining ismi" %} <small>ixtiyoriy</small>{% endif %}</span>
+        {% endfor %}
+      </div>
+      <ul class="md-list">
+        <li>{% include "admin/md/icon.html" with name="school" class="sm" %}<span><b>Sinf</b>: raqam va lotin harfi, masalan <code>5-A</code>, <code>5A</code> yoki <code>5 A</code>.</span></li>
+        <li>{% include "admin/md/icon.html" with name="lock" class="sm" %}<span><b>JSHSHIR</b>: 14 ta raqam. Excel uni songa aylantirib buzmasligi uchun ustun formati “Matn” bo‘lsin (namuna faylda shunday).</span></li>
+        <li>{% include "admin/md/icon.html" with name="swap" class="sm" %}<span>Bazada bor o‘quvchi (shu JSHSHIR bilan) yangilanadi, boshqa maktabda bo‘lsa shu maktabga o‘tkaziladi. Faylda yo‘q o‘quvchilarga tegilmaydi.</span></li>
+        <li>{% include "admin/md/icon.html" with name="check" class="sm" %}<span>Avval nima o‘zgarishi ko‘rsatiladi. <b>“Tasdiqlash” bosilmaguncha hech narsa saqlanmaydi.</b> Bitta qatorda xato bo‘lsa ham hech narsa saqlanmaydi.</span></li>
+      </ul>
+      <p style="margin: 20px 0 0">
+        <a class="md-btn md-btn--tonal" href="{% url 'admin:schools_school_import_template' %}">{% include "admin/md/icon.html" with name="download" %}Namuna faylni yuklab olish (.xlsx)</a>
+      </p>
+    </aside>
+  </div>
+</div>
+{% endblock %}

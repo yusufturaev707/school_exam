@@ -1,0 +1,1545 @@
+/*
+ * Bilimdon admin theme: Material 3 styling over Django admin.
+ *
+ * 1. Tokens: the brand green of the pupil app (frontend --brand) as a Material colour scheme,
+ *    light and dark. Django's own variables are mapped onto them, so every stock admin page
+ *    (lists, change forms, login) picks the theme up without template changes.
+ * 2. Stock admin widgets: inputs, buttons, fieldsets, messages, the change list.
+ * 3. md-* components for our own pages: cards, banners, stats, the file drop zone, chips.
+ *
+ * Django sets its light variables on `:root, html[data-theme="light"]` and dark ones on
+ * `html[data-theme="dark"]` and in a prefers-color-scheme query. The selectors below have the
+ * same specificity and load later, so they win in every theme mode.
+ */
+
+/* --------------------------------------------------------------------------- 1. tokens */
+
+:root,
+html[data-theme="light"] {
+  --md-primary: #1f6f5f;
+  --md-on-primary: #ffffff;
+  --md-primary-hover: #165447;
+  --md-primary-container: #d3efe5;
+  --md-on-primary-container: #0b3a30;
+  --md-secondary-container: #e1ebe6;
+  --md-on-secondary-container: #1c2b26;
+  --md-top-bar: #1f6f5f;
+  --md-on-top-bar: #ffffff;
+
+  --md-surface: #f7faf8;
+  --md-surface-lowest: #ffffff;
+  --md-surface-low: #f1f5f3;
+  --md-surface-container: #eaf0ed;
+  --md-surface-high: #e2e9e6;
+  --md-on-surface: #191c1b;
+  --md-on-surface-variant: #414946;
+  --md-outline: #717975;
+  --md-outline-variant: #c1c9c5;
+
+  --md-error: #ba1a1a;
+  --md-error-container: #ffdad6;
+  --md-on-error-container: #410002;
+  --md-warning: #8a5300;
+  --md-warning-container: #ffe3bd;
+  --md-on-warning-container: #2c1700;
+  --md-success: #1f6f3f;
+  --md-success-container: #c6efd3;
+  --md-on-success-container: #00210d;
+
+  --md-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 1px 3px 1px rgb(0 0 0 / 0.06);
+  --md-shadow-2: 0 1px 2px rgb(0 0 0 / 0.14), 0 2px 6px 2px rgb(0 0 0 / 0.08);
+  --md-shadow-3: 0 4px 8px 3px rgb(0 0 0 / 0.08), 0 1px 3px rgb(0 0 0 / 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-primary: #7fd6bb;
+    --md-on-primary: #00382c;
+    --md-primary-hover: #9be6cd;
+    --md-primary-container: #0f5143;
+    --md-on-primary-container: #a8f2d7;
+    --md-secondary-container: #33403b;
+    --md-on-secondary-container: #cfe8dd;
+    --md-top-bar: #14332b;
+    --md-on-top-bar: #dbf5ea;
+
+    --md-surface: #0f1513;
+    --md-surface-lowest: #0a0f0e;
+    --md-surface-low: #171d1b;
+    --md-surface-container: #1b2220;
+    --md-surface-high: #252c2a;
+    --md-on-surface: #dee4e1;
+    --md-on-surface-variant: #c0c9c4;
+    --md-outline: #8a938f;
+    --md-outline-variant: #404946;
+
+    --md-error: #ffb4ab;
+    --md-error-container: #93000a;
+    --md-on-error-container: #ffdad6;
+    --md-warning: #ffb95c;
+    --md-warning-container: #5a3a00;
+    --md-on-warning-container: #ffddb3;
+    --md-success: #8ad7a3;
+    --md-success-container: #0e5129;
+    --md-on-success-container: #a6f4bd;
+
+    --md-shadow: 0 1px 2px rgb(0 0 0 / 0.5), 0 1px 3px 1px rgb(0 0 0 / 0.3);
+    --md-shadow-2: 0 1px 2px rgb(0 0 0 / 0.5), 0 2px 6px 2px rgb(0 0 0 / 0.3);
+    --md-shadow-3: 0 4px 8px 3px rgb(0 0 0 / 0.3), 0 1px 3px rgb(0 0 0 / 0.5);
+  }
+}
+
+html[data-theme="dark"] {
+  --md-primary: #7fd6bb;
+  --md-on-primary: #00382c;
+  --md-primary-hover: #9be6cd;
+  --md-primary-container: #0f5143;
+  --md-on-primary-container: #a8f2d7;
+  --md-secondary-container: #33403b;
+  --md-on-secondary-container: #cfe8dd;
+  --md-top-bar: #14332b;
+  --md-on-top-bar: #dbf5ea;
+
+  --md-surface: #0f1513;
+  --md-surface-lowest: #0a0f0e;
+  --md-surface-low: #171d1b;
+  --md-surface-container: #1b2220;
+  --md-surface-high: #252c2a;
+  --md-on-surface: #dee4e1;
+  --md-on-surface-variant: #c0c9c4;
+  --md-outline: #8a938f;
+  --md-outline-variant: #404946;
+
+  --md-error: #ffb4ab;
+  --md-error-container: #93000a;
+  --md-on-error-container: #ffdad6;
+  --md-warning: #ffb95c;
+  --md-warning-container: #5a3a00;
+  --md-on-warning-container: #ffddb3;
+  --md-success: #8ad7a3;
+  --md-success-container: #0e5129;
+  --md-on-success-container: #a6f4bd;
+
+  --md-shadow: 0 1px 2px rgb(0 0 0 / 0.5), 0 1px 3px 1px rgb(0 0 0 / 0.3);
+  --md-shadow-2: 0 1px 2px rgb(0 0 0 / 0.5), 0 2px 6px 2px rgb(0 0 0 / 0.3);
+  --md-shadow-3: 0 4px 8px 3px rgb(0 0 0 / 0.3), 0 1px 3px rgb(0 0 0 / 0.5);
+}
+
+/* Django's variables, expressed in the tokens above (all theme modes). */
+:root,
+html[data-theme] {
+  --primary: var(--md-primary);
+  --secondary: var(--md-primary);
+  --accent: var(--md-primary-container);
+  --primary-fg: var(--md-on-primary);
+
+  --body-fg: var(--md-on-surface);
+  --body-bg: var(--md-surface);
+  --body-quiet-color: var(--md-on-surface-variant);
+  --body-medium-color: var(--md-on-surface);
+  --body-loud-color: var(--md-on-surface);
+
+  --header-color: var(--md-on-top-bar);
+  --header-branding-color: var(--md-on-top-bar);
+  --header-bg: var(--md-top-bar);
+  --header-link-color: var(--md-on-top-bar);
+
+  --breadcrumbs-fg: var(--md-on-surface-variant);
+  --breadcrumbs-link-fg: var(--md-primary);
+  --breadcrumbs-bg: var(--md-surface-container);
+
+  --link-fg: var(--md-primary);
+  --link-hover-color: var(--md-primary-hover);
+  --link-selected-fg: var(--md-primary);
+
+  --hairline-color: var(--md-surface-high);
+  --border-color: var(--md-outline-variant);
+
+  --error-fg: var(--md-error);
+  --message-success-bg: var(--md-success-container);
+  --message-warning-bg: var(--md-warning-container);
+  --message-error-bg: var(--md-error-container);
+
+  --darkened-bg: var(--md-surface-low);
+  --selected-bg: var(--md-surface-high);
+  --selected-row: var(--md-primary-container);
+
+  --button-fg: var(--md-on-primary);
+  --button-bg: var(--md-primary);
+  --button-hover-bg: var(--md-primary-hover);
+  --default-button-bg: var(--md-primary);
+  --default-button-hover-bg: var(--md-primary-hover);
+  --close-button-bg: var(--md-secondary-container);
+  --close-button-hover-bg: var(--md-surface-high);
+  --delete-button-bg: var(--md-error);
+  --delete-button-hover-bg: #93000a;
+
+  --object-tools-fg: var(--md-on-primary-container);
+  --object-tools-bg: var(--md-primary-container);
+  --object-tools-hover-bg: var(--md-secondary-container);
+
+  --font-family-primary: Roboto, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* --------------------------------------------------------------------------- 2. stock admin */
+
+body {
+  background: var(--md-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+#header {
+  background: var(--md-top-bar);
+  padding: 12px 32px;
+  box-shadow: var(--md-shadow-2);
+  position: relative;
+  z-index: 2;
+}
+
+.md-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.md-brand__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--md-on-top-bar);
+  color: var(--md-top-bar);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+#site-name a:link,
+#site-name a:visited {
+  color: var(--md-on-top-bar);
+}
+
+#user-tools a {
+  border-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+div.breadcrumbs {
+  padding: 12px 32px;
+  border-bottom: 1px solid var(--md-outline-variant);
+}
+
+div.breadcrumbs a {
+  font-weight: 500;
+}
+
+#content {
+  padding: 24px 32px;
+}
+
+#content h1 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--md-on-surface);
+  margin: 0 0 20px;
+}
+
+#content h2 {
+  font-weight: 500;
+}
+
+a:link,
+a:visited {
+  transition: color 0.15s;
+}
+
+/* Text fields: outlined, with a 2px primary ring on focus. */
+#content input[type="text"],
+#content input[type="password"],
+#content input[type="email"],
+#content input[type="url"],
+#content input[type="number"],
+#content input[type="tel"],
+#content input[type="search"],
+#content input[type="date"],
+#content input[type="time"],
+#content textarea,
+#content select,
+.login input[type="text"],
+.login input[type="password"] {
+  border: 1px solid var(--md-outline);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: var(--md-surface-lowest);
+  color: var(--md-on-surface);
+  font-size: 0.875rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#content select {
+  padding-right: 28px;
+}
+
+#content select[multiple] {
+  padding: 6px;
+}
+
+#content input:hover:not(:focus, [type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="file"]),
+#content textarea:hover:not(:focus),
+#content select:hover:not(:focus) {
+  border-color: var(--md-on-surface);
+}
+
+#content input:focus,
+#content textarea:focus,
+#content select:focus,
+.login input:focus {
+  outline: none;
+  border-color: var(--md-primary);
+  box-shadow: 0 0 0 1px var(--md-primary);
+}
+
+#content .errors input,
+#content .errors select,
+#content .errors textarea {
+  border-color: var(--md-error);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--md-primary);
+}
+
+/* Select2 (autocomplete fields) to match the outlined fields. */
+.select2-container--admin-autocomplete .select2-selection--single,
+.select2-container--admin-autocomplete .select2-selection--multiple {
+  border-color: var(--md-outline);
+  border-radius: 8px;
+  min-height: 38px;
+  background: var(--md-surface-lowest);
+}
+
+.select2-container--admin-autocomplete .select2-selection--single {
+  height: 38px;
+}
+
+.select2-container--admin-autocomplete .select2-selection--single .select2-selection__rendered {
+  line-height: 36px;
+  padding-left: 12px;
+  color: var(--md-on-surface);
+}
+
+.select2-container--admin-autocomplete .select2-selection--single .select2-selection__arrow {
+  height: 36px;
+}
+
+.select2-container--admin-autocomplete.select2-container--focus .select2-selection,
+.select2-container--admin-autocomplete.select2-container--open .select2-selection {
+  border-color: var(--md-primary);
+  box-shadow: 0 0 0 1px var(--md-primary);
+}
+
+.select2-container--admin-autocomplete .select2-dropdown {
+  border-color: var(--md-outline-variant);
+  border-radius: 8px;
+  box-shadow: var(--md-shadow-2);
+  overflow: hidden;
+}
+
+/* Buttons: filled for the main action, tonal for the rest, all fully rounded. */
+#content .button,
+#content input[type="submit"],
+#content input[type="button"],
+#content .submit-row input,
+#content a.button,
+#content button.button,
+.login .submit-row input {
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  line-height: 20px;
+  height: auto;
+  border: none;
+  text-transform: none;
+  transition: background-color 0.15s, box-shadow 0.15s, color 0.15s;
+}
+
+#content .button:hover,
+#content input[type="submit"]:hover,
+#content input[type="button"]:hover,
+#content a.button:hover {
+  box-shadow: var(--md-shadow);
+}
+
+#content input[type="submit"]:not(.default),
+#content input[type="button"],
+#content .submit-row a.button:not(.default),
+#content .actions button.button,
+#content a.button.cancel-link {
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+}
+
+#content input[type="submit"]:not(.default):hover,
+#content input[type="button"]:hover,
+#content .actions button.button:hover,
+#content a.button.cancel-link:hover {
+  background: var(--md-surface-high);
+}
+
+#content input[type="submit"].default,
+#content .submit-row input.default {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+}
+
+#content input[type="submit"].default:hover {
+  background: var(--md-primary-hover);
+}
+
+#content .submit-row a.deletelink {
+  border-radius: 999px;
+  padding: 10px 24px;
+  height: auto;
+  line-height: 20px;
+  background: var(--md-error-container);
+  color: var(--md-on-error-container);
+}
+
+#content .submit-row a.deletelink:hover {
+  background: var(--md-error);
+  color: #fff;
+}
+
+#content input[type="submit"]:focus-visible,
+#content input[type="button"]:focus-visible,
+#content a.button:focus-visible,
+#content button:focus-visible {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+.submit-row {
+  border: none;
+  border-radius: 16px;
+  background: var(--md-surface-low);
+  padding: 12px 16px;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Object tools (top right of a change form): tonal pills. */
+.object-tools a:link,
+.object-tools a:visited {
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  text-transform: none;
+}
+
+.object-tools a.addlink:link,
+.object-tools a.addlink:visited {
+  padding-right: 36px;
+  background-position: right 14px center;
+}
+
+/* Fieldsets and dashboard modules become cards. */
+#content .module,
+#content .inline-group {
+  border: none;
+  border-radius: 16px;
+  background: var(--md-surface-lowest);
+  box-shadow: var(--md-shadow);
+  margin-bottom: 24px;
+}
+
+#content .inline-group .module {
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+#content .module h2,
+#content .module caption,
+#content .inline-group h2 {
+  background: var(--md-surface-container);
+  color: var(--md-on-surface);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  text-transform: none;
+  padding: 12px 16px;
+  border-radius: 16px 16px 0 0;
+}
+
+#content .module caption a:link,
+#content .module caption a:visited,
+#content .module h2 a:link,
+#content .module h2 a:visited {
+  color: var(--md-on-surface);
+}
+
+#content .module > h2 + .description {
+  padding: 8px 16px 0;
+}
+
+.aligned .form-row,
+.form-row {
+  border-bottom-color: var(--md-surface-high);
+  padding: 12px 16px;
+}
+
+.aligned label {
+  color: var(--md-on-surface-variant);
+}
+
+.aligned label.required,
+.required {
+  color: var(--md-on-surface);
+}
+
+#content .help,
+#content p.help,
+#content div.help {
+  color: var(--md-on-surface-variant);
+  font-size: 0.75rem;
+}
+
+/* Inline tables: compact fields, and a wide table scrolls inside its card, not the page. */
+#content .inline-group h2 {
+  border: none;
+}
+
+#content .inline-related.tabular {
+  overflow-x: auto;
+  border-radius: 0 0 16px 16px;
+}
+
+#content .tabular input[type="text"],
+#content .tabular input[type="number"],
+#content .tabular input[type="email"],
+#content .tabular input[type="url"],
+#content .tabular select,
+#content .tabular textarea {
+  padding: 6px 8px;
+}
+
+/* Autocomplete pickers in table rows share the width instead of a fixed 280px each, so a row
+   of four place pickers (an exam's "Kimga") fits without scrolling sideways. */
+#content .tabular .select2-container {
+  width: 100% !important;
+  min-width: 160px;
+}
+
+#content .inline-group .tabular tr.add-row td,
+#content .inline-group div.add-row {
+  border-radius: 0 0 16px 16px;
+}
+
+/* Tables */
+#content table thead th,
+#content .tabular th {
+  background: var(--md-surface-low);
+  color: var(--md-on-surface-variant);
+  font-weight: 500;
+  text-transform: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+}
+
+#content tbody tr:hover td,
+#content tbody tr:hover th {
+  background: var(--md-surface-low);
+}
+
+#content tr.selected td,
+#content tr.selected th {
+  background: var(--md-primary-container);
+}
+
+/* Change list: the results and the filter panel are two cards side by side. */
+#content #changelist.module {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#changelist .actions {
+  box-sizing: border-box;
+  border-radius: 16px 16px 0 0;
+  background: var(--md-surface-low);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--md-outline-variant);
+}
+
+#changelist #toolbar {
+  background: transparent;
+  border: none;
+  padding: 16px 16px 12px;
+}
+
+#changelist #toolbar form input[type="submit"] {
+  padding: 8px 18px;
+}
+
+#changelist #toolbar #searchbar {
+  min-width: 260px;
+  height: auto;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+#changelist .actions select {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+#content #changelist .actions button.button {
+  padding: 6px 18px;
+}
+
+#changelist .results,
+#changelist .paginator {
+  background: var(--md-surface-lowest);
+}
+
+#changelist .changelist-form-container {
+  border-radius: 16px;
+  box-shadow: var(--md-shadow);
+  background: var(--md-surface-lowest);
+}
+
+#changelist .paginator {
+  border-radius: 0 0 16px 16px;
+  border-top: 1px solid var(--md-outline-variant);
+  padding: 12px 16px;
+}
+
+#changelist-filter {
+  border-radius: 16px;
+  box-shadow: var(--md-shadow);
+  background: var(--md-surface-lowest);
+  overflow: hidden;
+}
+
+#changelist-filter h2 {
+  background: var(--md-surface-container);
+  color: var(--md-on-surface);
+  font-weight: 500;
+  text-transform: none;
+}
+
+#changelist-filter li.selected a {
+  color: var(--md-primary);
+  font-weight: 500;
+}
+
+/* Messages and errors */
+ul.messagelist li {
+  border-radius: 12px;
+  margin: 0 32px 8px;
+  padding: 12px 16px 12px 48px;
+  background-position: 16px 50%;
+  color: var(--md-on-surface);
+  font-size: 0.875rem;
+  box-shadow: var(--md-shadow);
+}
+
+ul.messagelist {
+  padding-top: 16px;
+}
+
+ul.messagelist li.success {
+  color: var(--md-on-success-container);
+}
+
+ul.messagelist li.warning {
+  color: var(--md-on-warning-container);
+}
+
+ul.messagelist li.error {
+  color: var(--md-on-error-container);
+}
+
+#content .errornote {
+  border: none;
+  border-radius: 12px;
+  background: var(--md-error-container);
+  color: var(--md-on-error-container);
+  padding: 12px 16px;
+}
+
+#content ul.errorlist li {
+  border-radius: 8px;
+  background: var(--md-error-container);
+  color: var(--md-on-error-container);
+  padding: 6px 12px;
+}
+
+/* Sidebar */
+#nav-filter {
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: var(--md-surface-lowest);
+  color: var(--md-on-surface);
+}
+
+#nav-filter:focus {
+  outline: none;
+  border-color: var(--md-primary);
+  box-shadow: 0 0 0 1px var(--md-primary);
+}
+
+/* Login page */
+.login #container {
+  border-radius: 24px;
+  box-shadow: var(--md-shadow-3);
+  overflow: hidden;
+  border: none;
+}
+
+.login #header {
+  padding: 20px 24px;
+}
+
+/* --------------------------------------------------------------------------- 3. md-* components */
+
+.md-icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  vertical-align: middle;
+}
+
+.md-icon.sm {
+  width: 18px;
+  height: 18px;
+}
+
+.md-icon.lg {
+  width: 40px;
+  height: 40px;
+}
+
+.md-page {
+  max-width: 1080px;
+  display: grid;
+  gap: 20px;
+}
+
+.md-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.md-grid--split {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: start;
+}
+
+.md-card {
+  background: var(--md-surface-lowest);
+  border-radius: 16px;
+  box-shadow: var(--md-shadow);
+  padding: 24px;
+  color: var(--md-on-surface);
+}
+
+.md-card--tonal {
+  background: var(--md-surface-container);
+  box-shadow: none;
+}
+
+.md-card--flush {
+  padding: 0;
+  overflow: hidden;
+}
+
+.md-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.md-card--flush .md-card__header {
+  padding: 16px 20px 0;
+  margin-bottom: 12px;
+}
+
+#content .md-card__title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--md-on-surface);
+  background: none;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.md-card__subtitle {
+  margin: 2px 0 0;
+  font-size: 0.8125rem;
+  color: var(--md-on-surface-variant);
+}
+
+.md-avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  flex: none;
+}
+
+.md-avatar--warning {
+  background: var(--md-warning-container);
+  color: var(--md-on-warning-container);
+}
+
+.md-avatar--error {
+  background: var(--md-error-container);
+  color: var(--md-on-error-container);
+}
+
+.md-text {
+  margin: 0 0 12px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--md-on-surface-variant);
+}
+
+.md-text b,
+.md-text strong {
+  color: var(--md-on-surface);
+}
+
+#content .md-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+#content .md-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--md-on-surface-variant);
+  padding: 0;
+  list-style: none;
+}
+
+#content .md-list li b {
+  color: var(--md-on-surface);
+}
+
+.md-list .md-icon {
+  color: var(--md-primary);
+  margin-top: 1px;
+}
+
+#content .md-list code,
+.md-text code {
+  background: var(--md-surface-high);
+  color: var(--md-on-surface);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 0.8125rem;
+}
+
+/* Banners */
+.md-banner {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+.md-banner p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.md-banner p + p {
+  margin-top: 4px;
+}
+
+.md-banner--warning {
+  background: var(--md-warning-container);
+  color: var(--md-on-warning-container);
+}
+
+.md-banner--error {
+  background: var(--md-error-container);
+  color: var(--md-on-error-container);
+}
+
+.md-banner--success {
+  background: var(--md-success-container);
+  color: var(--md-on-success-container);
+}
+
+/* Stepper */
+#content .md-steps {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#content .md-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--md-on-surface-variant);
+}
+
+.md-steps li + li::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--md-outline-variant);
+  margin-right: 0;
+}
+
+.md-steps__num {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--md-outline);
+  font-size: 0.8125rem;
+}
+
+.md-steps li.is-active {
+  color: var(--md-on-surface);
+}
+
+.md-steps li.is-active .md-steps__num {
+  background: var(--md-primary);
+  border-color: var(--md-primary);
+  color: var(--md-on-primary);
+}
+
+.md-steps li.is-done .md-steps__num {
+  background: var(--md-primary-container);
+  border-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+.md-steps li.is-failed .md-steps__num {
+  background: var(--md-error);
+  border-color: var(--md-error);
+  color: #fff;
+}
+
+/* Buttons for our pages (links and inputs look the same) */
+#content .md-btn,
+#content input.md-btn,
+#content a.md-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 24px;
+  min-height: 40px;
+  font: 500 0.875rem/20px var(--font-family-primary);
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  transition: background-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
+}
+
+#content .md-btn:hover {
+  background: var(--md-primary-hover);
+  box-shadow: var(--md-shadow);
+}
+
+#content .md-btn--tonal,
+#content a.md-btn--tonal {
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+}
+
+#content .md-btn--tonal:hover {
+  background: var(--md-surface-high);
+}
+
+#content .md-btn--text,
+#content a.md-btn--text {
+  background: transparent;
+  color: var(--md-primary);
+  padding: 10px 12px;
+}
+
+#content .md-btn--text:hover {
+  background: var(--md-primary-container);
+  box-shadow: none;
+}
+
+#content .md-btn--danger {
+  background: var(--md-error);
+  color: #fff;
+}
+
+#content .md-btn--danger:hover {
+  background: #93000a;
+}
+
+#content .md-btn .md-icon {
+  width: 18px;
+  height: 18px;
+}
+
+#content .md-btn.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+#content .md-btn.is-loading::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: md-spin 0.7s linear infinite;
+}
+
+@keyframes md-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.md-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.md-actions--end {
+  justify-content: flex-end;
+}
+
+.md-actionbar {
+  position: sticky;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--md-surface-lowest);
+  border-radius: 16px;
+  box-shadow: var(--md-shadow-3);
+  padding: 12px 16px 12px 20px;
+}
+
+.md-actionbar__text {
+  font-size: 0.875rem;
+  color: var(--md-on-surface-variant);
+}
+
+.md-actionbar__text b {
+  color: var(--md-on-surface);
+}
+
+/* File drop zone: the real <input type=file> covers the whole box, so drag and drop just work. */
+.md-dropzone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 180px;
+  padding: 24px;
+  border: 2px dashed var(--md-outline-variant);
+  border-radius: 16px;
+  background: var(--md-surface-low);
+  text-align: center;
+  color: var(--md-on-surface-variant);
+  transition: border-color 0.15s, background-color 0.15s;
+  cursor: pointer;
+}
+
+.md-dropzone:hover,
+.md-dropzone.is-dragging {
+  border-color: var(--md-primary);
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+.md-dropzone:focus-within {
+  border-color: var(--md-primary);
+  border-style: solid;
+}
+
+.md-dropzone.has-file {
+  border-style: solid;
+  border-color: var(--md-primary);
+  background: var(--md-surface-lowest);
+}
+
+.md-dropzone.has-error {
+  border-color: var(--md-error);
+}
+
+#content .md-dropzone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+}
+
+.md-dropzone .md-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--md-primary);
+}
+
+.md-dropzone__title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--md-on-surface);
+  overflow-wrap: anywhere;
+}
+
+.md-dropzone__title u {
+  color: var(--md-primary);
+  text-underline-offset: 3px;
+}
+
+.md-dropzone__hint {
+  font-size: 0.8125rem;
+}
+
+/* Switch: a styled checkbox, so the form posts exactly what it did before. */
+.md-switch {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--md-surface-low);
+  cursor: pointer;
+}
+
+#content .md-switch input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  flex: none;
+  width: 52px;
+  height: 32px;
+  margin: 0;
+  border-radius: 999px;
+  border: 2px solid var(--md-outline);
+  background: var(--md-surface-high);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+#content .md-switch input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--md-outline);
+  transform: translateY(-50%);
+  transition: left 0.2s, width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+#content .md-switch input[type="checkbox"]:checked {
+  background: var(--md-primary);
+  border-color: var(--md-primary);
+}
+
+#content .md-switch input[type="checkbox"]:checked::before {
+  left: 22px;
+  width: 24px;
+  height: 24px;
+  background: var(--md-on-primary);
+}
+
+#content .md-switch input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+.md-switch__text {
+  display: grid;
+  gap: 2px;
+  font-size: 0.875rem;
+  color: var(--md-on-surface);
+}
+
+.md-switch__text small {
+  font-size: 0.8125rem;
+  color: var(--md-on-surface-variant);
+  line-height: 1.5;
+}
+
+/* Chips (filter-chip radios) and plain label chips */
+.md-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.md-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 14px;
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--md-on-surface-variant);
+  background: var(--md-surface-lowest);
+  box-sizing: border-box;
+}
+
+.md-chip--accent {
+  border-color: transparent;
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+.md-chip small {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+label.md-chip {
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+label.md-chip:hover {
+  background: var(--md-surface-low);
+}
+
+#content label.md-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+label.md-chip:has(input:checked) {
+  border-color: transparent;
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+}
+
+label.md-chip:has(input:checked)::before {
+  content: "";
+  width: 12px;
+  height: 7px;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg) translate(1px, -2px);
+}
+
+label.md-chip:has(input:focus-visible) {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+/* Choice cards (radio) */
+.md-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.md-choice {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 12px;
+  cursor: pointer;
+  background: var(--md-surface-lowest);
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.md-choice:hover {
+  background: var(--md-surface-low);
+}
+
+#content .md-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.md-choice:has(input:checked) {
+  border: 2px solid var(--md-primary);
+  padding: 15px;
+  background: var(--md-primary-container);
+}
+
+.md-choice:has(input:focus-visible) {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+.md-choice .md-icon {
+  color: var(--md-primary);
+}
+
+.md-choice__text {
+  display: grid;
+  gap: 2px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--md-on-surface);
+}
+
+.md-choice__text small {
+  font-weight: 400;
+  color: var(--md-on-surface-variant);
+  line-height: 1.45;
+}
+
+.md-field {
+  display: grid;
+  gap: 10px;
+}
+
+.md-field + .md-field {
+  margin-top: 24px;
+}
+
+.md-field__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--md-on-surface);
+}
+
+.md-field__help {
+  font-size: 0.75rem;
+  color: var(--md-on-surface-variant);
+}
+
+/* Stats */
+.md-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.md-stat {
+  display: grid;
+  gap: 4px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: var(--md-surface-lowest);
+  box-shadow: var(--md-shadow);
+  position: relative;
+  overflow: hidden;
+  --md-stat-accent: var(--md-outline-variant);
+}
+
+/* A straight coloured strip on top (a border-top would bend with the rounded corners). */
+.md-stat::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--md-stat-accent);
+}
+
+.md-stat__value {
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--md-on-surface);
+  font-variant-numeric: tabular-nums;
+}
+
+.md-stat__label {
+  font-size: 0.8125rem;
+  color: var(--md-on-surface-variant);
+}
+
+.md-stat--primary {
+  --md-stat-accent: var(--md-primary);
+}
+
+.md-stat--warning {
+  --md-stat-accent: var(--md-warning);
+}
+
+.md-stat--success {
+  --md-stat-accent: var(--md-success);
+}
+
+.md-stat--error {
+  --md-stat-accent: var(--md-error);
+}
+
+/* Tables inside cards */
+#content .md-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+#content .md-table th,
+#content .md-table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--md-surface-high);
+  text-align: left;
+  vertical-align: middle;
+  color: var(--md-on-surface);
+}
+
+#content .md-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--md-surface-low);
+  color: var(--md-on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+#content .md-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#content .md-table .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#content .md-table .muted {
+  color: var(--md-on-surface-variant);
+  width: 72px;
+}
+
+.md-table-scroll {
+  max-height: 480px;
+  overflow: auto;
+}
+
+.md-foot {
+  padding: 12px 20px;
+  font-size: 0.8125rem;
+  color: var(--md-on-surface-variant);
+  border-top: 1px solid var(--md-surface-high);
+}
+
+.md-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.md-flow .md-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--md-on-surface-variant);
+}
+
+.md-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.md-hero__value {
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--md-on-surface);
+}
+
+.md-hero__label {
+  font-size: 0.875rem;
+  color: var(--md-on-surface-variant);
+}
+
+@media (max-width: 1024px) {
+  .md-grid--split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  #header,
+  div.breadcrumbs,
+  #content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  ul.messagelist li {
+    margin: 0 16px 8px;
+  }
+
+  .md-card {
+    padding: 16px;
+  }
+
+  .md-actionbar {
+    bottom: 8px;
+  }
+
+  #content .md-actionbar .md-btn {
+    flex: 1 1 auto;
+  }
+}

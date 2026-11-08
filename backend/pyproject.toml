@@ -1,0 +1,16 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.test_settings"
+testpaths = ["tests"]
+filterwarnings = [
+    # Harmless in tests: collectstatic hasn't run, and the admin's URL form field default changes in 6.0.
+    "ignore:No directory at:UserWarning",
+    "ignore:The default scheme will be changed:django.utils.deprecation.RemovedInDjango60Warning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "DJ"]

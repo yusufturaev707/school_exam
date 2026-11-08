@@ -1,0 +1,47 @@
+{
+  "name": "bilimdon-exam",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:mock": "vite --mode mock",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "mock:api": "postman mock run postman/mocks/bilimdon-api/config.yaml --port 8000",
+    "mock:api:node": "node postman/mocks/bilimdon-api/default.js",
+    "mock:data": "node scripts/export-mock-questions.mjs",
+    "premock:api": "node scripts/export-mock-questions.mjs",
+    "premock:api:node": "node scripts/export-mock-questions.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@hookform/resolvers": "^7.0.2",
+    "@tanstack/react-query": "^5.106.0",
+    "axios": "^1.21.0",
+    "dayjs": "^1.11.23",
+    "jsqr": "^1.4.0",
+    "katex": "^0.19.1",
+    "lucide-react": "^1.69.0",
+    "motion": "^14.9.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-hook-form": "^7.91.0",
+    "react-router": "^7.18.5",
+    "zod": "^4.6.7",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.4",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "tailwindcss": "^4.3.4",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  }
+}

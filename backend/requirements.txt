@@ -1,0 +1,12 @@
+Django~=5.2.0
+djangorestframework~=3.16.0
+django-environ~=0.12.0
+psycopg[binary]~=3.2
+redis>=5,<7
+whitenoise~=6.9
+gunicorn~=23.0
+django-ckeditor-5~=0.2.20
+nh3~=0.3
+pillow>=11,<14
+openpyxl~=3.1.5
+segno~=1.6.6

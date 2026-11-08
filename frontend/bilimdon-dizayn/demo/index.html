@@ -1,0 +1,728 @@
+<title>Bilimdon demo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap">
+<style>
+/* Maket: chapda ekranlar roʻyxati, markazda bosiladigan telefon (yoki kompyuter) koʻrinishi; telefon kengligida — toʻliq ekran ilova. */
+:root{--bg:#f4f7f2;--bg-tint:#eaf0ea;--card:#ffffff;--card-cream:#fffcf5;--line:#e2e9e4;--ink:#11302a;--ink-2:#4a5f59;--ink-3:#5d706a;--brand:#1f6f5f;--brand-strong:#165447;--brand-soft:#e0f2eb;--brand-ink:#17604f;--on-brand:#ffffff;--hero:#1f6f5f;--hero-strong:#185b4e;--on-hero:#ffffff;--sun:#ffc94a;--on-sun:#3b2a00;--math:#5b5bd6;--math-soft:#ededfc;--math-ink:#4343b8;--logic:#b36b00;--logic-soft:#fff1d6;--logic-ink:#8a5100;--lang:#d23f78;--lang-soft:#fde8f0;--lang-ink:#a82a5c;--memory:#7c4ddb;--memory-soft:#f1eafe;--memory-ink:#6236bf;--attn:#2575c9;--attn-soft:#e3effb;--attn-ink:#1c5fa6;--spatial:#16895a;--spatial-soft:#e0f4ea;--spatial-ink:#11704a;--streak:#e8590c;--streak-soft:#ffebdd;--streak-ink:#b0430a;--star:#f2b200;--star-soft:#fff5d1;--star-ink:#7e5c00;--success:#138a55;--success-soft:#ddf5e8;--success-ink:#0e6b42;--danger:#d03b32;--danger-soft:#fde6e4;--danger-ink:#a8291f;--focus:#1d5fd1;--shadow-sm:0 1px 2px rgba(17,48,42,0.06), 0 2px 8px rgba(17,48,42,0.05);--shadow-md:0 1px 2px rgba(17,48,42,0.06), 0 6px 16px rgba(17,48,42,0.08), 0 12px 32px rgba(17,48,42,0.05);--shadow-press:0 4px 0 #165447;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-10:40px;--radius-sm:10px;--radius-md:14px;--radius-lg:18px;--radius-xl:22px;--radius-full:999px;--hit-min:44px;--control-lg:48px;--control-md:40px;--control-sm:28px;--icon-md:20px;--icon-lg:22px;--header-h:56px;--nav-h:60px;--font-sans:Nunito, "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;--frame:#0d1a17;--stage:#e7eee8;--stage-ink:#11302a;--stage-2:#4a5f59}@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1714;--bg-tint:#15201c;--card:#16221e;--card-cream:#1a2823;--line:#26362f;--ink:#e8f2ee;--ink-2:#a9bcb5;--ink-3:#8fa49c;--brand:#3db596;--brand-strong:#2a8a72;--brand-soft:#183a31;--brand-ink:#6fd3b7;--on-brand:#06231c;--hero:#1b4a40;--hero-strong:#143a32;--on-hero:#f1fbf7;--sun:#ffd166;--on-sun:#3b2a00;--math:#a3a3ff;--math-soft:#24264a;--math-ink:#bdbdff;--logic:#f5b547;--logic-soft:#3a2d14;--logic-ink:#ffcf7a;--lang:#ff8db8;--lang-soft:#3c1d2a;--lang-ink:#ffadcb;--memory:#b99bff;--memory-soft:#2c2147;--memory-ink:#cdb7ff;--attn:#7db8ff;--attn-soft:#172c45;--attn-ink:#a5ceff;--spatial:#5fd3a1;--spatial-soft:#143528;--spatial-ink:#86e3ba;--streak:#ff8a4c;--streak-soft:#3a2214;--streak-ink:#ffaa7a;--star:#ffcb3d;--star-soft:#3a3014;--star-ink:#ffd86b;--success:#4cd38e;--success-soft:#123323;--success-ink:#7fe3b0;--danger:#ff7a70;--danger-soft:#3d1a18;--danger-ink:#ffa39b;--focus:#8ab4ff;--shadow-sm:0 1px 2px rgba(0,0,0,0.4);--shadow-md:0 2px 4px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);--shadow-press:0 4px 0 #2a8a72;--stage:#0a1210;--stage-ink:#e8f2ee;--stage-2:#a9bcb5;color-scheme:dark}}:root[data-theme="dark"]{--bg:#0e1714;--bg-tint:#15201c;--card:#16221e;--card-cream:#1a2823;--line:#26362f;--ink:#e8f2ee;--ink-2:#a9bcb5;--ink-3:#8fa49c;--brand:#3db596;--brand-strong:#2a8a72;--brand-soft:#183a31;--brand-ink:#6fd3b7;--on-brand:#06231c;--hero:#1b4a40;--hero-strong:#143a32;--on-hero:#f1fbf7;--sun:#ffd166;--on-sun:#3b2a00;--math:#a3a3ff;--math-soft:#24264a;--math-ink:#bdbdff;--logic:#f5b547;--logic-soft:#3a2d14;--logic-ink:#ffcf7a;--lang:#ff8db8;--lang-soft:#3c1d2a;--lang-ink:#ffadcb;--memory:#b99bff;--memory-soft:#2c2147;--memory-ink:#cdb7ff;--attn:#7db8ff;--attn-soft:#172c45;--attn-ink:#a5ceff;--spatial:#5fd3a1;--spatial-soft:#143528;--spatial-ink:#86e3ba;--streak:#ff8a4c;--streak-soft:#3a2214;--streak-ink:#ffaa7a;--star:#ffcb3d;--star-soft:#3a3014;--star-ink:#ffd86b;--success:#4cd38e;--success-soft:#123323;--success-ink:#7fe3b0;--danger:#ff7a70;--danger-soft:#3d1a18;--danger-ink:#ffa39b;--focus:#8ab4ff;--shadow-sm:0 1px 2px rgba(0,0,0,0.4);--shadow-md:0 2px 4px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);--shadow-press:0 4px 0 #2a8a72;--stage:#0a1210;--stage-ink:#e8f2ee;--stage-2:#a9bcb5;color-scheme:dark}
+html, body { height: 100%; }
+body { margin: 0; background: var(--stage); color: var(--stage-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+/* ===== Asos ===== */
+.bd, .bd *, .bd *::before, .bd *::after { box-sizing: border-box; }
+.bd { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 500; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.bd p { margin: 0; }
+.bd [data-theme], .bd-phone { color: var(--ink); }
+.bd h1, .bd h2, .bd h3 { margin: 0; }
+.bd button { font-family: inherit; }
+.bd [data-ico] { display: inline-flex; flex: none; line-height: 0; }
+.bd .bd-svg { display: block; }
+.bd :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.t-display { font-size: 32px; line-height: 38px; font-weight: 900; letter-spacing: -.02em; }
+.t-hero { font-size: 22px; line-height: 28px; font-weight: 800; letter-spacing: -.01em; }
+.t-h2 { font-size: 18px; line-height: 24px; font-weight: 800; }
+.t-h3 { font-size: 15px; line-height: 20px; font-weight: 800; }
+.t-body { font-size: 15px; line-height: 22px; font-weight: 500; }
+.t-sm { font-size: 13px; line-height: 18px; font-weight: 600; }
+.t-xs { font-size: 12px; line-height: 16px; font-weight: 700; }
+.t-over { font-size: 11px; line-height: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.t-stat { font-size: 22px; line-height: 26px; font-weight: 900; }
+.muted { color: var(--ink-2); }
+.faint { color: var(--ink-3); }
+
+/* Rang toʻplamlari: bitta klass --c / --cs / --ci ni oʻrnatadi */
+.is-brand { --c: var(--brand); --cs: var(--brand-soft); --ci: var(--brand-ink); }
+.is-math { --c: var(--math); --cs: var(--math-soft); --ci: var(--math-ink); }
+.is-logic { --c: var(--logic); --cs: var(--logic-soft); --ci: var(--logic-ink); }
+.is-lang { --c: var(--lang); --cs: var(--lang-soft); --ci: var(--lang-ink); }
+.is-memory { --c: var(--memory); --cs: var(--memory-soft); --ci: var(--memory-ink); }
+.is-attn { --c: var(--attn); --cs: var(--attn-soft); --ci: var(--attn-ink); }
+.is-spatial { --c: var(--spatial); --cs: var(--spatial-soft); --ci: var(--spatial-ink); }
+.is-streak { --c: var(--streak); --cs: var(--streak-soft); --ci: var(--streak-ink); }
+.is-star { --c: var(--star); --cs: var(--star-soft); --ci: var(--star-ink); }
+
+/* ===== Layout yordamchilari ===== */
+.row { display: flex; align-items: center; gap: 8px; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; min-width: 0; }
+.stack-3 > * + * { margin-top: 12px; }
+.sec { margin-top: 24px; }
+.sec-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.link { display: inline-flex; align-items: center; gap: 2px; min-height: 44px; margin: -12px 0; font-size: 13px; font-weight: 800; color: var(--brand-ink); text-decoration: none; }
+.link [data-ico] { width: 16px; }
+
+/* ===== Ikonka plitasi ===== */
+.bd-tile { width: 32px; height: 32px; border-radius: var(--radius-sm); display: grid; place-items: center; flex: none; background: var(--cs, var(--brand-soft)); color: var(--c, var(--brand)); }
+.bd-tile--lg { width: 40px; height: 40px; border-radius: 12px; }
+
+/* ===== Tugma ===== */
+.bd-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: var(--control-md); padding: 0 16px; border: 0; border-radius: var(--radius-md); font: 800 15px/1 var(--font-sans); cursor: pointer; text-decoration: none; white-space: nowrap; transition: transform .12s ease, box-shadow .12s ease, background-color .15s; -webkit-tap-highlight-color: transparent; }
+.bd-btn::after { content: ""; position: absolute; inset: -4px 0; } /* hit-area ≥ 44px */
+.bd-btn:active { transform: scale(.97); }
+.bd-btn--primary { height: var(--control-lg); padding: 0 20px; background: var(--brand); color: var(--on-brand); box-shadow: var(--shadow-press); margin-bottom: 4px; }
+.bd-btn--primary:active { transform: translateY(3px) scale(.98); box-shadow: 0 1px 0 var(--brand-strong); }
+.bd-btn--light { height: var(--control-lg); padding: 0 20px; background: #fff; color: #17604f; box-shadow: 0 4px 0 rgba(0, 0, 0, .22); margin-bottom: 4px; }
+.bd-btn--light:active { transform: translateY(3px) scale(.98); box-shadow: 0 1px 0 rgba(0, 0, 0, .22); }
+.bd-btn--secondary { background: var(--brand-soft); color: var(--brand-ink); }
+.bd-btn--ghost { background: transparent; color: var(--brand-ink); padding: 0 8px; }
+.bd-btn--block { width: 100%; }
+.bd-btn[disabled] { background: var(--bg-tint); color: var(--ink-3); box-shadow: none; cursor: not-allowed; }
+.bd-iconbtn { position: relative; width: 36px; height: 36px; border-radius: 12px; border: 0; display: grid; place-items: center; background: transparent; color: var(--ink); cursor: pointer; }
+.bd-iconbtn::after { content: ""; position: absolute; inset: -4px; }
+.bd-iconbtn--soft { background: var(--card); box-shadow: var(--shadow-sm); }
+
+/* ===== Chip ===== */
+.bd-chip { position: relative; display: inline-flex; align-items: center; gap: 4px; height: var(--control-sm); padding: 0 10px; border-radius: var(--radius-full); font-size: 13px; line-height: 1; font-weight: 800; background: var(--card); color: var(--ink); white-space: nowrap; }
+.bd-chip [data-ico] { width: 16px; }
+.bd-chip--stat { background: var(--cs); color: var(--ci); }
+.bd-chip--stat [data-ico] { color: var(--c); }
+.bd-chip--glass { background: rgba(255, 255, 255, .16); color: var(--on-hero); font-weight: 700; }
+.bd-chip--status { height: 24px; padding: 0 8px; font-size: 12px; background: var(--sun); color: var(--on-sun); }
+.bd-chip--soft { background: var(--cs, var(--bg-tint)); color: var(--ci, var(--ink-2)); }
+.bd-chip--filter { height: 36px; padding: 0 14px; background: var(--card); color: var(--ink-2); box-shadow: inset 0 0 0 1.5px var(--line); }
+.bd-chip--filter::after { content: ""; position: absolute; inset: -4px 0; }
+.bd-chip--filter.is-on { background: var(--brand-soft); color: var(--brand-ink); box-shadow: inset 0 0 0 1.5px var(--brand); }
+
+/* ===== Karta ===== */
+.bd-card { background: var(--card); border-radius: var(--radius-lg); padding: 12px 16px; box-shadow: var(--shadow-sm); }
+.bd-card--cream { background: var(--card-cream); }
+.bd-card--flat { box-shadow: inset 0 0 0 1px var(--line); }
+.bd-tap { cursor: pointer; transition: transform .12s ease; }
+.bd-tap:active { transform: scale(.98); }
+.bd-rowcard { display: flex; align-items: center; gap: 12px; min-height: 56px; }
+.bd-list > * + * { border-top: 1px solid var(--line); }
+.bd-list > * { padding: 10px 0; }
+
+/* ===== Fan kartasi (3 ustun) ===== */
+.bd-subjects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.bd-subj { display: flex; flex-direction: column; gap: 6px; padding: 12px 10px 10px; min-height: 104px; background: var(--card); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.bd-subj__name { font-size: 14px; line-height: 18px; font-weight: 800; color: var(--ink); margin-top: 2px; }
+.bd-subj__meta { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--ink-2); }
+.bd-subj .bd-bar { margin-top: auto; }
+
+/* ===== Progress ===== */
+.bd-bar { height: 6px; border-radius: var(--radius-full); background: var(--line); overflow: hidden; }
+.bd-bar > i { display: block; height: 100%; width: calc(var(--p, 0) * 1%); border-radius: inherit; background: var(--c, var(--brand)); }
+.bd-ring { --s: 40px; width: var(--s); height: var(--s); border-radius: 50%; flex: none; display: grid; place-items: center; position: relative; background: conic-gradient(var(--c, var(--brand)) calc(var(--p, 0) * 1%), var(--line) 0); }
+.bd-ring::before { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--card); }
+.bd-ring > * { position: relative; font-size: 11px; font-weight: 900; color: var(--ink); }
+.bd-ring--lg { --s: 64px; }
+.bd-ring--lg::before { inset: 7px; }
+.bd-ring--lg > * { font-size: 15px; }
+.bd-ring--hero { background: conic-gradient(var(--sun) calc(var(--p, 0) * 1%), rgba(255, 255, 255, .2) 0); }
+.bd-ring--hero::before { background: var(--hero); }
+.bd-ring--hero > * { color: var(--on-hero); }
+
+/* ===== Nishon ===== */
+.bd-badges { display: flex; justify-content: space-between; }
+.bd-badge { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 72px; text-align: center; }
+.bd-badge__disc { position: relative; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--cs); color: var(--c); box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .07), 0 0 0 3px var(--card), 0 0 0 4.5px var(--cs); }
+.bd-badge__disc [data-ico] { width: 24px; }
+.bd-badge__name { font-size: 11px; line-height: 14px; font-weight: 800; color: var(--ink); }
+.bd-badge.is-locked .bd-badge__disc { background: var(--bg-tint); color: var(--ink-3); box-shadow: inset 0 0 0 1.5px var(--line); }
+.bd-badge.is-locked .bd-badge__name { color: var(--ink-3); }
+.bd-badge__lock { position: absolute; right: -2px; bottom: -2px; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; background: var(--card); color: var(--ink-3); box-shadow: var(--shadow-sm); }
+.bd-badge__lock [data-ico] { width: 12px; }
+.bd-badgegrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.bd-badgegrid .bd-badge { width: auto; background: var(--card); border-radius: var(--radius-lg); padding: 14px 6px 10px; box-shadow: var(--shadow-sm); }
+.bd-badgegrid .bd-badge.is-locked { background: transparent; box-shadow: inset 0 0 0 1.5px var(--line); }
+
+/* ===== Header ===== */
+.bd-head { height: var(--header-h); display: flex; align-items: center; gap: 10px; padding: 0 16px; }
+.bd-avatar { width: 36px; height: 36px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--brand); color: var(--on-brand); font-size: 13px; font-weight: 900; box-shadow: 0 0 0 2px var(--card), 0 0 0 3.5px var(--brand-soft); }
+.bd-head__hi { font-size: 17px; line-height: 22px; font-weight: 800; white-space: nowrap; }
+.bd-head__sub { font-size: 12px; line-height: 14px; font-weight: 700; color: var(--ink-3); }
+.bd-topbar { height: 52px; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 4px; }
+.bd-topbar__title { font-size: 16px; font-weight: 800; }
+
+/* ===== Asosiy blok (imtihon) ===== */
+.bd-hero { position: relative; overflow: hidden; border-radius: var(--radius-xl); padding: 16px; background: var(--hero); color: var(--on-hero); box-shadow: var(--shadow-md); }
+.bd-hero::before { content: ""; position: absolute; inset: 0; opacity: .09; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-12l7 9-7 9h12'/%3E%3Cpath d='M58 56h6a3 3 0 1 1 5 0h6v6a3 3 0 1 1 0 5v6h-6a3 3 0 1 0-5 0h-6z'/%3E%3C/g%3E%3Ctext x='60' y='30' font-family='Arial' font-weight='700' font-size='20' fill='%23fff'%3EAa%3C/text%3E%3Ctext x='10' y='78' font-family='Arial' font-weight='700' font-size='20' fill='%23fff'%3E%3F%3C/text%3E%3C/svg%3E");
+  background-size: 96px 96px; background-position: 8px 8px; }
+.bd-hero > * { position: relative; }
+.bd-hero__title { margin-top: 8px; max-width: 220px; }
+.bd-hero__meta { display: flex; gap: 6px; margin-top: 10px; }
+.bd-hero__cta { margin-top: 16px; }
+.bd-hero__mascot { position: absolute; right: 4px; bottom: 6px; pointer-events: none; }
+.bd-hero__mascot::before { content: ""; position: absolute; left: 8%; right: 0; top: 18%; bottom: 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 255, 255, .22), rgba(255, 255, 255, 0)); }
+.bd-hero__mascot > * { position: relative; }
+.bd-hero__score { display: flex; align-items: center; gap: 12px; margin-top: 10px; }
+
+/* ===== Kunlik missiya ===== */
+.bd-mission { display: flex; align-items: center; gap: 12px; padding: 10px 12px; min-height: 64px; }
+.bd-mission__title { font-size: 15px; line-height: 20px; font-weight: 800; }
+.bd-mission__sub { font-size: 12px; line-height: 16px; font-weight: 700; color: var(--ink-2); }
+
+/* ===== Savol / javoblar ===== */
+.bd-answers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bd-answer { position: relative; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; padding: 8px; border: 0; border-radius: var(--radius-md); background: var(--card); color: var(--ink); font: 800 17px/1 var(--font-sans); box-shadow: inset 0 0 0 1.5px var(--line), 0 3px 0 var(--line); cursor: pointer; transition: transform .12s; }
+.bd-answer:active { transform: translateY(2px); box-shadow: inset 0 0 0 1.5px var(--line), 0 1px 0 var(--line); }
+.bd-answer.is-right { background: var(--success-soft); color: var(--success-ink); box-shadow: inset 0 0 0 2px var(--success), 0 3px 0 var(--success); }
+.bd-answer.is-wrong { background: var(--danger-soft); color: var(--danger-ink); box-shadow: inset 0 0 0 2px var(--danger), 0 3px 0 var(--danger); }
+.bd-answer--lg { min-height: 72px; font-size: 24px; }
+.bd-answer [data-ico] { width: 18px; }
+
+/* ===== Oʻyin kartasi ===== */
+.bd-game { display: flex; gap: 12px; align-items: center; }
+.bd-game__art { width: 64px; height: 64px; border-radius: 14px; flex: none; display: grid; place-items: center; background: var(--cs); color: var(--c); }
+.bd-game.is-soon { opacity: .62; }
+.bd-dirs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.bd-dir { display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: var(--radius-lg); background: var(--cs); min-height: 84px; }
+.bd-dir__name { font-size: 13px; line-height: 16px; font-weight: 800; color: var(--ci); }
+.bd-dir__meta { font-size: 11px; line-height: 14px; font-weight: 700; color: var(--ci); opacity: .85; }
+.bd-dir .bd-tile { background: var(--card); width: 28px; height: 28px; border-radius: 9px; }
+
+/* ===== Stat plita ===== */
+.bd-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.bd-stat { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; background: var(--card); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.bd-stat__top { display: flex; align-items: center; gap: 4px; color: var(--c, var(--brand)); }
+.bd-stat__top [data-ico] { width: 18px; }
+.bd-stat__label { font-size: 12px; line-height: 16px; font-weight: 700; color: var(--ink-2); }
+
+/* ===== Segment (daraja) ===== */
+.bd-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: 16px; background: var(--bg-tint); }
+.bd-seg button { position: relative; height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--ink-2); font: 800 13px/1 var(--font-sans); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; cursor: pointer; }
+.bd-seg button.is-on { background: var(--card); color: var(--brand-ink); box-shadow: var(--shadow-sm); }
+.bd-dots { display: inline-flex; gap: 3px; }
+.bd-dots i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .3; }
+.bd-dots i.on { opacity: 1; }
+
+/* ===== Pastki navigatsiya ===== */
+.bd-nav { position: absolute; left: 0; right: 0; bottom: 0; z-index: 5; display: grid; grid-template-columns: repeat(5, 1fr); height: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px)); padding: 4px 4px env(safe-area-inset-bottom, 0px); background: var(--card); box-shadow: 0 -1px 0 var(--line), 0 -8px 24px rgba(17, 48, 42, .05); }
+.bd-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 52px; color: var(--ink-3); text-decoration: none; font-size: 11px; line-height: 14px; font-weight: 700; }
+.bd-nav__pill { width: 52px; height: 28px; border-radius: var(--radius-full); display: grid; place-items: center; transition: background-color .2s; }
+.bd-nav a.is-on { color: var(--brand-ink); font-weight: 800; }
+.bd-nav a.is-on .bd-nav__pill { background: var(--brand-soft); }
+.bd-nav__home { position: absolute; left: 50%; bottom: 6px; width: 120px; height: 4px; margin-left: -60px; border-radius: 4px; background: var(--ink); opacity: .85; }
+.bd-sticky { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: var(--card); box-shadow: 0 -1px 0 var(--line), 0 -8px 24px rgba(17, 48, 42, .06); }
+
+/* ===== Nutq pufagi (maskot gapi) ===== */
+.bd-bubble { position: relative; padding: 8px 12px; border-radius: 14px; background: var(--card); box-shadow: var(--shadow-sm); font-size: 13px; line-height: 18px; font-weight: 800; }
+.bd-bubble::before { content: ""; position: absolute; left: -6px; bottom: 12px; width: 12px; height: 12px; background: inherit; transform: rotate(45deg); border-radius: 2px; }
+
+/* ===== Telefon / kompyuter ramkalari (faqat koʻrsatish uchun) ===== */
+.bd-screens { display: flex; gap: 32px; align-items: flex-start; padding: 24px; background: var(--bg-tint); }
+.bd-screens__cap { font-size: 12px; font-weight: 800; color: var(--ink-2); margin: 0 0 18px 4px; }
+.bd-phone { position: relative; width: 360px; min-height: 800px; overflow: hidden; border-radius: 32px; background: var(--bg); box-shadow: 0 0 0 8px #0d1a17, 0 20px 50px rgba(0, 0, 0, .18); }
+.bd-phone__status { height: 28px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; font-size: 12px; font-weight: 800; color: var(--ink); }
+.bd-phone__body { padding: 0 16px 96px; }
+.bd-fold { position: absolute; left: 0; right: 0; top: 800px; border-top: 2px dashed var(--focus); z-index: 9; }
+.bd-fold span { position: absolute; right: 8px; top: -20px; font-size: 10px; font-weight: 800; color: var(--focus); background: var(--bg); padding: 0 4px; }
+
+/* ===== Konfetti ===== */
+.bd-confetti { position: absolute; inset: 0 0 auto 0; height: 220px; pointer-events: none; overflow: hidden; }
+.bd-confetti i { position: absolute; width: 8px; height: 12px; border-radius: 2px; opacity: .9; }
+
+/* ===== Mikroanimatsiyalar (faqat harakat ruxsat etilganda) ===== */
+@media (prefers-reduced-motion: no-preference) {
+  .bd-m-wave { transform-origin: 96px 72px; animation: bd-wave 2.4s ease-in-out infinite; }
+  .bd-m-cheer { transform-origin: 60px 70px; animation: bd-cheer 1.2s ease-in-out infinite; }
+  .bd-m-point { animation: bd-point 1.6s ease-in-out infinite; }
+  .bd-wiggle { animation: bd-wiggle 3s ease-in-out infinite; transform-origin: 50% 80%; }
+  .bd-rise > * { animation: bd-rise .42s cubic-bezier(.2, .8, .2, 1) both; }
+  .bd-rise > *:nth-child(2) { animation-delay: .05s; } .bd-rise > *:nth-child(3) { animation-delay: .1s; }
+  .bd-rise > *:nth-child(4) { animation-delay: .15s; } .bd-rise > *:nth-child(5) { animation-delay: .2s; }
+  .bd-rise > *:nth-child(6) { animation-delay: .25s; } .bd-rise > *:nth-child(7) { animation-delay: .3s; }
+  .bd-answer.is-right { animation: bd-pop .35s ease; }
+  .bd-answer.is-wrong { animation: bd-shake .35s ease; }
+  .bd-confetti i { animation: bd-fall 2.8s linear infinite; }
+}
+@keyframes bd-wave { 0%, 60%, 100% { transform: rotate(0); } 70% { transform: rotate(-14deg); } 80% { transform: rotate(8deg); } 90% { transform: rotate(-10deg); } }
+@keyframes bd-cheer { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes bd-point { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-3px); } }
+@keyframes bd-wiggle { 0%, 80%, 100% { transform: rotate(0); } 85% { transform: rotate(-10deg); } 90% { transform: rotate(8deg); } 95% { transform: rotate(-4deg); } }
+@keyframes bd-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes bd-pop { 50% { transform: scale(1.05); } }
+@keyframes bd-shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+@keyframes bd-fall { from { transform: translateY(-20px) rotate(0); } to { transform: translateY(240px) rotate(540deg); } }
+
+
+/* ===== Demo qobigʻi ===== */
+.dm-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--card); box-shadow: 0 1px 0 var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--card); }
+.dm-brand { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 17px; color: var(--brand-ink); margin-right: auto; }
+.dm-brand small { font-size: 12px; font-weight: 800; color: var(--ink-3); letter-spacing: .04em; text-transform: uppercase; }
+.dm-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 12px; background: var(--bg-tint); }
+.dm-seg button { height: 34px; padding: 0 12px; border: 0; border-radius: 9px; background: transparent; color: var(--ink-2); font: 800 13px/1 var(--font-sans); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.dm-seg button[aria-pressed="true"] { background: var(--card); color: var(--brand-ink); box-shadow: var(--shadow-sm); }
+.dm-seg button:focus-visible, .dm-select:focus-visible, .dm-list button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.dm-select { height: 40px; padding: 0 12px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); font: 700 13px var(--font-sans); max-width: 100%; }
+
+.dm-stage { display: flex; justify-content: center; gap: 40px; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.dm-side { width: 240px; flex: none; }
+.dm-side h2 { margin: 4px 0 8px; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--stage-2); }
+.dm-list { display: flex; flex-direction: column; gap: 2px; }
+.dm-list button { text-align: left; min-height: 38px; padding: 0 12px; border: 0; border-radius: 10px; background: transparent; color: var(--stage-ink); font: 700 14px var(--font-sans); cursor: pointer; }
+.dm-list button:hover { background: var(--card); }
+.dm-list button[aria-current="true"] { background: var(--card); color: var(--brand-ink); font-weight: 900; box-shadow: var(--shadow-sm); }
+.dm-tip { margin-top: 20px; padding: 12px 14px; border-radius: 14px; background: var(--card); font-size: 13px; line-height: 18px; font-weight: 600; color: var(--ink-2); box-shadow: var(--shadow-sm); }
+.dm-tip b { color: var(--ink); }
+
+.dm-phone { --pw: 360px; position: relative; flex: none; width: var(--pw); height: min(800px, max(600px, calc(100dvh - 150px))); border-radius: 36px; overflow: hidden;
+  background: var(--bg); color: var(--ink); box-shadow: 0 0 0 9px var(--frame), 0 0 0 10px rgba(255, 255, 255, .08), 0 30px 60px rgba(0, 0, 0, .22); }
+.dm-phone .bd-phone__status { position: absolute; top: 0; left: 0; right: 0; z-index: 6; background: var(--bg); }
+.scr { position: absolute; inset: 0; }
+.scr-scroll { position: absolute; top: 28px; left: 0; right: 0; bottom: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+.scr-scroll::-webkit-scrollbar { display: none; }
+.scr .bd-nav, .scr .bd-sticky { position: absolute; }
+.scr .bd-hero, .scr [data-go], .scr [data-toast], .scr [data-theme-toggle] { cursor: pointer; }
+.dm-feedback { margin-top: 10px; font-size: 13px; line-height: 18px; font-weight: 800; }
+.dm-feedback.ok { color: var(--success-ink); } .dm-feedback.bad { color: var(--danger-ink); }
+
+.dm-desk { flex: 1; min-width: 0; max-width: 1440px; }
+.dm-desk__scale { transform-origin: 0 0; width: 1440px; }
+.desk-frame { width: 1440px; height: 900px; display: flex; background: var(--bg); color: var(--ink); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, .15); }
+
+.dm-toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 40; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 14px; background: var(--ink); color: var(--bg); font: 800 14px/20px var(--font-sans); box-shadow: var(--shadow-md); }
+
+@media (max-width: 1080px) { .dm-side { display: none; } }
+@media (min-width: 1081px) { .dm-select { display: none; } }
+@media (max-width: 520px) {
+  .dm-bar { gap: 8px; padding-block: 8px; }
+  .dm-brand small, .dm-hide-sm, .dm-seg .dm-hide-sm { display: none; }
+  .dm-stage { padding: 0; }
+  .dm-phone { --pw: 100%; width: 100%; height: calc(100dvh - 104px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); min-height: 540px; border-radius: 0; box-shadow: none; }
+  .dm-phone .bd-phone__status { display: none; }
+  .scr-scroll { top: 0; }
+  .dm-select { flex: 1; min-width: 0; }
+}
+@media (prefers-reduced-motion: no-preference) { .scr:not([hidden]) .scr-in { animation: dm-in .28s ease both; } }
+@keyframes dm-in { from { opacity: .4; transform: translateX(10px); } to { opacity: 1; transform: none; } }
+</style>
+<script>
+/* @ds-bundle: {"format":4,"namespace":"Bilimdon","components":[{"name":"Mascot"},{"name":"Icon"},{"name":"Button"},{"name":"Chip"},{"name":"Card"},{"name":"SubjectCard"},{"name":"Progress"},{"name":"Badge"},{"name":"AppHeader"},{"name":"BottomNav"},{"name":"ExamHero"},{"name":"MissionCard"},{"name":"QuestionCard"},{"name":"GameCard"},{"name":"StatTile"}]} */
+(function () {
+  /* Duotone ikonkalar: d = yarim shaffof toʻldirish, s = 2px chiziq. 24×24 setka, Phosphor Duotone uslubida. */
+  var I = {
+    home: { d: 'M6 9.4 12 4.6l6 4.8V20h-4v-5.5h-4V20H6z', s: 'M3.5 11 12 4l8.5 7M6 9.4V19a1 1 0 0 0 1 1h3v-5.5h4V20h3a1 1 0 0 0 1-1V9.4' },
+    exam: { d: 'M5.5 6.5h13v14h-13z', s: 'M9 3.5h6v3H9zM8.5 5H7a1.5 1.5 0 0 0-1.5 1.5v13A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 17 5h-1.5M8.8 14l2.4 2.4 4.2-4.6' },
+    game: { d: 'M7.6 7h8.8a4.4 4.4 0 0 1 4.3 5.3l-.9 4.8a2.4 2.4 0 0 1-4.2 1.2L14 16.5h-4l-1.6 1.8a2.4 2.4 0 0 1-4.2-1.2l-.9-4.8A4.4 4.4 0 0 1 7.6 7z', s: 'M7.6 7h8.8a4.4 4.4 0 0 1 4.3 5.3l-.9 4.8a2.4 2.4 0 0 1-4.2 1.2L14 16.5h-4l-1.6 1.8a2.4 2.4 0 0 1-4.2-1.2l-.9-4.8A4.4 4.4 0 0 1 7.6 7zM8 10v3.6M6.2 11.8h3.6M15.2 10.6h.01M17.2 12.8h.01' },
+    chart: { d: 'M5.5 11h3v6h-3zM10.5 6h3v11h-3zM15.5 9h3v8h-3z', s: 'M4 20h16M5.5 11h3v6h-3zM10.5 6h3v11h-3zM15.5 9h3v8h-3z' },
+    user: { d: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20a7.5 7.5 0 0 1 15 0z', s: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20a7.5 7.5 0 0 1 15 0' },
+    fire: { d: 'M12 21c3.9 0 6.5-2.6 6.5-6.3 0-3.6-2.4-6-4.4-8.7-.4 2.2-1.4 3.4-2.6 4-.3-2.6-1.6-4.8-3.5-6.5C8.2 7.5 5.5 10 5.5 14.7 5.5 18.4 8.1 21 12 21z', s: 'M12 21c3.9 0 6.5-2.6 6.5-6.3 0-3.6-2.4-6-4.4-8.7-.4 2.2-1.4 3.4-2.6 4-.3-2.6-1.6-4.8-3.5-6.5C8.2 7.5 5.5 10 5.5 14.7 5.5 18.4 8.1 21 12 21zM12 21c-1.7 0-3-1.2-3-3 0-1.9 1.6-3 3-4.8 1.4 1.8 3 2.9 3 4.8 0 1.8-1.3 3-3 3z' },
+    star: { d: 'M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z', s: 'M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z' },
+    clock: { d: 'M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17z', s: 'M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17zM12 7.5V12l3 2' },
+    list: { d: 'M3 5h3v4H3zM3 10h3v4H3zM3 15h3v4H3z', s: 'M9.5 7H20M9.5 12H20M9.5 17H20M4.5 7h.01M4.5 12h.01M4.5 17h.01' },
+    sigma: { d: 'M6.5 4.5H17v3l-4.5 4.5L17 16.5v3H6.5l6-7.5z', s: 'M17 6.5v-2H6.5l6 7.5-6 7.5H17v-2' },
+    puzzle: { d: 'M5 8h3.2a2.2 2.2 0 1 1 4.1 0H16v3.4a2.2 2.2 0 1 1 0 4.2V19h-3.6a2.2 2.2 0 1 0-4.2 0H5v-3.6a2.2 2.2 0 1 0 0-4.2z', s: 'M5 8h3.2a2.2 2.2 0 1 1 4.1 0H16v3.4a2.2 2.2 0 1 1 0 4.2V19h-3.6a2.2 2.2 0 1 0-4.2 0H5v-3.6a2.2 2.2 0 1 0 0-4.2z' },
+    book: { d: 'M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2z', s: 'M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13' },
+    brain: { d: 'M12 5.3A2.6 2.6 0 0 0 7 6.5 2.8 2.8 0 0 0 4.8 10a3 3 0 0 0 .6 4.6A3 3 0 0 0 8.6 19 2.6 2.6 0 0 0 12 19.6zM12 5.3A2.6 2.6 0 0 1 17 6.5a2.8 2.8 0 0 1 2.2 3.5 3 3 0 0 1-.6 4.6 3 3 0 0 1-3.2 4.4 2.6 2.6 0 0 1-3.4.6z', s: 'M12 5.3A2.6 2.6 0 0 0 7 6.5 2.8 2.8 0 0 0 4.8 10a3 3 0 0 0 .6 4.6A3 3 0 0 0 8.6 19 2.6 2.6 0 0 0 12 19.6V5.3zM12 5.3A2.6 2.6 0 0 1 17 6.5a2.8 2.8 0 0 1 2.2 3.5 3 3 0 0 1-.6 4.6 3 3 0 0 1-3.2 4.4 2.6 2.6 0 0 1-3.4.6M8.5 10.5c1.2 0 2 .8 2 2M15.5 10.5c-1.2 0-2 .8-2 2' },
+    eye: { d: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z', s: 'M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' },
+    compass: { d: 'M15.5 8.5l-2 5-5 2 2-5z', s: 'M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17zM15.5 8.5l-2 5-5 2 2-5z' },
+    text: { d: 'M5 5h14v2.5H5z', s: 'M5 7.5V5h14v2.5M12 5v14M9 19h6' },
+    trophy: { d: 'M8 4h8v5a4 4 0 0 1-8 0z', s: 'M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5a3 3 0 0 0 3 3M16 6h3v1.5a3 3 0 0 1-3 3M12 13v3.5M9.5 20h5l-.5-3.5h-4z' },
+    lock: { d: 'M6.5 10.5h11a1.5 1.5 0 0 1 1.5 1.5v6.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18.5V12a1.5 1.5 0 0 1 1.5-1.5z', s: 'M6.5 10.5h11a1.5 1.5 0 0 1 1.5 1.5v6.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18.5V12a1.5 1.5 0 0 1 1.5-1.5zM8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5' },
+    check: { d: '', s: 'M5 12.5l4.5 4.5L19 7.5' },
+    x: { d: '', s: 'M6.5 6.5l11 11M17.5 6.5l-11 11' },
+    arrowR: { d: '', s: 'M5 12h14M13 6l6 6-6 6' },
+    arrowL: { d: '', s: 'M19 12H5M11 6l-6 6 6 6' },
+    chevR: { d: '', s: 'M9.5 6l6 6-6 6' },
+    play: { d: 'M8 5.5v13l10.5-6.5z', s: 'M8 5.5v13l10.5-6.5z' },
+    bolt: { d: 'M13 3 5 13.5h6L10 21l8-10.5h-6z', s: 'M13 3 5 13.5h6L10 21l8-10.5h-6z' },
+    bulb: { d: 'M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V17h5v-1.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z', s: 'M9.5 17.5h5M10.3 21h3.4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V17h5v-1.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z' },
+    target: { d: 'M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z', s: 'M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17zM12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM12 13.2a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z' },
+    history: { d: 'M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z', s: 'M4 12a8 8 0 1 0 2.3-5.6M4 4.5V8h3.5M12 8v4l2.5 2' },
+    help: { d: 'M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17z', s: 'M12 20.5a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17zM9.6 9.5a2.5 2.5 0 0 1 4.8.8c0 1.7-2.4 2-2.4 3.4M12 16.8h.01' },
+    shield: { d: 'M12 3.5 5 6v5.5c0 4.3 3 7.6 7 9 4-1.4 7-4.7 7-9V6z', s: 'M12 3.5 5 6v5.5c0 4.3 3 7.6 7 9 4-1.4 7-4.7 7-9V6zM9 12l2 2 4-4' },
+    logout: { d: '', s: 'M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10' },
+    flag: { d: 'M5 4h12l-2.5 4L17 12H5z', s: 'M5 21V4M5 4h12l-2.5 4L17 12H5' },
+    sparkle: { d: 'M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z', s: 'M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM18.5 16v4M16.5 18h4' },
+    calendar: { d: 'M4.5 6.5h15V10h-15z', s: 'M6 5h12a1.5 1.5 0 0 1 1.5 1.5v12A1.5 1.5 0 0 1 18 20H6a1.5 1.5 0 0 1-1.5-1.5v-12A1.5 1.5 0 0 1 6 5zM4.5 10h15M8.5 3.5v3M15.5 3.5v3' },
+    calc: { d: 'M7.5 4h9v5h-9z', s: 'M7 3.5h10a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5zM8 7h8M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01' },
+    sun: { d: 'M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', s: 'M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4' },
+    moon: { d: 'M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z', s: 'M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z' },
+    bell: { d: 'M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z', s: 'M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15zM10 20.5h4' },
+    retry: { d: '', s: 'M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5V8H8' },
+    grid: { d: 'M4.5 4.5h6v6h-6zM13.5 13.5h6v6h-6z', s: 'M4.5 4.5h6v6h-6zM13.5 4.5h6v6h-6zM4.5 13.5h6v6h-6zM13.5 13.5h6v6h-6z' },
+    users: { d: 'M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z', s: 'M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20a6.5 6.5 0 0 1 13 0M15.5 4.3a3.5 3.5 0 0 1 0 6.4M18 14a6.5 6.5 0 0 1 3.5 6' }
+  };
+  function icon(name, size) {
+    var g = I[name]; if (!g) return '';
+    var px = size || 20;
+    return '<svg class="bd-svg" width="' + px + '" height="' + px + '" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+      (g.d ? '<path d="' + g.d + '" fill="currentColor" opacity=".22"/>' : '') +
+      '<path d="' + g.s + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+
+  /* Maskot: yashil kitob. Kayfiyatlar: salom, xursand, oylayapti, ishora, hayron. */
+  var M = { body: '#2e8b74', spine: '#1f6f5f', page: '#fff6df', mark: '#ffc94a', ink: '#11302a', cheek: '#ff9fae' };
+  function eye(cx, cy, dx, dy) {
+    return '<circle cx="' + cx + '" cy="' + cy + '" r="11" fill="#fff"/>' +
+      '<circle cx="' + (cx + dx) + '" cy="' + (cy + dy) + '" r="5.6" fill="' + M.ink + '"/>' +
+      '<circle cx="' + (cx + dx + 2) + '" cy="' + (cy + dy - 2.2) + '" r="1.9" fill="#fff"/>';
+  }
+  function arm(d, cls) { return '<path d="' + d + '" stroke="' + M.ink + '" stroke-width="8.5" stroke-linecap="round" fill="none"/><path d="' + d + '" stroke="' + M.body + '" stroke-width="5" stroke-linecap="round" fill="none"/>'; }
+  function hand(x, y, cls) { return '<circle class="' + (cls || '') + '" cx="' + x + '" cy="' + y + '" r="5" fill="' + M.body + '" stroke="' + M.ink + '" stroke-width="2"/>'; }
+  function mascot(mood, size) {
+    mood = mood || 'salom';
+    var h = size || 120, w = Math.round(h * 120 / 140);
+    var eyes, mouth, arms = '', extra = '', brows = '';
+    if (mood === 'xursand') {
+      eyes = '<path d="M41 54q9-11 18 0M65 54q9-11 18 0" stroke="' + M.ink + '" stroke-width="4.5" stroke-linecap="round" fill="none"/>';
+      mouth = '<path d="M50 70q12 14 24 0z" fill="' + M.ink + '"/><path d="M55 75q7 4 14 0" stroke="#ff8a9b" stroke-width="3" stroke-linecap="round" fill="none"/>';
+      arms = '<g class="bd-m-cheer">' + arm('M24 70Q12 56 10 40') + hand(10, 38) + arm('M96 70Q108 56 110 40') + hand(110, 38) + '</g>';
+      extra = '<path d="M14 18l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="' + M.mark + '"/><path d="M104 10l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="' + M.mark + '"/>';
+    } else if (mood === 'oylayapti') {
+      eyes = eye(50, 52, 2.5, -4) + eye(74, 52, 2.5, -4);
+      mouth = '<path d="M56 74q6-3 12 0" stroke="' + M.ink + '" stroke-width="3.5" stroke-linecap="round" fill="none"/>';
+      arms = arm('M24 76Q12 86 18 100') + hand(18, 101) + arm('M96 78Q86 84 76 78') + hand(74, 77);
+      extra = '<g transform="translate(92 -2)"><circle cx="12" cy="12" r="9" fill="' + M.mark + '"/><rect x="8" y="20" width="8" height="5" rx="2" fill="' + M.spine + '"/><path d="M12 -2v-3M24 8l3-2M0 8l-3-2" stroke="' + M.mark + '" stroke-width="2.5" stroke-linecap="round"/></g>';
+    } else if (mood === 'ishora') {
+      eyes = eye(50, 52, -4, 1) + eye(74, 52, -4, 1);
+      mouth = '<path d="M52 70q10 9 20 0" stroke="' + M.ink + '" stroke-width="3.5" stroke-linecap="round" fill="none"/>';
+      arms = '<g class="bd-m-point">' + arm('M26 74Q16 72 8 76') + hand(7, 76) + '</g>' + arm('M96 76Q106 88 102 100') + hand(102, 101);
+    } else if (mood === 'hayron') {
+      eyes = eye(50, 54, 0, 1) + eye(74, 54, 0, 1);
+      brows = '<path d="M41 42l14-5M83 42l-14-5" stroke="' + M.ink + '" stroke-width="3.5" stroke-linecap="round"/>';
+      mouth = '<path d="M54 76q3-4 6 0t6 0t6 0" stroke="' + M.ink + '" stroke-width="3.5" stroke-linecap="round" fill="none"/>';
+      arms = arm('M24 76Q14 88 18 100') + hand(18, 101) + arm('M96 76Q106 88 102 100') + hand(102, 101);
+    } else { /* salom */
+      eyes = eye(50, 52, 1, 1) + eye(74, 52, 1, 1);
+      mouth = '<path d="M50 69q12 12 24 0" stroke="' + M.ink + '" stroke-width="3.5" stroke-linecap="round" fill="none"/>';
+      arms = arm('M24 76Q14 88 18 100') + hand(18, 101) + '<g class="bd-m-wave">' + arm('M96 72Q110 60 108 42') + hand(108, 40) + '</g>';
+    }
+    return '<svg class="bd-mascot bd-mascot--' + mood + '" width="' + w + '" height="' + h + '" viewBox="0 0 120 140" fill="none" role="img" aria-label="Bilimdon maskoti">' +
+      '<rect x="40" y="116" width="12" height="18" rx="6" fill="' + M.ink + '"/><rect x="68" y="116" width="12" height="18" rx="6" fill="' + M.ink + '"/>' +
+      '<rect x="31" y="20" width="68" height="102" rx="14" fill="' + M.page + '"/>' +
+      '<path d="M93 30v82" stroke="#ead9b4" stroke-width="2"/>' +
+      '<rect x="24" y="16" width="70" height="104" rx="14" fill="' + M.body + '"/>' +
+      '<path d="M38 16h-0a14 14 0 0 0-14 14v76a14 14 0 0 0 14 14z" fill="' + M.spine + '"/>' +
+      '<path d="M74 8h12v28l-6-5-6 5z" fill="' + M.mark + '"/>' +
+      arms + brows + eyes +
+      '<circle cx="40" cy="66" r="4.5" fill="' + M.cheek + '" opacity=".55"/><circle cx="84" cy="66" r="4.5" fill="' + M.cheek + '" opacity=".55"/>' +
+      mouth + extra + '</svg>';
+  }
+
+  /* Hech qanday framework talab qilinmaydi: <i data-ico="star" data-size="16"></i> va <span data-mascot="salom" data-size="96"></span> joylanadi. */
+  function mount(root) {
+    root = root || document;
+    var a = root.querySelectorAll('[data-ico]');
+    for (var i = 0; i < a.length; i++) { if (!a[i].firstChild) a[i].innerHTML = icon(a[i].getAttribute('data-ico'), +a[i].getAttribute('data-size') || 20); }
+    var b = root.querySelectorAll('[data-mascot]');
+    for (var j = 0; j < b.length; j++) { if (!b[j].firstChild) b[j].innerHTML = mascot(b[j].getAttribute('data-mascot'), +b[j].getAttribute('data-size') || 120); }
+  }
+  window.Bilimdon = { icon: icon, mascot: mascot, mount: mount, icons: Object.keys(I) };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { mount(); });
+  else mount();
+})();
+
+</script>
+
+<div class="bd">
+<header class="dm-bar">
+  <div class="dm-brand"><span data-mascot="salom" data-size="32"></span>Bilimdon <small>Demo</small></div>
+  <div class="dm-seg" role="group" aria-label="Qurilma">
+    <button type="button" id="dev-phone" aria-pressed="true">Telefon</button>
+    <button type="button" id="dev-desk" aria-pressed="false" class="dm-hide-sm">Kompyuter</button>
+  </div>
+  <div class="dm-seg" role="group" aria-label="Foydalanuvchi holati">
+    <button type="button" id="st-new" aria-pressed="true">Yangi</button>
+    <button type="button" id="st-active" aria-pressed="false">Faol</button>
+  </div>
+  <div class="dm-seg" role="group" aria-label="Rejim">
+    <button type="button" id="theme-btn" aria-pressed="false" aria-label="Qorongʻi rejim"><i data-ico="moon" data-size="16"></i><span class="dm-hide-sm">Qorongʻi</span></button>
+  </div>
+  <label class="dm-hide-sm" for="scr-select" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Ekran</label>
+  <select id="scr-select" class="dm-select" aria-label="Ekranni tanlash">
+    <option value="home">Bosh sahifa</option><option value="exams">Imtihonlar</option><option value="exam">Imtihon tafsiloti</option>
+    <option value="games">Oʻyinlar</option><option value="intro">Oʻyin kirish</option><option value="play">Oʻyin jarayoni</option><option value="result">Oʻyin natijasi</option>
+    <option value="results">Natijalar</option><option value="stats">Statistika</option><option value="achievements">Yutuqlar</option><option value="profile">Profil</option>
+  </select>
+</header>
+
+<main class="dm-stage">
+  <aside class="dm-side" aria-label="Ekranlar">
+    <h2>Ekranlar</h2>
+    <nav class="dm-list" id="scr-list">
+      <button type="button" data-jump="home">Bosh sahifa</button>
+      <button type="button" data-jump="exams">Imtihonlar</button>
+      <button type="button" data-jump="exam">Imtihon tafsiloti</button>
+      <button type="button" data-jump="games">Oʻyinlar laboratoriyasi</button>
+      <button type="button" data-jump="intro">Oʻyin kirish ekrani</button>
+      <button type="button" data-jump="play">Oʻyin jarayoni</button>
+      <button type="button" data-jump="result">Oʻyin natijasi</button>
+      <button type="button" data-jump="results">Natijalar</button>
+      <button type="button" data-jump="stats">Statistika</button>
+      <button type="button" data-jump="achievements">Yutuqlar</button>
+      <button type="button" data-jump="profile">Profil</button>
+    </nav>
+    <div class="dm-tip"><b>Sinab koʻring:</b> pastki menyu, hero tugmasi, kunlik missiya va fan kartalari bosiladi. “Kun savoli”ga javob bering, oʻyinda toʻgʻri shaklni tanlang.</div>
+  </aside>
+
+  <div class="dm-phone" id="phone">
+    <div class="bd-phone__status"><span>9:41</span><span>●●● ▲ ▮</span></div>
+    <section class="scr" id="s-home-new" data-label="Bosh sahifa · yangi" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><header class="bd-head" style="margin:0 -16px"><span class="bd-avatar">AK</span><div class="grow"><div class="bd-head__hi">Salom, Aziz! 👋</div><div class="bd-head__sub">6-“B” sinf</div></div><span class="bd-chip bd-chip--stat is-streak" aria-label="Kunlik seriya"><span class="bd-wiggle"><i data-ico="fire" data-size="16"></i></span>0</span><span class="bd-chip bd-chip--stat is-star" aria-label="Ball"><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>0</span></header><div class="bd-rise"><section class="bd-hero" aria-labelledby="hero-t">
+  <span class="bd-chip bd-chip--status"><i data-ico="sparkle" data-size="14"></i>Topshirish mumkin</span>
+  <h1 id="hero-t" class="t-hero bd-hero__title">Kuzgi bilimlar imtihoni</h1>
+  <div class="bd-hero__meta"><span class="bd-chip bd-chip--glass"><i data-ico="list" data-size="16"></i>45 ta savol</span><span class="bd-chip bd-chip--glass"><i data-ico="clock" data-size="16"></i>60 daqiqa</span></div>
+  <a href="#" data-noop data-go="exam" class="bd-btn bd-btn--light bd-hero__cta">Imtihonni boshlash <i data-ico="arrowR"></i></a>
+  <span class="bd-hero__mascot"><span data-mascot="ishora" data-size="96"></span></span>
+</section><div style="margin-top:12px"><a href="#" data-noop data-go="intro" class="bd-card bd-mission bd-tap" style="text-decoration:none;color:inherit">
+  <span class="bd-ring is-brand" style="--p:0"><b>0/5</b></span>
+  <div class="grow"><div class="t-over" style="color:var(--brand-ink)">Kunlik missiya</div><div class="bd-mission__title">Bugun 5 ta savol yech</div>
+  <div class="bd-mission__sub">Topshiriq: Naqsh ustasi</div></div>
+  <span class="bd-chip bd-chip--stat is-star" aria-label="Mukofot"><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>+20</span>
+</a></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Imtihon fanlari</h2><a href="#exams" data-go="exams" class="link">Barchasi<i data-ico="chevR" data-size="16"></i></a></div><div class="bd-subjects"><a href="#" data-noop data-go="exam" class="bd-subj bd-tap is-math" style="text-decoration:none" aria-label="Matematika, 15 ta savol, 0%">
+  <span class="bd-tile"><i data-ico="sigma"></i></span><span class="bd-subj__name">Matematika</span><span class="bd-subj__meta">15 ta savol</span>
+  <span class="bd-bar"><i style="--p:0"></i></span></a><a href="#" data-noop data-go="exam" class="bd-subj bd-tap is-logic" style="text-decoration:none" aria-label="Mantiq (IQ), 15 ta savol, 0%">
+  <span class="bd-tile"><i data-ico="puzzle"></i></span><span class="bd-subj__name">Mantiq (IQ)</span><span class="bd-subj__meta">15 ta savol</span>
+  <span class="bd-bar"><i style="--p:0"></i></span></a><a href="#" data-noop data-go="exam" class="bd-subj bd-tap is-lang" style="text-decoration:none" aria-label="Ona tili, 15 ta savol, 0%">
+  <span class="bd-tile"><i data-ico="book"></i></span><span class="bd-subj__name">Ona tili</span><span class="bd-subj__meta">15 ta savol</span>
+  <span class="bd-bar"><i style="--p:0"></i></span></a></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Yutuqlarim</h2><a href="#achievements" data-go="achievements" class="link">0/7<i data-ico="chevR" data-size="16"></i></a></div><div class="bd-card" style="padding:14px 12px 12px"><div class="bd-badges"><div class="bd-badge is-memory is-locked"><span class="bd-badge__disc"><i data-ico="flag" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Birinchi qadam</span></div><div class="bd-badge is-logic is-locked"><span class="bd-badge__disc"><i data-ico="brain" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Xotira ustasi</span></div><div class="bd-badge is-math is-locked"><span class="bd-badge__disc"><i data-ico="calc" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Matematik izquvar</span></div><div class="bd-badge is-attn is-locked"><span class="bd-badge__disc"><i data-ico="eye" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Diqqat chempioni</span></div></div><p class="t-sm muted" style="text-align:center;margin-top:10px">Birinchi oʻyinni yakunla — birinchi nishon seniki!</p></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Kun savoli</h2></div><div class="bd-card bd-card--cream" style="padding:14px 16px 16px">
+  <div class="row" style="align-items:flex-start;gap:10px">
+    <div class="grow"><div class="t-over" style="color:var(--logic-ink)">Kun savoli · +5 ⭐</div>
+    <p class="t-h3" style="margin-top:4px">Qaysi son ortiqcha?<br><span class="t-body muted">3 · 9 · 12 · 27 · 81</span></p></div>
+    <span data-mascot="oylayapti" data-size="56"></span>
+  </div>
+  <div class="bd-answers" data-quiz="12" data-ok="Toʻgʻri! 3, 9, 27, 81 — 3 ning darajalari, 12 esa yoʻq. +5 ⭐" data-bad="Yaqin! Sonlarni 3 ga boʻlib koʻr — qaysi biri 3 ning darajasi emas?" style="margin-top:12px">
+    <button type="button" class="bd-answer">3</button><button type="button" class="bd-answer">9</button><button type="button" class="bd-answer">12</button><button type="button" class="bd-answer">81</button>
+  </div>
+</div></section></div></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class=""><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-home-active" data-label="Bosh sahifa · faol" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><header class="bd-head" style="margin:0 -16px"><span class="bd-avatar">AK</span><div class="grow"><div class="bd-head__hi">Salom, Aziz! 👋</div><div class="bd-head__sub">6-“B” sinf</div></div><span class="bd-chip bd-chip--stat is-streak" aria-label="Kunlik seriya"><span class="bd-wiggle"><i data-ico="fire" data-size="16"></i></span>5</span><span class="bd-chip bd-chip--stat is-star" aria-label="Ball"><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>340</span></header><div class="bd-rise"><section class="bd-hero" aria-labelledby="hero-t">
+  <span class="bd-chip bd-chip--status"><i data-ico="check" data-size="14"></i>Topshirildi</span>
+  <h1 id="hero-t" class="t-hero bd-hero__title">Kuzgi bilimlar imtihoni</h1>
+  <div class="bd-hero__score"><span class="bd-ring bd-ring--hero bd-ring--lg" style="--p:84"><b>84%</b></span>
+    <div><div class="t-stat">38/45</div><div class="t-sm" style="opacity:.85">Sinfda 3-oʻrin · 4 kun oldin</div></div></div>
+  <a href="#" data-noop data-go="results" class="bd-btn bd-btn--light bd-hero__cta">Xatolar ustida ishlash <i data-ico="arrowR"></i></a>
+  <span class="bd-hero__mascot"><span data-mascot="xursand" data-size="92"></span></span>
+</section><div style="margin-top:12px"><a href="#" data-noop data-go="intro" class="bd-card bd-mission bd-tap" style="text-decoration:none;color:inherit">
+  <span class="bd-ring is-brand" style="--p:60"><b>3/5</b></span>
+  <div class="grow"><div class="t-over" style="color:var(--brand-ink)">Kunlik missiya</div><div class="bd-mission__title">Bugun 5 ta savol yech</div>
+  <div class="bd-mission__sub">Topshiriq: Naqsh ustasi</div></div>
+  <span class="bd-chip bd-chip--stat is-star" aria-label="Mukofot"><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>+20</span>
+</a></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Imtihon fanlari</h2><a href="#exams" data-go="exams" class="link">Barchasi<i data-ico="chevR" data-size="16"></i></a></div><div class="bd-subjects"><a href="#" data-noop data-go="exam" class="bd-subj bd-tap is-math" style="text-decoration:none" aria-label="Matematika, 15 ta savol, 87%">
+  <span class="bd-tile"><i data-ico="sigma"></i></span><span class="bd-subj__name">Matematika</span><span class="bd-subj__meta">13/15 toʻgʻri</span>
+  <span class="bd-bar"><i style="--p:87"></i></span></a><a href="#" data-noop data-go="exam" class="bd-subj bd-tap is-logic" style="text-decoration:none" aria-label="Mantiq (IQ), 15 ta savol, 80%">
+  <span class="bd-tile"><i data-ico="puzzle"></i></span><span class="bd-subj__name">Mantiq (IQ)</span><span class="bd-subj__meta">12/15 toʻgʻri</span>
+  <span class="bd-bar"><i style="--p:80"></i></span></a><a href="#" data-noop data-go="exam" class="bd-subj bd-tap is-lang" style="text-decoration:none" aria-label="Ona tili, 15 ta savol, 87%">
+  <span class="bd-tile"><i data-ico="book"></i></span><span class="bd-subj__name">Ona tili</span><span class="bd-subj__meta">13/15 toʻgʻri</span>
+  <span class="bd-bar"><i style="--p:87"></i></span></a></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Yutuqlarim</h2><a href="#achievements" data-go="achievements" class="link">2/7<i data-ico="chevR" data-size="16"></i></a></div><div class="bd-card" style="padding:14px 12px 12px"><div class="bd-badges"><div class="bd-badge is-memory"><span class="bd-badge__disc"><i data-ico="flag" data-size="24"></i></span><span class="bd-badge__name">Birinchi qadam</span></div><div class="bd-badge is-logic"><span class="bd-badge__disc"><i data-ico="brain" data-size="24"></i></span><span class="bd-badge__name">Xotira ustasi</span></div><div class="bd-badge is-math is-locked"><span class="bd-badge__disc"><i data-ico="calc" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Matematik izquvar</span></div><div class="bd-badge is-attn is-locked"><span class="bd-badge__disc"><i data-ico="eye" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Diqqat chempioni</span></div></div><p class="t-sm muted" style="text-align:center;margin-top:10px">Yana 1 ta oʻyin — «Matematik izquvar» seniki!</p></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Soʻnggi faoliyat</h2><a href="#results" data-go="results" class="link">Hammasi<i data-ico="chevR" data-size="16"></i></a></div><div class="bd-card bd-list" style="padding:2px 16px"><a href="#" data-noop data-go="results" class="bd-rowcard is-brand" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-tile"><i data-ico="exam"></i></span><div class="grow"><div class="t-h3">Kuzgi bilimlar imtihoni</div><div class="t-xs faint">1-noyabr · 52 daqiqa</div></div><b class="t-h3">38/45</b></a><a href="#" data-noop data-go="results" class="bd-rowcard is-memory" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-tile"><i data-ico="brain"></i></span><div class="grow"><div class="t-h3">Xotira kartalari</div><div class="t-xs faint">Kecha · Oson</div></div><b class="t-h3">+40 ⭐</b></a><a href="#" data-noop data-go="results" class="bd-rowcard is-logic" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-tile"><i data-ico="puzzle"></i></span><div class="grow"><div class="t-h3">Naqsh ustasi</div><div class="t-xs faint">Kecha · Oʻrtacha</div></div><b class="t-h3">+30 ⭐</b></a></div></section></div></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class=""><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-exams" data-label="Imtihonlar" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><h1 class="t-hero" style="margin:8px 0 2px">Imtihonlar</h1><p class="t-sm muted">Senga ochiq imtihonlar shu yerda.</p><div class="row" style="margin:16px 0 4px;gap:8px;overflow:hidden"><button type="button" data-filter class="bd-chip bd-chip--filter is-on">Hammasi</button><button type="button" data-filter class="bd-chip bd-chip--filter">Ochiq · 1</button><button type="button" data-filter class="bd-chip bd-chip--filter">Kelgusi · 2</button></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Ochiq</h2></div><a href="#" data-noop data-go="exam" class="bd-card bd-tap" style="display:block;text-decoration:none;color:inherit;padding:14px 16px"><div class="row"><span class="bd-chip bd-chip--status"><i data-ico="sparkle" data-size="14"></i>Topshirish mumkin</span><span class="grow"></span><span class="t-xs faint">30-noyabrgacha</span></div>
+     <div class="t-h2" style="margin-top:8px">Kuzgi bilimlar imtihoni</div>
+     <div class="row" style="margin-top:8px;gap:6px"><span class="bd-chip bd-chip--soft is-math"><i data-ico="sigma" data-size="14"></i>15</span><span class="bd-chip bd-chip--soft is-logic"><i data-ico="puzzle" data-size="14"></i>15</span><span class="bd-chip bd-chip--soft is-lang"><i data-ico="book" data-size="14"></i>15</span><span class="t-sm muted">· 60 daqiqa</span></div>
+     <div class="row" style="margin-top:12px"><span class="grow t-sm" style="color:var(--brand-ink);font-weight:800">Batafsil koʻrish</span><i data-ico="arrowR"></i></div></a></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Kelgusi</h2></div><div class="col" style="gap:8px"><div class="bd-card bd-card--flat bd-rowcard is-attn"><span class="bd-tile"><i data-ico="trophy"></i></span><div class="grow"><div class="t-h3">Qishki olimpiada</div><div class="t-xs faint">12-dekabr da ochiladi · 45 ta savol</div></div><span class="bd-chip bd-chip--soft"><i data-ico="lock" data-size="14"></i>12-dekabr</span></div><div class="bd-card bd-card--flat bd-rowcard is-spatial"><span class="bd-tile"><i data-ico="calendar"></i></span><div class="grow"><div class="t-h3">Bahorgi sinov</div><div class="t-xs faint">3-mart da ochiladi · 45 ta savol</div></div><span class="bd-chip bd-chip--soft"><i data-ico="lock" data-size="14"></i>3-mart</span></div></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Topshirilgan</h2></div><div data-go="results" class="bd-card bd-rowcard bd-tap"><span class="bd-ring is-brand" style="--p:84"><b>84%</b></span><div class="grow"><div class="t-h3">Yozgi takrorlash</div><div class="t-xs faint">14-avgust · 38/45</div></div><i data-ico="chevR" data-size="18"></i></div></section></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class=""><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class=""><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-exam" data-label="Imtihon tafsiloti" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 120px"><div class="bd-topbar" style="margin:0 -12px"><button type="button" data-go="back" class="bd-iconbtn" aria-label="Orqaga"><i data-ico="arrowL"></i></button><span class="bd-topbar__title">Imtihon</span></div>
+<div class="row" style="gap:12px;align-items:center"><div class="grow"><span class="bd-chip bd-chip--status"><i data-ico="sparkle" data-size="14"></i>Topshirish mumkin</span><h1 class="t-hero" style="margin-top:8px">Kuzgi bilimlar imtihoni</h1><p class="t-sm muted" style="margin-top:2px">Matematika, mantiq va ona tili boʻyicha 45 ta savol.</p></div><span data-mascot="salom" data-size="84"></span></div>
+<div class="bd-stats" style="margin-top:16px"><div class="bd-stat"><span class="bd-stat__top"><i data-ico="list" data-size="18"></i><b class="t-stat" style="color:var(--ink)">45</b></span><span class="bd-stat__label">savol</span></div><div class="bd-stat is-attn"><span class="bd-stat__top"><i data-ico="clock" data-size="18"></i><b class="t-stat" style="color:var(--ink)">60</b></span><span class="bd-stat__label">daqiqa</span></div><div class="bd-stat is-star"><span class="bd-stat__top"><i data-ico="star" data-size="18"></i><b class="t-stat" style="color:var(--ink)">+50</b></span><span class="bd-stat__label">ball</span></div></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Imtihonda nimalar bor?</h2></div><div class="bd-card bd-list" style="padding:2px 16px"><div class="bd-rowcard is-math" style="min-height:48px"><span class="bd-tile"><i data-ico="sigma"></i></span><span class="grow t-h3">Matematika</span><span class="t-sm muted">15 ta savol</span></div><div class="bd-rowcard is-logic" style="min-height:48px"><span class="bd-tile"><i data-ico="puzzle"></i></span><span class="grow t-h3">Mantiq (IQ)</span><span class="t-sm muted">15 ta savol</span></div><div class="bd-rowcard is-lang" style="min-height:48px"><span class="bd-tile"><i data-ico="book"></i></span><span class="grow t-h3">Ona tili va adabiyot</span><span class="t-sm muted">15 ta savol</span></div></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Qanday ishlaydi?</h2></div><div class="bd-card col" style="gap:12px;padding:14px 16px"><div class="row" style="align-items:flex-start;gap:12px"><span class="bd-tile is-brand" style="width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:900;color:var(--brand-ink)">1</span><div><div class="t-h3">Javobni tanla</div><p class="t-sm muted">Toʻgʻri deb oʻylagan kartangga bos — fikrni oʻzgartirsa boʻladi.</p></div></div><div class="row" style="align-items:flex-start;gap:12px"><span class="bd-tile is-brand" style="width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:900;color:var(--brand-ink)">2</span><div><div class="t-h3">Savollar orasida yur</div><p class="t-sm muted">“Keyingi” / “Oldingi” yoki savollar roʻyxati orqali.</p></div></div><div class="row" style="align-items:flex-start;gap:12px"><span class="bd-tile is-brand" style="width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:900;color:var(--brand-ink)">3</span><div><div class="t-h3">Vaqt tugasa</div><p class="t-sm muted">Javoblar avtomatik saqlanadi va imtihon yakunlanadi.</p></div></div></div></section></div></div><div class="bd-sticky"><a href="#" data-noop data-toast="Demo: shu yerda 45 ta savolli imtihon boshlanadi" class="bd-btn bd-btn--primary bd-btn--block">Imtihonni boshlash <i data-ico="arrowR"></i></a><p class="t-xs faint" style="text-align:center;margin-top:2px">Bir marta topshiriladi · 60 daqiqa</p></div></section><section class="scr" id="s-games" data-label="Oʻyinlar" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><header class="bd-head" style="margin:0 -16px"><span class="bd-avatar">AK</span><div class="grow"><div class="bd-head__hi">Salom, Aziz! 👋</div><div class="bd-head__sub">Bilimlar laboratoriyasi</div></div><span class="bd-chip bd-chip--stat is-streak" aria-label="Kunlik seriya"><span class="bd-wiggle"><i data-ico="fire" data-size="16"></i></span>5</span><span class="bd-chip bd-chip--stat is-star" aria-label="Ball"><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>340</span></header><a href="#" data-noop data-go="intro" class="bd-hero" style="display:block;text-decoration:none;padding:14px 16px"><div class="row"><span class="bd-chip bd-chip--status"><i data-ico="sun" data-size="14"></i>Bugungi topshiriq</span></div>
+<div class="row" style="margin-top:10px;gap:12px"><span class="bd-game__art" style="background:rgba(255,255,255,.14);color:var(--sun)"><i data-ico="puzzle" data-size="30"></i></span><div class="grow"><div class="t-h2">Naqsh ustasi</div><div class="t-sm" style="opacity:.85">Mantiq · ~4 daqiqa</div></div><span class="bd-chip bd-chip--glass">+20 ⭐</span></div>
+<span class="bd-btn bd-btn--light bd-btn--block" style="margin-top:14px">Topshiriqni boshlash <i data-ico="play"></i></span></a><div class="bd-stats" style="margin-top:12px"><div data-go="stats" class="bd-stat bd-tap is-streak"><span class="bd-stat__top"><i data-ico="fire" data-size="18"></i><b class="t-stat" style="color:var(--ink)">5</b></span><span class="bd-stat__label">kun seriya</span></div><div data-go="stats" class="bd-stat bd-tap is-star"><span class="bd-stat__top"><i data-ico="star" data-size="18"></i><b class="t-stat" style="color:var(--ink)">340</b></span><span class="bd-stat__label">ball</span></div><div data-go="achievements" class="bd-stat bd-tap is-memory"><span class="bd-stat__top"><i data-ico="trophy" data-size="18"></i><b class="t-stat" style="color:var(--ink)">2/7</b></span><span class="bd-stat__label">yutuq</span></div></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Yoʻnalishlar</h2></div><div class="bd-dirs"><a href="#" data-noop data-go="intro" class="bd-dir is-memory" style="text-decoration:none"><span class="bd-tile"><i data-ico="brain" data-size="18"></i></span><span class="bd-dir__name">Xotira</span><span class="bd-dir__meta">1 oʻyin</span></a><a href="#" data-noop data-go="intro" class="bd-dir is-logic" style="text-decoration:none"><span class="bd-tile"><i data-ico="puzzle" data-size="18"></i></span><span class="bd-dir__name">Mantiq</span><span class="bd-dir__meta">1 oʻyin</span></a><a href="#" data-noop data-go="intro" class="bd-dir is-math" style="text-decoration:none"><span class="bd-tile"><i data-ico="sigma" data-size="18"></i></span><span class="bd-dir__name">Matematika</span><span class="bd-dir__meta">1 oʻyin</span></a><a href="#" data-noop data-go="intro" class="bd-dir is-attn" style="text-decoration:none"><span class="bd-tile"><i data-ico="eye" data-size="18"></i></span><span class="bd-dir__name">Diqqat</span><span class="bd-dir__meta">Tez orada</span></a><a href="#" data-noop data-go="intro" class="bd-dir is-spatial" style="text-decoration:none"><span class="bd-tile"><i data-ico="compass" data-size="18"></i></span><span class="bd-dir__name">Fazoviy</span><span class="bd-dir__meta">Tez orada</span></a><a href="#" data-noop data-go="intro" class="bd-dir is-lang" style="text-decoration:none"><span class="bd-tile"><i data-ico="text" data-size="18"></i></span><span class="bd-dir__name">Soʻz va til</span><span class="bd-dir__meta">Tez orada</span></a></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Oʻyinlar</h2></div><div class="col" style="gap:8px"><a href="#" data-noop data-go="intro" class="bd-card bd-game bd-tap is-memory" style="text-decoration:none;color:inherit;padding:10px 12px"><span class="bd-game__art" style="width:56px;height:56px"><i data-ico="grid" data-size="28"></i></span><div class="grow"><div class="t-over" style="color:var(--memory-ink)">Xotira</div><div class="t-h3">Xotira kartalari</div><div class="t-xs faint">~3 daq · Oson–Qiyin</div></div><span class="bd-chip bd-chip--stat is-star" aria-label=""><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>40</span></a><a href="#" data-noop data-go="intro" class="bd-card bd-game bd-tap is-math" style="text-decoration:none;color:inherit;padding:10px 12px"><span class="bd-game__art" style="width:56px;height:56px"><i data-ico="sigma" data-size="28"></i></span><div class="grow"><div class="t-over" style="color:var(--math-ink)">Matematika</div><div class="t-h3">Yashiringan son</div><div class="t-xs faint">~4 daq · Oson–Qiyin</div></div><span class="bd-chip bd-chip--soft is-brand">Yangi</span></a></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Tez orada</h2></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="bd-card bd-card--flat bd-game is-soon is-attn" style="padding:8px 10px;gap:8px;background:transparent"><span class="bd-tile"><i data-ico="eye" data-size="18"></i></span><span class="t-xs" style="color:var(--ink-2)">Ortiqchasini top</span></div><div class="bd-card bd-card--flat bd-game is-soon is-math" style="padding:8px 10px;gap:8px;background:transparent"><span class="bd-tile"><i data-ico="calc" data-size="18"></i></span><span class="t-xs" style="color:var(--ink-2)">Tez hisob</span></div><div class="bd-card bd-card--flat bd-game is-soon is-spatial" style="padding:8px 10px;gap:8px;background:transparent"><span class="bd-tile"><i data-ico="compass" data-size="18"></i></span><span class="t-xs" style="color:var(--ink-2)">Labirint</span></div><div class="bd-card bd-card--flat bd-game is-soon is-lang" style="padding:8px 10px;gap:8px;background:transparent"><span class="bd-tile"><i data-ico="text" data-size="18"></i></span><span class="t-xs" style="color:var(--ink-2)">Soʻzlar qidiruvi</span></div></div></section></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class=""><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class=""><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-intro" data-label="Oʻyin kirish" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 120px"><div class="bd-topbar" style="margin:0 -12px"><button type="button" data-go="back" class="bd-iconbtn" aria-label="Orqaga"><i data-ico="arrowL"></i></button><span class="bd-topbar__title">Laboratoriya</span></div>
+<div class="is-logic" style="height:132px;border-radius:var(--radius-xl);background:var(--logic-soft);display:flex;align-items:center;justify-content:center;gap:10px;position:relative">
+ <span style="width:34px;height:34px;border-radius:50%;background:#f5b23a"></span><span style="width:34px;height:34px;border-radius:8px;background:#9a5b00"></span><span style="width:34px;height:34px;border-radius:50%;background:#f5b23a"></span><span style="width:38px;height:38px;border-radius:8px;border:3px dashed var(--logic-ink);display:grid;place-items:center;font-weight:900;color:var(--logic-ink)">?</span>
+ <span style="position:absolute;right:8px;bottom:-6px"><span data-mascot="oylayapti" data-size="64"></span></span></div>
+<p class="t-over" style="color:var(--logic-ink);margin-top:16px">Mantiq · Naqsh ustasi</p><h1 class="t-hero" style="margin-top:2px">Naqsh ustasi boʻlishga tayyormisan?</h1>
+<p class="t-sm muted" style="margin-top:4px">Shakllar, ranglar va burilishlardagi qoidani top — keyingisi qaysi?</p>
+<div class="col" style="gap:8px;margin-top:14px"><div class="row" style="gap:10px"><span class="bd-tile is-logic" style="width:22px;height:22px;border-radius:50%;font-size:12px;font-weight:900;color:var(--logic-ink)">1</span><span class="t-sm">Shakllar qatoriga qara.</span></div><div class="row" style="gap:10px"><span class="bd-tile is-logic" style="width:22px;height:22px;border-radius:50%;font-size:12px;font-weight:900;color:var(--logic-ink)">2</span><span class="t-sm">Qaysi qoida takrorlanayotganini top.</span></div><div class="row" style="gap:10px"><span class="bd-tile is-logic" style="width:22px;height:22px;border-radius:50%;font-size:12px;font-weight:900;color:var(--logic-ink)">3</span><span class="t-sm">Qatorni davom ettiradigan shaklni tanla.</span></div></div>
+<p class="t-h3" style="margin:24px 0 8px">Darajani tanla</p>
+<div class="bd-seg" role="radiogroup"><button type="button" class="is-on" role="radio" aria-checked="true"><span class="bd-dots"><i class="on"></i><i></i><i></i></span>Oson</button><button type="button" role="radio" aria-checked="false"><span class="bd-dots"><i class="on"></i><i class="on"></i><i></i></span>Oʻrtacha</button><button type="button" role="radio" aria-checked="false"><span class="bd-dots"><i class="on"></i><i class="on"></i><i class="on"></i></span>Qiyin</button></div></div></div><div class="bd-sticky"><a href="#" data-noop data-go="play" class="bd-btn bd-btn--primary bd-btn--block">Oʻyinni boshlash <i data-ico="play"></i></a><p class="t-xs faint" style="text-align:center;margin-top:2px">Taxminan 4 daqiqa · shoshilish shart emas</p></div></section><section class="scr" id="s-play" data-label="Oʻyin jarayoni" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 110px"><div class="bd-topbar" style="margin:0 -12px"><button type="button" data-go="games" class="bd-iconbtn" aria-label="Yopish"><i data-ico="x"></i></button><span class="bd-topbar__title grow">Naqsh ustasi</span><span class="bd-chip bd-chip--stat is-star" aria-label=""><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span><span data-score>20</span></span></div>
+<div class="row" style="gap:8px"><span class="bd-bar grow is-logic" style="height:8px"><i data-progress style="--p:17;transition:width .4s"></i></span><span class="t-xs muted" data-step>2/6</span></div>
+<div class="col" style="min-height:540px;justify-content:center;gap:20px">
+ <p class="t-sm muted" style="text-align:center">2-naqsh · Keyingi shakl qaysi?</p>
+ <div class="bd-card" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:16px;justify-items:center"><span style="width:44px;height:44px;border-radius:8px;background:#d23f78"></span><span style="width:44px;height:44px;border-radius:50%;background:#d23f78"></span><span style="width:44px;height:44px;border-radius:8px;background:#d23f78"></span><span style="width:44px;height:44px;border-radius:50%;background:#d23f78"></span><span style="width:44px;height:44px;border-radius:8px;background:#d23f78"></span><span style="width:44px;height:44px;border-radius:50%;background:#d23f78"></span><span data-slot style="width:44px;height:44px;border-radius:8px;border:2.5px dashed var(--brand);display:grid;place-items:center;font-weight:900;color:var(--brand-ink)">?</span></div>
+ <div class="bd-answers" data-game>
+  <button type="button" class="bd-answer bd-answer--lg" data-right aria-label="Pushti kvadrat"><span style="width:44px;height:44px;border-radius:8px;background:#d23f78"></span></button>
+  <button type="button" class="bd-answer bd-answer--lg" aria-label="Koʻk kvadrat"><span style="width:44px;height:44px;border-radius:8px;background:#2575c9"></span></button>
+  <button type="button" class="bd-answer bd-answer--lg" aria-label="Pushti doira"><span style="width:44px;height:44px;border-radius:50%;background:#d23f78"></span></button>
+  <button type="button" class="bd-answer bd-answer--lg" aria-label="Ikkita kichik kvadrat"><span class="row" style="gap:4px"><span style="width:22px;height:22px;border-radius:6px;background:#d23f78"></span><span style="width:22px;height:22px;border-radius:6px;background:#d23f78"></span></span></button>
+ </div>
+ <div class="row" style="gap:10px;min-height:72px" data-coach><span data-coach-m><span data-mascot="oylayapti" data-size="64"></span></span><div class="bd-bubble" data-coach-t>Shakllar qanday almashinyapti? Diqqat bilan qara 👀</div></div>
+</div></div></div><div class="bd-sticky" data-next hidden><a href="#result" data-go="result" class="bd-btn bd-btn--primary bd-btn--block">Davom etish <i data-ico="arrowR"></i></a></div></section><section class="scr" id="s-result" data-label="Oʻyin natijasi" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 150px"><div class="bd-confetti" aria-hidden="true"><i style="left:8px;top:0px;background:#ffc94a;animation-delay:-0.00s;transform:rotate(0deg)"></i><i style="left:45px;top:53px;background:#5b5bd6;animation-delay:-0.37s;transform:rotate(33deg)"></i><i style="left:82px;top:106px;background:#d23f78;animation-delay:-0.74s;transform:rotate(66deg)"></i><i style="left:119px;top:159px;background:#16895a;animation-delay:-1.11s;transform:rotate(99deg)"></i><i style="left:156px;top:52px;background:#2575c9;animation-delay:-1.48s;transform:rotate(132deg)"></i><i style="left:193px;top:105px;background:#e8590c;animation-delay:-1.85s;transform:rotate(165deg)"></i><i style="left:230px;top:158px;background:#ffc94a;animation-delay:-2.22s;transform:rotate(198deg)"></i><i style="left:267px;top:51px;background:#5b5bd6;animation-delay:-2.59s;transform:rotate(231deg)"></i><i style="left:304px;top:104px;background:#d23f78;animation-delay:-0.16s;transform:rotate(264deg)"></i><i style="left:341px;top:157px;background:#16895a;animation-delay:-0.53s;transform:rotate(297deg)"></i><i style="left:38px;top:50px;background:#2575c9;animation-delay:-0.90s;transform:rotate(330deg)"></i><i style="left:75px;top:103px;background:#e8590c;animation-delay:-1.27s;transform:rotate(363deg)"></i><i style="left:112px;top:156px;background:#ffc94a;animation-delay:-1.64s;transform:rotate(396deg)"></i><i style="left:149px;top:49px;background:#5b5bd6;animation-delay:-2.01s;transform:rotate(429deg)"></i><i style="left:186px;top:102px;background:#d23f78;animation-delay:-2.38s;transform:rotate(462deg)"></i><i style="left:223px;top:155px;background:#16895a;animation-delay:-2.75s;transform:rotate(495deg)"></i><i style="left:260px;top:48px;background:#2575c9;animation-delay:-0.32s;transform:rotate(528deg)"></i><i style="left:297px;top:101px;background:#e8590c;animation-delay:-0.69s;transform:rotate(561deg)"></i><i style="left:334px;top:154px;background:#ffc94a;animation-delay:-1.06s;transform:rotate(594deg)"></i><i style="left:31px;top:47px;background:#5b5bd6;animation-delay:-1.43s;transform:rotate(627deg)"></i><i style="left:68px;top:100px;background:#d23f78;animation-delay:-1.80s;transform:rotate(660deg)"></i><i style="left:105px;top:153px;background:#16895a;animation-delay:-2.17s;transform:rotate(693deg)"></i></div><div class="col" style="align-items:center;text-align:center;padding-top:28px"><span data-mascot="xursand" data-size="128"></span>
+<p class="t-over" style="color:var(--memory-ink);margin-top:12px">Xotira kartalari · Oson</p><h1 class="t-hero" style="margin-top:4px">Barakalla! Barcha juftlarni topding!</h1>
+<p class="t-sm muted" style="margin-top:4px;max-width:280px">Xotirang zoʻr ishladi. Har safar oʻynaganingda u yanada kuchliroq boʻladi.</p></div>
+<div class="bd-stats" style="margin-top:16px"><div class="bd-stat is-star" style="align-items:center"><span class="bd-stat__top"><i data-ico="star" data-size="18"></i><b class="t-stat" style="color:var(--ink)">40</b></span><span class="bd-stat__label">ball</span></div><div class="bd-stat is-memory" style="align-items:center"><span class="bd-stat__top"><i data-ico="target" data-size="18"></i><b class="t-stat" style="color:var(--ink)">6</b></span><span class="bd-stat__label">urinish</span></div><div class="bd-stat is-attn" style="align-items:center"><span class="bd-stat__top"><i data-ico="clock" data-size="18"></i><b class="t-stat" style="color:var(--ink)">21 s</b></span><span class="bd-stat__label">vaqt</span></div></div>
+<div class="bd-card bd-rowcard is-memory" style="margin-top:12px;background:var(--memory-soft);box-shadow:none"><span class="bd-badge__disc" style="width:44px;height:44px;box-shadow:0 0 0 3px var(--card)"><i data-ico="flag" data-size="22"></i></span><div class="grow"><div class="t-over" style="color:var(--memory-ink)">Yangi nishon!</div><div class="t-h3">Birinchi qadam</div></div><span class="t-xs" style="color:var(--memory-ink)">+1 yutuq</span></div></div></div><div class="bd-sticky" style="display:flex;gap:8px;flex-direction:column"><a href="#" data-noop data-go="play" class="bd-btn bd-btn--primary bd-btn--block"><i data-ico="retry"></i>Yana oʻynash</a><a href="#" data-noop data-go="games" class="bd-btn bd-btn--ghost bd-btn--block">Laboratoriyaga qaytish</a></div></section><section class="scr" id="s-results-new" data-label="Natijalar · boʻsh" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><h1 class="t-hero" style="margin:8px 0 2px">Natijalarim</h1><p class="t-sm muted">Topshirgan imtihonlaring tarixi.</p><div class="bd-card bd-card--cream col" style="align-items:center;text-align:center;margin-top:20px;padding:24px 20px"><span data-mascot="oylayapti" data-size="112"></span>
+<h2 class="t-h2" style="margin-top:8px">Hali natija yoʻq — lekin hammasi oldinda!</h2><p class="t-sm muted" style="margin-top:4px">Birinchi imtihonni topshir — natijang, fanlar boʻyicha tahlil va sinfdagi oʻrning shu yerda chiqadi.</p>
+<a href="#" data-noop data-go="exams" class="bd-btn bd-btn--primary" style="margin-top:16px">Imtihonlarga oʻtish <i data-ico="arrowR"></i></a></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Shu orada mashq qil</h2></div><a href="#" data-noop data-go="intro" class="bd-card bd-game bd-tap is-logic" style="text-decoration:none;color:inherit;padding:10px 12px"><span class="bd-game__art" style="width:48px;height:48px"><i data-ico="puzzle" data-size="24"></i></span><div class="grow"><div class="t-h3">Naqsh ustasi</div><div class="t-xs faint">Bugungi topshiriq · +20 ⭐</div></div><i data-ico="chevR" data-size="18"></i></a></section></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class=""><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-results-active" data-label="Natijalar · toʻla" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><h1 class="t-hero" style="margin:8px 0 12px">Natijalarim</h1><div class="bd-hero" style="padding:16px"><div class="row" style="gap:14px"><span class="bd-ring bd-ring--hero bd-ring--lg" style="--p:84"><b>84%</b></span><div class="grow"><div class="t-over" style="opacity:.85">Soʻnggi natija</div><div class="t-h2">Kuzgi bilimlar imtihoni</div><div class="t-sm" style="opacity:.85">38/45 · Sinfda 3-oʻrin</div></div></div></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Fanlar boʻyicha</h2></div><div class="bd-card col" style="gap:10px;padding:14px 16px"><div class="row is-math" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="sigma" data-size="16"></i></span><span class="t-sm grow" style="color:var(--ink)">Matematika</span><span class="bd-bar" style="width:96px"><i style="--p:87"></i></span><b class="t-xs" style="width:34px;text-align:right">13/15</b></div><div class="row is-logic" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="puzzle" data-size="16"></i></span><span class="t-sm grow" style="color:var(--ink)">Mantiq (IQ)</span><span class="bd-bar" style="width:96px"><i style="--p:80"></i></span><b class="t-xs" style="width:34px;text-align:right">12/15</b></div><div class="row is-lang" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="book" data-size="16"></i></span><span class="t-sm grow" style="color:var(--ink)">Ona tili</span><span class="bd-bar" style="width:96px"><i style="--p:87"></i></span><b class="t-xs" style="width:34px;text-align:right">13/15</b></div></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Tarix</h2></div><div class="bd-card bd-list" style="padding:2px 16px"><a href="#exam" data-go="exam" class="bd-rowcard" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-ring is-brand" style="--p:84"><b>84%</b></span><div class="grow"><div class="t-h3">Kuzgi bilimlar imtihoni</div><div class="t-xs faint">1-noyabr · 38/45</div></div><i data-ico="chevR" data-size="18"></i></a><a href="#exam" data-go="exam" class="bd-rowcard" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-ring is-brand" style="--p:69"><b>69%</b></span><div class="grow"><div class="t-h3">Yozgi takrorlash</div><div class="t-xs faint">14-avgust · 31/45</div></div><i data-ico="chevR" data-size="18"></i></a></div></section></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class=""><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-profile" data-label="Profil" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><div class="bd-card" style="margin-top:8px;padding:16px;text-align:center;position:relative;overflow:hidden">
+<div style="position:absolute;inset:0 0 auto 0;height:56px;background:var(--brand-soft)"></div>
+<span class="bd-avatar" style="width:72px;height:72px;font-size:24px;position:relative;margin:8px auto 0;box-shadow:0 0 0 4px var(--card)">AK</span>
+<h1 class="t-hero" style="margin-top:8px">Aziz Karimov</h1><p class="t-sm muted">6-“B” sinf · 12-maktab</p>
+<div class="row" style="margin-top:12px;gap:10px;text-align:left"><span class="bd-chip bd-chip--stat is-brand"><i data-ico="trophy" data-size="16"></i>4-daraja</span><div class="grow"><div class="row" style="justify-content:space-between"><span class="t-xs muted">Bilimdon-izlanuvchi</span><span class="t-xs">340 / 500 XP</span></div><span class="bd-bar" style="display:block;margin-top:4px"><i style="--p:68"></i></span></div></div></div>
+<div class="bd-stats" style="margin-top:12px"><div data-go="stats" class="bd-stat bd-tap is-streak"><span class="bd-stat__top"><i data-ico="fire" data-size="18"></i><b class="t-stat" style="color:var(--ink)">5</b></span><span class="bd-stat__label">kun seriya</span></div><div class="bd-stat is-star"><span class="bd-stat__top"><i data-ico="star" data-size="18"></i><b class="t-stat" style="color:var(--ink)">340</b></span><span class="bd-stat__label">ball</span></div><div class="bd-stat is-memory"><span class="bd-stat__top"><i data-ico="trophy" data-size="18"></i><b class="t-stat" style="color:var(--ink)">2/7</b></span><span class="bd-stat__label">yutuq</span></div></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Eng yaxshi natijalar</h2></div><div class="bd-card bd-list" style="padding:2px 16px"><div class="bd-rowcard is-brand" style="min-height:48px"><span class="bd-tile"><i data-ico="exam"></i></span><span class="grow t-h3">Kuzgi imtihon</span><b class="t-h3">38/45</b></div><div class="bd-rowcard is-memory" style="min-height:48px"><span class="bd-tile"><i data-ico="grid"></i></span><span class="grow t-h3">Xotira kartalari</span><b class="t-h3">40 ⭐</b></div><div class="bd-rowcard is-logic" style="min-height:48px"><span class="bd-tile"><i data-ico="puzzle"></i></span><span class="grow t-h3">Naqsh ustasi</span><b class="t-h3">30 ⭐</b></div></div></section><section class="sec"><div class="sec-head"><h2 class="t-h2">Sozlamalar</h2></div><div class="bd-card bd-list" style="padding:2px 16px"><a href="#" data-noop data-theme-toggle class="bd-rowcard" style="text-decoration:none;color:inherit;min-height:48px"><span class="bd-tile"><i data-ico="moon" data-size="18"></i></span><span class="grow t-h3">Qorongʻi rejim</span><i data-ico="chevR" data-size="18"></i></a><a href="#results" data-go="results" class="bd-rowcard" style="text-decoration:none;color:inherit;min-height:48px"><span class="bd-tile"><i data-ico="history" data-size="18"></i></span><span class="grow t-h3">Imtihonlar tarixi</span><i data-ico="chevR" data-size="18"></i></a><a href="#" data-noop class="bd-rowcard" style="text-decoration:none;color:inherit;min-height:48px"><span class="bd-tile"><i data-ico="help" data-size="18"></i></span><span class="grow t-h3">Yordam</span><i data-ico="chevR" data-size="18"></i></a><a href="#" data-noop class="bd-rowcard" style="text-decoration:none;color:inherit;min-height:48px"><span class="bd-tile"><i data-ico="shield" data-size="18"></i></span><span class="grow t-h3">Maxfiylik</span><i data-ico="chevR" data-size="18"></i></a></div></section><p class="t-xs faint" style="text-align:center;margin-top:12px">Shaxsiy maʼlumotlarni faqat maktabing oʻzgartiradi.</p><a href="#" data-noop data-toast="Demo: chiqish bosildi" class="bd-btn bd-btn--ghost bd-btn--block" style="color:var(--danger-ink);margin-top:4px"><i data-ico="logout"></i>Chiqish</a></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class=""><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class=""><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-stats" data-label="Statistika" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><div class="bd-topbar" style="margin:0 -12px"><button type="button" data-go="back" class="bd-iconbtn" aria-label="Orqaga"><i data-ico="arrowL"></i></button><span class="bd-topbar__title">Mening statistikam</span></div>
+<div class="bd-stats"><div class="bd-stat"><span class="bd-stat__top"><i data-ico="check" data-size="18"></i><b class="t-stat" style="color:var(--ink)">12</b></span><span class="bd-stat__label">mashgʻulot</span></div><div class="bd-stat is-star"><span class="bd-stat__top"><i data-ico="star" data-size="18"></i><b class="t-stat" style="color:var(--ink)">340</b></span><span class="bd-stat__label">jami ball</span></div><div class="bd-stat is-streak"><span class="bd-stat__top"><i data-ico="fire" data-size="18"></i><b class="t-stat" style="color:var(--ink)">5</b></span><span class="bd-stat__label">kun seriya</span></div></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Yoʻnalishlar boʻyicha</h2></div><div class="bd-card col" style="gap:10px;padding:14px 16px"><div class="row is-memory" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="brain" data-size="16"></i></span><span class="t-sm" style="width:84px;color:var(--ink)">Xotira</span><span class="bd-bar grow"><i style="--p:70"></i></span><b class="t-xs" style="width:14px;text-align:right">4</b></div><div class="row is-logic" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="puzzle" data-size="16"></i></span><span class="t-sm" style="width:84px;color:var(--ink)">Mantiq</span><span class="bd-bar grow"><i style="--p:45"></i></span><b class="t-xs" style="width:14px;text-align:right">3</b></div><div class="row is-math" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="sigma" data-size="16"></i></span><span class="t-sm" style="width:84px;color:var(--ink)">Matematika</span><span class="bd-bar grow"><i style="--p:30"></i></span><b class="t-xs" style="width:14px;text-align:right">2</b></div><div class="row is-attn" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="eye" data-size="16"></i></span><span class="t-sm" style="width:84px;color:var(--ink)">Diqqat</span><span class="bd-bar grow"><i style="--p:10"></i></span><b class="t-xs" style="width:14px;text-align:right">1</b></div><div class="row is-spatial" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="compass" data-size="16"></i></span><span class="t-sm" style="width:84px;color:var(--ink)">Fazoviy</span><span class="bd-bar grow"><i style="--p:0"></i></span><b class="t-xs" style="width:14px;text-align:right">0</b></div><div class="row is-lang" style="gap:10px"><span class="bd-tile" style="width:28px;height:28px"><i data-ico="text" data-size="16"></i></span><span class="t-sm" style="width:84px;color:var(--ink)">Soʻz va til</span><span class="bd-bar grow"><i style="--p:0"></i></span><b class="t-xs" style="width:14px;text-align:right">0</b></div></div></section><div class="bd-card bd-card--cream row" style="margin-top:12px;gap:10px;align-items:flex-start;padding:12px 14px"><i data-ico="bulb" data-size="18"></i><p class="t-sm muted">Ballar faqat oʻz oʻsishingni koʻrsatadi — hech kim bilan solishtirilmaydi.</p></div></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class=""><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section><section class="scr" id="s-achievements" data-label="Yutuqlar" hidden><div class="scr-scroll"><div class="scr-in" style="padding:0 16px 96px"><div class="bd-topbar" style="margin:0 -12px"><button type="button" data-go="back" class="bd-iconbtn" aria-label="Orqaga"><i data-ico="arrowL"></i></button><span class="bd-topbar__title">Yutuqlarim</span></div>
+<div class="bd-card row" style="gap:12px;padding:12px 16px"><span data-mascot="xursand" data-size="64"></span><div class="grow"><div class="t-stat">2 / 7</div><p class="t-sm muted">ta yutuq ochildi</p><span class="bd-bar" style="margin-top:6px;display:block"><i style="--p:28"></i></span></div></div><section class="sec"><div class="sec-head"><h2 class="t-h2">Barcha nishonlar</h2></div><div class="bd-badgegrid"><div class="bd-badge is-memory"><span class="bd-badge__disc"><i data-ico="flag" data-size="24"></i></span><span class="bd-badge__name">Birinchi qadam</span><span class="t-xs " style="color:var(--success-ink)">✓ Olingan</span></div><div class="bd-badge is-logic"><span class="bd-badge__disc"><i data-ico="brain" data-size="24"></i></span><span class="bd-badge__name">Xotira ustasi</span><span class="t-xs " style="color:var(--success-ink)">✓ Olingan</span></div><div class="bd-badge is-math is-locked"><span class="bd-badge__disc"><i data-ico="calc" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Matematik izquvar</span><span class="t-xs faint" style="">0/3</span></div><div class="bd-badge is-logic is-locked"><span class="bd-badge__disc"><i data-ico="puzzle" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Mantiqiy fikrlovchi</span><span class="t-xs faint" style="">0/3</span></div><div class="bd-badge is-attn is-locked"><span class="bd-badge__disc"><i data-ico="eye" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Diqqat chempioni</span><span class="t-xs faint" style="">0/1</span></div><div class="bd-badge is-spatial is-locked"><span class="bd-badge__disc"><i data-ico="compass" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Izlanuvchan bola</span><span class="t-xs faint" style="">1/3</span></div><div class="bd-badge is-star is-locked"><span class="bd-badge__disc"><i data-ico="sun" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Kun kashfiyotchisi</span><span class="t-xs faint" style="">0/1</span></div></div></section></div></div><nav class="bd-nav" aria-label="Asosiy menyu"><a href="#home" data-go="home" class=""><span class="bd-nav__pill"><i data-ico="home" data-size="22"></i></span>Bosh sahifa</a><a href="#exams" data-go="exams" class=""><span class="bd-nav__pill"><i data-ico="exam" data-size="22"></i></span>Imtihon</a><a href="#games" data-go="games" class=""><span class="bd-nav__pill"><i data-ico="game" data-size="22"></i></span>Oʻyinlar</a><a href="#results" data-go="results" class="is-on" aria-current=page><span class="bd-nav__pill"><i data-ico="chart" data-size="22"></i></span>Natijalar</a><a href="#profile" data-go="profile" class=""><span class="bd-nav__pill"><i data-ico="user" data-size="22"></i></span>Profil</a></nav></section>
+  </div>
+
+  <div class="dm-desk" id="desk" hidden><div class="dm-desk__scale" id="desk-scale"><div><div>
+<div class="desk-frame">
+ <aside style="width:248px;padding:24px 16px;background:var(--card);box-shadow:1px 0 0 var(--line);display:flex;flex-direction:column;gap:4px">
+  <div class="row" style="gap:10px;padding:0 8px 24px"><span data-mascot="salom" data-size="40"></span><b style="font-size:20px;font-weight:900;color:var(--brand-ink)">Bilimdon</b></div>
+  <a href="#" data-noop class="row" style="height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-weight:800;color:var(--brand-ink);background:var(--brand-soft);gap:12px"><i data-ico="home" data-size="22"></i>Bosh sahifa</a><a href="#" data-noop class="row" style="height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-weight:700;color:var(--ink-2);background:transparent;gap:12px"><i data-ico="exam" data-size="22"></i>Imtihon</a><a href="#" data-noop class="row" style="height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-weight:700;color:var(--ink-2);background:transparent;gap:12px"><i data-ico="game" data-size="22"></i>Oʻyinlar</a><a href="#" data-noop class="row" style="height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-weight:700;color:var(--ink-2);background:transparent;gap:12px"><i data-ico="chart" data-size="22"></i>Natijalar</a><a href="#" data-noop class="row" style="height:44px;padding:0 12px;border-radius:12px;text-decoration:none;font-weight:700;color:var(--ink-2);background:transparent;gap:12px"><i data-ico="user" data-size="22"></i>Profil</a>
+  <div class="bd-card bd-card--cream" style="margin-top:auto;padding:14px"><div class="row"><span data-mascot="oylayapti" data-size="44"></span><p class="t-sm">Har kuni 10 daqiqa — miyang uchun eng yaxshi mashq!</p></div></div>
+ </aside>
+ <main style="flex:1;padding:28px 40px;overflow:hidden">
+  <div class="row" style="justify-content:space-between;margin-bottom:24px"><div><h1 class="t-display">Salom, Aziz! 👋</h1><p class="t-body muted">Bugun ham bilimlaringni sinab koʻramizmi?</p></div>
+   <div class="row" style="gap:8px"><span class="bd-chip bd-chip--stat is-streak" aria-label=""><span class="bd-wiggle"><i data-ico="fire" data-size="16"></i></span>5 kun</span><span class="bd-chip bd-chip--stat is-star" aria-label=""><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>340</span><span class="bd-avatar" style="width:40px;height:40px;margin-left:8px">AK</span></div></div>
+  <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:start">
+   <div class="col" style="gap:24px">
+    <section class="bd-hero" style="padding:24px;min-height:220px"><span class="bd-chip bd-chip--status"><i data-ico="sparkle" data-size="14"></i>Topshirish mumkin</span><h2 class="t-display" style="margin-top:12px;max-width:420px">Kuzgi bilimlar imtihoni</h2><p class="t-body" style="opacity:.88;margin-top:4px">Matematika, mantiq va ona tili — 45 ta qiziqarli savol.</p>
+     <div class="bd-hero__meta"><span class="bd-chip bd-chip--glass"><i data-ico="list" data-size="16"></i>45 ta savol</span><span class="bd-chip bd-chip--glass"><i data-ico="clock" data-size="16"></i>60 daqiqa</span></div>
+     <a href="#" data-noop class="bd-btn bd-btn--light bd-hero__cta">Imtihonni boshlash <i data-ico="arrowR"></i></a><span class="bd-hero__mascot" style="right:32px;bottom:12px"><span data-mascot="ishora" data-size="150"></span></span></section>
+    <section><div class="sec-head"><h2 class="t-h2" style="font-size:20px">Imtihon fanlari</h2><a href="#" data-noop class="link">Barchasi<i data-ico="chevR" data-size="16"></i></a></div>
+     <div class="bd-subjects" style="gap:16px"><a href="#" data-noop class="bd-subj is-math" style="text-decoration:none;flex-direction:row;align-items:center;gap:12px;padding:16px;min-height:auto"><span class="bd-tile bd-tile--lg"><i data-ico="sigma" data-size="22"></i></span><div class="grow col" style="gap:4px"><span class="bd-subj__name">Matematika</span><span class="bd-subj__meta">13/15 toʻgʻri</span><span class="bd-bar"><i style="--p:87"></i></span></div></a><a href="#" data-noop class="bd-subj is-logic" style="text-decoration:none;flex-direction:row;align-items:center;gap:12px;padding:16px;min-height:auto"><span class="bd-tile bd-tile--lg"><i data-ico="puzzle" data-size="22"></i></span><div class="grow col" style="gap:4px"><span class="bd-subj__name">Mantiq (IQ)</span><span class="bd-subj__meta">12/15 toʻgʻri</span><span class="bd-bar"><i style="--p:80"></i></span></div></a><a href="#" data-noop class="bd-subj is-lang" style="text-decoration:none;flex-direction:row;align-items:center;gap:12px;padding:16px;min-height:auto"><span class="bd-tile bd-tile--lg"><i data-ico="book" data-size="22"></i></span><div class="grow col" style="gap:4px"><span class="bd-subj__name">Ona tili</span><span class="bd-subj__meta">13/15 toʻgʻri</span><span class="bd-bar"><i style="--p:87"></i></span></div></a></div></section>
+    <section><div class="sec-head"><h2 class="t-h2" style="font-size:20px">Soʻnggi faoliyat</h2><a href="#" data-noop class="link">Hammasi<i data-ico="chevR" data-size="16"></i></a></div><div class="bd-card bd-list" style="padding:2px 16px"><a href="#" data-noop class="bd-rowcard is-brand" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-tile"><i data-ico="exam"></i></span><div class="grow"><div class="t-h3">Kuzgi bilimlar imtihoni</div><div class="t-xs faint">1-noyabr · 52 daqiqa</div></div><b class="t-h3">38/45</b></a><a href="#" data-noop class="bd-rowcard is-memory" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-tile"><i data-ico="brain"></i></span><div class="grow"><div class="t-h3">Xotira kartalari</div><div class="t-xs faint">Kecha · Oson</div></div><b class="t-h3">+40 ⭐</b></a><a href="#" data-noop class="bd-rowcard is-logic" style="text-decoration:none;color:inherit;min-height:52px"><span class="bd-tile"><i data-ico="puzzle"></i></span><div class="grow"><div class="t-h3">Naqsh ustasi</div><div class="t-xs faint">Kecha · Oʻrtacha</div></div><b class="t-h3">+30 ⭐</b></a></div></section>
+   </div>
+   <div class="col" style="gap:24px">
+    <a href="#" data-noop class="bd-card bd-mission bd-tap" style="text-decoration:none;color:inherit">
+  <span class="bd-ring is-brand" style="--p:60"><b>3/5</b></span>
+  <div class="grow"><div class="t-over" style="color:var(--brand-ink)">Kunlik missiya</div><div class="bd-mission__title">Bugun 5 ta savol yech</div>
+  <div class="bd-mission__sub">Topshiriq: Naqsh ustasi</div></div>
+  <span class="bd-chip bd-chip--stat is-star" aria-label="Mukofot"><span class="bd-wiggle"><i data-ico="star" data-size="16"></i></span>+20</span>
+</a>
+    <section><div class="sec-head"><h2 class="t-h2" style="font-size:20px">Yutuqlarim</h2><a href="#" data-noop class="link">2/7<i data-ico="chevR" data-size="16"></i></a></div><div class="bd-card" style="padding:16px 12px"><div class="bd-badges"><div class="bd-badge is-memory"><span class="bd-badge__disc"><i data-ico="flag" data-size="24"></i></span><span class="bd-badge__name">Birinchi qadam</span></div><div class="bd-badge is-logic"><span class="bd-badge__disc"><i data-ico="brain" data-size="24"></i></span><span class="bd-badge__name">Xotira ustasi</span></div><div class="bd-badge is-math is-locked"><span class="bd-badge__disc"><i data-ico="calc" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Matematik izquvar</span></div><div class="bd-badge is-attn is-locked"><span class="bd-badge__disc"><i data-ico="eye" data-size="24"></i><span class=bd-badge__lock><i data-ico="lock" data-size="12"></i></span></span><span class="bd-badge__name">Diqqat chempioni</span></div></div></div></section>
+    <section><div class="sec-head"><h2 class="t-h2" style="font-size:20px">Kun savoli</h2></div><div class="bd-card bd-card--cream" style="padding:14px 16px 16px">
+  <div class="row" style="align-items:flex-start;gap:10px">
+    <div class="grow"><div class="t-over" style="color:var(--logic-ink)">Kun savoli · +5 ⭐</div>
+    <p class="t-h3" style="margin-top:4px">Qaysi son ortiqcha?<br><span class="t-body muted">3 · 9 · 12 · 27 · 81</span></p></div>
+    <span data-mascot="oylayapti" data-size="56"></span>
+  </div>
+  <div class="bd-answers" data-quiz="12" data-ok="Toʻgʻri! +5 ⭐" data-bad="Yaqin! Qaysi biri 3 ning darajasi emas?" style="margin-top:12px">
+    <button type="button" class="bd-answer">3</button><button type="button" class="bd-answer">9</button><button type="button" class="bd-answer">12</button><button type="button" class="bd-answer">81</button>
+  </div>
+</div></section>
+   </div></div></main></div></div></div></div></div>
+</main>
+<div class="dm-toast" id="toast" role="status" hidden></div>
+</div>
+
+<script>
+(function () {
+  var B = window.Bilimdon, root = document.documentElement;
+  var state = 'new', current = 'home', device = 'phone';
+  var NAMES = ['home', 'exams', 'exam', 'games', 'intro', 'play', 'result', 'results', 'stats', 'achievements', 'profile'];
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+  function resolve(n) { return (n === 'home' || n === 'results') ? n + '-' + state : n; }
+  function show(n) {
+    if (NAMES.indexOf(n) < 0) n = 'home';
+    current = n;
+    $$('.scr').forEach(function (s) { s.hidden = true; });
+    var el = document.getElementById('s-' + resolve(n));
+    el.hidden = false;
+    $('.scr-scroll', el).scrollTop = 0;
+    if (n === 'play') resetPlay();
+    if (n === 'home') resetQuiz(el);
+    $('#scr-select').value = n;
+    $$('#scr-list button').forEach(function (b) { b.setAttribute('aria-current', b.dataset.jump === n ? 'true' : 'false'); });
+  }
+  function go(n) { if (location.hash.slice(1) === n) show(n); else location.hash = n; }
+  window.addEventListener('hashchange', function () { show(location.hash.slice(1) || 'home'); });
+
+  var toastT;
+  function toast(msg) { var t = $('#toast'); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, 2200); }
+
+  /* Kun savoli */
+  function resetQuiz(scope) {
+    $$('[data-quiz]', scope).forEach(function (q) {
+      q.removeAttribute('data-done');
+      $$('.bd-answer', q).forEach(function (b) { b.classList.remove('is-right', 'is-wrong'); b.textContent = b.dataset.v || b.textContent.trim(); });
+      var f = q.nextElementSibling; if (f && f.classList.contains('dm-feedback')) f.remove();
+    });
+  }
+  function answerQuiz(btn, q) {
+    if (q.hasAttribute('data-done')) return;
+    q.setAttribute('data-done', '');
+    var right = q.dataset.quiz;
+    $$('.bd-answer', q).forEach(function (b) { b.dataset.v = b.dataset.v || b.textContent.trim(); });
+    var ok = btn.dataset.v === right;
+    $$('.bd-answer', q).forEach(function (b) {
+      if (b.dataset.v === right) { b.classList.add('is-right'); b.innerHTML = B.icon('check', 18) + b.dataset.v; }
+      else if (b === btn) { b.classList.add('is-wrong'); b.innerHTML = B.icon('x', 18) + b.dataset.v; }
+    });
+    var f = document.createElement('p'); f.className = 'dm-feedback ' + (ok ? 'ok' : 'bad'); f.textContent = ok ? q.dataset.ok : q.dataset.bad;
+    q.after(f);
+  }
+
+  /* Oʻyin */
+  var score = 20;
+  function resetPlay() {
+    var s = $('#s-play'); score = 20;
+    $('[data-score]', s).textContent = score;
+    $('[data-progress]', s).style.setProperty('--p', 17);
+    $('[data-step]', s).textContent = '2/6';
+    $$('.bd-answer', s).forEach(function (b) { b.classList.remove('is-right', 'is-wrong'); b.disabled = false; var c = $('.dm-check', b); if (c) c.remove(); });
+    var slot = $('[data-slot]', s); slot.innerHTML = '?'; slot.style.border = '2.5px dashed var(--brand)'; slot.style.background = '';
+    $('[data-coach-m]', s).innerHTML = B.mascot('oylayapti', 64);
+    $('[data-coach-t]', s).textContent = 'Shakllar qanday almashinyapti? Diqqat bilan qara 👀';
+    $('[data-next]', s).hidden = true;
+  }
+  function answerGame(btn) {
+    var s = $('#s-play');
+    if (btn.hasAttribute('data-right')) {
+      $$('.bd-answer', s).forEach(function (b) { b.classList.remove('is-wrong'); });
+      btn.classList.add('is-right');
+      btn.insertAdjacentHTML('beforeend', '<span class="dm-check" style="position:absolute;top:6px;right:8px;color:var(--success)">' + B.icon('check', 18) + '</span>');
+      $$('.bd-answer', s).forEach(function (b) { b.disabled = true; });
+      var slot = $('[data-slot]', s); slot.innerHTML = ''; slot.style.border = '0'; slot.style.background = '#d23f78';
+      score += 10; $('[data-score]', s).textContent = score;
+      $('[data-progress]', s).style.setProperty('--p', 33); $('[data-step]', s).textContent = '3/6';
+      $('[data-coach-m]', s).innerHTML = B.mascot('xursand', 64);
+      $('[data-coach-t]', s).innerHTML = 'Barakalla! Kvadrat va doira navbatma-navbat keladi. <span style="color:var(--success-ink)">+10 ⭐</span>';
+      $('[data-next]', s).hidden = false;
+    } else {
+      btn.classList.remove('is-wrong'); void btn.offsetWidth; btn.classList.add('is-wrong');
+      $('[data-coach-m]', s).innerHTML = B.mascot('hayron', 64);
+      $('[data-coach-t]', s).textContent = 'Hech gap emas, yana bir bor! Qatordagi shakllar navbatini kuzat.';
+      setTimeout(function () { btn.classList.remove('is-wrong'); }, 900);
+    }
+  }
+
+  /* Bosishlar */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('button, a, [data-go], [data-toast]');
+    if (!t) return;
+    if (t.matches('[data-jump]')) { go(t.dataset.jump); return; }
+    var q = t.closest('[data-quiz]');
+    if (q && t.classList.contains('bd-answer')) { answerQuiz(t, q); return; }
+    if (t.closest('[data-game]') && t.classList.contains('bd-answer')) { answerGame(t); return; }
+    if (t.matches('.bd-seg [role="radio"]')) { $$('[role="radio"]', t.parentNode).forEach(function (b) { b.classList.toggle('is-on', b === t); b.setAttribute('aria-checked', b === t); }); return; }
+    if (t.hasAttribute('data-filter')) { $$('[data-filter]', t.parentNode).forEach(function (b) { b.classList.toggle('is-on', b === t); }); return; }
+    if (t.hasAttribute('data-theme-toggle')) { e.preventDefault(); setTheme(isDark() ? 'light' : 'dark'); return; }
+    if (t.hasAttribute('data-toast')) { e.preventDefault(); toast(t.dataset.toast); return; }
+    if (t.dataset.go) { e.preventDefault(); if (t.dataset.go === 'back') { if (history.length > 1) history.back(); else go('home'); } else go(t.dataset.go); return; }
+    if (t.hasAttribute('data-noop')) { e.preventDefault(); if (t.closest('#desk')) toast('Kompyuter koʻrinishi — faqat bosh sahifa namunasi'); }
+  });
+  document.addEventListener('keydown', function (e) {
+    var t = e.target;
+    if ((e.key === 'Enter' || e.key === ' ') && t.matches('[data-go]:not(a):not(button)')) { e.preventDefault(); t.click(); }
+  });
+  $$('.scr [data-go]:not(a):not(button)').forEach(function (el) { el.tabIndex = 0; el.setAttribute('role', 'link'); });
+
+  $('#scr-select').addEventListener('change', function (e) { go(e.target.value); });
+
+  /* Holat, qurilma, rejim */
+  function setState(s) {
+    state = s; store('bd-demo-state', s);
+    $('#st-new').setAttribute('aria-pressed', s === 'new'); $('#st-active').setAttribute('aria-pressed', s === 'active');
+    show(current);
+  }
+  $('#st-new').addEventListener('click', function () { setState('new'); });
+  $('#st-active').addEventListener('click', function () { setState('active'); });
+
+  function fitDesk() {
+    var w = $('#desk').clientWidth, k = Math.min(1, w / 1440), sc = $('#desk-scale');
+    sc.style.transform = 'scale(' + k + ')'; $('#desk').style.height = (900 * k) + 'px';
+  }
+  function setDevice(d) {
+    device = d;
+    $('#dev-phone').setAttribute('aria-pressed', d === 'phone'); $('#dev-desk').setAttribute('aria-pressed', d === 'desk');
+    $('#phone').hidden = d !== 'phone'; $('.dm-side').hidden = d !== 'phone'; $('#desk').hidden = d !== 'desk';
+    $('#scr-select').disabled = d !== 'phone';
+    if (d === 'desk') fitDesk();
+  }
+  $('#dev-phone').addEventListener('click', function () { setDevice('phone'); });
+  $('#dev-desk').addEventListener('click', function () { setDevice('desk'); });
+  window.addEventListener('resize', function () { if (device === 'desk') fitDesk(); if (innerWidth <= 520 && device === 'desk') setDevice('phone'); });
+
+  function isDark() { var a = root.getAttribute('data-theme'); return a ? a === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
+  function syncThemeBtn() { $('#theme-btn').setAttribute('aria-pressed', isDark()); }
+  function setTheme(t) { root.setAttribute('data-theme', t); syncThemeBtn(); }
+  $('#theme-btn').addEventListener('click', function () { setTheme(isDark() ? 'light' : 'dark'); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeBtn);
+
+  B.mount();
+  var saved = store('bd-demo-state'); if (saved === 'active' || saved === 'new') { state = saved; $('#st-new').setAttribute('aria-pressed', saved === 'new'); $('#st-active').setAttribute('aria-pressed', saved === 'active'); }
+  syncThemeBtn();
+  show(location.hash.slice(1) || 'home');
+})();
+</script>

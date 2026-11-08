@@ -1,0 +1,122 @@
+{% extends "admin/base_site.html" %}
+{% block breadcrumbs %}{% include "admin/schools/school/_import_breadcrumbs.html" %}{% endblock %}
+{% block content %}
+<div id="content-main" class="md-page">
+  {% if plan.errors %}
+    {% include "admin/schools/school/_import_steps.html" with step=2 failed=True %}
+
+    <div class="md-banner md-banner--error" role="alert">
+      {% include "admin/md/icon.html" with name="error" %}
+      <div>
+        <p><b>Faylda {{ plan.errors|length }} ta xato bor. Hech narsa saqlanmadi.</b></p>
+        <p>Xatolarni Excel'da tuzatib, faylni qayta yuklang. Qator raqami fayldagi qatorga mos keladi.</p>
+      </div>
+    </div>
+
+    <section class="md-card md-card--flush">
+      <div class="md-card__header">
+        <span class="md-avatar md-avatar--error">{% include "admin/md/icon.html" with name="error" %}</span>
+        <h2 class="md-card__title">Xatolar</h2>
+      </div>
+      <div class="md-table-scroll">
+        <table class="md-table">
+          <thead><tr><th>Qator</th><th>Xato</th></tr></thead>
+          <tbody>
+            {% for error in plan.errors|slice:":300" %}<tr><td class="muted">{{ error.line }}</td><td>{{ error.message }}</td></tr>{% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if plan.errors|length > 300 %}<div class="md-foot">… va yana {{ plan.errors|length|add:"-300" }} ta xato.</div>{% endif %}
+    </section>
+
+    <div class="md-actionbar">
+      <span class="md-actionbar__text">Fayl tuzatilgach, qaytadan tekshiring.</span>
+      <a class="md-btn" href="{% url 'admin:schools_school_import_pupils' school.pk %}">{% include "admin/md/icon.html" with name="upload" %}Boshqa fayl yuklash</a>
+    </div>
+  {% else %}
+    {% include "admin/schools/school/_import_steps.html" with step=2 %}
+
+    <div class="md-stats">
+      <div class="md-stat md-stat--primary"><span class="md-stat__value" data-stat="created">{{ plan.created|length }}</span><span class="md-stat__label">Yangi o‘quvchilar</span></div>
+      <div class="md-stat md-stat--success"><span class="md-stat__value" data-stat="updated">{{ plan.updated|length }}</span><span class="md-stat__label">Ismi yoki sinfi yangilanadi</span></div>
+      <div class="md-stat{% if plan.moved %} md-stat--warning{% endif %}"><span class="md-stat__value" data-stat="moved">{{ plan.moved|length }}</span><span class="md-stat__label">Boshqa maktabdan o‘tkaziladi</span></div>
+      <div class="md-stat"><span class="md-stat__value" data-stat="unchanged">{{ plan.unchanged }}</span><span class="md-stat__label">O‘zgarmaydi</span></div>
+      <div class="md-stat{% if plan.new_classrooms %} md-stat--primary{% endif %}"><span class="md-stat__value" data-stat="classrooms">{{ plan.new_classrooms|length }}</span><span class="md-stat__label">Yangi sinflar</span></div>
+    </div>
+
+    {% if plan.new_classrooms %}
+      <section class="md-card">
+        <div class="md-card__header">
+          <span class="md-avatar">{% include "admin/md/icon.html" with name="school" %}</span>
+          <div>
+            <h2 class="md-card__title">Yangi sinflar yaratiladi</h2>
+            <p class="md-card__subtitle">Bu sinflar maktabda hali yo‘q.</p>
+          </div>
+        </div>
+        <div class="md-chips">{% for name in plan.new_classrooms %}<span class="md-chip md-chip--accent">{{ name }}</span>{% endfor %}</div>
+      </section>
+    {% endif %}
+
+    {% if plan.moved %}
+      <section class="md-card md-card--flush">
+        <div class="md-card__header">
+          <span class="md-avatar md-avatar--warning">{% include "admin/md/icon.html" with name="swap" %}</span>
+          <div>
+            <h2 class="md-card__title">Boshqa maktabdan o‘tkaziladi: tekshiring</h2>
+            <p class="md-card__subtitle">Bu o‘quvchilar hozir boshqa maktabda turibdi. Tasdiqlansa, shu maktabga o‘tadi.</p>
+          </div>
+        </div>
+        <div class="md-table-scroll">
+          <table class="md-table">
+            <thead><tr><th>Qator</th><th>O‘quvchi</th><th>Hozir</th><th>Bo‘ladi</th></tr></thead>
+            <tbody>
+              {% for row, old_school in plan.moved|slice:":200" %}
+                <tr><td class="muted">{{ row.line }}</td><td>{{ row.full_name }}</td><td>{{ old_school }}</td><td><span class="md-chip md-chip--accent">{{ row.classroom_label }}</span></td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% if plan.moved|length > 200 %}<div class="md-foot">… va yana {{ plan.moved|length|add:"-200" }} ta.</div>{% endif %}
+      </section>
+    {% endif %}
+
+    {% if plan.created %}
+      <section class="md-card md-card--flush">
+        <div class="md-card__header">
+          <span class="md-avatar">{% include "admin/md/icon.html" with name="person_add" %}</span>
+          <div>
+            <h2 class="md-card__title">Yangi o‘quvchilar</h2>
+            {% if plan.created|length > 50 %}<p class="md-card__subtitle">Birinchi 50 tasi ko‘rsatilgan, jami {{ plan.created|length }} ta.</p>{% endif %}
+          </div>
+        </div>
+        <div class="md-table-scroll">
+          <table class="md-table">
+            <thead><tr><th>Qator</th><th>Sinf</th><th>O‘quvchi</th></tr></thead>
+            <tbody>
+              {% for row in plan.created|slice:":50" %}<tr><td class="muted">{{ row.line }}</td><td>{{ row.classroom_label }}</td><td>{{ row.full_name }}</td></tr>{% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if token %}
+      <form method="post" class="md-actionbar" data-submit-once>
+        {% csrf_token %}
+        <input type="hidden" name="token" value="{{ token }}">
+        <span class="md-actionbar__text">Hali hech narsa saqlanmadi. <b>Tasdiqlang</b>, shunda hammasi birdaniga saqlanadi.</span>
+        <span class="md-actions">
+          <a href="{% url 'admin:schools_school_import_pupils' school.pk %}" class="md-btn md-btn--text">Boshqa fayl yuklash</a>
+          <button type="submit" name="confirm" value="1" class="md-btn">{% include "admin/md/icon.html" with name="done" %}Tasdiqlash va saqlash</button>
+        </span>
+      </form>
+    {% else %}
+      <div class="md-banner md-banner--success">
+        {% include "admin/md/icon.html" with name="check" %}
+        <p>Fayldagi ma’lumot bazadagi bilan bir xil, saqlanadigan narsa yo‘q.</p>
+      </div>
+      <p><a class="md-btn md-btn--tonal" href="{% url 'admin:schools_school_import_pupils' school.pk %}">{% include "admin/md/icon.html" with name="upload" %}Boshqa fayl yuklash</a></p>
+    {% endif %}
+  {% endif %}
+</div>
+{% endblock %}

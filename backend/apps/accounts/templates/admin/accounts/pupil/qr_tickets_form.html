@@ -1,0 +1,114 @@
+{% extends "admin/base_site.html" %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">Bosh sahifa</a>
+  &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+  &rsaquo; <a href="{% url 'admin:accounts_pupil_changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+  &rsaquo; {{ title }}
+</div>
+{% endblock %}
+{% block content %}
+<div id="content-main" class="md-page">
+  <form method="post" class="md-grid md-grid--split" data-submit-once>
+    {% csrf_token %}
+    <input type="hidden" name="action" value="{{ action }}">
+    <input type="hidden" name="issue" value="yes">
+    {# Django needs the ticked rows even with "select all": then it acts on the whole filtered list. #}
+    {% if select_across %}<input type="hidden" name="select_across" value="1">{% endif %}
+    {% for pk in selected %}<input type="hidden" name="_selected_action" value="{{ pk }}">{% endfor %}
+
+    <section class="md-card">
+      <div class="md-card__header">
+        <span class="md-avatar">{% include "admin/md/icon.html" with name="qr" %}</span>
+        <div>
+          <h2 class="md-card__title">Chipta sozlamalari</h2>
+          <p class="md-card__subtitle">{{ count }} ta o‘quvchi uchun</p>
+        </div>
+      </div>
+
+      {% if form.non_field_errors %}<div class="md-banner md-banner--error">{{ form.non_field_errors }}</div>{% endif %}
+
+      <div class="md-field" role="radiogroup" aria-labelledby="ttl-label">
+        <span class="md-field__label" id="ttl-label">{% include "admin/md/icon.html" with name="clock" class="sm" %} {{ form.ttl_minutes.label }}</span>
+        <div class="md-chips">
+          {% for radio in form.ttl_minutes %}
+            <label class="md-chip" for="{{ radio.id_for_label }}">{{ radio.tag }}{{ radio.choice_label }}</label>
+          {% endfor %}
+        </div>
+        <span class="md-field__help">{{ form.ttl_minutes.help_text }} Chipta oldindan chop etilsa, imtihon kunigacha yetadigan muddatni tanlang.</span>
+        {{ form.ttl_minutes.errors }}
+      </div>
+
+      <div class="md-field" role="radiogroup" aria-labelledby="output-label">
+        <span class="md-field__label" id="output-label">{{ form.output.label }}</span>
+        <div class="md-choices">
+          {% for radio in form.output %}
+            <label class="md-choice" for="{{ radio.id_for_label }}">
+              {{ radio.tag }}
+              {% if radio.data.value == "print" %}
+                {% include "admin/md/icon.html" with name="print" %}
+                <span class="md-choice__text">Chop etish sahifasi<small>QR rasmlari bilan, A4 varaqda 12 ta chipta. PDF qilib ham saqlasa bo‘ladi.</small></span>
+              {% else %}
+                {% include "admin/md/icon.html" with name="table" %}
+                <span class="md-choice__text">CSV fayl<small>Tokenlar matn ko‘rinishida, o‘zingiz chipta tayyorlasangiz.</small></span>
+              {% endif %}
+            </label>
+          {% endfor %}
+        </div>
+        {{ form.output.errors }}
+      </div>
+
+      <div class="md-field">
+        <div class="md-actions md-actions--end">
+          <a href="{% url 'admin:accounts_pupil_changelist' %}" class="md-btn md-btn--text">Bekor qilish</a>
+          <button type="submit" class="md-btn">{% include "admin/md/icon.html" with name="qr" %}{{ count }} ta chipta yaratish</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="md-grid">
+      <div class="md-card md-card--tonal">
+        <div class="md-hero">
+          <span class="md-avatar">{% include "admin/md/icon.html" with name="person_add" %}</span>
+          <div>
+            <div class="md-hero__value" data-stat="count">{{ count }}</div>
+            <div class="md-hero__label">o‘quvchiga chipta yaratiladi</div>
+          </div>
+        </div>
+      </div>
+
+      {% if qr_login_url %}
+        <div class="md-banner">
+          {% include "admin/md/icon.html" with name="info" %}
+          <p>Kod ichidagi havola: <b>{{ qr_login_url }}</b>. Telefon shu manzilni ocha olishi kerak.</p>
+        </div>
+      {% else %}
+        <div class="md-banner md-banner--warning">
+          {% include "admin/md/icon.html" with name="warning" %}
+          <p><b>QR_LOGIN_URL sozlanmagan.</b> Kodni telefon kamerasi o‘qiy olmaydi, faqat saytdagi skaner o‘qiydi.
+             <code>.env</code> ga sayt manzilini yozing, masalan <code>QR_LOGIN_URL=https://bilimdon.uz/qr</code>.</p>
+        </div>
+      {% endif %}
+
+      {% if skipped %}
+        <div class="md-banner md-banner--warning">
+          {% include "admin/md/icon.html" with name="warning" %}
+          <p>{{ skipped }} ta o‘quvchi tashlab ketiladi: ular tizimga kira olmaydi (o‘zi, sinfi yoki maktabi o‘chirilgan, yoki bitirgan).</p>
+        </div>
+      {% endif %}
+
+      <div class="md-card md-card--tonal">
+        <ul class="md-list">
+          {% if qr_login_url %}
+            <li>{% include "admin/md/icon.html" with name="qr" class="sm" %}<span>O‘quvchi <b>telefon kamerasini</b> kodga qaratadi va chiqqan havolani ochadi: sayt o‘zi tizimga kiritadi. Kompyuterda saytdagi <b>“QR orqali kirish”</b> skaneri ham shu kodni o‘qiydi.</span></li>
+          {% else %}
+            <li>{% include "admin/md/icon.html" with name="qr" class="sm" %}<span>O‘quvchi kirish sahifasida <b>“QR orqali kirish”</b>ni tanlab, kamerani chiptadagi kodga qaratadi.</span></li>
+          {% endif %}
+          <li>{% include "admin/md/icon.html" with name="lock" class="sm" %}<span><b>Bir martalik.</b> Skanerlangach yaroqsiz bo‘ladi. Kod parolsiz kirish imkonini beradi: egasidan boshqa hech kimga ko‘rsatmang.</span></li>
+          <li>{% include "admin/md/icon.html" with name="warning" class="sm" %}<span>Chiptalar <b>faqat shu safar</b> ko‘rsatiladi, keyin qayta ochib bo‘lmaydi. Yo‘qolsa, yangisini yarating.</span></li>
+        </ul>
+      </div>
+    </aside>
+  </form>
+</div>
+{% endblock %}

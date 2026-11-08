@@ -1,0 +1,13 @@
+{
+  "name": "Bilimdon",
+  "short_name": "Bilimdon",
+  "description": "O‘quvchilar uchun onlayn imtihon platformasi",
+  "lang": "uz",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5faf8",
+  "theme_color": "#17776a",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
