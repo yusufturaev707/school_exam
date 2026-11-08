@@ -70,6 +70,9 @@ export const attemptSessionSchema = z.object({
 });
 export type AttemptSession = z.infer<typeof attemptSessionSchema>;
 
+/** `GET …/attempts/{id}?questions=0`: the same session without its questions. */
+export const attemptStateSchema = attemptSessionSchema.omit({ questions: true });
+
 export const startAttemptResponseSchema = z.object({ attemptId: z.string() });
 
 export const saveAnswerResponseSchema = z.object({ questionId: z.string(), savedAt: z.string() });

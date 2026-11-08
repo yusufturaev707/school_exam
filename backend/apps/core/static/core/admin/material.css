@@ -1543,3 +1543,233 @@ label.md-chip:has(input:focus-visible) {
     flex: 1 1 auto;
   }
 }
+
+/* Question pictures are stored up to 1600px wide: fit them to the preview and the editor. */
+.question-preview img,
+.ck-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------------ fields: room for the text */
+/* Django's forms.css fixes a select at 30px tall; with this theme's 8px padding that left about
+   12px for 14px text, so the chosen value was cut off. Let fields size to their text instead. */
+#content select:not([multiple]),
+#content input[type="text"],
+#content input[type="password"],
+#content input[type="email"],
+#content input[type="url"],
+#content input[type="number"],
+#content input[type="tel"],
+#content input[type="search"],
+#content input[type="date"],
+#content input[type="time"] {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 38px;
+  line-height: 20px;
+}
+
+#content .tabular select:not([multiple]),
+#content .tabular input[type="text"],
+#content .tabular input[type="number"] {
+  min-height: 34px;
+}
+
+/* ------------------------------------------------------------------ question editor (CKEditor) */
+/* Its colours follow the admin theme, light and dark. Set on body rather than :root, so these
+   win over the editor's own :root values whatever order the stylesheets load in; its floating
+   panels live inside body too. */
+body {
+  --ck-border-radius: 8px;
+  --ck-color-base-background: var(--md-surface-lowest);
+  --ck-color-base-foreground: var(--md-surface-low);
+  --ck-color-base-border: var(--md-outline-variant);
+  --ck-color-base-text: var(--md-on-surface);
+  --ck-color-text: var(--md-on-surface);
+  --ck-color-focus-border: var(--md-primary);
+  --ck-color-focus-outer-shadow: transparent;
+  --ck-color-toolbar-background: var(--md-surface-low);
+  --ck-color-toolbar-border: var(--md-outline-variant);
+  --ck-color-button-default-hover-background: var(--md-surface-high);
+  --ck-color-button-default-active-background: var(--md-surface-high);
+  --ck-color-button-on-background: var(--md-primary-container);
+  --ck-color-button-on-hover-background: var(--md-primary-container);
+  --ck-color-button-on-active-background: var(--md-primary-container);
+  --ck-color-button-on-color: var(--md-on-primary-container);
+  --ck-color-list-button-on-background: var(--md-primary);
+  --ck-color-list-button-on-background-focus: var(--md-primary);
+  --ck-color-list-button-on-text: var(--md-on-primary);
+  --ck-color-engine-placeholder-text: var(--md-on-surface-variant);
+  --ck-color-tooltip-background: var(--md-on-surface);
+  --ck-color-tooltip-text: var(--md-surface);
+  --ck-color-input-disabled-background: var(--md-surface-high);
+}
+
+/* Height to suit the field: the question gets room, an answer option only a few lines.
+   (The package sets 300px for every editor, which made one question page 4000px long.) */
+#content .ck.ck-content.ck-editor__editable {
+  min-height: 120px;
+  color: var(--md-on-surface); /* the editor leaves text black, unreadable in the dark theme */
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+#content .field-prompt .ck.ck-content.ck-editor__editable {
+  min-height: 200px;
+}
+
+#content .tabular .ck.ck-content.ck-editor__editable {
+  min-height: 64px;
+}
+
+#content .ck.ck-content.ck-editor__editable > :first-child {
+  margin-top: 0.5em;
+}
+
+.ck-word-count {
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--md-on-surface-variant);
+}
+
+/* Answer options: a narrow letter column, so the text editor gets the width. */
+#content .tabular td.field-label {
+  width: 64px;
+}
+
+#content .tabular td.field-label input {
+  width: 52px;
+  text-align: center;
+  font-weight: 600;
+}
+
+#content .tabular td.field-content {
+  width: 100%;
+  min-width: 320px;
+}
+
+#content .tabular td.field-is_correct,
+#content .tabular td.delete {
+  text-align: center;
+  padding-top: 18px;
+}
+
+/* ------------------------------------------------------------------ question preview */
+/* Read-only "O'quvchi ko'radigan ko'rinish": a card close to what the pupil sees. */
+#content .question-preview {
+  max-width: 820px;
+  padding: 16px 20px;
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 12px;
+  background: var(--md-surface-low);
+  color: var(--md-on-surface);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* Django's `form .aligned p/ul` push every paragraph and list 170px to the right. */
+#content .question-preview p,
+#content .question-preview ul,
+#content .question-preview ol {
+  margin: 0 0 0.5em;
+  padding-left: 0;
+}
+
+#content .question-preview__prompt ul,
+#content .question-preview__prompt ol,
+#content .question-preview__passage ul,
+#content .question-preview__passage ol {
+  padding-left: 1.4em;
+}
+
+#content .question-preview__prompt ul li,
+#content .question-preview__passage ul li {
+  list-style: disc;
+}
+
+#content .question-preview__prompt ol li,
+#content .question-preview__passage ol li {
+  list-style: decimal;
+}
+
+#content .question-preview__passage {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--md-outline);
+  border-radius: 8px;
+  background: var(--md-surface-lowest);
+}
+
+#content .question-preview figure {
+  margin: 8px auto;
+}
+
+#content .question-preview figure.image_resized img {
+  width: 100%;
+}
+
+#content .question-preview__options {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#content .question-preview__options li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 10px;
+  background: var(--md-surface-lowest);
+  list-style: none;
+}
+
+#content .question-preview__options li > b {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--md-surface-high);
+  font-size: 0.8125rem;
+}
+
+#content .question-preview__options li > div {
+  flex: 1;
+  min-width: 0;
+}
+
+#content .question-preview__options li > div > :last-child {
+  margin-bottom: 0;
+}
+
+#content .question-preview__options li.is-correct {
+  border-color: var(--md-success);
+  background: var(--md-success-container);
+  color: var(--md-on-success-container);
+}
+
+#content .question-preview__options li.is-correct > b {
+  background: var(--md-success);
+  color: #ffffff;
+}
+
+.question-preview__tick {
+  flex: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+#content .question-preview__explanation {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--md-outline-variant);
+  color: var(--md-on-surface-variant);
+}

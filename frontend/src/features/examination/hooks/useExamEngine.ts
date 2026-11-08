@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router';
-import { examApi } from '../api/examApi';
+import { examApi, type LoadedAttempt } from '../api/examApi';
 import { AnswerSyncEngine } from '../services/answerSyncEngine';
 import { clearAttemptState, loadAttemptState, newIdempotencyKey, saveAttemptState } from '../services/attemptPersistence';
 import { useExamStore } from '../store/examStore';
@@ -35,7 +35,12 @@ export function useExamEngine(attemptId: string) {
 
   const query = useQuery({
     queryKey: attemptQueryKey(attemptId),
-    queryFn: () => examApi.getAttempt(attemptId),
+    queryFn: () => {
+      // After the first load only the small state (deadline, clock, answers, status) is fetched.
+      const known = queryClient.getQueryData<LoadedAttempt>(attemptQueryKey(attemptId))?.session;
+      const reuse = known?.status === 'in_progress' && known.questions.length > 0;
+      return examApi.getAttempt(attemptId, reuse ? known.questions : undefined);
+    },
     staleTime: 0,
     refetchOnWindowFocus: true,
     refetchOnReconnect: true,

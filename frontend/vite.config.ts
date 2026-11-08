@@ -18,8 +18,6 @@ export default defineConfig(({ mode }) => {
       // In normal dev mode, forward API calls to the real backend (same-origin → HttpOnly cookies work).
       proxy: {
         '/api': { target: env.VITE_API_PROXY || 'http://localhost:8000', changeOrigin: true },
-        // Images uploaded through the admin's question editor.
-        '/media': { target: env.VITE_API_PROXY || 'http://localhost:8000', changeOrigin: true },
       },
     },
     test: { environment: 'node', include: ['src/**/*.test.ts'] },

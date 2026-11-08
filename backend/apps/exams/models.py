@@ -23,6 +23,12 @@ class QuestionType(models.TextChoices):
     SINGLE_CHOICE = "single_choice", "Bitta javobli"
 
 
+class Difficulty(models.IntegerChoices):
+    EASY = 1, "Oson"
+    MEDIUM = 2, "O‘rta"
+    HARD = 3, "Qiyin"
+
+
 FORMULA_HELP = r"Formulani $ belgilari orasida yozing: $\frac{1}{2} + x^2$"
 
 
@@ -61,6 +67,19 @@ class Exam(UUIDModel):
         "javoblarni ko‘rsatish",
         default=True,
         help_text="O‘quvchi natijada to‘g‘ri javoblar va izohlarni ko‘radimi.",
+    )
+    shuffle_questions = models.BooleanField(
+        "savollar tartibini aralashtirish",
+        default=False,
+        help_text="Har bir o‘quvchiga savollar boshqa tartibda tushadi. Fanlar tartibi saqlanadi, "
+        "fan ichida esa savollar qiyinlik darajasi bo‘yicha (osondan qiyinga) guruhlanib, har bir "
+        "guruh ichida aralashtiriladi.",
+    )
+    shuffle_options = models.BooleanField(
+        "javob variantlarini aralashtirish",
+        default=False,
+        help_text="Har bir o‘quvchiga variantlar boshqa tartibda va boshqa harflar bilan tushadi, "
+        "shuning uchun javob kaliti ham har kimda har xil bo‘ladi.",
     )
     is_published = models.BooleanField("e’lon qilingan", default=False)
     available_from = models.DateTimeField("ochilish vaqti", null=True, blank=True)
@@ -211,6 +230,13 @@ class Question(UUIDModel):
     type = models.CharField(
         "turi", max_length=20, choices=QuestionType.choices, default=QuestionType.SINGLE_CHOICE
     )
+    difficulty = models.PositiveSmallIntegerField(
+        "qiyinlik darajasi",
+        choices=Difficulty.choices,
+        null=True,
+        blank=True,
+        help_text="Aralashtirishda savollar shu daraja ichida aralashtiriladi.",
+    )
     prompt = RichTextField("savol matni", help_text=FORMULA_HELP)
     passage = RichTextField("o‘qish uchun matn", blank=True, help_text="Savolga oid uzun matn.")
     explanation = RichTextField("izoh", blank=True, help_text="Natija sahifasida ko‘rsatiladi.")
@@ -257,6 +283,11 @@ class ExamAttempt(UUIDModel):
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.IN_PROGRESS)
     started_at = models.DateTimeField()
     expires_at = models.DateTimeField()
+    # This pupil's own order, fixed when the attempt starts (apps/exams/layout.py):
+    # {"questions": [question id, ...], "options": {question id: [option id, ...]}}.
+    # Empty for an exam without shuffling. Stored rather than recomputed, so the order a pupil saw
+    # and their answer key stay the same even if the exam is edited afterwards.
+    layout = models.JSONField(default=dict, blank=True, editable=False)
 
     class Meta:
         verbose_name = "Urinish"

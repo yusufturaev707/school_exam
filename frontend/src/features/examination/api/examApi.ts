@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { request } from '@/lib/http';
 import {
   attemptSessionSchema,
+  attemptStateSchema,
   examSummarySchema,
   saveAnswerResponseSchema,
   startAttemptResponseSchema,
@@ -23,9 +24,21 @@ export const examApi = {
   /** Backend creates the attempt (or returns the already-active one) and records started_at / expires_at. */
   start: (examId: string) => request(startAttemptResponseSchema, { method: 'POST', url: `/examinations/${encodeURIComponent(examId)}/start` }),
 
-  async getAttempt(attemptId: string): Promise<LoadedAttempt> {
+  /**
+   * Pass the questions already on screen to skip downloading them again: they don't change during
+   * an attempt and carry their pictures inline, so they are by far the largest part of the answer.
+   */
+  async getAttempt(attemptId: string, knownQuestions?: AttemptSession['questions']): Promise<LoadedAttempt> {
+    const url = `/examinations/attempts/${encodeURIComponent(attemptId)}`;
     const sentAt = Date.now();
-    const session = await request(attemptSessionSchema, { method: 'GET', url: `/examinations/attempts/${encodeURIComponent(attemptId)}` });
+    let session: AttemptSession;
+    if (knownQuestions) {
+      const state = await request(attemptStateSchema, { method: 'GET', url: `${url}?questions=0` });
+      // Like the full answer, a finished attempt has no questions.
+      session = { ...state, questions: state.status === 'in_progress' ? knownQuestions : [] };
+    } else {
+      session = await request(attemptSessionSchema, { method: 'GET', url });
+    }
     return { session, clockOffsetMs: computeClockOffset(session.serverTime, sentAt, Date.now()) };
   },
 

@@ -37,7 +37,7 @@ function ReviewCard({ item }: { item: ReviewItem }) {
       </summary>
       <div className="border-t border-line px-4 pt-4 pb-5">
         {item.passage && <RichContent blocks={item.passage} className="bd-card--cream mb-3 rounded-[var(--radius-md)] p-3 text-[15px] shadow-[inset_0_0_0_1px_var(--line)]" />}
-        <RichContent blocks={item.prompt} className="text-[16px] font-extrabold" />
+        <RichContent blocks={item.prompt} className="text-[16px] leading-relaxed font-medium" />
         <ul className="mt-3 flex flex-col gap-2">
           {item.options.map((o) => {
             const correct = item.correctOptionIds.includes(o.id);

@@ -19,6 +19,7 @@ from django.utils import timezone
 from apps.accounts.models import Pupil
 from apps.core.exceptions import ApiError
 
+from .layout import draw_layout
 from .models import AttemptAnswer, Exam, ExamAttempt, ExamResult, Question, QuestionType, Subject
 
 logger = logging.getLogger(__name__)
@@ -46,11 +47,17 @@ def start_attempt(pupil: Pupil, exam_id: UUID) -> tuple[ExamAttempt, bool]:
     if not exam.is_open(now) or not exam.questions.exists():
         raise ApiError(403, "EXAM_NOT_AVAILABLE")
 
+    shuffles = exam.shuffle_questions or exam.shuffle_options
+    questions = list(exam.questions.prefetch_related("options")) if shuffles else []
     # On a double click, the unique constraint lets one request create the row and the other get it.
     return ExamAttempt.objects.get_or_create(
         pupil=pupil,
         exam=exam,
-        defaults={"started_at": now, "expires_at": now + timedelta(minutes=exam.duration_minutes)},
+        defaults={
+            "started_at": now,
+            "expires_at": now + timedelta(minutes=exam.duration_minutes),
+            "layout": draw_layout(exam, questions),
+        },
     )
 
 

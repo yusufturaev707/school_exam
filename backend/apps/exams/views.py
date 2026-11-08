@@ -25,8 +25,16 @@ class StartAttemptView(APIView):
 
 class AttemptDetailView(APIView):
     def get(self, request, attempt_id):
-        session = selectors.attempt_session(request.user, attempt_id)
-        return Response(serializers.AttemptSessionSerializer(session).data)
+        # Questions carry their pictures inline and don't change during an attempt, so the client
+        # loads them once and afterwards asks with ?questions=0 for the small part that does.
+        with_questions = request.query_params.get("questions") != "0"
+        session = selectors.attempt_session(request.user, attempt_id, with_questions)
+        serializer = (
+            serializers.AttemptSessionSerializer
+            if with_questions
+            else serializers.AttemptStateSerializer
+        )
+        return Response(serializer(session).data)
 
 
 class SaveAnswerView(APIView):

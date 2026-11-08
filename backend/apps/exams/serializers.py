@@ -66,7 +66,9 @@ class QuestionSerializer(serializers.Serializer):
     options = OptionSerializer(many=True)
 
 
-class AttemptSessionSerializer(serializers.Serializer):
+class AttemptStateSerializer(serializers.Serializer):
+    """Everything about an attempt except its questions: what the client re-checks every minute."""
+
     id = serializers.CharField(source="attempt.id")
     examId = serializers.CharField(source="attempt.exam_id")
     examTitle = serializers.CharField(source="attempt.exam.title")
@@ -75,9 +77,12 @@ class AttemptSessionSerializer(serializers.Serializer):
     expiresAt = UtcDateTimeField(source="attempt.expires_at")
     serverTime = UtcDateTimeField(source="server_time")
     sections = SectionSerializer(many=True)
-    questions = QuestionSerializer(many=True)
     answers = serializers.JSONField()
     resultId = serializers.CharField(source="attempt.result_id")
+
+
+class AttemptSessionSerializer(AttemptStateSerializer):
+    questions = QuestionSerializer(many=True)
 
 
 class SavedAnswerSerializer(serializers.Serializer):

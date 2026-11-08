@@ -2,12 +2,16 @@
 Loads exam content from a JSON file, which is handy for a large question bank prepared in advance.
 Texts (`prompt`, `passage`, `explanation`, option `content`) are the same HTML the admin editor
 produces, with formulas between $ signs. Format example: apps/demo/data/exam.json
+
+Optional keys: `shuffleQuestions` and `shuffleOptions` (exam), `difficulty` (question: 1 oson,
+2 o‘rta, 3 qiyin), and `grades`, a list of grade numbers the exam is assigned to (e.g. [4]: every
+4th grade). Narrower targets (a district, a school) are chosen in the admin.
 """
 
 from django.core.exceptions import ValidationError
 from django.db import transaction
 
-from .models import AnswerOption, Exam, ExamSection, Question
+from .models import AnswerOption, Exam, ExamSection, ExamTarget, Question
 
 
 @transaction.atomic
@@ -21,9 +25,13 @@ def import_exam_data(data: dict, publish: bool = False) -> Exam:
                 duration_minutes=data["durationMinutes"],
                 points_per_question=data.get("pointsPerQuestion", 2),
                 review_enabled=data.get("reviewEnabled", True),
+                shuffle_questions=data.get("shuffleQuestions", False),
+                shuffle_options=data.get("shuffleOptions", False),
                 is_published=publish,
             )
         )
+        for grade in data.get("grades", []):
+            _saved(ExamTarget(exam=exam, grade=grade))
         for order, section in enumerate(data["sections"]):
             _saved(
                 ExamSection(
@@ -51,6 +59,7 @@ def _import_question(exam: Exam, item: dict) -> None:
                 number=number,
                 subject=item["subject"],
                 type=item.get("type", "single_choice"),
+                difficulty=item.get("difficulty"),
                 prompt=item["prompt"],
                 passage=item.get("passage") or "",
                 explanation=item.get("explanation") or "",

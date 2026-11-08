@@ -1,0 +1,958 @@
+{
+ "title": "4-sinf bitiruvchilari uchun diagnostik test",
+ "description": "Matematika, mantiqiy fikrlash va ona tili bo‘yicha 30 ta savol. Har bir to‘g‘ri javob 1 ball, eng yuqori natija 30 ball.",
+ "durationMinutes": 60,
+ "pointsPerQuestion": 1,
+ "reviewEnabled": false,
+ "shuffleQuestions": true,
+ "shuffleOptions": true,
+ "grades": [
+  4
+ ],
+ "sections": [
+  {
+   "subject": "math",
+   "title": "Matematika"
+  },
+  {
+   "subject": "iq",
+   "title": "Mantiqiy fikrlash"
+  },
+  {
+   "subject": "language",
+   "title": "Ona tili"
+  }
+ ],
+ "questions": [
+  {
+   "subject": "math",
+   "difficulty": 1,
+   "prompt": "<p>Hisoblang: <b>4 508 + 2 397</b></p>",
+   "passage": "",
+   "explanation": "<p>4 508 + 2 397 = 6 905.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>6 805</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>6 905</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>6 895</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>7 905</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 1,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 1,
+   "prompt": "<p>Soat necha bo‘ldi?</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjAgMjYwIiB3aWR0aD0iMjYwIiBoZWlnaHQ9IjI2MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSIyNjAiIGhlaWdodD0iMjYwIiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48Y2lyY2xlIGN4PSIxMzAiIGN5PSIxMzAiIHI9IjExMiIgZmlsbD0iI2ZkZmFmMyIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjYiLz48bGluZSB4MT0iMTMwLjAiIHkxPSIzMi4wIiB4Mj0iMTMwLjAiIHkyPSIyMi4wIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMyIvPjxsaW5lIHgxPSIxNDAuOCIgeTE9IjI3LjYiIHgyPSIxNDEuMyIgeTI9IjIyLjYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjE1MS40IiB5MT0iMjkuMyIgeDI9IjE1Mi41IiB5Mj0iMjQuNCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMTYxLjgiIHkxPSIzMi4wIiB4Mj0iMTYzLjQiIHkyPSIyNy4zIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIxNzEuOSIgeTE9IjM1LjkiIHgyPSIxNzMuOSIgeTI9IjMxLjMiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjE3OS4wIiB5MT0iNDUuMSIgeDI9IjE4NC4wIiB5Mj0iMzYuNSIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjMiLz48bGluZSB4MT0iMTkwLjUiIHkxPSI0Ni43IiB4Mj0iMTkzLjUiIHkyPSI0Mi42IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIxOTguOSIgeTE9IjUzLjUiIHgyPSIyMDIuMyIgeTI9IjQ5LjciIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjIwNi41IiB5MT0iNjEuMSIgeDI9IjIxMC4zIiB5Mj0iNTcuNyIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMjEzLjMiIHkxPSI2OS41IiB4Mj0iMjE3LjQiIHkyPSI2Ni41IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIyMTQuOSIgeTE9IjgxLjAiIHgyPSIyMjMuNSIgeTI9Ijc2LjAiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGxpbmUgeDE9IjIyNC4xIiB5MT0iODguMSIgeDI9IjIyOC43IiB5Mj0iODYuMSIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMjI4LjAiIHkxPSI5OC4yIiB4Mj0iMjMyLjciIHkyPSI5Ni42IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIyMzAuNyIgeTE9IjEwOC42IiB4Mj0iMjM1LjYiIHkyPSIxMDcuNSIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMjMyLjQiIHkxPSIxMTkuMiIgeDI9IjIzNy40IiB5Mj0iMTE4LjciIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjIyOC4wIiB5MT0iMTMwLjAiIHgyPSIyMzguMCIgeTI9IjEzMC4wIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMyIvPjxsaW5lIHgxPSIyMzIuNCIgeTE9IjE0MC44IiB4Mj0iMjM3LjQiIHkyPSIxNDEuMyIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMjMwLjciIHkxPSIxNTEuNCIgeDI9IjIzNS42IiB5Mj0iMTUyLjUiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjIyOC4wIiB5MT0iMTYxLjgiIHgyPSIyMzIuNyIgeTI9IjE2My40IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIyMjQuMSIgeTE9IjE3MS45IiB4Mj0iMjI4LjciIHkyPSIxNzMuOSIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMjE0LjkiIHkxPSIxNzkuMCIgeDI9IjIyMy41IiB5Mj0iMTg0LjAiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGxpbmUgeDE9IjIxMy4zIiB5MT0iMTkwLjUiIHgyPSIyMTcuNCIgeTI9IjE5My41IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIyMDYuNSIgeTE9IjE5OC45IiB4Mj0iMjEwLjMiIHkyPSIyMDIuMyIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMTk4LjkiIHkxPSIyMDYuNSIgeDI9IjIwMi4zIiB5Mj0iMjEwLjMiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjE5MC41IiB5MT0iMjEzLjMiIHgyPSIxOTMuNSIgeTI9IjIxNy40IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIxNzkuMCIgeTE9IjIxNC45IiB4Mj0iMTg0LjAiIHkyPSIyMjMuNSIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjMiLz48bGluZSB4MT0iMTcxLjkiIHkxPSIyMjQuMSIgeDI9IjE3My45IiB5Mj0iMjI4LjciIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjE2MS44IiB5MT0iMjI4LjAiIHgyPSIxNjMuNCIgeTI9IjIzMi43IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIxNTEuNCIgeTE9IjIzMC43IiB4Mj0iMTUyLjUiIHkyPSIyMzUuNiIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMTQwLjgiIHkxPSIyMzIuNCIgeDI9IjE0MS4zIiB5Mj0iMjM3LjQiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjEzMC4wIiB5MT0iMjI4LjAiIHgyPSIxMzAuMCIgeTI9IjIzOC4wIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMyIvPjxsaW5lIHgxPSIxMTkuMiIgeTE9IjIzMi40IiB4Mj0iMTE4LjciIHkyPSIyMzcuNCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMTA4LjYiIHkxPSIyMzAuNyIgeDI9IjEwNy41IiB5Mj0iMjM1LjYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9Ijk4LjIiIHkxPSIyMjguMCIgeDI9Ijk2LjYiIHkyPSIyMzIuNyIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iODguMSIgeTE9IjIyNC4xIiB4Mj0iODYuMSIgeTI9IjIyOC43IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSI4MS4wIiB5MT0iMjE0LjkiIHgyPSI3Ni4wIiB5Mj0iMjIzLjUiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGxpbmUgeDE9IjY5LjUiIHkxPSIyMTMuMyIgeDI9IjY2LjUiIHkyPSIyMTcuNCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iNjEuMSIgeTE9IjIwNi41IiB4Mj0iNTcuNyIgeTI9IjIxMC4zIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSI1My41IiB5MT0iMTk4LjkiIHgyPSI0OS43IiB5Mj0iMjAyLjMiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjQ2LjciIHkxPSIxOTAuNSIgeDI9IjQyLjYiIHkyPSIxOTMuNSIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iNDUuMSIgeTE9IjE3OS4wIiB4Mj0iMzYuNSIgeTI9IjE4NC4wIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMyIvPjxsaW5lIHgxPSIzNS45IiB5MT0iMTcxLjkiIHgyPSIzMS4zIiB5Mj0iMTczLjkiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjMyLjAiIHkxPSIxNjEuOCIgeDI9IjI3LjMiIHkyPSIxNjMuNCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMjkuMyIgeTE9IjE1MS40IiB4Mj0iMjQuNCIgeTI9IjE1Mi41IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIyNy42IiB5MT0iMTQwLjgiIHgyPSIyMi42IiB5Mj0iMTQxLjMiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjMyLjAiIHkxPSIxMzAuMCIgeDI9IjIyLjAiIHkyPSIxMzAuMCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjMiLz48bGluZSB4MT0iMjcuNiIgeTE9IjExOS4yIiB4Mj0iMjIuNiIgeTI9IjExOC43IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjxsaW5lIHgxPSIyOS4zIiB5MT0iMTA4LjYiIHgyPSIyNC40IiB5Mj0iMTA3LjUiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjMyLjAiIHkxPSI5OC4yIiB4Mj0iMjcuMyIgeTI9Ijk2LjYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjM1LjkiIHkxPSI4OC4xIiB4Mj0iMzEuMyIgeTI9Ijg2LjEiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjQ1LjEiIHkxPSI4MS4wIiB4Mj0iMzYuNSIgeTI9Ijc2LjAiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGxpbmUgeDE9IjQ2LjciIHkxPSI2OS41IiB4Mj0iNDIuNiIgeTI9IjY2LjUiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjUzLjUiIHkxPSI2MS4xIiB4Mj0iNDkuNyIgeTI9IjU3LjciIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjYxLjEiIHkxPSI1My41IiB4Mj0iNTcuNyIgeTI9IjQ5LjciIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjY5LjUiIHkxPSI0Ni43IiB4Mj0iNjYuNSIgeTI9IjQyLjYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjgxLjAiIHkxPSI0NS4xIiB4Mj0iNzYuMCIgeTI9IjM2LjUiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIi8+PGxpbmUgeDE9Ijg4LjEiIHkxPSIzNS45IiB4Mj0iODYuMSIgeTI9IjMxLjMiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9Ijk4LjIiIHkxPSIzMi4wIiB4Mj0iOTYuNiIgeTI9IjI3LjMiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIxIi8+PGxpbmUgeDE9IjEwOC42IiB5MT0iMjkuMyIgeDI9IjEwNy41IiB5Mj0iMjQuNCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjEiLz48bGluZSB4MT0iMTE5LjIiIHkxPSIyNy42IiB4Mj0iMTE4LjciIHkyPSIyMi42IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjE3MC4wIiB5PSI2MS43IiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MTwvdGV4dD48dGV4dCB4PSIxOTkuMyIgeT0iOTEuMCIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjI8L3RleHQ+PHRleHQgeD0iMjEwLjAiIHk9IjEzMS4wIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MzwvdGV4dD48dGV4dCB4PSIxOTkuMyIgeT0iMTcxLjAiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj40PC90ZXh0Pjx0ZXh0IHg9IjE3MC4wIiB5PSIyMDAuMyIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjU8L3RleHQ+PHRleHQgeD0iMTMwLjAiIHk9IjIxMS4wIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+NjwvdGV4dD48dGV4dCB4PSI5MC4wIiB5PSIyMDAuMyIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjc8L3RleHQ+PHRleHQgeD0iNjAuNyIgeT0iMTcxLjAiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj44PC90ZXh0Pjx0ZXh0IHg9IjUwLjAiIHk9IjEzMS4wIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+OTwvdGV4dD48dGV4dCB4PSI2MC43IiB5PSI5MS4wIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MTA8L3RleHQ+PHRleHQgeD0iOTAuMCIgeT0iNjEuNyIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjExPC90ZXh0Pjx0ZXh0IHg9IjEzMC4wIiB5PSI1MS4wIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MTI8L3RleHQ+PGxpbmUgeDE9IjEzMCIgeTE9IjEzMCIgeDI9IjE3Mi41IiB5Mj0iMTQ3LjYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMTMwIiB5MT0iMTMwIiB4Mj0iNjQuMCIgeTI9IjEzMC4wIiBzdHJva2U9IiNkOTUzNGYiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iMTMwIiBjeT0iMTMwIiByPSI4IiBmaWxsPSIjMWYyYTJlIi8+PC9zdmc+\" alt=\"Strelkali soat\" width=\"260\" height=\"260\"></figure>",
+   "passage": "",
+   "explanation": "<p>Kichik strelka 3 bilan 4 orasida, katta strelka 9 da turibdi: 3 soat 45 daqiqa.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>9:15</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>4:45</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>3:45</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>3:09</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 2,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 1,
+   "prompt": "<p><b>1 m 25 sm</b> necha santimetrga teng?</p>",
+   "passage": "",
+   "explanation": "<p>1 m = 100 sm, demak 100 sm + 25 sm = 125 sm.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>125 sm</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "B",
+     "content": "<p>1 025 sm</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>1 250 sm</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>152 sm</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 3,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 2,
+   "prompt": "<p>To‘g‘ri to‘rtburchakning perimetrini toping.</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNjAgMjMwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSIzNjAiIGhlaWdodD0iMjMwIiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48cmVjdCB4PSI3MCIgeT0iNTAiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjZDdlZmU5IiBzdHJva2U9IiMxNzc3NmEiIHN0cm9rZS13aWR0aD0iNSIvPjxwYXRoIGQ9Ik03MCA2OCBoMTggdi0xOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTc3NzZhIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMjkyIDUwIHYxOCBoMTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzE3Nzc2YSIgc3Ryb2tlLXdpZHRoPSIyIi8+PHRleHQgeD0iMTkwIiB5PSIzMCIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjggc208L3RleHQ+PHRleHQgeD0iMzYiIHk9IjEyNSIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjUgc208L3RleHQ+PC9zdmc+\" alt=\"Tomonlari 8 sm va 5 sm bo‘lgan to‘g‘ri to‘rtburchak\" width=\"360\" height=\"230\"></figure>",
+   "passage": "",
+   "explanation": "<p>P = (8 + 5) · 2 = 26 sm. 40 — bu yuza (sm²), perimetr emas.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>40 sm</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>13 sm</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>21 sm</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>26 sm</p>",
+     "isCorrect": true
+    }
+   ],
+   "number": 4,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 2,
+   "prompt": "<p>Ifodaning qiymatini toping: <b>120 − 40 : 8 · 3</b></p>",
+   "passage": "",
+   "explanation": "<p>Avval bo‘lish va ko‘paytirish: 40 : 8 = 5, 5 · 3 = 15. Keyin ayirish: 120 − 15 = 105.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>30</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>105</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>345</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>115</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 5,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 2,
+   "prompt": "<p>Doiraning qancha qismi bo‘yalgan?</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMzAgMjMwIiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjIzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSIyMzAiIGhlaWdodD0iMjMwIiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMTE1IDExNSBMMTE1LjAgMjAuMCBBOTUgOTUgMCAwIDEgMTgyLjIgNDcuOCBaIiBmaWxsPSIjZTNhMjFhIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMTUgMTE1IEwxODIuMiA0Ny44IEE5NSA5NSAwIDAgMSAyMTAuMCAxMTUuMCBaIiBmaWxsPSIjZTNhMjFhIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMTUgMTE1IEwyMTAuMCAxMTUuMCBBOTUgOTUgMCAwIDEgMTgyLjIgMTgyLjIgWiIgZmlsbD0iI2UzYTIxYSIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTE1IDExNSBMMTgyLjIgMTgyLjIgQTk1IDk1IDAgMCAxIDExNS4wIDIxMC4wIFoiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTExNSAxMTUgTDExNS4wIDIxMC4wIEE5NSA5NSAwIDAgMSA0Ny44IDE4Mi4yIFoiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTExNSAxMTUgTDQ3LjggMTgyLjIgQTk1IDk1IDAgMCAxIDIwLjAgMTE1LjAgWiIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTE1IDExNSBMMjAuMCAxMTUuMCBBOTUgOTUgMCAwIDEgNDcuOCA0Ny44IFoiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PHBhdGggZD0iTTExNSAxMTUgTDQ3LjggNDcuOCBBOTUgOTUgMCAwIDEgMTE1LjAgMjAuMCBaIiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==\" alt=\"Teng bo‘laklarga bo‘lingan doira\" width=\"230\" height=\"230\"></figure>",
+   "passage": "",
+   "explanation": "<p>Doira 8 ta teng bo‘lakka bo‘lingan, ulardan 3 tasi bo‘yalgan: 3/8.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>$\\frac{3}{5}$</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>$\\frac{5}{8}$</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>$\\frac{3}{8}$</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>$\\frac{1}{3}$</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 6,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 2,
+   "prompt": "<p>Do‘konga 6 quti olma keltirildi, har bir qutida 24 kg olma bor. Kun davomida 85 kg olma sotildi. Do‘konda necha kilogramm olma qoldi?</p>",
+   "passage": "",
+   "explanation": "<p>6 · 24 = 144 kg keltirilgan. 144 − 85 = 59 kg qoldi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>59 kg</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "B",
+     "content": "<p>69 kg</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>229 kg</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>49 kg</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 7,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 3,
+   "prompt": "<p>Ikki shahar orasidagi masofa 360 km. Bu shaharlardan bir vaqtda bir-biriga qarab ikki avtomobil yo‘lga chiqdi. Birinchisining tezligi soatiga 70 km, ikkinchisiniki soatiga 50 km. Ular necha soatdan keyin uchrashadi?</p>",
+   "passage": "",
+   "explanation": "<p>Ular bir soatda bir-biriga 70 + 50 = 120 km yaqinlashadi. 360 : 120 = 3 soat.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>18 soatdan keyin</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>6 soatdan keyin</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>4 soatdan keyin</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>3 soatdan keyin</p>",
+     "isCorrect": true
+    }
+   ],
+   "number": 8,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 3,
+   "prompt": "<p>Diagrammada do‘konda besh kun davomida sotilgan olma ko‘rsatilgan. Dushanba va seshanba kunlari birgalikda sotilgan olma payshanbada sotilgan olmadan necha kilogramm ko‘p?</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OTAgMjg1IiB3aWR0aD0iNDkwIiBoZWlnaHQ9IjI4NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSI0OTAiIGhlaWdodD0iMjg1IiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48dGV4dCB4PSIyNTAiIHk9IjI2IiBmb250LXNpemU9IjE3IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+RG/igJhrb25kYSBzb3RpbGdhbiBvbG1hIChrZyk8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMjUwLjAiIHgyPSI0NzAiIHkyPSIyNTAuMCIgc3Ryb2tlPSIjZDVkZGUwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSI1NiIgeT0iMjUwLjAiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSJub3JtYWwiIHRleHQtYW5jaG9yPSJlbmQiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMjE0LjAiIHgyPSI0NzAiIHkyPSIyMTQuMCIgc3Ryb2tlPSIjZDVkZGUwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSI1NiIgeT0iMjE0LjAiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSJub3JtYWwiIHRleHQtYW5jaG9yPSJlbmQiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjEwPC90ZXh0PjxsaW5lIHgxPSI2NCIgeTE9IjE3OC4wIiB4Mj0iNDcwIiB5Mj0iMTc4LjAiIHN0cm9rZT0iI2Q1ZGRlMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iNTYiIHk9IjE3OC4wIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0ibm9ybWFsIiB0ZXh0LWFuY2hvcj0iZW5kIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj4yMDwvdGV4dD48bGluZSB4MT0iNjQiIHkxPSIxNDIuMCIgeDI9IjQ3MCIgeTI9IjE0Mi4wIiBzdHJva2U9IiNkNWRkZTAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjU2IiB5PSIxNDIuMCIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgdGV4dC1hbmNob3I9ImVuZCIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MzA8L3RleHQ+PGxpbmUgeDE9IjY0IiB5MT0iMTA2LjAiIHgyPSI0NzAiIHkyPSIxMDYuMCIgc3Ryb2tlPSIjZDVkZGUwIiBzdHJva2Utd2lkdGg9IjEiLz48dGV4dCB4PSI1NiIgeT0iMTA2LjAiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSJub3JtYWwiIHRleHQtYW5jaG9yPSJlbmQiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjQwPC90ZXh0PjxsaW5lIHgxPSI2NCIgeTE9IjcwLjAiIHgyPSI0NzAiIHkyPSI3MC4wIiBzdHJva2U9IiNkNWRkZTAiIHN0cm9rZS13aWR0aD0iMSIvPjx0ZXh0IHg9IjU2IiB5PSI3MC4wIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0ibm9ybWFsIiB0ZXh0LWFuY2hvcj0iZW5kIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj41MDwvdGV4dD48cmVjdCB4PSI5MiIgeT0iMTA2LjAiIHdpZHRoPSI0NCIgaGVpZ2h0PSIxNDQuMCIgcng9IjQiIGZpbGw9IiMxNzc3NmEiLz48dGV4dCB4PSIxMTQiIHk9Ijk0LjAiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj40MDwvdGV4dD48dGV4dCB4PSIxMTQiIHk9IjI2OCIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+RHVzaGFuYmE8L3RleHQ+PHJlY3QgeD0iMTcyIiB5PSIxNjAuMCIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjkwLjAiIHJ4PSI0IiBmaWxsPSIjMTc3NzZhIi8+PHRleHQgeD0iMTk0IiB5PSIxNDguMCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjI1PC90ZXh0Pjx0ZXh0IHg9IjE5NCIgeT0iMjY4IiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0ibm9ybWFsIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj5TZXNoYW5iYTwvdGV4dD48cmVjdCB4PSIyNTIiIHk9IjEyNC4wIiB3aWR0aD0iNDQiIGhlaWdodD0iMTI2LjAiIHJ4PSI0IiBmaWxsPSIjMTc3NzZhIi8+PHRleHQgeD0iMjc0IiB5PSIxMTIuMCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjM1PC90ZXh0Pjx0ZXh0IHg9IjI3NCIgeT0iMjY4IiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0ibm9ybWFsIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj5DaG9yc2hhbmJhPC90ZXh0PjxyZWN0IHg9IjMzMiIgeT0iNzAuMCIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjE4MC4wIiByeD0iNCIgZmlsbD0iIzE3Nzc2YSIvPjx0ZXh0IHg9IjM1NCIgeT0iNTguMCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjUwPC90ZXh0Pjx0ZXh0IHg9IjM1NCIgeT0iMjY4IiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0ibm9ybWFsIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj5QYXlzaGFuYmE8L3RleHQ+PHJlY3QgeD0iNDEyIiB5PSIxNDIuMCIgd2lkdGg9IjQ0IiBoZWlnaHQ9IjEwOC4wIiByeD0iNCIgZmlsbD0iIzE3Nzc2YSIvPjx0ZXh0IHg9IjQzNCIgeT0iMTMwLjAiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj4zMDwvdGV4dD48dGV4dCB4PSI0MzQiIHk9IjI2OCIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+SnVtYTwvdGV4dD48bGluZSB4MT0iNzAiIHkxPSIyNTAiIHgyPSI0NzAiIHkyPSIyNTAiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+\" alt=\"Kunlar bo‘yicha sotilgan olma diagrammasi\" width=\"490\" height=\"285\"></figure>",
+   "passage": "",
+   "explanation": "<p>Dushanba va seshanba: 40 + 25 = 65 kg. Payshanba: 50 kg. 65 − 50 = 15 kg.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>65 kg</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>15 kg</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>10 kg</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>25 kg</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 9,
+   "type": "single_choice"
+  },
+  {
+   "subject": "math",
+   "difficulty": 3,
+   "prompt": "<p>Shaklning yuzini toping.</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMjM1IiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIzNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjM1IiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNNTAgNDAgSDMzMCBWMTI0IEgyMTggVjIwOCBINTAgWiIgZmlsbD0iI2Q3ZWZlOSIgc3Ryb2tlPSIjMTc3NzZhIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48dGV4dCB4PSIxOTAiIHk9IjIyIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MTAgc208L3RleHQ+PHRleHQgeD0iMjIiIHk9IjEyNCIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjYgc208L3RleHQ+PHRleHQgeD0iMzYyIiB5PSI4MiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjMgc208L3RleHQ+PHRleHQgeD0iMjc0IiB5PSIxNDYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj40IHNtPC90ZXh0Pjwvc3ZnPg==\" alt=\"To‘g‘ri to‘rtburchakdan burchagi kesib olingan shakl\" width=\"400\" height=\"235\"></figure>",
+   "passage": "",
+   "explanation": "<p>Butun to‘g‘ri to‘rtburchak: 10 · 6 = 60 sm². Kesilgan qismi: 4 · 3 = 12 sm². 60 − 12 = 48 sm². (32 sm — bu shaklning perimetri.)</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>60 sm²</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>32 sm²</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>48 sm²</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>36 sm²</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 10,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 1,
+   "prompt": "<p>Qonuniyatni toping va qatorni davom ettiring: <b>3, 7, 11, 15, …</b></p>",
+   "passage": "",
+   "explanation": "<p>Har bir son oldingisidan 4 ga katta: 15 + 4 = 19.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>18</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>20</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>19</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>21</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 11,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 1,
+   "prompt": "<p>So‘roq belgisi o‘rnida qaysi shakl turishi kerak?</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OTYgOTAiIHdpZHRoPSI0OTYiIGhlaWdodD0iOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIj48cmVjdCB3aWR0aD0iNDk2IiBoZWlnaHQ9IjkwIiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48Y2lyY2xlIGN4PSI0MCIgY3k9IjQ1IiByPSIxNS4wIiBmaWxsPSIjMTc3NzZhIi8+PHBhdGggZD0iTTkyIDMwLjAgTDEwOS4wIDYwLjAgTDc1LjAgNjAuMCBaIiBmaWxsPSIjZTNhMjFhIi8+PHJlY3QgeD0iMTI5LjAiIHk9IjMwLjAiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzJmNmZiNSIvPjxjaXJjbGUgY3g9IjE5NiIgY3k9IjQ1IiByPSIxNS4wIiBmaWxsPSIjMTc3NzZhIi8+PHBhdGggZD0iTTI0OCAzMC4wIEwyNjUuMCA2MC4wIEwyMzEuMCA2MC4wIFoiIGZpbGw9IiNlM2EyMWEiLz48cmVjdCB4PSIyODUuMCIgeT0iMzAuMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMmY2ZmI1Ii8+PGNpcmNsZSBjeD0iMzUyIiBjeT0iNDUiIHI9IjE1LjAiIGZpbGw9IiMxNzc3NmEiLz48cGF0aCBkPSJNNDA0IDMwLjAgTDQyMS4wIDYwLjAgTDM4Ny4wIDYwLjAgWiIgZmlsbD0iI2UzYTIxYSIvPjxyZWN0IHg9IjQzNiIgeT0iMjUiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcng9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFmMmEyZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtZGFzaGFycmF5PSI1IDQiLz48dGV4dCB4PSI0NTYiIHk9IjQ2IiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+PzwvdGV4dD48L3N2Zz4=\" alt=\"Rangli shakllar qatori, oxirida so‘roq belgisi\" width=\"496\" height=\"90\"></figure>",
+   "passage": "",
+   "explanation": "<p>Shakllar «doira, uchburchak, kvadrat» tartibida takrorlanadi. Uchburchakdan keyin kvadrat keladi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>Kvadrat</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "B",
+     "content": "<p>Doira</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>Uchburchak</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>Yulduzcha</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 12,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 1,
+   "prompt": "<p>Qaysi so‘z ortiqcha?</p>",
+   "passage": "",
+   "explanation": "<p>Olma, nok va o‘rik — mevalar, sabzi esa sabzavot.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>olma</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>nok</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>o‘rik</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>sabzi</p>",
+     "isCorrect": true
+    }
+   ],
+   "number": 13,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 2,
+   "prompt": "<p>Rasmda nechta uchburchak bor?</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjIyIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIyMiIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjIyIiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCBkPSJNMTUwIDIyIEwyODAgMjAwIEwyMCAyMDAgWiIgZmlsbD0iI2Q3ZWZlOSIgc3Ryb2tlPSIjMTc3NzZhIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iMTUwIiB5MT0iMjIiIHgyPSIxMTAiIHkyPSIyMDAiIHN0cm9rZT0iIzE3Nzc2YSIgc3Ryb2tlLXdpZHRoPSI0Ii8+PGxpbmUgeDE9IjE1MCIgeTE9IjIyIiB4Mj0iMTk2IiB5Mj0iMjAwIiBzdHJva2U9IiMxNzc3NmEiIHN0cm9rZS13aWR0aD0iNCIvPjwvc3ZnPg==\" alt=\"Ichidan ikkita chiziq o‘tkazilgan katta uchburchak\" width=\"300\" height=\"222\"></figure>",
+   "passage": "",
+   "explanation": "<p>3 ta kichik uchburchak, ikkita qo‘shni bo‘lakdan iborat 2 ta uchburchak va 1 ta katta uchburchak: 3 + 2 + 1 = 6.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>3 ta</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>4 ta</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>5 ta</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>6 ta</p>",
+     "isCorrect": true
+    }
+   ],
+   "number": 14,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 2,
+   "prompt": "<p>Juftlikdagi bog‘lanishni toping: <b>kitob — o‘qish</b>, <b>qalam — ?</b></p>",
+   "passage": "",
+   "explanation": "<p>Kitob o‘qish uchun, qalam esa yozish uchun kerak.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>daftar</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>yozish</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>qog‘oz</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>maktab</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 15,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 2,
+   "prompt": "<p>Ali Validan baland. Vali Sardordan baland. Sardor Bekzoddan baland. Bo‘yi bo‘yicha (eng balanddan boshlab sanaganda) ikkinchi o‘rinda kim turadi?</p>",
+   "passage": "",
+   "explanation": "<p>Balanddan pastga: Ali, Vali, Sardor, Bekzod. Ikkinchi — Vali.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>Ali</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>Sardor</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>Vali</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>Bekzod</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 16,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 2,
+   "prompt": "<p>Ikkala tarozi ham muvozanatda. Bitta piramida nechta sharga teng?</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MzAgMjMwIiB3aWR0aD0iNTMwIiBoZWlnaHQ9IjIzMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSI1MzAiIGhlaWdodD0iMjMwIiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48cmVjdCB4PSIxMTAiIHk9IjE4MiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjEwIiByeD0iMyIgZmlsbD0iIzFmMmEyZSIvPjxsaW5lIHgxPSIxMzAiIHkxPSIxODIiIHgyPSIxMzAiIHkyPSI2MCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjUiLz48bGluZSB4MT0iNDUiIHkxPSI2MCIgeDI9IjIxNSIgeTI9IjYwIiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iMTMwIiBjeT0iNjAiIHI9IjYiIGZpbGw9IiMxZjJhMmUiLz48cGF0aCBkPSJNNDUgNjAgTDUgMTMwIE00NSA2MCBMODUgMTMwIiBzdHJva2U9IiM3YThhOTAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0xIDEzMCBRNDUgMTUwIDg5IDEzMCBaIiBmaWxsPSIjYzlkM2Q2IiBzdHJva2U9IiMxZjJhMmUiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjMzLjAiIHk9IjEwOCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiBmaWxsPSIjMmY2ZmI1Ii8+PHBhdGggZD0iTTIxNSA2MCBMMTc1IDEzMCBNMjE1IDYwIEwyNTUgMTMwIiBzdHJva2U9IiM3YThhOTAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0xNzEgMTMwIFEyMTUgMTUwIDI1OSAxMzAgWiIgZmlsbD0iI2M5ZDNkNiIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIyMDEuNSIgY3k9IjEyMCIgcj0iMTIiIGZpbGw9IiNkOTUzNGYiLz48Y2lyY2xlIGN4PSIyMjguNSIgY3k9IjEyMCIgcj0iMTIiIGZpbGw9IiNkOTUzNGYiLz48cmVjdCB4PSIzODAiIHk9IjE4MiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjEwIiByeD0iMyIgZmlsbD0iIzFmMmEyZSIvPjxsaW5lIHgxPSI0MDAiIHkxPSIxODIiIHgyPSI0MDAiIHkyPSI2MCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjUiLz48bGluZSB4MT0iMzE1IiB5MT0iNjAiIHgyPSI0ODUiIHkyPSI2MCIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjQwMCIgY3k9IjYwIiByPSI2IiBmaWxsPSIjMWYyYTJlIi8+PHBhdGggZD0iTTMxNSA2MCBMMjc1IDEzMCBNMzE1IDYwIEwzNTUgMTMwIiBzdHJva2U9IiM3YThhOTAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0yNzEgMTMwIFEzMTUgMTUwIDM1OSAxMzAgWiIgZmlsbD0iI2M5ZDNkNiIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNMzE1LjAgMTAyIEwzMzIuMCAxMzIgTDI5OC4wIDEzMiBaIiBmaWxsPSIjZTNhMjFhIi8+PHBhdGggZD0iTTQ4NSA2MCBMNDQ1IDEzMCBNNDg1IDYwIEw1MjUgMTMwIiBzdHJva2U9IiM3YThhOTAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik00NDEgMTMwIFE0ODUgMTUwIDUyOSAxMzAgWiIgZmlsbD0iI2M5ZDNkNiIgc3Ryb2tlPSIjMWYyYTJlIiBzdHJva2Utd2lkdGg9IjIiLz48cmVjdCB4PSI0NDYuMCIgeT0iMTA4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiMyZjZmYjUiLz48cmVjdCB4PSI0NzMuMCIgeT0iMTA4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiMyZjZmYjUiLz48cmVjdCB4PSI1MDAuMCIgeT0iMTA4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiMyZjZmYjUiLz48dGV4dCB4PSIxMzAiIHk9IjIxNCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9Im5vcm1hbCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MS10YXJvemk8L3RleHQ+PHRleHQgeD0iNDAwIiB5PSIyMTQiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSJub3JtYWwiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjItdGFyb3ppPC90ZXh0Pjwvc3ZnPg==\" alt=\"Ikkita tarozi: kub, shar va piramidalar\" width=\"530\" height=\"230\"></figure>",
+   "passage": "",
+   "explanation": "<p>1-tarozi: 1 kub = 2 shar. 2-tarozi: 1 piramida = 3 kub = 3 · 2 = 6 shar.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>6 ta</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "B",
+     "content": "<p>5 ta</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>3 ta</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>2 ta</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 17,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 3,
+   "prompt": "<p>Qonuniyatni toping va qatorni davom ettiring: <b>2, 3, 5, 9, 17, …</b></p>",
+   "passage": "",
+   "explanation": "<p>Ayirmalar har safar ikki baravar ortadi: +1, +2, +4, +8, keyin +16. 17 + 16 = 33.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>25</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>32</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>33</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>34</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 18,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 3,
+   "prompt": "<p>Rasmdagi yoyilmadan kub yasaldi. Kubning <b>2</b> raqami yozilgan yog‘i qarshisida qaysi raqam bo‘ladi?</p><figure class=\"image\"><img src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODggMjI2IiB3aWR0aD0iMjg4IiBoZWlnaHQ9IjIyNiIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiPjxyZWN0IHdpZHRoPSIyODgiIGhlaWdodD0iMjI2IiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz48cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSI2MiIgaGVpZ2h0PSI2MiIgZmlsbD0iI2Q3ZWZlOSIgc3Ryb2tlPSIjMTc3NzZhIiBzdHJva2Utd2lkdGg9IjMiLz48dGV4dCB4PSI1MS4wIiB5PSI1Mi4wIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MTwvdGV4dD48cmVjdCB4PSI4MiIgeT0iMjAiIHdpZHRoPSI2MiIgaGVpZ2h0PSI2MiIgZmlsbD0iI2Q3ZWZlOSIgc3Ryb2tlPSIjMTc3NzZhIiBzdHJva2Utd2lkdGg9IjMiLz48dGV4dCB4PSIxMTMuMCIgeT0iNTIuMCIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjI8L3RleHQ+PHJlY3QgeD0iODIiIHk9IjgyIiB3aWR0aD0iNjIiIGhlaWdodD0iNjIiIGZpbGw9IiNkN2VmZTkiIHN0cm9rZT0iIzE3Nzc2YSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHRleHQgeD0iMTEzLjAiIHk9IjExNC4wIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+MzwvdGV4dD48cmVjdCB4PSIxNDQiIHk9IjgyIiB3aWR0aD0iNjIiIGhlaWdodD0iNjIiIGZpbGw9IiNkN2VmZTkiIHN0cm9rZT0iIzE3Nzc2YSIgc3Ryb2tlLXdpZHRoPSIzIi8+PHRleHQgeD0iMTc1LjAiIHk9IjExNC4wIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgZmlsbD0iIzFmMmEyZSI+NDwvdGV4dD48cmVjdCB4PSIxNDQiIHk9IjE0NCIgd2lkdGg9IjYyIiBoZWlnaHQ9IjYyIiBmaWxsPSIjZDdlZmU5IiBzdHJva2U9IiMxNzc3NmEiIHN0cm9rZS13aWR0aD0iMyIvPjx0ZXh0IHg9IjE3NS4wIiB5PSIxNzYuMCIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIGZpbGw9IiMxZjJhMmUiPjU8L3RleHQ+PHJlY3QgeD0iMjA2IiB5PSIxNDQiIHdpZHRoPSI2MiIgaGVpZ2h0PSI2MiIgZmlsbD0iI2Q3ZWZlOSIgc3Ryb2tlPSIjMTc3NzZhIiBzdHJva2Utd2lkdGg9IjMiLz48dGV4dCB4PSIyMzcuMCIgeT0iMTc2LjAiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmaWxsPSIjMWYyYTJlIj42PC90ZXh0Pjwvc3ZnPg==\" alt=\"Raqamlangan kub yoyilmasi\" width=\"288\" height=\"226\"></figure>",
+   "passage": "",
+   "explanation": "<p>3 ni kubning tagi deb olsak: 2 — orqa, 5 — old, 1 — chap, 4 — o‘ng, 6 — ust yoq bo‘ladi. Orqa va old yoqlar qarama-qarshi: 2 va 5.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>3</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>4</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>6</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>5</p>",
+     "isCorrect": true
+    }
+   ],
+   "number": 19,
+   "type": "single_choice"
+  },
+  {
+   "subject": "iq",
+   "difficulty": 3,
+   "prompt": "<p>Anvar, Bobur va Jasur qizil, ko‘k va yashil rangli kurtkalar kiyib olishgan, har birida bittadan. Anvar qizil kurtka kiymagan. Bobur ko‘k ham, qizil ham kiymagan. Jasur qanday rangli kurtka kiygan?</p>",
+   "passage": "",
+   "explanation": "<p>Bobur ko‘k ham, qizil ham emas — demak yashil. Anvar qizil emas, yashil esa Boburda — demak ko‘k. Jasurga qizil qoladi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>Ko‘k</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>Qizil</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>Yashil</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>Aniqlab bo‘lmaydi</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 20,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 1,
+   "prompt": "<p>Qaysi so‘z unli tovush bilan boshlangan?</p>",
+   "passage": "",
+   "explanation": "<p>«Olma» so‘zi «o» unli tovushi bilan boshlangan.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>kitob</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>olma</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>daftar</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>maktab</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 21,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 1,
+   "prompt": "<p><b>Issiq</b> so‘zining zid ma’noli (antonim) so‘zini toping.</p>",
+   "passage": "",
+   "explanation": "<p>Issiq — sovuq. «Iliq» va «qaynoq» ma’nosi yaqin so‘zlar.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>iliq</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>qaynoq</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>sovuq</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>yoz</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 22,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 1,
+   "prompt": "<p><b>Chiroyli</b> so‘zining ma’nodosh (sinonim) so‘zini toping.</p>",
+   "passage": "",
+   "explanation": "<p>Chiroyli — go‘zal. «Xunuk» esa uning zid ma’nolisi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>go‘zal</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "B",
+     "content": "<p>xunuk</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>katta</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>tez</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 23,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 2,
+   "prompt": "<p>Qaysi qatorda faqat fe’llar berilgan?</p>",
+   "passage": "",
+   "explanation": "<p>Yugurdi, o‘qidi, yozmoq — harakatni bildiradi, «nima qildi?», «nima qilmoq?» so‘roqlariga javob beradi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>kitob, yozdi, qizil</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>chiroyli, katta, baland</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>yugurdi, o‘qidi, yozmoq</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>uch, beshta, o‘n</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 24,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 2,
+   "prompt": "<p><b>Maktabga</b> so‘zi qaysi kelishikda turibdi?</p>",
+   "passage": "",
+   "explanation": "<p>-ga qo‘shimchasi jo‘nalish kelishigining qo‘shimchasi: «qayerga?» so‘rog‘iga javob beradi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>o‘rin-payt kelishigida</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>jo‘nalish kelishigida</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>chiqish kelishigida</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>tushum kelishigida</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 25,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 2,
+   "prompt": "<p>Qaysi so‘z bo‘g‘inlarga to‘g‘ri ajratilgan?</p>",
+   "passage": "",
+   "explanation": "<p>Har bir bo‘g‘inda bitta unli bo‘ladi: da-raxt-lar.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>dar-ax-tlar</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>dara-xt-lar</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>da-raxt-lar</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "D",
+     "content": "<p>d-arax-tlar</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 26,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 2,
+   "prompt": "<p>Qaysi so‘z to‘g‘ri yozilgan?</p>",
+   "passage": "",
+   "explanation": "<p>To‘g‘ri yozilishi: mustaqillik (mustaqil + lik).</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>mustaqilik</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>mustakillik</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>mustaqillig</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>mustaqillik</p>",
+     "isCorrect": true
+    }
+   ],
+   "number": 27,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 3,
+   "prompt": "<p>Matnga ko‘ra laylaklar nima uchun uchib ketishdi?</p>",
+   "passage": "<p>Kuz kirib, kunlar salqinlasha boshladi. Laylakning bolalari ulg‘ayib, uchishni o‘rganib olishdi. Bir kuni ertalab laylaklar to‘da bo‘lib osmonga ko‘tarilishdi va uzoq, issiq o‘lkalar tomon uchib ketishdi. Bahor kelib, havo isigach, ular yana o‘z uyalariga qaytib kelishadi.</p>",
+   "explanation": "<p>Matnda kuz kirib, kunlar salqinlashgani va laylaklar issiq o‘lkalarga uchib ketgani aytilgan.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>Kuz kelib, havo sovuy boshlagani uchun</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "B",
+     "content": "<p>Bolalari uchishni bilmagani uchun</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>Bahor kelgani uchun</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>Uyalari buzilib qolgani uchun</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 28,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 3,
+   "prompt": "<p>Gapning egasini toping: <b>Kichkina qizcha bog‘da chiroyli gullarni sug‘ordi.</b></p>",
+   "passage": "",
+   "explanation": "<p>«Kim sug‘ordi?» — qizcha. Ega «kim?» yoki «nima?» so‘rog‘iga javob beradi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>bog‘da</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>gullarni</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "C",
+     "content": "<p>sug‘ordi</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>qizcha</p>",
+     "isCorrect": true
+    }
+   ],
+   "number": 29,
+   "type": "single_choice"
+  },
+  {
+   "subject": "language",
+   "difficulty": 3,
+   "prompt": "<p>Qaysi so‘zda so‘z yasovchi qo‘shimcha bor?</p>",
+   "passage": "",
+   "explanation": "<p>«Paxtakor» so‘zi «paxta» so‘ziga -kor qo‘shimchasi qo‘shilib, yangi so‘z yasalgan. -lar, -ga, -m, -ning esa so‘zning shaklini o‘zgartiradi.</p>",
+   "options": [
+    {
+     "label": "A",
+     "content": "<p>kitoblar</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "B",
+     "content": "<p>paxtakor</p>",
+     "isCorrect": true
+    },
+    {
+     "label": "C",
+     "content": "<p>maktabga</p>",
+     "isCorrect": false
+    },
+    {
+     "label": "D",
+     "content": "<p>ukamning</p>",
+     "isCorrect": false
+    }
+   ],
+   "number": 30,
+   "type": "single_choice"
+  }
+ ]
+}

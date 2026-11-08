@@ -25,9 +25,12 @@ class Command(BaseCommand):
             raise CommandError(str(error)) from error
 
         self.stdout.write(f"Created exam '{exam}' with {exam.questions.count()} questions.")
-        # Targets are chosen in the admin; until then no pupil sees the exam.
-        self.stdout.write(
-            self.style.WARNING(
-                "No pupil sees it yet: choose who takes it in the admin (Exam -> Kimga)."
+        if exam.targets.exists():
+            self.stdout.write("Assigned to: " + "; ".join(str(t) for t in exam.targets.all()))
+        else:
+            # Targets are chosen in the admin; until then no pupil sees the exam.
+            self.stdout.write(
+                self.style.WARNING(
+                    "No pupil sees it yet: choose who takes it in the admin (Exam -> Kimga)."
+                )
             )
-        )

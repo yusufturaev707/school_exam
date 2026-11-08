@@ -3,18 +3,22 @@ from django.core.exceptions import ValidationError
 from django.forms.models import BaseInlineFormSet
 from django.utils.html import format_html, format_html_join
 from django.utils.safestring import mark_safe
+from django_ckeditor_5.widgets import CKEditor5Widget
 
 from apps.schools.filters import hierarchy_filters
 
 from .models import (
     AnswerOption,
+    Difficulty,
     Exam,
     ExamAttempt,
     ExamResult,
     ExamSection,
     ExamTarget,
     Question,
+    Subject,
 )
+from .selectors import attempt_questions
 
 NO_TARGETS = "Hech kimga (biriktirilmagan)"
 
@@ -83,11 +87,19 @@ class AnswerOptionInline(admin.TabularInline):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ["number", "exam", "subject", "type"]
-    list_filter = ["exam", "subject"]
+    list_display = ["number", "exam", "subject", "difficulty", "type"]
+    list_filter = ["exam", "subject", "difficulty"]
     list_select_related = ["exam"]
     readonly_fields = ["preview"]
+    list_display_links = ("exam", "subject")
     inlines = [AnswerOptionInline]
+
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        # The question text gets the full toolbar; passages, explanations and the answer options
+        # keep the short one (settings.CKEDITOR_5_CONFIGS).
+        if db_field.name == "prompt":
+            kwargs["widget"] = CKEditor5Widget(config_name="extended")
+        return super().formfield_for_dbfield(db_field, request, **kwargs)
 
     class Media:
         css = {"all": ["exams/katex/katex.min.css"]}
@@ -104,18 +116,41 @@ class QuestionAdmin(admin.ModelAdmin):
         # mark_safe is fine here: RichTextField cleaned this HTML before it was saved.
         options = format_html_join(
             "",
-            "<li><b>{}</b>{} {}</li>",
+            '<li class="{}"><b>{}</b><div>{}</div>{}</li>',
             (
-                (option.label, " ✓" if option.is_correct else "", mark_safe(option.content))
+                (
+                    "is-correct" if option.is_correct else "",
+                    option.label,
+                    mark_safe(option.content),
+                    mark_safe('<span class="question-preview__tick">✓ to‘g‘ri</span>')
+                    if option.is_correct
+                    else "",
+                )
                 for option in question.options.all()
             ),
         )
+        passage = (
+            format_html(
+                '<div class="question-preview__passage">{}</div>', mark_safe(question.passage)
+            )
+            if question.passage
+            else ""
+        )
+        explanation = (
+            format_html(
+                '<div class="question-preview__explanation"><b>Izoh:</b> {}</div>',
+                mark_safe(question.explanation),
+            )
+            if question.explanation
+            else ""
+        )
         return format_html(
-            '<div class="question-preview">{}{}<ul>{}</ul>{}</div>',
-            mark_safe(question.passage),
+            '<div class="question-preview">{}<div class="question-preview__prompt">{}</div>'
+            '<ul class="question-preview__options">{}</ul>{}</div>',
+            passage,
             mark_safe(question.prompt),
             options,
-            mark_safe(question.explanation),
+            explanation,
         )
 
 
@@ -147,7 +182,59 @@ class ExamAttemptAdmin(ReadOnlyAdmin):
     ]
     list_select_related = ["pupil", "exam"]
     search_fields = ["pupil__first_name", "pupil__last_name"]
+    readonly_fields = ["answer_key"]
     actions = ["allow_retake"]
+
+    @admin.display(description="Javob kaliti")
+    def answer_key(self, attempt) -> str:
+        """
+        This pupil's own key: with shuffling, their question 1 and its letters differ from anyone
+        else's. Handy for checking a disputed result against what the pupil actually saw.
+        """
+        questions = attempt_questions(attempt)
+        if not questions:
+            return "Savollar yo‘q."
+        chosen = {a.question_id: a.selected_option_ids for a in attempt.answers.all()}
+        subjects = dict(Subject.choices)
+        rows = []
+        for question in questions:
+            correct = next((o.label for o in question.options if o.is_correct), "—")
+            picked_ids = chosen.get(question.id, [])
+            picked = ", ".join(o.label for o in question.options if str(o.id) in picked_ids)
+            if not picked:
+                verdict = "—"
+            else:
+                verdict = "✓" if picked == correct else "✗"
+            rows.append(
+                (
+                    question.number,
+                    subjects.get(question.subject, question.subject),
+                    Difficulty(question.difficulty).label if question.difficulty else "—",
+                    question.original_number,
+                    correct,
+                    picked or "—",
+                    verdict,
+                )
+            )
+        compact = format_html_join(
+            ", ",
+            '<span style="white-space:nowrap">{}-{}</span>',
+            ((number, correct) for number, _, _, _, correct, _, _ in rows),
+        )
+        table = format_html_join(
+            "",
+            "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td><b>{}</b></td><td>{}</td>"
+            "<td>{}</td></tr>",
+            rows,
+        )
+        return format_html(
+            '<p class="answer-key__compact">{}</p>'
+            '<table class="answer-key"><thead><tr><th>№</th><th>Fan</th><th>Daraja</th>'
+            "<th>Bazadagi savol №</th><th>To‘g‘ri javob</th><th>O‘quvchi javobi</th><th></th>"
+            "</tr></thead><tbody>{}</tbody></table>",
+            compact,
+            table,
+        )
 
     @admin.action(
         description="Qayta topshirishga ruxsat berish (urinish va natija o‘chiriladi)",

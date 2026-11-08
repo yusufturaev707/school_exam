@@ -11,6 +11,8 @@ from pathlib import Path
 import environ
 from django.core.exceptions import ImproperlyConfigured
 
+from apps.core.editor_palette import TEXT_COLOURS
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
@@ -108,9 +110,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-# Images uploaded through the question editor.
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# No MEDIA_ROOT: question images are stored inside the question text (apps/core/images.py).
 if not DEBUG:
     STORAGES = {
         "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
@@ -173,14 +173,46 @@ if QR_LOGIN_URL and not re.fullmatch(r"https?://[^\s?#]+", QR_LOGIN_URL):
 
 # --------------------------------------------------------------------------- question editor
 CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"
-CKEDITOR_5_UPLOAD_FILE_TYPES = ["jpg", "jpeg", "png", "gif", "webp"]  # no SVG: it can carry scripts
-CKEDITOR_5_MAX_FILE_SIZE = 5  # megabytes
+# Raster only: uploads are re-encoded to WebP, and Pillow can't draw an SVG.
+CKEDITOR_5_UPLOAD_FILE_TYPES = ["jpg", "jpeg", "png", "gif", "webp"]
+CKEDITOR_5_MAX_FILE_SIZE = 10  # megabytes before compression; a stored picture is at most 300 KB
+# A question form carries its pictures inline, so its POST is bigger than Django's 2.5 MB default.
+# The pupil API never needs this much: let nginx cap /api bodies lower (see README).
+DATA_UPLOAD_MAX_MEMORY_SIZE = 16 * 1024 * 1024
+# Plugins the editor build ships that an exam has no use for. Autoformat and TextTransformation
+# rewrite text while typing (1/2 becomes ½, -- becomes –, _x_ becomes italic), which would
+# silently corrupt LaTeX formulas. Links, embeds and code don't belong in a child's exam.
+# Markdown and FullPage must go together: each swaps the editor's output format, and with only
+# FullPage gone, Markdown would start saving questions as Markdown instead of HTML.
+# LinkImage has to go too, or it quietly loads Link back.
+_EDITOR_REMOVED_PLUGINS = [
+    "Autoformat", "TextTransformation", "Link", "AutoLink", "LinkImage", "MediaEmbed",
+    "HtmlEmbed", "Markdown", "FullPage", "Mention", "Code", "CodeBlock", "TodoList", "PageBreak",
+    "Style", "Autosave",
+]  # fmt: skip
+_EDITOR_BASE = {
+    "language": "uz",
+    "heading": {
+        "options": [
+            {"model": "paragraph", "title": "Matn", "class": "ck-heading_paragraph"},
+            {
+                "model": "heading3",
+                "view": "h3",
+                "title": "Sarlavha",
+                "class": "ck-heading_heading3",
+            },
+        ]
+    },
+    # Pictures only from the admin's computer: a link to another site would be refused on save.
+    "image": {"toolbar": ["imageTextAlternative"], "insert": {"integrations": ["upload"]}},
+    "table": {"contentToolbar": ["tableColumn", "tableRow", "mergeTableCells"]},
+}
 CKEDITOR_5_CONFIGS = {
+    # Passages, explanations and answer options: the essentials, and no word counter under
+    # every answer option.
     "default": {
-        "language": "uz",
-        # These rewrite text while typing (1/2 becomes ½, -- becomes –, _x_ becomes italic), which
-        # would silently corrupt LaTeX formulas. Link and MediaEmbed have no place in an exam.
-        "removePlugins": ["Autoformat", "TextTransformation", "Link", "AutoLink", "MediaEmbed"],
+        **_EDITOR_BASE,
+        "removePlugins": [*_EDITOR_REMOVED_PLUGINS, "WordCount"],
         "toolbar": {
             "items": [
                 "heading",
@@ -201,20 +233,114 @@ CKEDITOR_5_CONFIGS = {
                 "undo",
                 "redo",
             ]
-        },
+        },  # fmt: skip
+    },
+    # The question itself (QuestionAdmin). Every tool here produces HTML that the cleaner in
+    # apps/core/richtext.py keeps; a tool whose output it would strip is left out on purpose
+    # (font size and family, background colour, image floats, table borders).
+    "extended": {
+        **_EDITOR_BASE,
+        "removePlugins": _EDITOR_REMOVED_PLUGINS,
+        "toolbar": {
+            "items": [
+                "heading",
+                "|",
+                "bold",
+                "italic",
+                "underline",
+                "strikethrough",
+                "subscript",
+                "superscript",
+                "|",
+                "fontColor",
+                "highlight",
+                "removeFormat",
+                "|",
+                "alignment",
+                "|",
+                "bulletedList",
+                "numberedList",
+                "outdent",
+                "indent",
+                "|",
+                "blockQuote",
+                "insertTable",
+                "insertImage",
+                "horizontalLine",
+                "specialCharacters",
+                "|",
+                "findAndReplace",
+                "showBlocks",
+                "sourceEditing",
+                "|",
+                "undo",
+                "redo",
+            ],
+            # Wrap onto a second row instead of hiding tools behind a "more" button.
+            "shouldNotGroupWhenFull": True,
+        },  # fmt: skip
         "heading": {
             "options": [
-                {"model": "paragraph", "title": "Matn", "class": "ck-heading_paragraph"},
+                *_EDITOR_BASE["heading"]["options"],
                 {
-                    "model": "heading3",
-                    "view": "h3",
-                    "title": "Sarlavha",
-                    "class": "ck-heading_heading3",
+                    "model": "heading4",
+                    "view": "h4",
+                    "title": "Kichik sarlavha",
+                    "class": "ck-heading_heading4",
                 },
             ]
         },
-        "image": {"toolbar": ["imageTextAlternative"]},
-        "table": {"contentToolbar": ["tableColumn", "tableRow", "mergeTableCells"]},
+        "fontColor": {
+            "colors": [{"color": colour, "label": name} for colour, name in TEXT_COLOURS.items()],
+            "columns": 5,
+            "documentColors": 0,
+            "colorPicker": False,
+        },
+        # One marker: the cleaner keeps only this class, and <mark> is yellow in every browser.
+        "highlight": {
+            "options": [
+                {
+                    "model": "yellowMarker",
+                    "class": "marker-yellow",
+                    "title": "Sariq marker",
+                    "color": "var(--ck-highlight-marker-yellow)",
+                    "type": "marker",
+                }
+            ]
+        },
+        "alignment": {"options": ["left", "center", "right", "justify"]},
+        # "a) b) c)" and "I. II. III." lists, and a list that starts from any number.
+        "list": {"properties": {"styles": True, "startIndex": True, "reversed": False}},
+        "image": {
+            **_EDITOR_BASE["image"],
+            # One button per size rather than CKEditor's size dropdown: the dropdown needs an
+            # "original" entry whose value is null, and django-ckeditor-5 calls toString() on every
+            # config value, so a single null stops every editor on the page.
+            "toolbar": [
+                "imageTextAlternative",
+                "toggleImageCaption",
+                "|",
+                "resizeImage:25",
+                "resizeImage:50",
+                "resizeImage:75",
+                "resizeImage:100",
+            ],
+            "resizeUnit": "%",
+            "resizeOptions": [
+                {"name": "resizeImage:25", "value": "25", "icon": "small", "label": "25%"},
+                {"name": "resizeImage:50", "value": "50", "icon": "medium", "label": "50%"},
+                {"name": "resizeImage:75", "value": "75", "icon": "large", "label": "75%"},
+                {
+                    "name": "resizeImage:100",
+                    "value": "100",
+                    "icon": "original",
+                    "label": "To‘liq kenglik",
+                },
+            ],
+        },
+        "table": {
+            "contentToolbar": ["tableColumn", "tableRow", "mergeTableCells", "toggleTableCaption"]
+        },
     },
 }
 

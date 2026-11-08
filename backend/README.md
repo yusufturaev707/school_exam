@@ -77,6 +77,7 @@ Har bir app ichida qatlamlar bir xil:
 | `status` pastga ta'sir qiladi | Maktab o'chirilsa, uning o'quvchilari kira olmaydi | Faqat o'quvchi statusini tekshirish |
 | Savol HTML sifatida saqlanadi, formula `$...$` matn | Editor erkin, API blok formatini saqlab qoladi | Formula muharriri plagini: pullik yoki qo'shimcha bog'liqlik |
 | HTML saqlashda `nh3` bilan tozalanadi | HTML bolalar brauzerida ochiladi. `RichTextField` ichida, shuning uchun admin ham, import ham undan o'tadi | Faqat admin formasida tozalash |
+| Rasm savol matni ichida, base64 WebP | Savol bitta yozuv: alohida fayl zaxirasi yo'q, imtihondan oldin nomini taxmin qilib ochiladigan `/media/` fayl yo'q. Saqlashda 1600px gacha kichraytiriladi, EXIF o'chiriladi, 300 KB dan oshmaydi | `/media/` fayl: ochiq URL, alohida zaxira, ishlatilmay qolgan fayllar |
 | JSHSHIR HMAC hash ko'rinishida saqlanadi | Bu bolaning shaxsiy raqami. Baza sizib chiqsa ham ochilmaydi | Ochiq saqlash |
 | Faqat PostgreSQL | Imtihon xavfsizligi `SELECT FOR UPDATE`ga tayanadi, SQLite buni e'tiborsiz qoldiradi | SQLite'da dev: bu xatolarni yashirardi |
 | Celery yo'q, cron + "keyingi murojaatda" | Bitta davriy vazifa uchun broker, worker va beat ortiqcha | Celery |
@@ -178,6 +179,10 @@ Avval nima bo'lishi ko'rsatiladi, keyin tasdiqlanadi.
 ## Savol yozish (admin)
 
 Savollar → Qo'shish. Matn, javoblar va izoh text editorda yoziladi: qalin, ro'yxat, jadval, rasm yuklash.
+Rasm "Rasm qo'shish" tugmasi bilan yuklanadi (JPG, PNG, GIF, WebP, 10 MB gacha). U siqilib WebP qilinadi va savol
+matnining ichiga `data:image/webp;base64,...` bo'lib yoziladi, alohida fayl saqlanmaydi. Boshqa saytdagi rasm havolasi yoki
+Word'dan nusxalangan rasm qabul qilinmaydi: saqlashda xato chiqadi, rasmni faylga saqlab yuklang. Import JSON'ida ham
+rasm shunday `data:` URI bo'lishi kerak.
 Formulalar `$` belgilari orasida LaTeX'da yoziladi:
 
 | Yoziladi | Natija |
@@ -194,6 +199,36 @@ qizil rangda ko'rinadi: savolni e'lon qilishdan oldin shuni tekshiring.
 
 Editor sozlamalari: `settings.py`, `CKEDITOR_5_CONFIGS`. `Autoformat` va `TextTransformation` ataylab o'chirilgan, ular
 yozish paytida `1/2`ni `½`ga aylantirib, LaTeX'ni buzadi. Ularni yoqmang.
+
+### Har bir o'quvchiga o'z tartibi
+
+Imtihonda **"savollar tartibini aralashtirish"** va **"javob variantlarini aralashtirish"** belgilansa, savollar to'plami
+hammaga bir xil, lekin har bir o'quvchiga tartib boshqacha tushadi:
+
+- Fanlar (bo'limlar) tartibi saqlanadi. Fan ichida savollar **qiyinlik darajasi** bo'yicha guruhlanadi (oson → o'rta →
+  qiyin) va har bir guruh ichida aralashtiriladi. Daraja ko'rsatilmagan savollar fan ichida erkin aralashadi.
+- Variantlar ham aralashadi va harflar qaytadan A, B, C, D bo'lib qo'yiladi, ya'ni javob kaliti har kimda har xil.
+- Tartib imtihon boshlanganda bir marta tuziladi va urinishda saqlanadi (`ExamAttempt.layout`). Keyin imtihon tahrirlansa
+  ham o'quvchi ko'rgan tartib va uning javob kaliti o'zgarmaydi. Yangi qo'shilgan savol shu fanning oxiriga tushadi.
+- Ball variant id'si bo'yicha hisoblanadi, harf bo'yicha emas, shuning uchun aralashtirish natijaga ta'sir qilmaydi.
+- O'quvchining shaxsiy javob kaliti: **Urinishlar → o'quvchi → "Javob kaliti"** (savol №, fan, daraja, to'g'ri javob,
+  o'quvchi javobi). Bahsli natijani shu yerda tekshirish mumkin.
+
+Variantlarda "Yuqoridagilarning hammasi" kabi joyiga bog'liq javoblar yozmang: aralashganda ma'nosini yo'qotadi.
+
+### Tayyor test: 4-sinf bitiruvchilari uchun diagnostika
+
+`content/diagnostika_4_sinf.py`: 30 ta savol (matematika, mantiqiy fikrlash, ona tili, har biridan 10 ta: 3 oson,
+4 o'rta, 3 qiyin), 9 tasi rasmli. Rasmlar SVG bo'lib skriptning o'zida chiziladi. O'zgartirish uchun skriptni tahrirlab,
+JSON'ni qayta yarating va import qiling:
+
+```powershell
+python content/diagnostika_4_sinf.py
+python manage.py import_exam content/diagnostika-4-sinf.json
+```
+
+Import qilingan test e'lon qilinmagan bo'ladi va barcha 4-sinflarga biriktiriladi. Javoblarni ko'rsatish o'chiq, chunki
+savollar hammaga bir xil: oldin tugatganlar javoblarni keyingilarga yetkazib qo'yishi mumkin.
 
 ## Admin vazifalari
 
@@ -239,8 +274,11 @@ Cron:
 0 3 * * *  cd /app && python manage.py purge_stale_game_sessions && python manage.py clearsessions
 ```
 
-- Frontend va `/api` **bitta domenda** bo'lishi shart (cookie shunga tayanadi, CORS ochilmagan). Nginx `/api` va `/admin`,
-  `/static`ni gunicorn'ga, `/media`ni to'g'ridan-to'g'ri `MEDIA_ROOT` papkasidan, qolganini frontend build'iga yo'naltiradi.
-- `MEDIA_ROOT` (savol rasmlari) zaxira nusxaga kirsin: bazadagi savollar shu fayllarga havola qiladi.
-- Nginx'da gzip yoqing: imtihon javobi taxminan 60 KB va daqiqada bir marta qayta so'raladi.
+- Frontend va `/api` **bitta domenda** bo'lishi shart (cookie shunga tayanadi, CORS ochilmagan). Nginx `/api`, `/admin`,
+  `/ckeditor5` (muharrirdan rasm yuklash) va `/static`ni gunicorn'ga, qolganini frontend build'iga yo'naltiradi.
+  Savol rasmlari bazada, `/media` papkasi yo'q.
+- So'rov hajmi: rasmli savol formasi katta bo'ladi (Django 16 MB gacha qabul qiladi). Nginx'da `/admin` va `/ckeditor5`
+  uchun `client_max_body_size 16m`, `/api` uchun `1m` qo'ying: o'quvchi API'siga katta so'rov kerak emas.
+- Nginx'da gzip yoqing. Savollar (rasmlari bilan) imtihon boshida bir marta yuklanadi, keyin har daqiqada faqat
+  kichik holat (`?questions=0`, bir necha KB) so'raladi.
 - Redis production'da shart: usiz har bir worker rate limitni alohida sanaydi.

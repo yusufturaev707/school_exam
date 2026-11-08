@@ -52,7 +52,7 @@ export function QuestionCard({ question, subjectIndex, subjectTotal, selected, d
           </section>
         )}
 
-        <div id={`q-${question.id}-prompt`} className="mt-4 text-[18px] leading-snug font-extrabold md:text-[20px]">
+        <div id={`q-${question.id}-prompt`} className="mt-4 text-[18px] leading-relaxed font-medium md:text-[20px]">
           <RichContent blocks={question.prompt} />
         </div>
 

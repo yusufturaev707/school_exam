@@ -15,6 +15,7 @@ from django.utils import timezone
 from apps.accounts.models import Pupil
 from apps.core.exceptions import ApiError
 
+from .layout import ShownQuestion, arrange
 from .models import Exam, ExamAttempt, ExamResult, Question, Subject
 from .services import finalize_overdue_attempts
 
@@ -46,7 +47,7 @@ class ExamSummary:
 class AttemptSession:
     attempt: ExamAttempt
     sections: list[SectionInfo]
-    questions: list[Question]
+    questions: list[ShownQuestion]
     answers: dict[str, list[str]]
     server_time: datetime
 
@@ -89,7 +90,7 @@ def exam_summaries(pupil: Pupil) -> list[ExamSummary]:
     return summaries
 
 
-def attempt_session(pupil: Pupil, attempt_id: UUID) -> AttemptSession:
+def attempt_session(pupil: Pupil, attempt_id: UUID, with_questions: bool = True) -> AttemptSession:
     finalize_overdue_attempts(pupil)
 
     attempt = (
@@ -103,8 +104,8 @@ def attempt_session(pupil: Pupil, attempt_id: UUID) -> AttemptSession:
 
     # Questions are only sent while the exam is running. Afterwards the result screen takes over.
     questions = []
-    if attempt.status == Status.IN_PROGRESS:
-        questions = list(attempt.exam.questions.prefetch_related("options"))
+    if with_questions and attempt.status == Status.IN_PROGRESS:
+        questions = attempt_questions(attempt)
 
     counts = _question_counts([attempt.exam]).get(attempt.exam_id, {})
     return AttemptSession(
@@ -132,23 +133,29 @@ def result_for(pupil: Pupil, result_id: UUID) -> ExamResult:
     return result
 
 
+def attempt_questions(attempt: ExamAttempt) -> list[ShownQuestion]:
+    """The exam's questions in this attempt's own order, with its own option letters."""
+    questions = list(attempt.exam.questions.prefetch_related("options"))
+    return arrange(attempt.exam, attempt.layout, questions)
+
+
 def review_items(result: ExamResult) -> list[dict]:
     selected = {
         answer.question_id: answer.selected_option_ids for answer in result.attempt.answers.all()
     }
     return [
         {
-            "question_id": question.pk,
+            "question_id": question.id,
             "number": question.number,
             "subject": question.subject,
             "prompt": question.prompt,
             "passage": question.passage,
-            "options": question.options.all(),
-            "selected_option_ids": selected.get(question.pk, []),
-            "correct_option_ids": [str(o.pk) for o in question.options.all() if o.is_correct],
+            "options": question.options,
+            "selected_option_ids": selected.get(question.id, []),
+            "correct_option_ids": [str(o.id) for o in question.options if o.is_correct],
             "explanation": question.explanation,
         }
-        for question in result.attempt.exam.questions.prefetch_related("options")
+        for question in attempt_questions(result.attempt)
     ]
 
 
