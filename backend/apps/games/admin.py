@@ -1,25 +1,6 @@
 from django.contrib import admin
 
-from .models import (
-    DailyChallengeCompletion,
-    DailyQuestion,
-    DailyQuestionAnswer,
-    Game,
-    GameSession,
-)
-
-
-class ReadOnlyAdmin(admin.ModelAdmin):
-    """Records the games write themselves: they are what the stars and bonuses are counted from."""
-
-    def has_add_permission(self, request) -> bool:
-        return False
-
-    def has_change_permission(self, request, obj=None) -> bool:
-        return False
-
-    def has_delete_permission(self, request, obj=None) -> bool:
-        return False
+from .models import DailyQuestion, Game, GameSession
 
 
 @admin.register(Game)
@@ -52,21 +33,3 @@ class GameSessionAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None) -> bool:
         return False
-
-
-@admin.register(DailyChallengeCompletion)
-class DailyChallengeCompletionAdmin(ReadOnlyAdmin):
-    list_display = ["pupil", "date", "session", "completed_at"]
-    list_filter = ["date"]
-    list_select_related = ["pupil", "session__game"]
-    search_fields = ["pupil__first_name", "pupil__last_name"]
-    date_hierarchy = "date"
-
-
-@admin.register(DailyQuestionAnswer)
-class DailyQuestionAnswerAdmin(ReadOnlyAdmin):
-    list_display = ["pupil", "date", "question", "correct", "answered_at"]
-    list_filter = ["correct", "date"]
-    list_select_related = ["pupil", "question"]
-    search_fields = ["pupil__first_name", "pupil__last_name"]
-    date_hierarchy = "date"

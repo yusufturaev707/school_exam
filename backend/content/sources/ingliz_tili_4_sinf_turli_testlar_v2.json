@@ -1,0 +1,332 @@
+[
+    {
+        "id": 1,
+        "question": "‘Apple’ so‘zining o‘zbekcha tarjimasi nima?",
+        "options": [
+            "A) Olma",
+            "B) Nok",
+            "C) Uzum",
+            "D) Banan"
+        ],
+        "answer": "A) Olma"
+    },
+    {
+        "id": 2,
+        "question": "‘Kitob’ so‘zining inglizcha tarjimasi qaysi?",
+        "options": [
+            "A) Pen",
+            "B) Pencil",
+            "C) Book",
+            "D) Bag"
+        ],
+        "answer": "C) Book"
+    },
+    {
+        "id": 3,
+        "question": "Qaysi so‘z ‘qizil’ rangini anglatadi?",
+        "options": [
+            "A) Blue",
+            "B) Red",
+            "C) Green",
+            "D) Yellow"
+        ],
+        "answer": "B) Red"
+    },
+    {
+        "id": 4,
+        "question": "‘School’ so‘zi nimani anglatadi?",
+        "options": [
+            "A) Bozor",
+            "B) Uy",
+            "C) Maktab",
+            "D) Bog‘"
+        ],
+        "answer": "C) Maktab"
+    },
+    {
+        "id": 5,
+        "question": "‘Ona’ so‘zining inglizcha muqvili qaysi?",
+        "options": [
+            "A) Sister",
+            "B) Mother",
+            "C) Father",
+            "D) Brother"
+        ],
+        "answer": "B) Mother"
+    },
+    {
+        "id": 6,
+        "question": "Qaysi so‘z hayvon emas?",
+        "options": [
+            "A) Dog",
+            "B) Cat",
+            "C) Elephant",
+            "D) Pen"
+        ],
+        "answer": "D) Pen"
+    },
+    {
+        "id": 7,
+        "question": "Meva nomini toping:",
+        "options": [
+            "A) Banana",
+            "B) Dog",
+            "C) Car",
+            "D) Table"
+        ],
+        "answer": "A) Banana"
+    },
+    {
+        "id": 8,
+        "question": "Qaysi so‘z rang bildirmaydi?",
+        "options": [
+            "A) Green",
+            "B) Yellow",
+            "C) Milk",
+            "D) White"
+        ],
+        "answer": "C) Milk"
+    },
+    {
+        "id": 9,
+        "question": "Oila a'zosini toping:",
+        "options": [
+            "A) Teacher",
+            "B) Sister",
+            "C) Doctor",
+            "D) Student"
+        ],
+        "answer": "B) Sister"
+    },
+    {
+        "id": 10,
+        "question": "Qaysi so‘z o‘quv quroli hisoblanadi?",
+        "options": [
+            "A) Pencil",
+            "B) Cat",
+            "C) Sun",
+            "D) Water"
+        ],
+        "answer": "A) Pencil"
+    },
+    {
+        "id": 11,
+        "question": "To‘g‘ri shaklni tanlang: 'I ___ a student.'",
+        "options": [
+            "A) am",
+            "B) is",
+            "C) are",
+            "D) be"
+        ],
+        "answer": "A) am"
+    },
+    {
+        "id": 12,
+        "question": "To‘g‘ri shaklni tanlang: 'He ___ my friend.'",
+        "options": [
+            "A) am",
+            "B) is",
+            "C) are",
+            "D) be"
+        ],
+        "answer": "B) is"
+    },
+    {
+        "id": 13,
+        "question": "To‘g‘ri shaklni tanlang: 'They ___ playing.'",
+        "options": [
+            "A) am",
+            "B) is",
+            "C) are",
+            "D) be"
+        ],
+        "answer": "C) are"
+    },
+    {
+        "id": 14,
+        "question": "Qaysi kishilik olmoshi bilan 'am' ishlatiladi?",
+        "options": [
+            "A) He",
+            "B) She",
+            "C) You",
+            "D) I"
+        ],
+        "answer": "D) I"
+    },
+    {
+        "id": 15,
+        "question": "To‘g‘ri gapni tanlang:",
+        "options": [
+            "A) She is a girl.",
+            "B) She am a girl.",
+            "C) She are a girl.",
+            "D) She be a girl."
+        ],
+        "answer": "A) She is a girl."
+    },
+    {
+        "id": 16,
+        "question": "'Cat' so‘zining ko‘plik shakli qaysi?",
+        "options": [
+            "A) Cates",
+            "B) Cats",
+            "C) Catis",
+            "D) Cat"
+        ],
+        "answer": "B) Cats"
+    },
+    {
+        "id": 17,
+        "question": "'Box' so‘zining ko‘plik shakli to‘g‘ri ko‘rsatilgan javobni tanlang:",
+        "options": [
+            "A) Boxs",
+            "B) Boxes",
+            "C) Boxies",
+            "D) Boxen"
+        ],
+        "answer": "B) Boxes"
+    },
+    {
+        "id": 18,
+        "question": "Bir nechta kitoblarga nisbatan qaysi so‘z ishlatiladi?",
+        "options": [
+            "A) Book",
+            "B) Books",
+            "C) Bookes",
+            "D) A book"
+        ],
+        "answer": "B) Books"
+    },
+    {
+        "id": 19,
+        "question": "Qaysi so‘z birlikda turibdi?",
+        "options": [
+            "A) Dogs",
+            "B) Pens",
+            "C) Apple",
+            "D) Cars"
+        ],
+        "answer": "C) Apple"
+    },
+    {
+        "id": 20,
+        "question": "'Two ___' nuqtalar o‘rniga to‘g‘ri keladigan so‘zni toping.",
+        "options": [
+            "A) ball",
+            "B) balls",
+            "C) a ball",
+            "D) balles"
+        ],
+        "answer": "B) balls"
+    },
+    {
+        "id": 21,
+        "question": "Ertalab ko‘rishganda nima deyiladi?",
+        "options": [
+            "A) Good night",
+            "B) Good afternoon",
+            "C) Good morning",
+            "D) Goodbye"
+        ],
+        "answer": "C) Good morning"
+    },
+    {
+        "id": 22,
+        "question": "'How are you?' savoliga qanday javob beriladi?",
+        "options": [
+            "A) I am 9 years old.",
+            "B) I am fine, thank you.",
+            "C) My name is Ali.",
+            "D) Yes, it is."
+        ],
+        "answer": "B) I am fine, thank you."
+    },
+    {
+        "id": 23,
+        "question": "'Ismingiz nima?' deb so‘rash uchun qaysi ibora ishlatiladi?",
+        "options": [
+            "A) How old are you?",
+            "B) Where are you from?",
+            "C) What is your name?",
+            "D) How are you?"
+        ],
+        "answer": "C) What is your name?"
+    },
+    {
+        "id": 24,
+        "question": "'Rahmat' demoqchi bo‘lsangiz, nima deysiz?",
+        "options": [
+            "A) Please",
+            "B) Thank you",
+            "C) Sorry",
+            "D) Hello"
+        ],
+        "answer": "B) Thank you"
+    },
+    {
+        "id": 25,
+        "question": "Xayrlashganda qaysi so‘z ishlatiladi?",
+        "options": [
+            "A) Hello",
+            "B) Hi",
+            "C) Goodbye",
+            "D) Welcome"
+        ],
+        "answer": "C) Goodbye"
+    },
+    {
+        "id": 26,
+        "question": "‘7’ soni ingliz tilida qanday yoziladi?",
+        "options": [
+            "A) Six",
+            "B) Seven",
+            "C) Eight",
+            "D) Nine"
+        ],
+        "answer": "B) Seven"
+    },
+    {
+        "id": 27,
+        "question": "‘Big’ so‘zining qarama-qarshi (antonom) ma'nosi qaysi?",
+        "options": [
+            "A) Small",
+            "B) Tall",
+            "C) Good",
+            "D) Fast"
+        ],
+        "answer": "A) Small"
+    },
+    {
+        "id": 28,
+        "question": "'Five + Two = ?' Javobni ingliz tilida toping:",
+        "options": [
+            "A) Six",
+            "B) Seven",
+            "C) Eight",
+            "D) Ten"
+        ],
+        "answer": "B) Seven"
+    },
+    {
+        "id": 29,
+        "question": "Quyidagi sifatlardan qaysisi 'quvnoq / xursand' ma'nosini bildiradi?",
+        "options": [
+            "A) Sad",
+            "B) Happy",
+            "C) Big",
+            "D) Cold"
+        ],
+        "answer": "B) Happy"
+    },
+    {
+        "id": 30,
+        "question": "'Quyosh' so‘zining inglizcha tarjimasi va to‘g‘ri artikli qaysi?",
+        "options": [
+            "A) A moon",
+            "B) The sun",
+            "C) A star",
+            "D) The sky"
+        ],
+        "answer": "B) The sun"
+    }
+]

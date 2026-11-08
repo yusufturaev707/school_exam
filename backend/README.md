@@ -255,6 +255,16 @@ python manage.py import_exam content/diagnostika-4-sinf.json
 Import qilingan test e'lon qilinmagan bo'ladi va barcha 4-sinflarga biriktiriladi. Javoblarni ko'rsatish o'chiq, chunki
 savollar hammaga bir xil: oldin tugatganlar javoblarni keyingilarga yetkazib qo'yishi mumkin.
 
+### Tayyor test: 4-sinf ingliz tili
+
+`content/ingliz-tili-4-sinf.json`: 30 ta savol (so'z boyligi, `to be`, ko'plik, muloqot), har biri 1 ball, 45 daqiqa,
+savol va variantlar tartibi har kimda boshqacha, hamma 4-sinflarga. Manba ro'yxat
+`content/sources/ingliz_tili_4_sinf_turli_testlar_v2.json`; JSON'ni `python content/ingliz_tili_4_sinf.py` qayta
+yaratadi (variant harflari va javobni tekshiradi, qiyinlik darajasini qo'yadi). U `content/imtihonlar.json` ichida ham
+bor, shuning uchun serverga `import_exam content/imtihonlar.json --update --publish` bilan tushadi.
+
+Fan kodi `language`: u endi **Ingliz tili** (avval Ona tili edi; `0005_subject_english`).
+
 ## Admin vazifalari
 
 - **Imtihonlarni boshqa serverga ko'chirish:** `python manage.py export_exams` bazadagi hamma imtihonni

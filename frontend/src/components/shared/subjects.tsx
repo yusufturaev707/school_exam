@@ -39,11 +39,12 @@ export const SUBJECTS: Record<SubjectCode, SubjectMeta> = {
     bar: 'bg-logic',
   },
   language: {
+    // Kod `language`, fan esa ingliz tili (backend: Subject.LANGUAGE = "Ingliz tili").
     // Bitta nom hamma joyda (bosh sahifa, filtrlar, natija kartasi) — backenddagi boʻlim nomi koʻrsatilmaydi.
-    title: 'Ona tili',
-    short: 'Ona tili',
-    description: 'Ona tili va adabiyot: oʻqish, grammatika va soʻz boyligi',
-    icon: 'book',
+    title: 'Ingliz tili',
+    short: 'Ingliz tili',
+    description: 'Ingliz tili: soʻz boyligi, grammatika va muloqot',
+    icon: 'text',
     tone: 'is-lang',
     bg: 'bg-lang-soft',
     ink: 'text-lang-ink',

@@ -42,12 +42,12 @@ const DEMO_JSHSHIR = '12345678901234';
 const EXAM = {
   id: 'exam-autumn-2026',
   title: 'Kuzgi bilimlar imtihoni',
-  description: 'Matematika, mantiq va ona tili bo‘yicha 45 ta qiziqarli savol.',
+  description: 'Matematika, mantiq va ingliz tili bo‘yicha 45 ta qiziqarli savol.',
   durationMinutes: 60,
   sections: [
     { subject: 'math', title: 'Matematika', questionCount: 15 },
     { subject: 'iq', title: 'Mantiq (IQ)', questionCount: 15 },
-    { subject: 'language', title: 'Ona tili va adabiyot', questionCount: 15 },
+    { subject: 'language', title: 'Ingliz tili', questionCount: 15 },
   ],
 };
 const DURATION_MS = (Number(import.meta.env.VITE_MOCK_EXAM_SECONDS) || EXAM.durationMinutes * 60) * 1000;

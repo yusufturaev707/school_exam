@@ -400,7 +400,7 @@ class TestQuestions:
 
     def test_subject_needs_a_section_in_the_exam(self, staff, exam):
         exam.sections.filter(subject="language").delete()
-        upload = xlsx(QUESTION_HEADERS, [9, "Ona tili", None, "Savol", "Bir", "Ikki", None, "A"])
+        upload = xlsx(QUESTION_HEADERS, [9, "Ingliz tili", None, "Savol", "Bir", "Ikki", None, "A"])
         found = errors_of(self.check_questions(staff, exam, upload))
         assert any(c == "Fan" and "bo‘limi yo‘q" in m for _, c, m in found)
 

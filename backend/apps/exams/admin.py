@@ -20,14 +20,12 @@ from apps.core.sheets import (
     JsonFormat,
     SheetAdminMixin,
     SheetImportForm,
-    summary,
 )
 from apps.schools.filters import hierarchy_filters
 
 from .importer import export_exam_data, import_exams_data
 from .models import (
     AnswerOption,
-    AttemptAnswer,
     Difficulty,
     Exam,
     ExamAttempt,
@@ -447,80 +445,3 @@ class ExamResultAdmin(ReadOnlyAdmin):
     ]
     list_select_related = ["attempt__pupil", "attempt__exam"]
     search_fields = ["attempt__pupil__first_name", "attempt__pupil__last_name"]
-
-
-@admin.register(ExamSection)
-class ExamSectionAdmin(admin.ModelAdmin):
-    """Usually edited on the exam page; this list shows all exams' sections side by side."""
-
-    list_display = ["title", "exam", "subject", "order"]
-    list_filter = ["exam", "subject"]
-    list_select_related = ["exam"]
-    search_fields = ["title", "exam__title"]
-
-
-@admin.register(ExamTarget)
-class ExamTargetAdmin(admin.ModelAdmin):
-    """Usually edited on the exam page ("Kimga"); the same rules apply here (ExamTarget.clean)."""
-
-    list_display = ["__str__", "exam", "grade"]
-    list_filter = ["exam", "grade"]
-    list_select_related = [
-        "exam",
-        "region",
-        "district",
-        "school__district",
-        "classroom__school__district",
-    ]
-    fields = ["exam", "region", "district", "school", "classroom", "grade"]
-    autocomplete_fields = ["region", "district", "school", "classroom"]
-    search_fields = ["exam__title"]
-
-
-@admin.register(AnswerOption)
-class AnswerOptionAdmin(ReadOnlyAdmin):
-    """
-    Read-only: "exactly one correct option" is checked over a question's options together, so they
-    are edited on the question page, never one by one.
-    """
-
-    list_display = ["question", "exam", "label", "text", "is_correct"]
-    list_filter = ["is_correct", "question__exam"]
-    list_select_related = ["question__exam"]
-    search_fields = ["content", "question__exam__title"]
-
-    @admin.display(description="Imtihon", ordering="question__exam__title")
-    def exam(self, option) -> str:
-        return str(option.question.exam)
-
-    @admin.display(description="Javob matni")
-    def text(self, option) -> str:
-        return summary(option.content, limit=80)
-
-
-@admin.register(AttemptAnswer)
-class AttemptAnswerAdmin(ReadOnlyAdmin):
-    """What each pupil chose. Written by the exam itself, so nobody can change it here."""
-
-    list_display = ["attempt", "question", "chosen", "saved_at"]
-    list_filter = [
-        "attempt__exam",
-        *hierarchy_filters(
-            "attempt__pupil__classroom__school__district__region",
-            "attempt__pupil__classroom__school__district",
-            "attempt__pupil__classroom__school",
-        ),
-    ]
-    list_select_related = ["attempt__pupil", "attempt__exam", "question"]
-    search_fields = ["attempt__pupil__first_name", "attempt__pupil__last_name"]
-    exclude = ["selected_option_ids", "client_seq"]
-    readonly_fields = ["chosen"]
-
-    def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related("question__options")
-
-    @admin.display(description="Tanlangan javob (bazadagi harfi)")
-    def chosen(self, answer) -> str:
-        chosen = set(answer.selected_option_ids)
-        labels = [o.label for o in answer.question.options.all() if str(o.pk) in chosen]
-        return ", ".join(labels) or "—"

@@ -68,7 +68,7 @@ def make_exam(targets=None, **overrides):
         "sections": [
             {"subject": "math", "title": "Matematika"},
             {"subject": "iq", "title": "Mantiq"},
-            {"subject": "language", "title": "Ona tili"},
+            {"subject": "language", "title": "Ingliz tili"},
         ],
         "questions": questions,
         **overrides,

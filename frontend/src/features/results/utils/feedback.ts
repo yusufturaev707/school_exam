@@ -21,9 +21,9 @@ const SUBJECT_MESSAGES: Record<SubjectCode, Record<Band, string>> = {
     growing: 'Mantiqiy savollarda yana biroz mashq qilish foydali bo‘ladi.',
   },
   language: {
-    high: 'O‘qish va tushunishda ajoyibsan!',
-    mid: 'Ona tilida yaxshi natija! Kitob o‘qishni davom ettir.',
-    growing: 'O‘qish va tushunish qobiliyatingni yanada rivojlantirishing mumkin.',
+    high: 'Ingliz tilida ajoyib natija ko‘rsatding! Excellent!',
+    mid: 'Ingliz tilida yaxshi natija! Har kuni bir nechta yangi so‘z o‘rgansang, yanada zo‘r bo‘ladi.',
+    growing: 'Ingliz tilida so‘zlar va oddiy gaplarni ko‘proq takrorlash foydali bo‘ladi. Sen albatta uddalaysan!',
   },
 };
 

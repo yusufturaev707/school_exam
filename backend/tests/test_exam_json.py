@@ -203,7 +203,7 @@ class TestUpdateInPlace:
 
         output = self.run(READY, "--publish")
 
-        assert Exam.objects.count() == 1
+        assert Exam.objects.filter(title=old.title).count() == 1
         old.refresh_from_db()
         assert old.is_published
         assert dict(old.questions.values_list("number", "id")) == ids
@@ -275,3 +275,43 @@ class TestUpdateInPlace:
         import_exam_data(diagnostic())
         with pytest.raises(CommandError, match="2 ta imtihon bor"):
             self.run(READY)
+
+
+ENGLISH = Path(__file__).resolve().parent.parent / "content" / "ingliz-tili-4-sinf.json"
+
+
+class TestEnglishTest:
+    """content/ingliz-tili-4-sinf.json, made by content/ingliz_tili_4_sinf.py from its source."""
+
+    def test_file_matches_its_source(self):
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location(
+            "ingliz_tili_4_sinf", ENGLISH.with_name("ingliz_tili_4_sinf.py")
+        )
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        assert module.build() == json.loads(ENGLISH.read_text(encoding="utf-8"))
+
+    def test_answers_match_the_source(self):
+        source = json.loads(
+            (ENGLISH.parent / "sources" / "ingliz_tili_4_sinf_turli_testlar_v2.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        exam = json.loads(ENGLISH.read_text(encoding="utf-8"))
+        for item, question in zip(source, exam["questions"], strict=True):
+            correct = next(o for o in question["options"] if o["isCorrect"])
+            assert item["answer"].startswith(f"{correct['label']})")
+            assert question["subject"] == "language"
+
+    def test_it_loads_with_the_diagnostic_test_in_one_command(self):
+        out = io.StringIO()
+        call_command("import_exam", str(READY), "--update", "--publish", stdout=out)
+        english = Exam.objects.get(title="4-sinf bitiruvchilari uchun ingliz tili testi")
+        assert english.questions.count() == 30
+        assert english.is_published
+        assert list(english.sections.values_list("subject", "title")) == [
+            ("language", "Ingliz tili")
+        ]
+        assert Exam.objects.count() == 2

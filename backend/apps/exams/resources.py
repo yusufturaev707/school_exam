@@ -37,7 +37,9 @@ SUBJECT_ALIASES = {
     "mantiq": Subject.IQ,
     "iq": Subject.IQ,
     "mantiqiy fikrlash": Subject.IQ,
-    "ona tili": Subject.LANGUAGE,
+    "ingliz": Subject.LANGUAGE,
+    "english": Subject.LANGUAGE,
+    "inglizcha": Subject.LANGUAGE,
 }
 
 
@@ -83,7 +85,7 @@ class QuestionResource(SheetResource):
     required_columns = (NUMBER,)
     column_help = {
         NUMBER: "Savolning imtihondagi raqami. Shu raqamli savol bo‘lsa, u yangilanadi.",
-        SUBJECT: "Matematika, Mantiq (IQ) yoki Ona tili va adabiyot, yoki imtihondagi bo‘lim nomi.",
+        SUBJECT: "Matematika, Mantiq (IQ) yoki Ingliz tili, yoki imtihondagi bo‘lim nomi.",
         DIFFICULTY: "Oson, O‘rta yoki Qiyin (1, 2, 3). Bo‘sh bo‘lishi mumkin.",
         PROMPT: "Oddiy matn yoki muharrir HTML'i. Formula $ belgilari orasida: $\\frac{1}{2}$.",
         PASSAGE: "Savolga oid uzun matn. Ixtiyoriy.",
