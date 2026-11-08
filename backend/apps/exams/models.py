@@ -334,6 +334,8 @@ class AttemptAnswer(models.Model):
     saved_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        verbose_name = "O‘quvchi javobi"
+        verbose_name_plural = "O‘quvchi javoblari"
         constraints = [
             models.UniqueConstraint(fields=["attempt", "question"], name="one_answer_per_question")
         ]

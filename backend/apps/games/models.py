@@ -115,6 +115,8 @@ class DailyChallengeCompletion(models.Model):
     completed_at = models.DateTimeField()
 
     class Meta:
+        verbose_name = "Kunlik topshiriq bajarilishi"
+        verbose_name_plural = "Kunlik topshiriq bajarilishlari"
         constraints = [
             models.UniqueConstraint(fields=["pupil", "date"], name="one_daily_challenge_per_day")
         ]
@@ -163,6 +165,8 @@ class DailyQuestionAnswer(models.Model):
     answered_at = models.DateTimeField()
 
     class Meta:
+        verbose_name = "Kun savoliga javob"
+        verbose_name_plural = "Kun savollariga javoblar"
         constraints = [
             models.UniqueConstraint(fields=["pupil", "date"], name="one_daily_answer_per_day")
         ]
