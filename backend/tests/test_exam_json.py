@@ -11,10 +11,11 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.management import CommandError, call_command
 
 from apps.exams.importer import export_exam_data, import_exam_data
-from apps.exams.models import Exam, ExamTarget
+from apps.exams.models import AnswerOption, AttemptAnswer, Exam, ExamTarget
+from apps.exams.services import start_attempt
 from apps.schools.models import Region
 
-from .conftest import make_region
+from .conftest import ALIYA_JSHSHIR, make_pupil, make_region
 
 pytestmark = pytest.mark.django_db
 
@@ -180,3 +181,97 @@ def test_admin_takes_a_file_with_several_exams(staff):
     response = staff.post(IMPORT_URL, {"file": json_file(data)})
     assert response["Location"] == "/admin/exams/exam/"
     assert Exam.objects.count() == 2
+
+
+READY = Path(__file__).resolve().parent.parent / "content" / "imtihonlar.json"
+
+
+class TestUpdateInPlace:
+    """The server has an older copy of the exam: `import_exam --update` brings it in line."""
+
+    def run(self, path, *flags) -> str:
+        out = io.StringIO()
+        call_command("import_exam", str(path), "--update", *flags, stdout=out)
+        return out.getvalue()
+
+    def test_older_copy_on_the_server_is_updated_not_duplicated(self):
+        old = import_exam_data(diagnostic())  # the version from content/diagnostika-4-sinf.json
+        ids = dict(old.questions.values_list("number", "id"))
+        option_ids = set(
+            AnswerOption.objects.filter(question__exam=old).values_list("id", flat=True)
+        )
+
+        output = self.run(READY, "--publish")
+
+        assert Exam.objects.count() == 1
+        old.refresh_from_db()
+        assert old.is_published
+        assert dict(old.questions.values_list("number", "id")) == ids
+        assert (
+            set(AnswerOption.objects.filter(question__exam=old).values_list("id", flat=True))
+            == option_ids
+        )
+        ready = json.loads(READY.read_text(encoding="utf-8"))[0]
+        assert export_exam_data(old) == ready
+        assert "questions changed" in output and "0 added, 0 removed" in output
+
+        assert "0 questions changed" in self.run(READY)  # once more: nothing left to change
+
+    def test_published_state_is_kept_without_publish(self):
+        exam = import_exam_data(diagnostic(), publish=True)
+        self.run(READY)
+        exam.refresh_from_db()
+        assert exam.is_published
+
+    def test_pupils_answers_survive_and_their_exam_cannot_lose_questions(self, tmp_path):
+        exam = import_exam_data(diagnostic(), publish=True)
+        ExamTarget.objects.create(exam=exam, region=make_region())  # the test pupil is in 5th grade
+        pupil = make_pupil(ALIYA_JSHSHIR, "Aliya")
+        attempt, _ = start_attempt(pupil, exam.pk)
+        option = AnswerOption.objects.get(question__exam=exam, question__number=1, label="B")
+        AttemptAnswer.objects.create(
+            attempt=attempt,
+            question=option.question,
+            selected_option_ids=[str(option.pk)],
+            client_seq=1,
+        )
+
+        self.run(READY)  # changes texts only: fine
+        option.refresh_from_db()
+        assert option.is_correct
+
+        shorter = json.loads(READY.read_text(encoding="utf-8"))
+        shorter[0]["questions"].pop()
+        path = tmp_path / "shorter.json"
+        path.write_text(json.dumps(shorter), encoding="utf-8")
+        before = export_exam_data(exam)
+        with pytest.raises(CommandError, match="o‘chirib bo‘lmaydi: 30"):
+            self.run(path)
+        assert export_exam_data(exam) == before
+
+    def test_without_pupils_missing_questions_and_options_are_removed(self, tmp_path):
+        exam = import_exam_data(diagnostic())
+        data = diagnostic()
+        data["questions"].pop()
+        data["questions"][0]["options"].pop()  # D
+        path = tmp_path / "shorter.json"
+        path.write_text(json.dumps(data), encoding="utf-8")
+        assert "1 removed" in self.run(path)
+        assert exam.questions.count() == 29
+        assert exam.questions.get(number=1).options.count() == 3
+
+    def test_new_questions_are_added(self, tmp_path):
+        exam = import_exam_data(diagnostic())
+        data = diagnostic()
+        extra = {**data["questions"][0], "number": 31}
+        data["questions"].append(extra)
+        path = tmp_path / "longer.json"
+        path.write_text(json.dumps(data), encoding="utf-8")
+        assert "1 added" in self.run(path)
+        assert exam.questions.count() == 31
+
+    def test_two_exams_with_the_title_are_not_guessed_between(self):
+        import_exam_data(diagnostic())
+        import_exam_data(diagnostic())
+        with pytest.raises(CommandError, match="2 ta imtihon bor"):
+            self.run(READY)

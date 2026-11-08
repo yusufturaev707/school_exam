@@ -260,7 +260,10 @@ savollar hammaga bir xil: oldin tugatganlar javoblarni keyingilarga yetkazib qo'
 - **Imtihonlarni boshqa serverga ko'chirish:** `python manage.py export_exams` bazadagi hamma imtihonni
   `content/imtihonlar.json` ga yozadi (`--title` bilan bittasini), serverda
   `python manage.py import_exam content/imtihonlar.json --publish` ularni yaratadi. Shu nomli imtihon bazada bo'lsa,
-  o'tkazib yuboriladi, ya'ni buyruqni qayta ishga tushirish xavfsiz (`--force` nusxa yaratadi).
+  o'tkazib yuboriladi, ya'ni buyruqni qayta ishga tushirish xavfsiz. `--update` uni fayldagidek qilib yangilaydi:
+  savollar raqami, variantlar harfi bo'yicha, `id`lar o'zgarmaydi, shuning uchun o'quvchilarning javoblari va
+  natijalari buzilmaydi. O'quvchilar ishlagan imtihondan savol yoki variant o'chirilmaydi: bunday faylda hech narsa
+  saqlanmaydi. "Kimga"dagi viloyat/maktablarga tegilmaydi. `--force` esa nusxa yaratadi.
 - **Imtihon yuklash:** Imtihonlar → **"JSON fayldan yuklash"** yoki `python manage.py import_exam fayl.json --publish`.
   Format namunasi: `apps/demo/data/exam.json`. Fayl xato bo'lsa, hech narsa saqlanmaydi, xabarda savol va maydon
   aytiladi. Keyin "Kimga" bo'limini to'ldiring, aks holda uni hech kim ko'rmaydi. Imtihon sahifasidagi

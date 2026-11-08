@@ -126,9 +126,10 @@ class ExamAdmin(admin.ModelAdmin):
         form = ExamJsonImportForm(request.POST or None, request.FILES or None)
         if request.method == "POST" and form.is_valid():
             try:
-                created, _ = import_exams_data(
+                outcomes = import_exams_data(
                     form.cleaned_data["file"], publish=form.cleaned_data["publish"]
                 )
+                created = [outcome.exam for outcome in outcomes]
             except ValueError as error:
                 form.add_error("file", f"Hech narsa saqlanmadi. {error}")
             else:
