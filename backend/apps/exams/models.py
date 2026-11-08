@@ -16,7 +16,7 @@ from apps.schools.models import FINAL_GRADE, Classroom, District, Region, School
 class Subject(models.TextChoices):
     MATH = "math", "Matematika"
     IQ = "iq", "Mantiq (IQ)"
-    LANGUAGE = "language", "Ona tili va adabiyot"
+    LANGUAGE = "language", "Ingliz tili"
 
 
 class QuestionType(models.TextChoices):
