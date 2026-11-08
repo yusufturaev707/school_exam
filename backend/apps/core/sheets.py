@@ -253,7 +253,7 @@ class CsvFormat(TidyMixin, base_formats.CSV):
 
 
 class JsonFormat(TidyMixin, base_formats.JSON):
-    label = "JSON (.json): rasmli savollar ham to‘liq"
+    label = "JSON (.json): uzun matn va rasmlar ham to‘liq saqlanadi"
 
 
 class ExcelFormat(TidyMixin, base_formats.XLSX):
@@ -511,7 +511,7 @@ class SheetAdminMixin(ImportExportMixin):
     adds and updates records; export needs only the view permission.
     """
 
-    formats = [ExcelFormat, CsvFormat]
+    formats = [ExcelFormat, CsvFormat, JsonFormat]
     import_template_name = "admin/sheets/import.html"
     export_template_name = "admin/sheets/export.html"
     import_export_change_list_template = "admin/sheets/change_list.html"

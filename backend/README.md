@@ -167,8 +167,8 @@ Ro'yxat sahifasida (Viloyatlar, Tumanlar, Maktablar, Savollar) **"Fayldan yuklas
 (`django-import-export` asosida, umumiy qismi `apps/core/sheets.py`, ustunlar `apps/*/resources.py`).
 
 - **Yuklab olish** ro'yxatdagi filtr va qidiruv bo'yicha bo'ladi (masalan, faqat bitta imtihon savollari), keraksiz
-  ustunni olib tashlash mumkin. Formatlar: joylar uchun `.xlsx`, `.csv` (Excel uchun BOM bilan), savollar uchun
-  `.xlsx`, `.json`. Faqat `view` huquqi kerak.
+  ustunni olib tashlash mumkin. Formatlar: joylar uchun `.xlsx`, `.csv` (Excel uchun BOM bilan), `.json`, savollar
+  uchun `.xlsx`, `.json`. Yuklash ham shu formatlarda, turi fayl kengaytmasidan aniqlanadi. Faqat `view` huquqi kerak.
 - **Fayldan yuklash** `add` va `change` huquqlarini talab qiladi. Uch qadam: fayl → tekshirish (nima qo'shiladi va
   nima o'zgaradi, xatolar qator va ustun bilan) → "Tasdiqlash". Bitta qatorda xato bo'lsa, hech narsa saqlanmaydi;
   tekshiruvdan keyin baza o'zgarib qolgan bo'lsa ham hammasi qaytariladi. Fayl hech narsani o'chirmaydi.
@@ -257,8 +257,11 @@ savollar hammaga bir xil: oldin tugatganlar javoblarni keyingilarga yetkazib qo'
 
 ## Admin vazifalari
 
-- **Imtihon yuklash:** `python manage.py import_exam fayl.json --publish`. Format namunasi: `apps/demo/data/exam.json`.
-  Fayl xato bo'lsa, hech narsa saqlanmaydi. Keyin adminda "Kimga" bo'limini to'ldiring, aks holda uni hech kim ko'rmaydi.
+- **Imtihon yuklash:** Imtihonlar → **"JSON fayldan yuklash"** yoki `python manage.py import_exam fayl.json --publish`.
+  Format namunasi: `apps/demo/data/exam.json`. Fayl xato bo'lsa, hech narsa saqlanmaydi, xabarda savol va maydon
+  aytiladi. Keyin "Kimga" bo'limini to'ldiring, aks holda uni hech kim ko'rmaydi. Imtihon sahifasidagi
+  **"JSON yuklab olish"** xuddi shu formatdagi faylni beradi (imtihonni boshqa serverga ko'chirish uchun); "Kimga"dan
+  faqat sinf raqamlari (`grades`) faylga tushadi, chunki viloyat va maktablarning `id`lari serverlarda har xil.
 - **Ro'yxatlar:** Viloyatlar → Tumanlar → Maktablar → Sinflar. Har bir sahifada quyi darajani shu yerning o'zida qo'shsa bo'ladi.
 - **O'quvchi qo'shish:** ko'p bo'lsa, Excel'dan (yuqoriga qarang). Bir nechta bo'lsa, sinf sahifasida. JSHSHIR faqat yoziladi, keyin ko'rsatilmaydi. Qidiruvda to'liq 14 raqam ishlaydi.
 - **Filtrlar:** viloyat tanlansa tuman, tuman tanlansa maktab ochiladi. Natijalar ro'yxatida ham ishlaydi.

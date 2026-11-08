@@ -1,15 +1,30 @@
+import json
+
 from django import forms
 from django.contrib import admin, messages
-from django.core.exceptions import ValidationError
+from django.core.exceptions import PermissionDenied, ValidationError
 from django.forms.models import BaseInlineFormSet
+from django.http import Http404, JsonResponse
+from django.shortcuts import redirect
+from django.template.response import TemplateResponse
+from django.urls import path
 from django.utils.html import format_html, format_html_join
 from django.utils.safestring import mark_safe
+from django.utils.text import slugify
 from django_ckeditor_5.widgets import CKEditor5Widget
 from import_export.forms import ConfirmImportForm
 
-from apps.core.sheets import ExcelFormat, JsonFormat, SheetAdminMixin, SheetImportForm, summary
+from apps.core.sheets import (
+    MAX_FILE_BYTES,
+    ExcelFormat,
+    JsonFormat,
+    SheetAdminMixin,
+    SheetImportForm,
+    summary,
+)
 from apps.schools.filters import hierarchy_filters
 
+from .importer import export_exam_data, import_exam_data
 from .models import (
     AnswerOption,
     AttemptAnswer,
@@ -40,6 +55,24 @@ class ExamTargetInline(admin.TabularInline):
     extra = 1
 
 
+class ExamJsonImportForm(forms.Form):
+    file = forms.FileField(
+        label="JSON fayl", widget=forms.ClearableFileInput(attrs={"accept": ".json"})
+    )
+    publish = forms.BooleanField(label="Darhol e’lon qilish", required=False)
+
+    def clean_file(self):
+        upload = self.cleaned_data["file"]
+        if upload.size > MAX_FILE_BYTES:
+            raise ValidationError(f"Fayl {MAX_FILE_BYTES // (1024 * 1024)} MB dan katta.")
+        try:
+            return json.loads(upload.read().decode("utf-8-sig"))
+        except (UnicodeDecodeError, ValueError) as error:
+            raise ValidationError(
+                "Fayl JSON emas yoki buzilgan. U UTF-8 kodlashda va { bilan boshlansin."
+            ) from error
+
+
 @admin.register(Exam)
 class ExamAdmin(admin.ModelAdmin):
     list_display = ["title", "audience", "duration_minutes", "is_published", "available_from"]
@@ -58,6 +91,86 @@ class ExamAdmin(admin.ModelAdmin):
                 "targets__classroom__school__district",
             )
         )
+
+    # ------------------------------------------------------------ the whole exam as JSON
+
+    def get_urls(self):
+        own = [
+            path(
+                "import-json/",
+                self.admin_site.admin_view(self.import_json_view),
+                name="exams_exam_import_json",
+            ),
+            path(
+                "<path:object_id>/export-json/",
+                self.admin_site.admin_view(self.export_json_view),
+                name="exams_exam_export_json",
+            ),
+        ]
+        return own + super().get_urls()  # own first: the default "<object_id>/" would catch them
+
+    def has_json_import_permission(self, request) -> bool:
+        models = ["exam", "examsection", "examtarget", "question", "answeroption"]
+        return request.user.has_perms([f"exams.add_{model}" for model in models])
+
+    def changelist_view(self, request, extra_context=None):
+        extra_context = {
+            **(extra_context or {}),
+            "has_json_import_permission": self.has_json_import_permission(request),
+        }
+        return super().changelist_view(request, extra_context)
+
+    def import_json_view(self, request):
+        if not self.has_json_import_permission(request):
+            raise PermissionDenied
+        form = ExamJsonImportForm(request.POST or None, request.FILES or None)
+        if request.method == "POST" and form.is_valid():
+            try:
+                exam = import_exam_data(
+                    form.cleaned_data["file"], publish=form.cleaned_data["publish"]
+                )
+            except ValueError as error:
+                form.add_error("file", f"Hech narsa saqlanmadi. {error}")
+            else:
+                return self._imported(request, exam)
+        context = {
+            **self.admin_site.each_context(request),
+            "opts": self.opts,
+            "title": "Imtihonni JSON fayldan yuklash",
+            "form": form,
+            "max_file_mb": MAX_FILE_BYTES // (1024 * 1024),
+        }
+        return TemplateResponse(request, "admin/exams/exam/import_json.html", context)
+
+    def _imported(self, request, exam):
+        self.log_addition(request, exam, "JSON fayldan yuklandi.")
+        state = "e’lon qilindi" if exam.is_published else "hali e’lon qilinmagan"
+        self.message_user(
+            request,
+            f"“{exam}” yaratildi: {exam.questions.count()} ta savol, {state}. Tekshirib chiqing.",
+            messages.SUCCESS,
+        )
+        if not exam.targets.exists():
+            self.message_user(
+                request,
+                "Imtihon hech kimga biriktirilmagan, shuning uchun uni hech bir o‘quvchi "
+                "ko‘rmaydi. “Kimga” bo‘limida kimlar ishlashini tanlang.",
+                messages.WARNING,
+            )
+        return redirect("admin:exams_exam_change", exam.pk)
+
+    def export_json_view(self, request, object_id):
+        exam = self.get_object(request, object_id)
+        if exam is None:
+            raise Http404
+        if not self.has_view_permission(request, exam):
+            raise PermissionDenied
+        response = JsonResponse(
+            export_exam_data(exam), json_dumps_params={"ensure_ascii": False, "indent": 1}
+        )
+        name = slugify(exam.title) or "imtihon"
+        response["Content-Disposition"] = f'attachment; filename="{name}.json"'
+        return response
 
     @admin.display(description="Kimga")
     def audience(self, exam) -> str:

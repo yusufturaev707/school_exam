@@ -1,0 +1,67 @@
+{% extends "admin/base_site.html" %}
+{# A whole exam from one JSON file (apps/exams/importer.py). #}
+{% block breadcrumbs %}{% include "admin/sheets/_breadcrumbs.html" with last="JSON fayldan yuklash" %}{% endblock %}
+{% block content %}
+<div id="content-main" class="md-page">
+  <div class="md-grid md-grid--split">
+    <section class="md-card">
+      <div class="md-card__header">
+        <span class="md-avatar">{% include "admin/md/icon.html" with name="upload" %}</span>
+        <div>
+          <h2 class="md-card__title">Faylni tanlang</h2>
+          <p class="md-card__subtitle">Fayldan yangi imtihon yaratiladi: bo‘limlari, savollari va javob variantlari bilan.</p>
+        </div>
+      </div>
+
+      <form method="post" enctype="multipart/form-data" data-submit-once>
+        {% csrf_token %}
+        {% if form.file.errors %}
+          <div class="md-banner md-banner--error" role="alert">
+            {% include "admin/md/icon.html" with name="error" %}
+            <div>{% for error in form.file.errors %}<p>{{ error }}</p>{% endfor %}</div>
+          </div>
+        {% endif %}
+
+        <div class="md-field">
+          <label class="md-dropzone{% if form.file.errors %} has-error{% endif %}" data-dropzone for="{{ form.file.id_for_label }}">
+            {{ form.file }}
+            {% include "admin/md/icon.html" with name="upload" %}
+            <span class="md-dropzone__title" data-file-title>Faylni shu yerga tashlang yoki <u>kompyuterdan tanlang</u></span>
+            <span class="md-dropzone__hint" data-file-hint>.json · {{ max_file_mb }} MB gacha</span>
+          </label>
+        </div>
+
+        <div class="md-field">
+          <label class="md-switch" for="{{ form.publish.id_for_label }}">
+            {{ form.publish }}
+            <span class="md-switch__text">
+              <b>Darhol e’lon qilish</b>
+              <small>O‘chiq qolsa, imtihon o‘quvchilarga ko‘rinmaydi: avval tekshirib, keyin imtihon sahifasida “e’lon qilingan”ni belgilaysiz.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="md-field">
+          <div class="md-actions md-actions--end">
+            <a class="md-btn md-btn--text" href="{% url 'admin:exams_exam_changelist' %}">Bekor qilish</a>
+            <button type="submit" class="md-btn">{% include "admin/md/icon.html" with name="upload" %}Yuklash</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <aside class="md-card md-card--tonal">
+      <div class="md-card__header">
+        <span class="md-avatar">{% include "admin/md/icon.html" with name="file" %}</span>
+        <h2 class="md-card__title">Fayl qanday bo‘lishi kerak</h2>
+      </div>
+      <ul class="md-list">
+        <li>{% include "admin/md/icon.html" with name="download" class="sm" %}<span>Eng oson yo‘li: boshqa imtihon sahifasida <b>“JSON yuklab olish”</b>. Shu fayl bu yerga to‘g‘ridan-to‘g‘ri yuklanadi, masalan, imtihonni boshqa serverga ko‘chirish uchun.</span></li>
+        <li>{% include "admin/md/icon.html" with name="file" class="sm" %}<span>Asosiy maydonlar: <code>title</code>, <code>durationMinutes</code>, <code>sections</code>, <code>questions</code>. Har bir savolda <code>number</code>, <code>subject</code> (<code>math</code>, <code>iq</code>, <code>language</code>), <code>prompt</code> va <code>options</code>, ulardan aynan bittasida <code>"isCorrect": true</code>.</span></li>
+        <li>{% include "admin/md/icon.html" with name="school" class="sm" %}<span><code>grades</code>: masalan <code>[4]</code> bo‘lsa, imtihon hamma 4-sinflarga biriktiriladi. Viloyat, tuman yoki maktabni yuklagandan keyin “Kimga” bo‘limida tanlaysiz.</span></li>
+        <li>{% include "admin/md/icon.html" with name="check" class="sm" %}<span>Fayl to‘liq tekshiriladi. <b>Bitta xato bo‘lsa ham hech narsa saqlanmaydi</b>, xabarda qaysi savol va qaysi maydon ekanligi aytiladi.</span></li>
+      </ul>
+    </aside>
+  </div>
+</div>
+{% endblock %}
