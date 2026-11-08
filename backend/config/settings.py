@@ -13,7 +13,9 @@ from django.core.exceptions import ImproperlyConfigured
 
 from apps.core.editor_palette import TEXT_COLOURS
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# backend/  (.env shu yerda)
+ROOT_DIR = BASE_DIR.parent
 
 env = environ.Env()
 if (BASE_DIR / ".env").exists():
@@ -26,6 +28,29 @@ JSHSHIR_HASH_KEY = env("JSHSHIR_HASH_KEY")
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 CSRF_TRUSTED_ORIGINS = env.list("DJANGO_CSRF_TRUSTED_ORIGINS", default=[])
+
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = "same-origin"
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin"
+
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = "Strict"
+SESSION_COOKIE_AGE = 8 * 60 * 60
+
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = "Strict"
+
+# --------------------------------------------------------------------------- HTTPS
+USE_TLS = env.bool("USE_TLS", default=not DEBUG)
+SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS", default=31536000 if USE_TLS else 0)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -109,30 +134,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-# No MEDIA_ROOT: question images are stored inside the question text (apps/core/images.py).
-if not DEBUG:
-    STORAGES = {
-        "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
-        "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
-    }
+STATIC_ROOT = ROOT_DIR / "static"
+MEDIA_URL = "media/"
+MEDIA_ROOT = ROOT_DIR / "media"
 
-# --------------------------------------------------------------------------- student session
-# Contract: an HttpOnly cookie owned by the backend. Django's session framework already does
-# this well, so we use it directly instead of inventing tokens or adding JWT.
-SESSION_COOKIE_NAME = "bilimdon_sid"
-SESSION_COOKIE_AGE = 8 * 60 * 60
-SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = "Lax"
-
-# --------------------------------------------------------------------------- HTTPS
-USE_TLS = env.bool("USE_TLS", default=not DEBUG)
-SESSION_COOKIE_SECURE = USE_TLS
-CSRF_COOKIE_SECURE = USE_TLS
-SECURE_SSL_REDIRECT = USE_TLS
-SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS", default=31536000 if USE_TLS else 0)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = USE_TLS
-SECURE_HSTS_PRELOAD = USE_TLS
 
 # How many trusted reverse proxies sit in front of Django. 0 means X-Forwarded-For is ignored,
 # because any client can forge it, and a forged IP would bypass login rate limiting.
