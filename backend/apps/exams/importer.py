@@ -21,6 +21,31 @@ from .models import AnswerOption, Exam, ExamSection, ExamTarget, Question
 
 
 @transaction.atomic
+def import_exams_data(data, publish: bool = False, skip_titles=()) -> tuple[list[Exam], list[str]]:
+    """
+    A file holds one exam ({…}) or several ([{…}, {…}], as `export_exams` writes). All or
+    nothing over the whole file. Exams whose title is in `skip_titles` are left out, so loading
+    the same file twice doesn't make copies. Returns (created exams, skipped titles).
+    """
+    items = data if isinstance(data, list) else [data]
+    if not items:
+        raise ValueError("Faylda imtihon yo‘q.")
+    created, skipped = [], []
+    for position, item in enumerate(items, start=1):
+        title = item.get("title") if isinstance(item, dict) else None
+        if title in skip_titles:
+            skipped.append(title)
+            continue
+        try:
+            created.append(import_exam_data(item, publish=publish))
+        except ValueError as error:
+            if len(items) == 1:
+                raise
+            raise ValueError(f"“{title or position}” imtihoni: {error}") from error
+    return created, skipped
+
+
+@transaction.atomic
 def import_exam_data(data: dict, publish: bool = False) -> Exam:
     """All or nothing: raises ValueError saying what and where is wrong, and then saves nothing."""
     if not isinstance(data, dict):

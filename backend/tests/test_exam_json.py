@@ -1,5 +1,6 @@
 """A whole exam as one JSON file in the admin, and JSON files for the place lists."""
 
+import io
 import json
 from pathlib import Path
 
@@ -7,6 +8,7 @@ import pytest
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.management import CommandError, call_command
 
 from apps.exams.importer import export_exam_data, import_exam_data
 from apps.exams.models import Exam, ExamTarget
@@ -126,3 +128,55 @@ def test_place_lists_take_json_too(staff):
     form = checked.context["confirm_form"]
     staff.post("/admin/schools/region/process_import/", {**form.initial})
     assert Region.objects.get(number=3).name == "Namangan viloyati"
+
+
+class TestCommands:
+    """`export_exams` here, `import_exam` on the server: the questions move in one file."""
+
+    def test_export_then_import_on_another_server(self, tmp_path):
+        first = import_exam_data(diagnostic(), publish=True)
+        second = import_exam_data({**diagnostic(), "title": "Ikkinchi imtihon", "grades": []})
+        path = tmp_path / "imtihonlar.json"
+        call_command("export_exams", "--out", str(path))
+        exported = json.loads(path.read_text(encoding="utf-8"))
+        assert [exam["title"] for exam in exported] == [first.title, second.title]
+
+        Exam.objects.all().delete()  # "another server"
+        out = io.StringIO()
+        call_command("import_exam", str(path), "--publish", stdout=out)
+        assert Exam.objects.count() == 2
+        assert all(exam.is_published for exam in Exam.objects.all())
+        assert [export_exam_data(e) for e in Exam.objects.order_by("created_at")] == exported
+        assert "with 30 questions (published)" in out.getvalue()
+
+    def test_running_twice_makes_no_copies(self, tmp_path):
+        path = tmp_path / "imtihonlar.json"
+        path.write_text(json.dumps([diagnostic()]), encoding="utf-8")
+        call_command("import_exam", str(path))
+        out = io.StringIO()
+        call_command("import_exam", str(path), stdout=out)
+        assert Exam.objects.count() == 1
+        assert "Skipped" in out.getvalue()
+        call_command("import_exam", str(path), "--force", stdout=io.StringIO())
+        assert Exam.objects.count() == 2
+
+    def test_one_broken_exam_saves_none_of_the_file(self, tmp_path):
+        broken = {**diagnostic(), "title": "Buzuq"}
+        broken["questions"][0]["options"][0]["isCorrect"] = True  # B is already correct
+        path = tmp_path / "imtihonlar.json"
+        path.write_text(json.dumps([diagnostic(), broken]), encoding="utf-8")
+        with pytest.raises(CommandError, match="“Buzuq” imtihoni: 1-savol"):
+            call_command("import_exam", str(path))
+        assert not Exam.objects.exists()
+
+    def test_export_of_one_title(self, tmp_path):
+        import_exam_data(diagnostic())
+        with pytest.raises(CommandError, match="No exam with title"):
+            call_command("export_exams", "--out", str(tmp_path / "x.json"), "--title", "Yo‘q")
+
+
+def test_admin_takes_a_file_with_several_exams(staff):
+    data = [diagnostic(), {**diagnostic(), "title": "Ikkinchi"}]
+    response = staff.post(IMPORT_URL, {"file": json_file(data)})
+    assert response["Location"] == "/admin/exams/exam/"
+    assert Exam.objects.count() == 2

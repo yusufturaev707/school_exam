@@ -24,7 +24,7 @@ from apps.core.sheets import (
 )
 from apps.schools.filters import hierarchy_filters
 
-from .importer import export_exam_data, import_exam_data
+from .importer import export_exam_data, import_exams_data
 from .models import (
     AnswerOption,
     AttemptAnswer,
@@ -126,13 +126,24 @@ class ExamAdmin(admin.ModelAdmin):
         form = ExamJsonImportForm(request.POST or None, request.FILES or None)
         if request.method == "POST" and form.is_valid():
             try:
-                exam = import_exam_data(
+                created, _ = import_exams_data(
                     form.cleaned_data["file"], publish=form.cleaned_data["publish"]
                 )
             except ValueError as error:
                 form.add_error("file", f"Hech narsa saqlanmadi. {error}")
             else:
-                return self._imported(request, exam)
+                if len(created) == 1:
+                    return self._imported(request, created[0])
+                for exam in created:
+                    self.log_addition(request, exam, "JSON fayldan yuklandi.")
+                self.message_user(
+                    request,
+                    f"{len(created)} ta imtihon yaratildi: "
+                    + ", ".join(f"“{exam}”" for exam in created)
+                    + ". Har birini tekshirib, “Kimga” bo‘limini ko‘rib chiqing.",
+                    messages.SUCCESS,
+                )
+                return redirect("admin:exams_exam_changelist")
         context = {
             **self.admin_site.each_context(request),
             "opts": self.opts,
