@@ -267,6 +267,11 @@ Fan kodi `language`: u endi **Ingliz tili** (avval Ona tili edi; `0005_subject_e
 
 ## Admin vazifalari
 
+- **Test serverni tayyorlash:** `python manage.py reset_exams --publish --yes` hamma imtihonni (savollar, variantlar,
+  bo'limlar, "Kimga", o'quvchilarning urinishlari, javoblari va natijalari bilan) o'chiradi va
+  `content/imtihonlar.json` dan qayta yuklaydi. Bitta tranzaksiya: fayl xato bo'lsa, hech narsa o'chmaydi. O'quvchilar,
+  maktablar va o'yinlarga tegmaydi. `--yes`siz avval nima o'chishini ko'rsatib, tasdiq so'raydi. **Haqiqiy natijalar
+  bor serverda ishlatmang.**
 - **Imtihonlarni boshqa serverga ko'chirish:** `python manage.py export_exams` bazadagi hamma imtihonni
   `content/imtihonlar.json` ga yozadi (`--title` bilan bittasini), serverda
   `python manage.py import_exam content/imtihonlar.json --publish` ularni yaratadi. Shu nomli imtihon bazada bo'lsa,

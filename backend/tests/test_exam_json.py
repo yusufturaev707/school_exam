@@ -10,8 +10,9 @@ from django.contrib.auth.models import Permission
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.management import CommandError, call_command
 
+from apps.accounts.models import Pupil
 from apps.exams.importer import export_exam_data, import_exam_data
-from apps.exams.models import AnswerOption, AttemptAnswer, Exam, ExamTarget
+from apps.exams.models import AnswerOption, AttemptAnswer, Exam, ExamAttempt, ExamTarget
 from apps.exams.services import start_attempt
 from apps.schools.models import Region
 
@@ -315,3 +316,49 @@ class TestEnglishTest:
             ("language", "Ingliz tili")
         ]
         assert Exam.objects.count() == 2
+
+
+class TestResetExams:
+    """`reset_exams`: wipe every exam and what hangs on it, then load the file again."""
+
+    @pytest.fixture
+    def taken(self, db):
+        exam = import_exam_data(diagnostic(), publish=True)
+        ExamTarget.objects.create(exam=exam, region=make_region())
+        pupil = make_pupil(ALIYA_JSHSHIR, "Aliya")
+        attempt, _ = start_attempt(pupil, exam.pk)
+        option = AnswerOption.objects.filter(question__exam=exam).first()
+        AttemptAnswer.objects.create(
+            attempt=attempt,
+            question=option.question,
+            selected_option_ids=[str(option.pk)],
+            client_seq=1,
+        )
+        return pupil
+
+    def test_everything_is_replaced_by_the_file(self, taken):
+        out = io.StringIO()
+        call_command("reset_exams", str(READY), "--publish", "--yes", stdout=out)
+        assert not ExamAttempt.objects.exists()
+        assert not AttemptAnswer.objects.exists()
+        titles = sorted(Exam.objects.values_list("title", flat=True))
+        assert titles == sorted(e["title"] for e in json.loads(READY.read_text(encoding="utf-8")))
+        assert all(exam.is_published for exam in Exam.objects.all())
+        assert Pupil.objects.filter(pk=taken.pk).exists()  # pupils stay
+        assert "1  attempts" in out.getvalue()
+
+    def test_broken_file_deletes_nothing(self, taken, tmp_path):
+        data = diagnostic()
+        data["questions"][0]["options"][0]["isCorrect"] = True  # B is already correct
+        path = tmp_path / "broken.json"
+        path.write_text(json.dumps(data), encoding="utf-8")
+        with pytest.raises(CommandError, match="Nothing was changed"):
+            call_command("reset_exams", str(path), "--yes", stdout=io.StringIO())
+        assert ExamAttempt.objects.count() == 1
+        assert Exam.objects.count() == 1
+
+    def test_asks_first(self, taken, monkeypatch):
+        monkeypatch.setattr("builtins.input", lambda prompt: "no")
+        with pytest.raises(CommandError, match="Cancelled"):
+            call_command("reset_exams", str(READY), stdout=io.StringIO())
+        assert ExamAttempt.objects.count() == 1
