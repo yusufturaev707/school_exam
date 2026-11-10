@@ -19,7 +19,7 @@ export function MissionCard({ daily }: { daily: DailyChallenge }) {
       </Ring>
       <div className="grow">
         <div className="t-over text-brand-ink">Kunlik missiya</div>
-        <div className="bd-mission__title">{done ? 'Barakalla! Missiya bajarildi' : 'Bugungi topshiriqni bajar'}</div>
+        <div className="bd-mission__title">{done ? 'Barakalla! Missiya bajarildi' : 'Bugungi topshiriqni bajaring'}</div>
         <div className="bd-mission__sub">
           Topshiriq: {daily.game.title} · {DIFFICULTY_META[daily.difficulty].label}
         </div>

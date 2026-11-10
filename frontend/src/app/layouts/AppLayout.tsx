@@ -45,7 +45,7 @@ function Sidebar() {
       <div className="bd-card bd-card--cream mt-auto p-3.5!">
         <div className="row">
           <Mascot mood="oylayapti" size={44} />
-          <p className="t-sm">Har kuni 10 daqiqa — miyang uchun eng yaxshi mashq!</p>
+          <p className="t-sm">Har kuni 10 daqiqa — miyangiz uchun eng yaxshi mashq!</p>
         </div>
       </div>
     </aside>

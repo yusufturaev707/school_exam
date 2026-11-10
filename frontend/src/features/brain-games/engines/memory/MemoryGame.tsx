@@ -84,7 +84,7 @@ export default function MemoryGame({ content, title, onExit, onFinish, finishing
     return () => window.clearTimeout(t);
   }, [done]);
 
-  const announce = state.last === 'match' ? 'Juft topildi!' : state.last === 'miss' ? 'Bir xil emas. Joylarini eslab qol.' : '';
+  const announce = state.last === 'match' ? 'Juft topildi!' : state.last === 'miss' ? 'Bir xil emas. Joylarini eslab qoling.' : '';
   const cols = state.totalPairs <= 6 ? 'grid-cols-4 max-w-[440px]' : 'grid-cols-4 max-w-[480px]';
 
   return (

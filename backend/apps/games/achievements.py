@@ -57,7 +57,7 @@ RULES = [
     AchievementRule(
         "first-step",
         "Birinchi qadam",
-        "Birinchi o‘yinni yakunla.",
+        "Birinchi oʻyinni yakunlang.",
         "footprints",
         1,
         _all_completions,
@@ -65,7 +65,7 @@ RULES = [
     AchievementRule(
         "memory-master",
         "Xotira ustasi",
-        "Xotira o‘yinini yakunla.",
+        "Xotira oʻyinini yakunlang.",
         "brain",
         1,
         _completions_in(Category.MEMORY),
@@ -74,7 +74,7 @@ RULES = [
     AchievementRule(
         "math-explorer",
         "Matematik izquvar",
-        "3 ta matematika o‘yinini yakunla.",
+        "3 ta matematika oʻyinini yakunlang.",
         "calculator",
         3,
         _completions_in(Category.MATH),
@@ -83,7 +83,7 @@ RULES = [
     AchievementRule(
         "logic-thinker",
         "Mantiqiy fikrlovchi",
-        "3 ta mantiq o‘yinini yakunla.",
+        "3 ta mantiq oʻyinini yakunlang.",
         "puzzle",
         3,
         _completions_in(Category.LOGIC),
@@ -92,7 +92,7 @@ RULES = [
     AchievementRule(
         "attention-champion",
         "Diqqat chempioni",
-        "Diqqat o‘yinini yakunla.",
+        "Diqqat oʻyinini yakunlang.",
         "eye",
         1,
         _completions_in(Category.ATTENTION),
@@ -101,7 +101,7 @@ RULES = [
     AchievementRule(
         "curious-mind",
         "Izlanuvchan bola",
-        "3 xil yo‘nalishdagi o‘yinlarni sinab ko‘r.",
+        "3 xil yoʻnalishdagi oʻyinlarni sinab koʻring.",
         "compass",
         3,
         _new_categories,
@@ -109,7 +109,7 @@ RULES = [
     AchievementRule(
         "daily-explorer",
         "Kun kashfiyotchisi",
-        "Bugungi intellektual topshiriqni bajar.",
+        "Bugungi intellektual topshiriqni bajaring.",
         "sun",
         1,
         _daily_completions,

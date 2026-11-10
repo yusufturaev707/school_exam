@@ -20,7 +20,7 @@ function PracticeSuggestion() {
   if (!data) return null;
   const meta = CATEGORY_META[data.game.category];
   return (
-    <Section title="Shu orada mashq qil" id="practice-title">
+    <Section title="Shu orada mashq qiling" id="practice-title">
       <Link to={`/activities/play/${data.game.slug}${data.completed ? '' : '?daily=1'}`} className={cn('bd-card bd-game bd-tap tap-card px-3! py-2.5! text-inherit no-underline', meta.tone)}>
         <span className="bd-game__art size-12!">
           <Icon name={GAME_ICON[data.game.kind]} size={24} />
@@ -134,7 +134,7 @@ export default function ResultsHistoryPage() {
           <div className="bd-card bd-card--cream mt-5 flex flex-col items-center px-5! py-6! text-center">
             <Mascot mood="oylayapti" size={112} />
             <h2 className="t-h2 mt-2">Hali natija yoʻq — lekin hammasi oldinda!</h2>
-            <p className="t-sm muted mt-1">Birinchi imtihonni topshir — natijang, fanlar boʻyicha tahlil va sinfdagi oʻrning shu yerda chiqadi.</p>
+            <p className="t-sm muted mt-1">Birinchi imtihonni topshiring — natijangiz, fanlar boʻyicha tahlil va sinfdagi oʻrningiz shu yerda chiqadi.</p>
             <Link to="/exam" className={buttonClass('primary', { className: 'mt-4' })}>
               Imtihonlarga oʻtish
               <Icon name="arrowR" />

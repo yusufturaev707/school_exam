@@ -61,10 +61,10 @@ function ReviewCard({ item }: { item: ReviewItem }) {
                 )}
                 {chosen && !correct && (
                   <span className="t-xs inline-flex items-center gap-1 text-danger-ink">
-                    <Icon name="x" size={16} /> Sening javobing
+                    <Icon name="x" size={16} /> Sizning javobingiz
                   </span>
                 )}
-                {chosen && correct && <span className="sr-only">(sening javobing)</span>}
+                {chosen && correct && <span className="sr-only">(sizning javobingiz)</span>}
               </li>
             );
           })}

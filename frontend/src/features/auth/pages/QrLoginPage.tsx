@@ -15,11 +15,11 @@ import { cn } from '@/lib/cn';
 const CAMERA_PROBLEMS: Partial<Record<ScannerStatus, { title: string; text: string }>> = {
   denied: {
     title: 'Kameraga ruxsat berilmadi',
-    text: 'QR kodni o‘qish uchun kamera kerak. Brauzer sozlamalarida kameraga ruxsat berib, “Qayta urinish” tugmasini bos.',
+    text: 'QR kodni oʻqish uchun kamera kerak. Brauzer sozlamalarida kameraga ruxsat berib, “Qayta urinish” tugmasini bosing.',
   },
-  no_camera: { title: 'Kamera topilmadi', text: 'Bu qurilmada kamera yo‘qqa o‘xshaydi. JSHSHIR orqali kirib ko‘r.' },
-  unsupported: { title: 'Kamera ishlamayapti', text: 'Bu brauzer kamerani qo‘llab-quvvatlamaydi. Boshqa brauzerda och yoki JSHSHIR orqali kir.' },
-  error: { title: 'Kamerani yoqib bo‘lmadi', text: 'Kamera boshqa ilovada ochiq bo‘lishi mumkin. Uni yopib, qayta urinib ko‘r.' },
+  no_camera: { title: 'Kamera topilmadi', text: 'Bu qurilmada kamera yoʻqqa oʻxshaydi. JSHSHIR orqali kirib koʻring.' },
+  unsupported: { title: 'Kamera ishlamayapti', text: 'Bu brauzer kamerani qoʻllab-quvvatlamaydi. Boshqa brauzerda oching yoki JSHSHIR orqali kiring.' },
+  error: { title: 'Kamerani yoqib boʻlmadi', text: 'Kamera boshqa ilovada ochiq boʻlishi mumkin. Uni yopib, qayta urinib koʻring.' },
 };
 
 export default function QrLoginPage() {
@@ -31,7 +31,7 @@ export default function QrLoginPage() {
     (text: string) => {
       const token = extractQrToken(text);
       if (!token) {
-        setScanError('Bu QR kod bizniki emasga o‘xshaydi. Imtihon chiptangdagi QR kodni skanerla.');
+        setScanError('Bu QR kod bizniki emasga oʻxshaydi. Imtihon chiptangizdagi QR kodni skanerlang.');
         return;
       }
       setScanError(null);
@@ -64,7 +64,7 @@ export default function QrLoginPage() {
           !showCamera && 'hidden',
         )}
       >
-        <video ref={videoRef} muted playsInline className="h-full w-full object-cover" aria-label="Kamera ko‘rinishi" />
+        <video ref={videoRef} muted playsInline className="h-full w-full object-cover" aria-label="Kamera koʻrinishi" />
         <div className="pointer-events-none absolute inset-[14%] rounded-[24px] border-4 border-white/90 shadow-[0_0_0_999px_rgb(15_46_42/0.45)]" aria-hidden="true">
           <div className="absolute inset-x-4 top-1/2 h-0.5 bg-warning/90 motion-safe:animate-pulse" />
         </div>
@@ -79,7 +79,7 @@ export default function QrLoginPage() {
       {status === 'scanning' && !verifying && (
         <p className="mt-4 flex items-center justify-center gap-2 text-center text-[16px] font-semibold text-muted" role="status">
           <ScanLine className="size-5 text-primary" aria-hidden="true" />
-          QR kodni ramka ichiga joylashtir
+          QR kodni ramka ichiga joylashtiring
         </p>
       )}
 
@@ -97,9 +97,9 @@ export default function QrLoginPage() {
               <Camera className="size-6" />
             </span>
             <div>
-              <h3 className="text-[17px] font-extrabold">Kamera kerak bo‘ladi</h3>
+              <h3 className="text-[17px] font-extrabold">Kamera kerak boʻladi</h3>
               <p className="mt-1 text-[15px] text-muted">
-                QR kodni o‘qish uchun telefoningning kamerasidan foydalanamiz. Rasm hech qayerga saqlanmaydi. Brauzer ruxsat so‘raganda “Ruxsat berish”ni bos.
+                QR kodni oʻqish uchun telefoningiz kamerasidan foydalanamiz. Rasm hech qayerga saqlanmaydi. Brauzer ruxsat soʻraganda “Ruxsat berish” tugmasini bosing.
               </p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function QrLoginPage() {
               <CameraOff className="size-6" />
             </span>
             <div>
-              <h3 className="text-[17px] font-extrabold">{problem?.title ?? 'Kirib bo‘lmadi'}</h3>
+              <h3 className="text-[17px] font-extrabold">{problem?.title ?? 'Kirib boʻlmadi'}</h3>
               <p className="mt-1 text-[15px] text-muted">{problem?.text ?? errorText}</p>
             </div>
           </div>
@@ -145,8 +145,8 @@ export default function QrLoginPage() {
           <span>Demo rejim: kamerasiz sinash uchun skanerlashni simulyatsiya qiling.</span>
           <div className="flex flex-wrap gap-2">
             {[
-              ['To‘g‘ri', 'demo-qr-valid-7f3a9c2e1b4d'],
-              ['Muddati o‘tgan', 'demo-qr-expired-0c8e2a9f71'],
+              ['Toʻgʻri', 'demo-qr-valid-7f3a9c2e1b4d'],
+              ['Muddati oʻtgan', 'demo-qr-expired-0c8e2a9f71'],
               ['Ishlatilgan', 'demo-qr-used-5b1d7e3c9a20'],
               ['Begona', 'https://shop.example.com/x'],
             ].map(([label, value]) => (

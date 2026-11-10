@@ -5,7 +5,7 @@ import { useResult } from '../api/resultsApi';
 import { overallHeadline } from '../utils/feedback';
 import { SubjectResultCard } from '../components/SubjectResultCard';
 import { QuestionReview } from '../components/QuestionReview';
-import { Ring } from '@/components/ui/CircularProgress';
+import { ResultScore } from '../components/ResultScore';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Icon } from '@/components/ui/Icon';
 import { buttonClass } from '@/components/ui/Button';
@@ -15,7 +15,7 @@ import { SUBJECT_ORDER } from '@/components/shared/subjects';
 import { Section, StatTile, StatTiles, TopBar } from '@/components/shared/design';
 import { formatDateTime } from '@/lib/date';
 
-/** Imtihon natijasi: hero (halqa + 38/45 + xursand maskot), toʻgʻri/xato/javobsiz plitalari, fanlar, savollar tahlili. */
+/** Imtihon natijasi: hero (katta ball halqasi + xursand maskot), toʻgʻri/xato/javobsiz plitalari, fanlar, savollar tahlili. */
 /** `?subject=` from a subject card; also accepts the design names (logic, lang). */
 function subjectParam(raw: string | null): SubjectCode | undefined {
   const v = raw === 'logic' ? 'iq' : raw === 'lang' ? 'language' : raw;
@@ -53,41 +53,32 @@ export default function ResultPage() {
 
   const { totals } = data;
   const headline = overallHeadline(totals.percent);
-  const pct = Math.round(totals.percent);
   const subjects = SUBJECT_ORDER.map((s) => data.subjects.find((x) => x.subject === s)).filter((x) => x !== undefined);
 
   return (
     <div>
       <TopBar title="Natija" back="/results" preferHistory />
 
-      <section className="bd-hero pr-28! lg:p-6! lg:pr-48!" aria-labelledby="result-title">
-        <span className="bd-chip bd-chip--status">
-          <Icon name="check" size={14} />
-          Topshirildi
-        </span>
-        <h1 id="result-title" className="t-hero mt-2">
-          {headline.title}
-        </h1>
-        <p className="t-sm mt-1 opacity-88">{headline.text}</p>
-        <div className="bd-hero__score">
-          <Ring percent={pct} size="lg" hero label={`${totals.total} ta savoldan ${totals.correct} tasi toʻgʻri, ${pct} foiz`}>
-            {pct}%
-          </Ring>
-          <div>
-            <div className="t-stat tabular">
-              {totals.correct}/{totals.total}
-            </div>
-            <div className="t-sm opacity-85">
-              {data.examTitle} · Ball: {totals.score}/{totals.maxScore}
-            </div>
-          </div>
+      <section className="bd-hero lg:p-6!" aria-labelledby="result-title">
+        <div className="pr-24 lg:pr-44">
+          <span className="bd-chip bd-chip--status">
+            <Icon name="check" size={14} />
+            Topshirildi
+          </span>
+          <h1 id="result-title" className="t-hero mt-2">
+            {headline.title}
+          </h1>
+          <p className="t-sm mt-1 opacity-88">{headline.text}</p>
         </div>
-        <p className="t-xs mt-3 inline-flex items-center gap-1.5 opacity-80">
+        <div className="mt-5">
+          <ResultScore totals={totals} examTitle={data.examTitle} />
+        </div>
+        <p className="t-xs mt-1.5 flex items-center justify-center gap-1.5 text-center opacity-80">
           <Icon name="calendar" size={14} />
           {formatDateTime(data.completedAt)}
           {data.finishReason === 'timeout' && ' · vaqt tugaganda yakunlangan'}
         </p>
-        <span className="bd-hero__mascot">
+        <span className="bd-hero__mascot top-3 bottom-auto!">
           <Mascot mood="xursand" className="h-[92px] w-auto lg:h-[140px]" />
         </span>
       </section>
@@ -106,7 +97,7 @@ export default function ResultPage() {
         </ul>
         <div className="bd-card bd-card--cream row mt-3 items-start! gap-2.5! px-3.5! py-3!">
           <Icon name="bulb" size={18} className="text-logic" />
-          <p className="t-sm muted">Mantiq (IQ) savollar natijasi — bu faqat shu kungi mashq koʻrsatkichi. U aqlingni oʻlchamaydi va mashq bilan albatta oʻsadi.</p>
+          <p className="t-sm muted">Mantiq (IQ) savollari natijasi — bu faqat shu kungi mashq koʻrsatkichi. U aqlingizni oʻlchamaydi va mashq bilan albatta oʻsadi.</p>
         </div>
       </Section>
 
@@ -117,7 +108,7 @@ export default function ResultPage() {
         ) : (
           <div className="bd-card bd-card--flat row items-start! gap-3!">
             <Icon name="lock" className="text-ink-3" />
-            <p className="t-sm muted">Bu imtihon uchun savollar va toʻgʻri javoblar hozircha yopiq. Umumiy natijang yuqorida koʻrsatilgan.</p>
+            <p className="t-sm muted">Bu imtihon uchun savollar va toʻgʻri javoblar hozircha yopiq. Umumiy natijangiz yuqorida koʻrsatilgan.</p>
           </div>
         )}
       </Section>

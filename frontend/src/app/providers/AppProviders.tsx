@@ -12,7 +12,7 @@ export function AppProviders({ children }: { children: ReactNode }) {
     // Centralised session-expiry handling: any 401 drops the cached session → ProtectedRoute redirects to /login.
     setUnauthorizedHandler(() => {
       if (queryClient.getQueryData(sessionQueryKey)) {
-        toast('Sessiya tugadi. Iltimos, qaytadan kir.', 'info');
+        toast('Sessiya tugadi. Iltimos, qaytadan kiring.', 'info');
       }
       cacheStudent(null);
       queryClient.setQueryData(sessionQueryKey, null);

@@ -164,7 +164,7 @@ export default function ProfilePage() {
           </ul>
         </Section>
 
-        <p className="t-xs faint mt-3 text-center">Shaxsiy maʼlumotlarni faqat maktabing oʻzgartiradi.</p>
+        <p className="t-xs faint mt-3 text-center">Shaxsiy maʼlumotlarni faqat maktabingiz oʻzgartiradi.</p>
         <Button
           variant="ghost"
           fullWidth
@@ -177,8 +177,8 @@ export default function ProfilePage() {
         </Button>
         <ConfirmationDialog
           open={confirmLogout}
-          title="Hisobdan chiqasanmi?"
-          description="Keyingi safar kirish uchun yana QR kod yoki JSHSHIR kerak boʻladi. Natijalaring saqlanib qoladi."
+          title="Hisobdan chiqasizmi?"
+          description="Keyingi safar kirish uchun yana QR kod yoki JSHSHIR kerak boʻladi. Natijalaringiz saqlanib qoladi."
           confirmLabel="Ha, chiqish"
           cancelLabel="Qolish"
           loading={logout.isPending}

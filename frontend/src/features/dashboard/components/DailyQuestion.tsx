@@ -50,7 +50,7 @@ export function DailyQuestion() {
           const isPicked = picked === o.id;
           const isRight = result?.correctOptionId === o.id;
           const isWrong = isPicked && result && !result.correct;
-          const label = isRight ? `${o.label} — toʻgʻri javob` : isWrong ? `${o.label} — sening javobing, notoʻgʻri` : o.label;
+          const label = isRight ? `${o.label} — toʻgʻri javob` : isWrong ? `${o.label} — sizning javobingiz, notoʻgʻri` : o.label;
           return (
             <button
               key={o.id}
@@ -76,7 +76,7 @@ export function DailyQuestion() {
             <span className="muted">{result.explanation}</span>
           </p>
         )}
-        {answer.isError && <p className="t-sm mt-3 text-danger-ink">Javobni yuborib boʻlmadi. Internetni tekshirib, qayta tanla.</p>}
+        {answer.isError && <p className="t-sm mt-3 text-danger-ink">Javobni yuborib boʻlmadi. Internetni tekshirib, qayta tanlang.</p>}
       </div>
     </div>
   );

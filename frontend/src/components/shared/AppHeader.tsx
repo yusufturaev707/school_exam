@@ -34,7 +34,7 @@ export function AppHeader({ sub, desktopSub }: { sub?: string; desktopSub?: stri
       <header className="mb-6 hidden items-center justify-between gap-4 lg:flex">
         <div className="min-w-0">
           <h1 className="t-display truncate">Salom, {student.firstName}! 👋</h1>
-          <p className="t-body muted">{desktopSub ?? 'Bugun ham bilimlaringni sinab koʻramizmi?'}</p>
+          <p className="t-body muted">{desktopSub ?? 'Bugun ham bilimlaringizni sinab koʻramizmi?'}</p>
         </div>
         <div className="row shrink-0">
           <StatChip kind="streak" label={`Kunlik seriya: ${streak} kun`}>

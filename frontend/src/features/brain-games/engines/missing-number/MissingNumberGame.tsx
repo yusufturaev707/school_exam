@@ -104,7 +104,7 @@ export default function MissingNumberGame({ session, content, resumeAnswers, tit
                   onClick={() => round.choose(q.id, o.id)}
                   disabled={locked && !isChosen && !isCorrect}
                   aria-pressed={isChosen}
-                  aria-label={isCorrect ? `${o.value} — toʻgʻri javob` : isChosen && round.feedback ? `${o.value} — sening javobing, notoʻgʻri` : `Javob: ${o.value}`}
+                  aria-label={isCorrect ? `${o.value} — toʻgʻri javob` : isChosen && round.feedback ? `${o.value} — sizning javobingiz, notoʻgʻri` : `Javob: ${o.value}`}
                   className={cn(
                     'bd-answer bd-answer--lg tap-card text-[26px]! disabled:opacity-45',
                     isCorrect && 'is-right',

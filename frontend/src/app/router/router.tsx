@@ -46,7 +46,7 @@ function NotFound() {
     <EmptyState
       mood="think"
       title="Bu sahifa topilmadi"
-      description="Balki manzil noto‘g‘ri yozilgandir."
+      description="Balki manzil notoʻgʻri yozilgandir."
       action={
         <Link to="/" className="inline-flex min-h-12 items-center rounded-[var(--radius-control)] bg-primary px-6 font-bold text-white">
           Bosh sahifaga

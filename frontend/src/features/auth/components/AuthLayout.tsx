@@ -14,10 +14,10 @@ export function AuthLayout() {
           <Mascot mood="salom" className="h-24 w-auto md:h-28 lg:h-56" />
           <div>
             <h1 className="t-hero lg:text-[40px] lg:leading-[46px] lg:font-black">Bilim — qiziqarli kashfiyot!</h1>
-            <p className="t-body mt-2 hidden max-w-md opacity-85 lg:block">Imtihon topshir, natijangni koʻr va oʻz bilimlaringni yangi choʻqqilarga olib chiq.</p>
+            <p className="t-body mt-2 hidden max-w-md opacity-85 lg:block">Imtihon topshiring, natijangizni koʻring va oʻz bilimlaringizni yangi choʻqqilarga olib chiqing.</p>
           </div>
         </div>
-        <p className="t-sm relative hidden opacity-70 lg:block">Maʼlumotlaring xavfsiz saqlanadi.</p>
+        <p className="t-sm relative hidden opacity-70 lg:block">Maʼlumotlaringiz xavfsiz saqlanadi.</p>
       </aside>
 
       <main className="relative -mt-8 rounded-t-[var(--radius-xl)] bg-bg px-4 pt-6 pb-10 md:px-8 lg:mt-0 lg:flex lg:items-center lg:justify-center lg:rounded-none lg:px-12">

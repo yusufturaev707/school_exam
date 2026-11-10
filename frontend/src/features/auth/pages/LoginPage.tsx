@@ -23,8 +23,8 @@ export default function LoginPage() {
   const location = useLocation();
   return (
     <div>
-      <h2 className="t-hero">Xush kelibsan! 👋</h2>
-      <p className="t-sm muted mt-1">Shaxsiy kabinetingga kirish usulini tanla.</p>
+      <h2 className="t-hero">Xush kelibsiz! 👋</h2>
+      <p className="t-sm muted mt-1">Shaxsiy kabinetingizga kirish usulini tanlang.</p>
 
       <div className="mt-5 flex flex-col gap-2">
         <MethodLink
@@ -32,20 +32,20 @@ export default function LoginPage() {
           state={location.state}
           icon={<QrCode className="size-7" strokeWidth={2.2} />}
           title="QR kod orqali kirish"
-          description="Imtihon chiptangdagi QR kodni skanerla"
+          description="Imtihon chiptangizdagi QR kodni skanerlang"
         />
         <MethodLink
           to="/login/jshshir"
           state={location.state}
           icon={<IdCard className="size-7" strokeWidth={2.2} />}
           title="JSHSHIR orqali kirish"
-          description="14 xonali shaxsiy raqamingni kirit"
+          description="14 xonali shaxsiy raqamingizni kiriting"
         />
       </div>
 
       <div className="bd-card bd-card--cream row mt-6 items-start! gap-2.5! px-3.5! py-3!">
         <Icon name="shield" size={18} className="text-brand" />
-        <p className="t-sm muted">Kirishda qiynalsang, oʻqituvching yoki ota-onangdan yordam soʻra. Shaxsiy raqamingni hech kimga aytma.</p>
+        <p className="t-sm muted">Kirishda qiynalsangiz, oʻqituvchingiz yoki ota-onangizdan yordam soʻrang. Shaxsiy raqamingizni hech kimga aytmang.</p>
       </div>
     </div>
   );

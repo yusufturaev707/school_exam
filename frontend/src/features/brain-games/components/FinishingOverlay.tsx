@@ -19,7 +19,7 @@ export function FinishingOverlay({ finishing, error, onRetry }: { finishing: boo
       ) : (
         <>
           <h2 className="t-hero">Barakalla!</h2>
-          <p className="t-sm muted max-w-sm">Natijangni saqlayapmiz…</p>
+          <p className="t-sm muted max-w-sm">Natijangizni saqlayapmiz…</p>
           <Spinner className="size-8 text-brand" />
         </>
       )}

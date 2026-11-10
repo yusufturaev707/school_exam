@@ -76,8 +76,8 @@ export default function ExamIntroPage() {
         <div className="bd-card px-4! py-3.5!">
           <Steps
             items={[
-              { title: 'Javobni tanla', text: 'Toʻgʻri deb oʻylagan kartangga bos — fikrni oʻzgartirsa boʻladi.' },
-              { title: 'Savollar orasida yur', text: '“Keyingi” / “Oldingi” yoki savollar roʻyxati orqali.' },
+              { title: 'Javobni tanlang', text: 'Toʻgʻri deb oʻylagan javobingizni bosing — fikringizni oʻzgartirishingiz mumkin.' },
+              { title: 'Savollar boʻylab harakatlaning', text: '“Keyingi” / “Oldingi” yoki savollar roʻyxati orqali.' },
               { title: 'Vaqt tugasa', text: 'Javoblar avtomatik saqlanadi va imtihon yakunlanadi.' },
             ]}
           />

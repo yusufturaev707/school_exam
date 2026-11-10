@@ -10,21 +10,21 @@ import { TopBar } from '@/components/shared/design';
 import { ApiError } from '@/lib/http';
 
 const RULES = [
-  'Savollarni diqqat bilan oʻqi.',
-  'Har bir savolga oʻzing mustaqil javob ber.',
-  'Tushunmagan savoling boʻlsa, xotirjam qayta oʻqib chiq.',
-  'Javoblaringni istalgan vaqtda oʻzgartirishing mumkin.',
-  'Vaqt tugaganda javoblaring avtomatik saqlanadi va imtihon yakunlanadi.',
-  'Eng muhimi, xotirjam boʻl va oʻz bilimingga ishon!',
+  'Savollarni diqqat bilan oʻqing.',
+  'Har bir savolga oʻzingiz mustaqil javob bering.',
+  'Tushunmagan savolingiz boʻlsa, xotirjam qayta oʻqib chiqing.',
+  'Javoblaringizni istalgan vaqtda oʻzgartirishingiz mumkin.',
+  'Vaqt tugaganda javoblaringiz avtomatik saqlanadi va imtihon yakunlanadi.',
+  'Eng muhimi, xotirjam boʻling va oʻz bilimingizga ishoning!',
 ];
 
 function startErrorMessage(error: unknown): string {
   if (error instanceof ApiError) {
-    if (error.code === 'EXAM_NOT_AVAILABLE') return 'Imtihon hozir ochiq emas. Oʻqituvchingdan soʻrab koʻr.';
-    if (error.code === 'ALREADY_COMPLETED') return 'Sen bu imtihonni allaqachon topshirgansan.';
-    if (error.kind === 'network') return 'Internet aloqasi yoʻq. Ulanib, qayta urin.';
+    if (error.code === 'EXAM_NOT_AVAILABLE') return 'Imtihon hozir ochiq emas. Oʻqituvchingizdan soʻrab koʻring.';
+    if (error.code === 'ALREADY_COMPLETED') return 'Siz bu imtihonni allaqachon topshirgansiz.';
+    if (error.kind === 'network') return 'Internet aloqasi yoʻq. Ulanib, qayta urining.';
   }
-  return 'Imtihonni boshlab boʻlmadi. Birozdan soʻng qayta urinib koʻr.';
+  return 'Imtihonni boshlab boʻlmadi. Birozdan soʻng qayta urinib koʻring.';
 }
 
 /** The child-friendly "small agreement". Not a substitute for guardian consent, which is handled separately. */
@@ -62,7 +62,7 @@ export default function ExamAgreementPage() {
         </ul>
 
         <p className="bd-card--cream t-sm mt-5 rounded-[var(--radius-md)] p-3 text-logic-ink shadow-[inset_0_0_0_1px_var(--line)]">
-          Esda tut: bu imtihon sening bilimlaringni yaxshiroq tushunish uchun. Har bir natija yangi narsalarni oʻrganish imkoniyatidir.
+          Esda tuting: bu imtihon bilimlaringizni yaxshiroq tushunish uchun oʻtkaziladi. Har bir natija yangi narsalarni oʻrganish imkoniyatidir.
         </p>
 
         <Checkbox id={checkboxId} className="mt-5" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} label="Men imtihon qoidalari bilan tanishdim." />
@@ -87,7 +87,7 @@ export default function ExamAgreementPage() {
         </Button>
         {!agreed && (
           <p id={`${checkboxId}-hint`} className="t-sm muted mt-1 text-center">
-            Boshlash uchun yuqoridagi belgini qoʻy.
+            Boshlash uchun yuqoridagi belgini qoʻying.
           </p>
         )}
         <p className="t-xs faint mt-2 text-center">Vaqt faqat imtihon boshlangandan keyin hisoblanadi.</p>

@@ -138,7 +138,7 @@ def _growing(rng: Random) -> NumberSequence:
     return NumberSequence(
         t,
         [2, 3, 4],
-        f"Qo‘shiladigan son har safar 1 taga oshadi: +{d0}, +{d0 + 1}, +{d0 + 2}…",
+        f"Qoʻshiladigan son har safar 1 taga oshadi: +{d0}, +{d0 + 1}, +{d0 + 2}…",
         lambda i: f"{t[i - 1]} + {d0 + i - 1} = {t[i]}",
     )
 
@@ -149,7 +149,7 @@ def _squares(rng: Random) -> NumberSequence:
     return NumberSequence(
         t,
         [1, 2, 3, 4],
-        "Bular ketma-ket sonlarning kvadratlari (sonni o‘ziga ko‘paytiramiz).",
+        "Bular ketma-ket sonlarning kvadratlari (sonni oʻziga koʻpaytiramiz).",
         lambda i: f"{n0 + i} × {n0 + i} = {t[i]}",
     )
 
@@ -162,7 +162,7 @@ def _fibonacci(rng: Random) -> NumberSequence:
     return NumberSequence(
         t,
         [2, 3, 4],
-        "Har bir son oldingi ikkita son yig‘indisiga teng.",
+        "Har bir son oldingi ikkita son yigʻindisiga teng.",
         lambda i: f"{t[i - 2]} + {t[i - 1]} = {t[i]}",
     )
 
@@ -172,7 +172,7 @@ def _double_plus_one(rng: Random) -> NumberSequence:
     return NumberSequence(
         t,
         [1, 2, 3, 4],
-        "Har bir sonni 2 ga ko‘paytirib, 1 qo‘shamiz.",
+        "Har bir sonni 2 ga koʻpaytirib, 1 qoʻshamiz.",
         lambda i: f"{t[i - 1]} × 2 + 1 = {t[i]}",
     )
 
@@ -233,11 +233,11 @@ COLOR_NAMES = {
     "teal": "yashil",
     "yellow": "sariq",
     "pink": "pushti",
-    "blue": "ko‘k",
-    "orange": "to‘q sariq",
+    "blue": "koʻk",
+    "orange": "toʻq sariq",
     "purple": "binafsha",
 }
-DIRECTION_NAMES = {0: "o‘ngga", 90: "pastga", 180: "chapga", 270: "yuqoriga"}
+DIRECTION_NAMES = {0: "oʻngga", 90: "pastga", 180: "chapga", 270: "yuqoriga"}
 
 # Repeating motifs; numbers index into the values chosen for a rule.
 MOTIFS = {"AB": [0, 1], "ABC": [0, 1, 2], "AAB": [0, 0, 1], "ABB": [0, 1, 1]}
@@ -274,7 +274,7 @@ def _rotation_rule(rng: Random) -> AttributeRule:
     start = rng.choice([0, 90, 180, 270])
     return AttributeRule(
         at=lambda i: (start + i * 90) % 360,
-        explain="Strelka har safar soat mili bo‘yicha chorak aylanadi.",
+        explain="Strelka har safar soat mili boʻyicha chorak aylanadi.",
         alternatives=[0, 90, 180, 270],
     )
 

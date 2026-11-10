@@ -11,8 +11,8 @@ export const SHAPE_COLORS: Record<ShapeColor, string> = {
   purple: '#8A5FDE',
 };
 const SHAPE_NAMES: Record<ShapeType, string> = { circle: 'doira', square: 'kvadrat', triangle: 'uchburchak', star: 'yulduz', diamond: 'romb', hexagon: 'oltiburchak', arrow: 'strelka' };
-const COLOR_NAMES: Record<ShapeColor, string> = { teal: 'yashil', yellow: 'sariq', pink: 'pushti', blue: 'ko‘k', orange: 'to‘q sariq', purple: 'binafsha' };
-const DIRECTIONS: Record<number, string> = { 0: 'o‘ngga qaragan', 90: 'pastga qaragan', 180: 'chapga qaragan', 270: 'yuqoriga qaragan' };
+const COLOR_NAMES: Record<ShapeColor, string> = { teal: 'yashil', yellow: 'sariq', pink: 'pushti', blue: 'koʻk', orange: 'toʻq sariq', purple: 'binafsha' };
+const DIRECTIONS: Record<number, string> = { 0: 'oʻngga qaragan', 90: 'pastga qaragan', 180: 'chapga qaragan', 270: 'yuqoriga qaragan' };
 
 /** Spoken description, e.g. "2 ta sariq yulduz" — shapes are never conveyed by colour alone. */
 export function describeShape(s: Shape): string {

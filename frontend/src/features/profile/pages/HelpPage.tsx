@@ -3,10 +3,10 @@ import { Mascot } from '@/components/shared/Mascot';
 import { Section, TopBar } from '@/components/shared/design';
 
 const FAQ = [
-  ['Internet uzilib qolsa nima boʻladi?', 'Xavotir olma. Javoblaring telefoningda saqlanib turadi va aloqa tiklanganda avtomatik yuboriladi. Vaqt esa serverda hisoblanadi.'],
-  ['Sahifani yangilab yuborsam-chi?', 'Imtihon oʻsha joyidan davom etadi. Javoblaring va qolgan vaqt saqlanadi.'],
-  ['Javobimni oʻzgartirsam boʻladimi?', 'Ha, imtihon tugaguncha istalgan savolga qaytib, javobingni oʻzgartirishing mumkin.'],
-  ['Vaqt tugasa-chi?', 'Imtihon avtomatik yakunlanadi va belgilagan javoblaring hisobga olinadi.'],
+  ['Internet uzilib qolsa nima boʻladi?', 'Xavotir olmang. Javoblaringiz telefoningizda saqlanib turadi va aloqa tiklanganda avtomatik yuboriladi. Vaqt esa serverda hisoblanadi.'],
+  ['Sahifani yangilab yuborsam-chi?', 'Imtihon oʻsha joyidan davom etadi. Javoblaringiz va qolgan vaqt saqlanadi.'],
+  ['Javobimni oʻzgartirsam boʻladimi?', 'Ha, imtihon tugaguncha istalgan savolga qaytib, javobingizni oʻzgartirishingiz mumkin.'],
+  ['Vaqt tugasa-chi?', 'Imtihon avtomatik yakunlanadi va belgilagan javoblaringiz hisobga olinadi.'],
 ];
 
 export default function HelpPage() {
@@ -16,7 +16,7 @@ export default function HelpPage() {
 
       <div className="bd-card bd-card--cream row gap-3! px-4! py-3!">
         <Mascot mood="oylayapti" size={64} />
-        <p className="t-sm">Savoling bormi? Koʻp soʻraladigan savollarga javoblar shu yerda.</p>
+        <p className="t-sm">Savolingiz bormi? Koʻp soʻraladigan savollarga javoblar shu yerda.</p>
       </div>
 
       <Section title="Koʻp soʻraladigan savollar" id="faq-title">
@@ -45,8 +45,8 @@ export default function HelpPage() {
             <h2 className="t-h2">Maxfiylik</h2>
           </div>
           <p className="t-sm muted mt-2">
-            Biz faqat imtihon uchun kerakli maʼlumotlarni saqlaymiz: isming, maktabing, sinfing va javoblaring. Shaxsiy raqaming (JSHSHIR) ekranda koʻrsatilmaydi. Reklama va
-            kuzatuv xizmatlari ishlatilmaydi. Natijalaringni faqat sen, ota-onang va maktabing koʻra oladi.
+            Biz faqat imtihon uchun kerakli maʼlumotlarni saqlaymiz: ismingiz, maktabingiz, sinfingiz va javoblaringiz. Shaxsiy raqamingiz (JSHSHIR) ekranda koʻrsatilmaydi. Reklama va
+            kuzatuv xizmatlari ishlatilmaydi. Natijalaringizni faqat siz, ota-onangiz va maktabingiz koʻra oladi.
           </p>
         </div>
       </section>

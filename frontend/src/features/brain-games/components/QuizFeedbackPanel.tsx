@@ -56,7 +56,7 @@ export function QuizFeedbackPanel({ feedback, error, isLast, onNext }: Props) {
             ) : (
               <p className="t-sm flex items-start gap-2 py-2 text-danger-ink" role="alert">
                 <Icon name="alert" size={18} />
-                Javobni yuborib boʻlmadi. Internetni tekshirib, javobni qayta tanla.
+                Javobni yuborib boʻlmadi. Internetni tekshirib, javobni qayta tanlang.
               </p>
             )}
           </div>

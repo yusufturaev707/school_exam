@@ -46,7 +46,7 @@ export function QuestionCard({ question, subjectIndex, subjectTotal, selected, d
           <section aria-label="Matn" className="bd-card--cream mt-4 rounded-[var(--radius-md)] p-4 text-[15px] leading-relaxed shadow-[inset_0_0_0_1px_var(--line)] md:text-[16px]">
             <p className="t-over muted mb-2 flex items-center gap-1.5">
               <Icon name="book" size={16} />
-              Matnni diqqat bilan oʻqi
+              Matnni diqqat bilan oʻqing
             </p>
             <RichContent blocks={question.passage} />
           </section>

@@ -27,7 +27,7 @@ function SingleChoice({ question, selected, disabled, onSelect }: QuestionRender
 }
 
 function Unsupported() {
-  return <p className="rounded-2xl bg-warning-light p-4 text-[15px] font-semibold text-warning-strong">Bu turdagi savolni hozircha ko‘rsatib bo‘lmaydi. Keyingi savolga o‘t.</p>;
+  return <p className="rounded-2xl bg-warning-light p-4 text-[15px] font-semibold text-warning-strong">Bu turdagi savolni hozircha koʻrsatib boʻlmaydi. Keyingi savolga oʻting.</p>;
 }
 
 /**

@@ -102,7 +102,7 @@ export default function PatternGame({ session, content, resumeAnswers, title, on
                   onClick={() => round.choose(q.id, o.id)}
                   disabled={locked && !isChosen && !isCorrect}
                   aria-pressed={isChosen}
-                  aria-label={isCorrect ? `${describeShape(o.shape)} — toʻgʻri javob` : isChosen && round.feedback ? `${describeShape(o.shape)} — sening javobing, notoʻgʻri` : describeShape(o.shape)}
+                  aria-label={isCorrect ? `${describeShape(o.shape)} — toʻgʻri javob` : isChosen && round.feedback ? `${describeShape(o.shape)} — sizning javobingiz, notoʻgʻri` : describeShape(o.shape)}
                   className={cn(
                     'bd-answer tap-card aspect-[4/3] p-3! disabled:opacity-40',
                     isCorrect && 'is-right',

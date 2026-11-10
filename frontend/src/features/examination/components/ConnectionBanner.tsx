@@ -15,8 +15,8 @@ export function ConnectionBanner({ visible, pendingCount }: { visible: boolean; 
           <div className="t-sm flex items-start gap-3 bg-streak-soft px-4 py-3 text-streak-ink">
             <WifiOff className="mt-0.5 size-5 shrink-0" aria-hidden="true" />
             <p>
-              Internet vaqtincha uzildi. Xavotir olma — imtihonni davom ettiraver
-              {pendingCount > 0 ? `, ${pendingCount} ta javobing aloqa tiklanganda saqlanadi.` : ', javoblaring saqlanadi.'}
+              Internet vaqtincha uzildi. Xavotir olmang — imtihonni davom ettiravering
+              {pendingCount > 0 ? `, ${pendingCount} ta javobingiz aloqa tiklanganda saqlanadi.` : ', javoblaringiz saqlanadi.'}
             </p>
           </div>
         </motion.div>

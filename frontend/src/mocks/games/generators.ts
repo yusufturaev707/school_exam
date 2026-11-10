@@ -122,23 +122,23 @@ const growing: Template = (rng) => {
   return {
     terms: t,
     hideable: [2, 3, 4],
-    rule: `Qo‘shiladigan son har safar 1 taga oshadi: +${d0}, +${d0 + 1}, +${d0 + 2}…`,
+    rule: `Qoʻshiladigan son har safar 1 taga oshadi: +${d0}, +${d0 + 1}, +${d0 + 2}…`,
     calc: (i) => `${t[i - 1]} + ${d0 + i - 1} = ${t[i]}`,
   };
 };
 const squares: Template = (rng) => {
   const n0 = int(rng, 1, 5);
   const t = seq(n0 * n0, (_p, k) => (n0 + k) * (n0 + k));
-  return { terms: t, hideable: [1, 2, 3, 4], rule: 'Bular ketma-ket sonlarning kvadratlari (sonni o‘ziga ko‘paytiramiz).', calc: (i) => `${n0 + i} × ${n0 + i} = ${t[i]}` };
+  return { terms: t, hideable: [1, 2, 3, 4], rule: 'Bular ketma-ket sonlarning kvadratlari (sonni oʻziga koʻpaytiramiz).', calc: (i) => `${n0 + i} × ${n0 + i} = ${t[i]}` };
 };
 const fibonacci: Template = (rng) => {
   const a = int(rng, 1, 3);
   const t = seq(a, (p, k, all) => (k === 1 ? int(rng, a, a + 3) : p + all[k - 2]!));
-  return { terms: t, hideable: [2, 3, 4], rule: 'Har bir son oldingi ikkita son yig‘indisiga teng.', calc: (i) => `${t[i - 2]} + ${t[i - 1]} = ${t[i]}` };
+  return { terms: t, hideable: [2, 3, 4], rule: 'Har bir son oldingi ikkita son yigʻindisiga teng.', calc: (i) => `${t[i - 2]} + ${t[i - 1]} = ${t[i]}` };
 };
 const doublePlusOne: Template = (rng) => {
   const t = seq(int(rng, 1, 4), (p) => p * 2 + 1);
-  return { terms: t, hideable: [1, 2, 3, 4], rule: 'Har bir sonni 2 ga ko‘paytirib, 1 qo‘shamiz.', calc: (i) => `${t[i - 1]} × 2 + 1 = ${t[i]}` };
+  return { terms: t, hideable: [1, 2, 3, 4], rule: 'Har bir sonni 2 ga koʻpaytirib, 1 qoʻshamiz.', calc: (i) => `${t[i - 1]} × 2 + 1 = ${t[i]}` };
 };
 
 const NUMBER_TEMPLATES: Record<GameDifficulty, Template[]> = {
@@ -192,8 +192,8 @@ export interface PatternInternal {
 const PLAIN_SHAPES: ShapeType[] = ['circle', 'square', 'triangle', 'star', 'diamond', 'hexagon'];
 const COLORS: ShapeColor[] = ['teal', 'yellow', 'pink', 'blue', 'orange', 'purple'];
 export const SHAPE_NAMES: Record<ShapeType, string> = { circle: 'doira', square: 'kvadrat', triangle: 'uchburchak', star: 'yulduz', diamond: 'romb', hexagon: 'oltiburchak', arrow: 'strelka' };
-export const COLOR_NAMES: Record<ShapeColor, string> = { teal: 'yashil', yellow: 'sariq', pink: 'pushti', blue: 'ko‘k', orange: 'to‘q sariq', purple: 'binafsha' };
-export const DIRECTION_NAMES: Record<number, string> = { 0: 'o‘ngga', 90: 'pastga', 180: 'chapga', 270: 'yuqoriga' };
+export const COLOR_NAMES: Record<ShapeColor, string> = { teal: 'yashil', yellow: 'sariq', pink: 'pushti', blue: 'koʻk', orange: 'toʻq sariq', purple: 'binafsha' };
+export const DIRECTION_NAMES: Record<number, string> = { 0: 'oʻngga', 90: 'pastga', 180: 'chapga', 270: 'yuqoriga' };
 
 /** Repeating motifs; letters index into the chosen values. */
 const MOTIFS = { AB: [0, 1], ABC: [0, 1, 2], AAB: [0, 0, 1], ABB: [0, 1, 1] } as const;
@@ -222,7 +222,7 @@ const fixed = <T>(value: T, alternatives: T[]): AttrRule<T> => ({ at: () => valu
 
 function rotationRule(rng: Rng): AttrRule<number> {
   const start = pick(rng, [0, 90, 180, 270]);
-  return { at: (i) => (start + i * 90) % 360, explain: 'Strelka har safar soat mili bo‘yicha chorak aylanadi.', alternatives: [0, 90, 180, 270] };
+  return { at: (i) => (start + i * 90) % 360, explain: 'Strelka har safar soat mili boʻyicha chorak aylanadi.', alternatives: [0, 90, 180, 270] };
 }
 
 interface PatternPlan {

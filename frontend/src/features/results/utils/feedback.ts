@@ -11,19 +11,19 @@ export function band(percent: number): Band {
 /** Supportive, never labelling. Low results are framed as the next thing to explore. */
 const SUBJECT_MESSAGES: Record<SubjectCode, Record<Band, string>> = {
   math: {
-    high: 'Matematikada ajoyib natija ko‘rsatding!',
-    mid: 'Matematikada yaxshi natija ko‘rsatding! Biroz mashq bilan yanada zo‘r bo‘ladi.',
-    growing: 'Matematik masalalarni ko‘proq yechib ko‘rish foydali bo‘ladi. Sen albatta uddalaysan!',
+    high: 'Matematikada ajoyib natija koʻrsatdingiz!',
+    mid: 'Matematikada yaxshi natija koʻrsatdingiz! Biroz mashq qilsangiz, yanada zoʻr boʻladi.',
+    growing: 'Matematik masalalarni koʻproq yechib koʻrish foydali boʻladi. Siz albatta uddalaysiz!',
   },
   iq: {
-    high: 'Mantiqiy fikrlashing juda zo‘r!',
-    mid: 'Mantiqiy savollarda yaxshi harakat qilding!',
-    growing: 'Mantiqiy savollarda yana biroz mashq qilish foydali bo‘ladi.',
+    high: 'Mantiqiy fikrlashingiz juda zoʻr!',
+    mid: 'Mantiqiy savollarda yaxshi harakat qildingiz!',
+    growing: 'Mantiqiy savollarda yana biroz mashq qilish foydali boʻladi.',
   },
   language: {
-    high: 'Ingliz tilida ajoyib natija ko‘rsatding! Excellent!',
-    mid: 'Ingliz tilida yaxshi natija! Har kuni bir nechta yangi so‘z o‘rgansang, yanada zo‘r bo‘ladi.',
-    growing: 'Ingliz tilida so‘zlar va oddiy gaplarni ko‘proq takrorlash foydali bo‘ladi. Sen albatta uddalaysan!',
+    high: 'Ingliz tilida ajoyib natija koʻrsatdingiz! Excellent!',
+    mid: 'Ingliz tilida yaxshi natija! Har kuni bir nechta yangi soʻz oʻrgansangiz, yanada zoʻr boʻladi.',
+    growing: 'Ingliz tilida soʻzlar va oddiy gaplarni koʻproq takrorlash foydali boʻladi. Siz albatta uddalaysiz!',
   },
 };
 
@@ -36,7 +36,7 @@ export function subjectMessage(subject: SubjectCode, percent: number): string {
  * Never labels the child; never over-praises a low score.
  */
 export function overallHeadline(percent: number): { title: string; text: string } {
-  if (percent > 70) return { title: 'Zoʻr natija!', text: 'Sen juda yaxshi tayyorlangansan. Shunday davom et!' };
-  if (percent >= 30) return { title: 'Yaxshi harakat!', text: 'Koʻp narsani bilasan. Quyida qaysi mavzularni mustahkamlash mumkinligini koʻr.' };
-  return { title: 'Boshlanishi bor — endi oʻsamiz!', text: 'Bu imtihon qaysi mavzularni takrorlash kerakligini koʻrsatdi. Xatolar ustida ishlasang, keyingi safar natija albatta yaxshiroq boʻladi.' };
+  if (percent > 70) return { title: 'Zoʻr natija!', text: 'Siz juda yaxshi tayyorlangansiz. Shunday davom eting!' };
+  if (percent >= 30) return { title: 'Yaxshi harakat!', text: 'Koʻp narsani bilasiz. Endi qaysi mavzularni mustahkamlash mumkinligini koʻrib chiqing.' };
+  return { title: 'Boshlanishi bor — endi oʻsamiz!', text: 'Bu imtihon qaysi mavzularni takrorlash kerakligini koʻrsatdi. Xatolar ustida ishlasangiz, keyingi safar natija albatta yaxshiroq boʻladi.' };
 }

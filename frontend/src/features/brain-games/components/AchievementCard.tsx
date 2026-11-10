@@ -54,7 +54,7 @@ function AchievementDialog({ achievement: a, open, onClose }: { achievement: Ach
                 <Icon name="lock" size={14} />
                 Tez orada
               </span>
-              <p className="t-sm muted mt-1">Bu nishonni beradigan oʻyinlar hali tayyorlanmoqda. Ular chiqqach, uni ochishing mumkin.</p>
+              <p className="t-sm muted mt-1">Bu nishonni beradigan oʻyinlar hali tayyorlanmoqda. Ular chiqqach, uni ochishingiz mumkin.</p>
             </>
           ) : (
             <>

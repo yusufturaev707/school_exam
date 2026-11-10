@@ -8,16 +8,16 @@ export function describeError(error: unknown): { title: string; description: str
   const e = error instanceof ApiError ? error : toApiError(error);
   switch (e.kind) {
     case 'network':
-      return { title: 'Internet aloqasi yo‘q', description: 'Internetga ulanganingni tekshirib, qayta urinib ko‘r.' };
+      return { title: 'Internet aloqasi yoʻq', description: 'Internetga ulanganingizni tekshirib, qayta urinib koʻring.' };
     case 'forbidden':
-      return { title: 'Bu sahifa sen uchun yopiq', description: 'Bu ma’lumotni ko‘rish uchun ruxsat yo‘q.' };
+      return { title: 'Bu sahifa siz uchun yopiq', description: 'Bu maʼlumotni koʻrish uchun ruxsat yoʻq.' };
     case 'not_found':
       return { title: 'Hech narsa topilmadi', description: 'Bu sahifa mavjud emas yoki havola notoʻgʻri boʻlishi mumkin.' };
     case 'server':
     case 'invalid_response':
-      return { title: 'Nimadir noto‘g‘ri ketdi', description: 'Bu sening aybing emas. Birozdan so‘ng qayta urinib ko‘r.' };
+      return { title: 'Nimadir notoʻgʻri ketdi', description: 'Bu sizning aybingiz emas. Birozdan soʻng qayta urinib koʻring.' };
     default:
-      return { title: 'Kutilmagan xatolik', description: 'Iltimos, qayta urinib ko‘r.' };
+      return { title: 'Kutilmagan xatolik', description: 'Iltimos, qayta urinib koʻring.' };
   }
 }
 

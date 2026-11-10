@@ -157,7 +157,7 @@ export function useExamEngine(attemptId: string) {
             submittingRef.current = false;
             setSubmitPhase('idle');
             useExamStore.getState().setLocked(false);
-            toast('Imtihonni yakunlab bo‘lmadi. Birozdan so‘ng qayta urinib ko‘r.', 'warning');
+            toast('Imtihonni yakunlab boʻlmadi. Birozdan soʻng qayta urinib koʻring.', 'warning');
             return;
           }
           // Timeout submissions keep retrying with the same key; the server will finalise regardless.
@@ -196,9 +196,9 @@ export function useExamEngine(attemptId: string) {
   useEffect(() => {
     if (!session || !isActive) return;
     const marks: Array<[number, string]> = [
-      [10 * 60_000, 'Yana 10 daqiqa vaqting bor. Shoshilmasdan davom et.'],
-      [5 * 60_000, '5 daqiqa qoldi. Javobsiz savollarni tekshirib chiq.'],
-      [60_000, '1 daqiqa qoldi. Javoblaring avtomatik saqlanadi.'],
+      [10 * 60_000, 'Yana 10 daqiqa vaqtingiz bor. Shoshilmasdan davom eting.'],
+      [5 * 60_000, '5 daqiqa qoldi. Javobsiz savollarni tekshirib chiqing.'],
+      [60_000, '1 daqiqa qoldi. Javoblaringiz avtomatik saqlanadi.'],
     ];
     const timers = marks
       .map(([at, msg]) => {

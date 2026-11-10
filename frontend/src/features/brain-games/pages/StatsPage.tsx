@@ -36,8 +36,8 @@ export default function StatsPage() {
       {data.totalCompleted === 0 ? (
         <EmptyState
           card
-          title="Hali oʻyin oʻynamading"
-          description="Birinchi oʻyinni yakunlaganingda, bu yerda oʻz yutuqlaringni koʻrasan."
+          title="Hali oʻyin oʻynamadingiz"
+          description="Birinchi oʻyinni yakunlaganingizda, bu yerda oʻz yutuqlaringizni koʻrasiz."
           action={
             <Link to="/activities" className={buttonClass('primary')}>
               Oʻyin tanlash
@@ -81,7 +81,7 @@ export default function StatsPage() {
 
             <div className="bd-card bd-card--cream row mt-3 items-start! gap-2.5! px-3.5! py-3!">
               <Icon name="bulb" size={18} className="text-logic" />
-              <p className="t-sm muted">Ballar faqat oʻz oʻsishingni koʻrsatadi — hech kim bilan solishtirilmaydi.</p>
+              <p className="t-sm muted">Ballar faqat oʻz oʻsishingizni koʻrsatadi — hech kim bilan solishtirilmaydi.</p>
             </div>
           </div>
 

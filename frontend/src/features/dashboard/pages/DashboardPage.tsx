@@ -64,7 +64,7 @@ export default function DashboardPage() {
       score={lastResult ? { correct: lastResult.correct, total: lastResult.total, caption: formatDay(lastResult.completedAt) } : null}
     />
   ) : (
-    <EmptyState card title="Hozircha imtihon yoʻq" description="Yangi imtihon ochilganda shu yerda koʻrinadi. Bu orada bilimlar laboratoriyasiga kirib koʻr!" />
+    <EmptyState card title="Hozircha imtihon yoʻq" description="Yangi imtihon ochilganda shu yerda koʻrinadi. Bu orada bilimlar laboratoriyasiga kirib koʻring!" />
   );
 
   const mission = daily.data ? (
@@ -99,7 +99,7 @@ export default function DashboardPage() {
         <BadgeRow achievements={sortedBadges} />
         {nextBadge && (
           <p className="t-sm muted mt-2.5 text-center">
-            {unlocked === 0 ? 'Birinchi oʻyinni yakunla — birinchi nishon seniki!' : `Keyingi nishon: «${nextBadge.title}» — ${nextBadge.description.toLowerCase()}`}
+            {unlocked === 0 ? 'Birinchi oʻyinni yakunlang — birinchi nishon sizniki!' : `Keyingi nishon: «${nextBadge.title}» — ${nextBadge.description.toLowerCase()}`}
           </p>
         )}
       </div>

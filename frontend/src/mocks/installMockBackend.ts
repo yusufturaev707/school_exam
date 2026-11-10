@@ -42,7 +42,7 @@ const DEMO_JSHSHIR = '12345678901234';
 const EXAM = {
   id: 'exam-autumn-2026',
   title: 'Kuzgi bilimlar imtihoni',
-  description: 'Matematika, mantiq va ingliz tili bo‘yicha 45 ta qiziqarli savol.',
+  description: 'Matematika, mantiq va ingliz tili boʻyicha 45 ta qiziqarli savol.',
   durationMinutes: 60,
   sections: [
     { subject: 'math', title: 'Matematika', questionCount: 15 },

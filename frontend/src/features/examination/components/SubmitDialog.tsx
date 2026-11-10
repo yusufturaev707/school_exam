@@ -16,8 +16,8 @@ export function SubmitDialog({ open, total, answered, unansweredNumbers, onConfi
   return (
     <ConfirmationDialog
       open={open}
-      title="Imtihonni yakunlaysanmi?"
-      description={unanswered === 0 ? 'Barakalla, barcha savollarga javob berding!' : 'Hali vaqting bor. Xohlasang, javobsiz savollarga qaytishing mumkin.'}
+      title="Imtihonni yakunlaysizmi?"
+      description={unanswered === 0 ? 'Barakalla, barcha savollarga javob berdingiz!' : 'Hali vaqtingiz bor. Xohlasangiz, javobsiz savollarga qaytishingiz mumkin.'}
       confirmLabel="Ha, yakunlash"
       cancelLabel="Davom etish"
       onConfirm={onConfirm}

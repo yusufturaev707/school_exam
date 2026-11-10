@@ -13,9 +13,9 @@ import { cn } from '@/lib/cn';
 const schema = z.object({
   jshshir: z
     .string()
-    .min(1, 'JSHSHIR raqamingni kirit.')
+    .min(1, 'JSHSHIR raqamingizni kiriting.')
     .regex(/^\d+$/, 'Faqat raqamlar kiritiladi.')
-    .length(14, 'JSHSHIR aynan 14 ta raqamdan iborat bo‘lishi kerak.'),
+    .length(14, 'JSHSHIR aynan 14 ta raqamdan iborat boʻlishi kerak.'),
 });
 type FormValues = z.infer<typeof schema>;
 
@@ -45,7 +45,7 @@ export default function JshshirLoginPage() {
     <div>
       <BackLink to="/login" state={location.state} />
       <h2 className="t-hero mt-2">JSHSHIR orqali kirish</h2>
-      <p className="t-sm muted mt-1">Shaxsiy raqamingni guvohnoma yoki metrikangdan topishing mumkin.</p>
+      <p className="t-sm muted mt-1">Shaxsiy raqamingizni guvohnoma yoki metrikangizdan topishingiz mumkin.</p>
 
       <form
         noValidate

@@ -23,7 +23,7 @@ export default function CategoryPage() {
         <EmptyState
           card
           title="Bunday yoʻnalish topilmadi"
-          description="Balki havola notoʻgʻri yozilgandir. Laboratoriyadagi yoʻnalishlardan birini tanla."
+          description="Balki havola notoʻgʻri yozilgandir. Laboratoriyadagi yoʻnalishlardan birini tanlang."
           action={
             <Link to="/activities" className={buttonClass('primary')}>
               Laboratoriyaga qaytish
@@ -65,7 +65,7 @@ export default function CategoryPage() {
           card
           className="mt-6"
           title="Bu yoʻnalishda oʻyinlar tez orada!"
-          description="Hozircha boshqa yoʻnalishlardagi oʻyinlarni sinab koʻr."
+          description="Hozircha boshqa yoʻnalishlardagi oʻyinlarni sinab koʻring."
           action={
             <Link to="/activities" className={buttonClass('primary')}>
               Laboratoriyaga qaytish

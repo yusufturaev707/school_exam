@@ -105,8 +105,8 @@ export function Modal({ open, onClose, title, description, children, footer, var
         if (dismissible && e.target === ref.current) onClose();
       }}
       className={cn(
-        'm-0 max-h-[92dvh] w-full max-w-none overflow-visible bg-transparent p-0 text-ink backdrop:bg-[#11302a]/45 backdrop:backdrop-blur-[2px]',
-        variant === 'sheet' ? 'mt-auto md:m-auto md:max-w-lg' : 'm-auto max-w-[calc(100%-32px)] md:max-w-md',
+        'm-0 max-h-[92dvh] w-full overflow-visible bg-transparent p-0 text-ink backdrop:bg-[#11302a]/45 backdrop:backdrop-blur-[2px]',
+        variant === 'sheet' ? 'mt-auto max-w-none md:m-auto md:max-w-lg' : 'm-auto max-w-[calc(100%-32px)] md:max-w-md',
       )}
     >
       {open && (

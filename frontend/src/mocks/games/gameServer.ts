@@ -155,13 +155,13 @@ const countIn = (cat: GameCategory) => (done: GameSessionRecord[]) => done.filte
 
 // Participation and exploration only — no streaks, no "play every day" pressure.
 const ACHIEVEMENTS: AchievementRule[] = [
-  { id: 'first-step', title: 'Birinchi qadam', description: 'Birinchi o‘yinni yakunla.', icon: 'footprints', target: 1, measure: (d) => d.length },
-  { id: 'memory-master', title: 'Xotira ustasi', description: 'Xotira o‘yinini yakunla.', icon: 'brain', target: 1, category: 'memory', measure: countIn('memory') },
-  { id: 'math-explorer', title: 'Matematik izquvar', description: '3 ta matematika o‘yinini yakunla.', icon: 'calculator', target: 3, category: 'math', measure: countIn('math') },
-  { id: 'logic-thinker', title: 'Mantiqiy fikrlovchi', description: '3 ta mantiq o‘yinini yakunla.', icon: 'puzzle', target: 3, category: 'logic', measure: countIn('logic') },
-  { id: 'attention-champion', title: 'Diqqat chempioni', description: 'Diqqat o‘yinini yakunla.', icon: 'eye', target: 1, category: 'attention', measure: countIn('attention') },
-  { id: 'curious-mind', title: 'Izlanuvchan bola', description: '3 xil yo‘nalishdagi o‘yinlarni sinab ko‘r.', icon: 'compass', target: 3, measure: (d) => new Set(d.map(categoryOf)).size },
-  { id: 'daily-explorer', title: 'Kun kashfiyotchisi', description: 'Bugungi intellektual topshiriqni bajar.', icon: 'sun', target: 1, measure: (_d, daily) => daily },
+  { id: 'first-step', title: 'Birinchi qadam', description: 'Birinchi oʻyinni yakunlang.', icon: 'footprints', target: 1, measure: (d) => d.length },
+  { id: 'memory-master', title: 'Xotira ustasi', description: 'Xotira oʻyinini yakunlang.', icon: 'brain', target: 1, category: 'memory', measure: countIn('memory') },
+  { id: 'math-explorer', title: 'Matematik izquvar', description: '3 ta matematika oʻyinini yakunlang.', icon: 'calculator', target: 3, category: 'math', measure: countIn('math') },
+  { id: 'logic-thinker', title: 'Mantiqiy fikrlovchi', description: '3 ta mantiq oʻyinini yakunlang.', icon: 'puzzle', target: 3, category: 'logic', measure: countIn('logic') },
+  { id: 'attention-champion', title: 'Diqqat chempioni', description: 'Diqqat oʻyinini yakunlang.', icon: 'eye', target: 1, category: 'attention', measure: countIn('attention') },
+  { id: 'curious-mind', title: 'Izlanuvchan bola', description: '3 xil yoʻnalishdagi oʻyinlarni sinab koʻring.', icon: 'compass', target: 3, measure: (d) => new Set(d.map(categoryOf)).size },
+  { id: 'daily-explorer', title: 'Kun kashfiyotchisi', description: 'Bugungi intellektual topshiriqni bajaring.', icon: 'sun', target: 1, measure: (_d, daily) => daily },
 ];
 
 function achievementsFor(state: GamesState, studentId: string): Achievement[] {

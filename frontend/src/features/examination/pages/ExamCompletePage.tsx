@@ -7,6 +7,7 @@ import { Spinner } from '@/components/ui/Spinner';
 import { Icon } from '@/components/ui/Icon';
 import { buttonClass } from '@/components/ui/Button';
 import { ErrorState } from '@/components/feedback/ErrorState';
+import { ExamScoreModal } from '@/features/results/components/ExamScoreModal';
 
 export default function ExamCompletePage() {
   const { attemptId = '' } = useParams();
@@ -23,11 +24,12 @@ export default function ExamCompletePage() {
   return (
     <div className="relative">
       <Confetti />
+      {resultId && <ExamScoreModal resultId={resultId} />}
       <div className="flex min-h-[70dvh] flex-col items-center justify-center text-center">
         <Mascot mood="xursand" size={140} />
         <p className="t-over mt-3 text-brand-ink">Imtihon yakunlandi</p>
-        <h1 className="t-hero mt-1">Barakalla! Sen imtihonni yakunlading!</h1>
-        <p className="t-sm muted mt-1 max-w-[300px]">Javoblaring saqlandi. Endi natijangni koʻrib, nimalarni yaxshi bilishingni bilib olishing mumkin.</p>
+        <h1 className="t-hero mt-1">Barakalla! Siz imtihonni yakunladingiz!</h1>
+        <p className="t-sm muted mt-1 max-w-[300px]">Javoblaringiz saqlandi. Endi natijangizni koʻrib, nimalarni yaxshi bilishingizni bilib olishingiz mumkin.</p>
 
         <div className="mt-8 flex w-full max-w-sm flex-col gap-2">
           {resultId ? (

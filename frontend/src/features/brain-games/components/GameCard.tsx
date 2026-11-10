@@ -49,7 +49,7 @@ export function GameCard({ game, compact = false, bestScore }: { game: Game; com
         <div className="t-over text-[var(--ci)]">{meta.short}</div>
         <div className="t-h3">{game.title}</div>
         <div className="t-xs faint">
-          ~{game.durationMinutes} daq · {levels(game)}
+          ~{game.durationMinutes} daq. · {levels(game)}
         </div>
       </div>
       {game.completedCount === 0 ? (

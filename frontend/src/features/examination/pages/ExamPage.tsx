@@ -142,7 +142,7 @@ export default function ExamPage() {
             {currentIndex === 0 && (
               <span className="t-xs muted inline-flex items-center gap-1">
                 <Icon name="hand" size={16} />
-                Surib ham o‘tsa bo‘ladi
+                Surib ham oʻtish mumkin
               </span>
             )}
           </div>
@@ -175,7 +175,7 @@ export default function ExamPage() {
       </main>
 
       {/* ---------- bottom bar (phones & tablets) ---------- */}
-      <nav aria-label="Savollar bo‘ylab harakat" className="safe-bottom fixed inset-x-0 bottom-0 z-20 bg-card shadow-[0_-1px_0_var(--line),0_-8px_24px_rgba(17,48,42,.06)] lg:hidden">
+      <nav aria-label="Savollar boʻylab harakat" className="safe-bottom fixed inset-x-0 bottom-0 z-20 bg-card shadow-[0_-1px_0_var(--line),0_-8px_24px_rgba(17,48,42,.06)] lg:hidden">
         <div className="mx-auto grid max-w-3xl grid-cols-[auto_1fr_auto] items-center gap-2 px-3 py-2.5 sm:px-4 sm:py-3">
           <IconButton label="Oldingi savol" icon={<Icon name="arrowL" size={22} />} onClick={engine.prev} disabled={currentIndex === 0} className="bd-iconbtn--soft size-12! rounded-[var(--radius-md)]!" />
           <Button
@@ -203,7 +203,7 @@ export default function ExamPage() {
         open={navigatorOpen}
         onClose={() => setNavigatorOpen(false)}
         title="Savollar"
-        description={`${answered} / ${total} ta savolga javob berding`}
+        description={`${answered} / ${total} ta savolga javob berdingiz`}
         footer={
           <Button size="lg" fullWidth variant="secondary" onClick={openFinish} leftIcon={<Icon name="flag" />}>
             Imtihonni yakunlash
@@ -241,8 +241,8 @@ export default function ExamPage() {
         open={submitPhase === 'offline_blocked'}
         onClose={engine.clearSubmitPhase}
         variant="dialog"
-        title="Internet aloqasi yo‘q"
-        description="Ba’zi javoblaring hali serverga yetib bormadi. Internetga ulangach, “Yakunlash” tugmasini qayta bos. Vaqt tugasa, javoblaring baribir saqlanadi."
+        title="Internet aloqasi yoʻq"
+        description="Baʼzi javoblaringiz hali serverga yetib bormadi. Internetga ulangach, “Yakunlash” tugmasini qayta bosing. Vaqt tugasa, javoblaringiz baribir saqlanadi."
         footer={
           <Button size="lg" onClick={engine.clearSubmitPhase} leftIcon={<Icon name="check" />}>
             Tushundim
@@ -255,7 +255,7 @@ export default function ExamPage() {
           <Mascot mood={expired ? "hayron" : "oylayapti"} size={128} />
           <h2 className="t-hero">{expired ? 'Vaqt tugadi' : 'Imtihon yakunlanmoqda'}</h2>
           <p className="t-sm muted max-w-sm">
-            {submitPhase === 'retrying' ? 'Server bilan aloqa tiklanishini kutyapmiz. Sahifani yopma — javoblaring xavfsiz.' : 'Javoblaringni saqlayapmiz. Bir oz kut…'}
+            {submitPhase === 'retrying' ? 'Server bilan aloqa tiklanishini kutyapmiz. Sahifani yopmang — javoblaringiz xavfsiz.' : 'Javoblaringizni saqlayapmiz. Biroz kuting…'}
           </p>
           <Spinner className="size-8 text-primary" />
         </div>

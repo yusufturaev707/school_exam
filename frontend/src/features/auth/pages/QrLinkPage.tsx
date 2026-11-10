@@ -71,14 +71,14 @@ export default function QrLinkPage() {
   if (!token) {
     return (
       <Problem
-        title="Havola to‘liq emas"
-        text="Bu havolada kirish kodi yo‘q yoki u buzilgan. Chiptadagi QR kodni qaytadan skanerla."
+        title="Havola toʻliq emas"
+        text="Bu havolada kirish kodi yoʻq yoki u buzilgan. Chiptadagi QR kodni qaytadan skanerlang."
       />
     );
   }
 
   if (login.isError) {
-    return <Problem title="Kirib bo‘lmadi" text={authErrorMessage(login.error)} />;
+    return <Problem title="Kirib boʻlmadi" text={authErrorMessage(login.error)} />;
   }
 
   if (checking) return <Waiting text="Tekshirilmoqda…" />;
@@ -98,15 +98,15 @@ export default function QrLinkPage() {
               <b className="text-ink">
                 {current.firstName} {current.lastName}
               </b>{' '}
-              kirgan. Chipta boshqa o‘quvchiniki bo‘lsa, uning nomidan kir.
+              kirgan. Chipta boshqa oʻquvchiniki boʻlsa, uning nomidan kiring.
             </p>
           </div>
           <div className="mt-5 flex flex-col gap-3">
             <Button size="lg" fullWidth leftIcon={<LogIn className="size-5" aria-hidden="true" />} onClick={signIn}>
-              Chiptadagi o‘quvchi bo‘lib kirish
+              Chiptadagi oʻquvchi boʻlib kirish
             </Button>
             <Button size="lg" variant="secondary" fullWidth onClick={() => setKeepCurrent(true)}>
-              {current.firstName} bo‘lib davom etish
+              {current.firstName} boʻlib davom etish
             </Button>
           </div>
         </Card>

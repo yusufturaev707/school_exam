@@ -19,16 +19,16 @@ import { ApiError } from '@/lib/http';
 function startError(error: unknown): string | null {
   if (!error) return null;
   if (error instanceof ApiError) {
-    if (error.kind === 'network') return 'Internet aloqasi yoʻq. Ulanib, qayta urinib koʻr.';
-    if (error.code === 'GAME_NOT_AVAILABLE') return 'Bu oʻyin hozircha yopiq. Boshqa oʻyinni tanlab koʻr!';
+    if (error.kind === 'network') return 'Internet aloqasi yoʻq. Ulanib, qayta urinib koʻring.';
+    if (error.code === 'GAME_NOT_AVAILABLE') return 'Bu oʻyin hozircha yopiq. Boshqa oʻyinni tanlab koʻring!';
   }
-  return 'Oʻyinni boshlab boʻlmadi. Birozdan soʻng qayta urinib koʻr.';
+  return 'Oʻyinni boshlab boʻlmadi. Birozdan soʻng qayta urinib koʻring.';
 }
 
 function finishError(error: unknown): string | null {
   if (!error) return null;
-  if (error instanceof ApiError && error.kind === 'network') return 'Internet aloqasi uzildi. Ulangach, “Qayta urinish”ni bos — natijang yoʻqolmaydi.';
-  return 'Server javob bermadi. Birozdan soʻng qayta urinib koʻr — natijang yoʻqolmaydi.';
+  if (error instanceof ApiError && error.kind === 'network') return 'Internet aloqasi uzildi. Ulangach, “Qayta urinish” tugmasini bosing — natijangiz yoʻqolmaydi.';
+  return 'Server javob bermadi. Birozdan soʻng qayta urinib koʻring — natijangiz yoʻqolmaydi.';
 }
 
 /** Full-screen shell for states outside gameplay: always a way back to the lab. */
@@ -90,7 +90,7 @@ export default function GamePage() {
     if (gameQuery.error instanceof ApiError && gameQuery.error.kind === 'not_found') {
       return (
         <Shell>
-          <EmptyState card title="Bunday oʻyin topilmadi" description="Balki havola notoʻgʻri yozilgandir. Laboratoriyadan boshqa oʻyin tanlab koʻr." action={backToLab} />
+          <EmptyState card title="Bunday oʻyin topilmadi" description="Balki havola notoʻgʻri yozilgandir. Laboratoriyadan boshqa oʻyin tanlab koʻring." action={backToLab} />
         </Shell>
       );
     }
@@ -106,7 +106,7 @@ export default function GamePage() {
   if (!game.isActive || !Engine) {
     return (
       <Shell>
-        <EmptyState card title={`${game.title} — tez orada!`} description="Bu oʻyin ustida ishlayapmiz. Hozircha boshqa oʻyinlarni sinab koʻr." action={backToLab} />
+        <EmptyState card title={`${game.title} — tez orada!`} description="Bu oʻyin ustida ishlayapmiz. Hozircha boshqa oʻyinlarni sinab koʻring." action={backToLab} />
       </Shell>
     );
   }
@@ -174,8 +174,8 @@ export default function GamePage() {
       </Suspense>
       <ConfirmationDialog
         open={confirmExit && !complete.isPending}
-        title="Oʻyindan chiqasanmi?"
-        description="Bu oʻyindagi natija saqlanmaydi. Xohlagan paytingda qaytadan boshlashing mumkin."
+        title="Oʻyindan chiqasizmi?"
+        description="Bu oʻyindagi natija saqlanmaydi. Xohlagan paytingizda qaytadan boshlashingiz mumkin."
         confirmLabel="Oʻyindan chiqish"
         cancelLabel="Oʻynashda davom etish"
         onCancel={() => setConfirmExit(false)}

@@ -46,7 +46,7 @@ export function GameInstructions({ game, daily, initialDifficulty, starting, err
       {daily && (
         <p className="t-sm mt-3 flex items-start gap-2 rounded-[var(--radius-md)] bg-star-soft p-3 text-star-ink">
           <Icon name="sun" size={18} />
-          Bu — bugungi topshiriq. Uni yakunlasang, {daily.bonus > 0 ? `+${daily.bonus} ⭐ bonus va ` : ''}kunlik yutuqqa ega boʻlasan!
+          Bu — bugungi topshiriq. Uni yakunlasangiz, {daily.bonus > 0 ? `+${daily.bonus} ⭐ bonus va ` : ''}kunlik yutuqqa ega boʻlasiz!
         </p>
       )}
 
@@ -59,7 +59,7 @@ export function GameInstructions({ game, daily, initialDifficulty, starting, err
       {!daily && game.difficulties.length > 1 && (
         <>
           <p className="t-h3 mt-6 mb-2" id="level-label">
-            Darajani tanla
+            Darajani tanlang
           </p>
           <div className="bd-seg" role="radiogroup" aria-labelledby="level-label">
             {game.difficulties.map((d) => (

@@ -96,7 +96,7 @@ export default function ExamListPage() {
 
   return (
     <div>
-      <PageTitle title="Imtihonlar" subtitle="Senga ochiq imtihonlar shu yerda." />
+      <PageTitle title="Imtihonlar" subtitle="Sizga ochiq imtihonlar shu yerda." />
       <div className="no-scrollbar -mx-4 mt-4 mb-1 flex gap-2 overflow-x-auto px-4 py-1" role="group" aria-label="Filtr">
         {chips
           .filter((c) => c.id === 'all' || (c.n ?? 0) > 0)
