@@ -53,6 +53,11 @@ export function useExamEngine(attemptId: string) {
   const clockOffsetMs = query.data?.clockOffsetMs ?? 0;
   const isActive = session?.status === 'in_progress';
 
+  // The questions and the deadline are already on the device, so a failed background refresh must not end the exam screen.
+  const refreshFailing = query.isRefetchError && query.error instanceof ApiError && query.error.isRetryable;
+  // The very first load is stuck: the browser reports no network, or the requests keep failing.
+  const waitingForConnection = query.isPending && (query.fetchStatus === 'paused' || query.failureCount > 0);
+
   const answers = useExamStore((s) => s.answers);
   const currentIndex = useExamStore((s) => s.currentIndex);
   const locked = useExamStore((s) => s.locked);
@@ -241,6 +246,8 @@ export function useExamEngine(attemptId: string) {
     locked,
     sync,
     online,
+    refreshFailing,
+    waitingForConnection,
     expired,
     submitPhase,
     clearSubmitPhase: () => setSubmitPhase('idle'),

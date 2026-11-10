@@ -21,18 +21,24 @@ import { ErrorState } from '@/components/feedback/ErrorState';
 import { Mascot } from '@/components/shared/Mascot';
 import { SUBJECTS } from '@/components/shared/subjects';
 
-function ExamSkeleton() {
+function ExamSkeleton({ waitingForConnection = false }: { waitingForConnection?: boolean }) {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-5" aria-busy="true" aria-label="Imtihon yuklanmoqda">
-      <Skeleton className="h-12 w-full" />
-      <div className="mt-5 lg:grid lg:grid-cols-[1fr_340px] lg:gap-6">
-        <div className="space-y-3">
-          <Skeleton className="h-40 w-full" />
-          <Skeleton className="h-16 w-full" />
-          <Skeleton className="h-16 w-full" />
-          <Skeleton className="h-16 w-full" />
+    <div className="safe-top">
+      <ConnectionBanner
+        visible={waitingForConnection}
+        message="Internet aloqasi uzildi. Aloqa tiklanishi bilan savollar oʻzi yuklanadi. Imtihon vaqti toʻxtamaydi, shuning uchun internetni tekshirib koʻring."
+      />
+      <div className="mx-auto w-full max-w-6xl px-4 py-5" aria-busy="true" aria-label="Imtihon yuklanmoqda">
+        <Skeleton className="h-12 w-full" />
+        <div className="mt-5 lg:grid lg:grid-cols-[1fr_340px] lg:gap-6">
+          <div className="space-y-3">
+            <Skeleton className="h-40 w-full" />
+            <Skeleton className="h-16 w-full" />
+            <Skeleton className="h-16 w-full" />
+            <Skeleton className="h-16 w-full" />
+          </div>
+          <Skeleton className="hidden h-96 lg:block" />
         </div>
-        <Skeleton className="hidden h-96 lg:block" />
       </div>
     </div>
   );
@@ -41,7 +47,7 @@ function ExamSkeleton() {
 export default function ExamPage() {
   const { attemptId = '' } = useParams();
   const engine = useExamEngine(attemptId);
-  const { session, questions, currentIndex, currentQuestion, answers, locked, sync, online, expired, submitPhase } = engine;
+  const { session, questions, currentIndex, currentQuestion, answers, locked, sync, online, refreshFailing, waitingForConnection, expired, submitPhase } = engine;
 
   const [navigatorOpen, setNavigatorOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -70,8 +76,8 @@ export default function ExamPage() {
     enabled: !navigatorOpen && !confirmOpen,
   });
 
-  if (engine.query.isPending) return <ExamSkeleton />;
-  if (engine.query.isError || !session) {
+  if (engine.query.isPending) return <ExamSkeleton waitingForConnection={waitingForConnection} />;
+  if ((engine.query.isError && !refreshFailing) || !session) {
     return (
       <div className="mx-auto max-w-md px-4 py-10">
         <ErrorState error={engine.query.error} onRetry={() => void engine.query.refetch()} />
@@ -120,7 +126,7 @@ export default function ExamPage() {
           </div>
           <ProgressBar className={SUBJECTS[currentQuestion.subject].tone} value={answered} max={total} size="md" label={`${total} ta savoldan ${answered} tasiga javob berilgan`} />
         </div>
-        <ConnectionBanner visible={!online || sync.phase === 'retrying'} pendingCount={sync.pendingCount} />
+        <ConnectionBanner visible={!online || sync.phase === 'retrying' || refreshFailing} pendingCount={sync.pendingCount} />
       </header>
 
       {/* ---------- main: question + desktop navigator ---------- */}
@@ -242,7 +248,7 @@ export default function ExamPage() {
         onClose={engine.clearSubmitPhase}
         variant="dialog"
         title="Internet aloqasi yoʻq"
-        description="Baʼzi javoblaringiz hali serverga yetib bormadi. Internetga ulangach, “Yakunlash” tugmasini qayta bosing. Vaqt tugasa, javoblaringiz baribir saqlanadi."
+        description="Baʼzi javoblaringiz hali serverga yetib bormadi. Internetga ulangach, “Yakunlash” tugmasini qayta bosing. Vaqt tugaguncha ulanishga harakat qiling: serverga yetib bormagan javoblar hisobga olinmaydi."
         footer={
           <Button size="lg" onClick={engine.clearSubmitPhase} leftIcon={<Icon name="check" />}>
             Tushundim
@@ -255,7 +261,7 @@ export default function ExamPage() {
           <Mascot mood={expired ? "hayron" : "oylayapti"} size={128} />
           <h2 className="t-hero">{expired ? 'Vaqt tugadi' : 'Imtihon yakunlanmoqda'}</h2>
           <p className="t-sm muted max-w-sm">
-            {submitPhase === 'retrying' ? 'Server bilan aloqa tiklanishini kutyapmiz. Sahifani yopmang — javoblaringiz xavfsiz.' : 'Javoblaringizni saqlayapmiz. Biroz kuting…'}
+            {submitPhase === 'retrying' ? 'Server bilan aloqa tiklanishini kutyapmiz. Iltimos, sahifani yopmang.' : 'Javoblaringizni saqlayapmiz. Biroz kuting…'}
           </p>
           <Spinner className="size-8 text-primary" />
         </div>

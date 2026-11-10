@@ -3,10 +3,10 @@ import { Mascot } from '@/components/shared/Mascot';
 import { Section, TopBar } from '@/components/shared/design';
 
 const FAQ = [
-  ['Internet uzilib qolsa nima boʻladi?', 'Xavotir olmang. Javoblaringiz telefoningizda saqlanib turadi va aloqa tiklanganda avtomatik yuboriladi. Vaqt esa serverda hisoblanadi.'],
+  ['Internet uzilib qolsa nima boʻladi?', 'Xavotir olmang. Javoblaringiz shu brauzer oynasida saqlanib turadi va aloqa tiklanganda avtomatik yuboriladi. Vaqt toʻxtamaydi, shuning uchun oynani yopmang va vaqt tugaguncha internetga ulanishga harakat qiling.'],
   ['Sahifani yangilab yuborsam-chi?', 'Imtihon oʻsha joyidan davom etadi. Javoblaringiz va qolgan vaqt saqlanadi.'],
   ['Javobimni oʻzgartirsam boʻladimi?', 'Ha, imtihon tugaguncha istalgan savolga qaytib, javobingizni oʻzgartirishingiz mumkin.'],
-  ['Vaqt tugasa-chi?', 'Imtihon avtomatik yakunlanadi va belgilagan javoblaringiz hisobga olinadi.'],
+  ['Vaqt tugasa-chi?', 'Imtihon avtomatik yakunlanadi va serverga yetib borgan javoblaringiz hisobga olinadi.'],
 ];
 
 export default function HelpPage() {
