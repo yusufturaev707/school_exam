@@ -1,0 +1,137 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'exams/results_report.css' %}">
+{% endblock %}
+{% block extrahead %}
+  {{ block.super }}
+  <script src="{% static 'exams/results_report.js' %}" defer></script>
+{% endblock %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">Bosh sahifa</a>
+  &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+  &rsaquo; <a href="{{ list_url }}">{{ opts.verbose_name_plural|capfirst }}</a>
+  &rsaquo; Hisobot
+</div>
+{% endblock %}
+{% block content %}
+<div id="content-main" class="md-page rr-page">
+
+{% if not report %}
+  <section class="md-card">
+    <div class="md-card__header">
+      <span class="md-avatar">{% include "admin/md/icon.html" with name="trending" %}</span>
+      <div>
+        <h2 class="md-card__title">Imtihonni tanlang</h2>
+        <p class="md-card__subtitle">Hisobot bitta imtihon bo‘yicha tuziladi: savollar va ballar har bir imtihonda boshqacha.</p>
+      </div>
+    </div>
+    {% if exam_choices %}
+      <ul class="rr-choices">
+        {% for item in exam_choices %}
+          <li><a class="rr-choice" href="{{ item.url }}"><span>{{ item.title }}</span><span class="md-chip">{{ item.count }} ta natija</span></a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <div class="md-banner md-banner--warning"><p>Tanlangan filtrlar bo‘yicha natija yo‘q. <a href="{{ list_url }}">Natijalar ro‘yxatiga qaytish</a></p></div>
+    {% endif %}
+  </section>
+{% else %}
+
+  <section class="md-card rr-head">
+    <div class="rr-head__main">
+      <h2 class="md-card__title">{{ exam.title }}</h2>
+      <p class="md-card__subtitle">{{ report.exam.questionCount }} ta savol · {{ report.exam.durationMinutes }} daqiqa · maksimal ball {{ report.exam.maxScore }}</p>
+      <div class="md-chips rr-filters">
+        {% for item in report.filters %}<span class="md-chip{% if forloop.first %} md-chip--accent{% endif %}"><small>{{ item.label }}:</small> {{ item.value }}</span>{% endfor %}
+        <a class="md-chip rr-link-chip" href="{{ list_url }}">{% include "admin/md/icon.html" with name="edit" class="sm" %} Filtrlarni o‘zgartirish</a>
+      </div>
+    </div>
+    <div class="rr-downloads" aria-label="Yuklab olish">
+      {% for item in downloads %}
+        <a class="rr-download" href="{{ item.url }}" data-download title="{{ item.hint }}">
+          {% include "admin/md/icon.html" with name="download" class="sm" %}
+          <span><b>{{ item.label }}</b><small>{{ item.hint }}</small></span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if not report.summary.count %}
+    <div class="md-banner md-banner--warning"><p>Tanlangan filtrlar bo‘yicha natija yo‘q.</p></div>
+  {% else %}
+  <div class="md-stats">
+    <div class="md-stat md-stat--primary"><span class="md-stat__value" data-stat="count" data-kind="num">{{ report.summary.count }}</span><span class="md-stat__label">Natijasi bor o‘quvchilar</span></div>
+    <div class="md-stat md-stat--primary"><span class="md-stat__value" data-stat="averagePercent" data-kind="pct"></span><span class="md-stat__label">O‘rtacha natija · {{ report.summary.averageScore }} ball</span></div>
+    <div class="md-stat"><span class="md-stat__value" data-stat="medianPercent" data-kind="pct"></span><span class="md-stat__label">Mediana (o‘rtadagi o‘quvchi)</span></div>
+    <div class="md-stat md-stat--success"><span class="md-stat__value" data-stat="maxPercent" data-kind="pct"></span><span class="md-stat__label">Eng yuqori</span></div>
+    <div class="md-stat md-stat--error"><span class="md-stat__value" data-stat="minPercent" data-kind="pct"></span><span class="md-stat__label">Eng past</span></div>
+    <div class="md-stat md-stat--warning"><span class="md-stat__value" data-stat="averageDurationMinutes" data-kind="num"></span><span class="md-stat__label">O‘rtacha vaqt (daqiqa) · {{ report.summary.finishedByTimeout }} tasi vaqt tugab</span></div>
+  </div>
+
+  <div class="rr-grid">
+    <section class="md-card">
+      <div class="md-card__header">
+        <div>
+          <h2 class="md-card__title">Natijalar taqsimoti</h2>
+          <p class="md-card__subtitle">Ustunni bossangiz, pastdagi ro‘yxat shu oraliq bo‘yicha saralanadi.</p>
+        </div>
+      </div>
+      <div class="rr-histogram" id="rr-histogram" role="list"></div>
+    </section>
+    <section class="md-card">
+      <div class="md-card__header"><div><h2 class="md-card__title">Darajalar</h2><p class="md-card__subtitle">Bossangiz, ro‘yxat shu daraja bo‘yicha saralanadi.</p></div></div>
+      <div id="rr-bands" class="rr-bars"></div>
+      <h3 class="rr-subtitle">Fanlar bo‘yicha o‘rtacha</h3>
+      <div id="rr-subjects" class="rr-bars"></div>
+    </section>
+  </div>
+
+  {% if report.groups %}
+  <section class="md-card md-card--flush">
+    <div class="md-card__header">
+      <span class="md-avatar">{% include "admin/md/icon.html" with name="school" %}</span>
+      <div>
+        <h2 class="md-card__title">{{ report.groups.title }} bo‘yicha</h2>
+        <p class="md-card__subtitle">Qatorni bossangiz, hisobot shu {{ report.groups.label|lower }} bo‘yicha ochiladi. Ustun nomini bossangiz, saralanadi.</p>
+      </div>
+    </div>
+    <div class="md-table-scroll"><table class="md-table rr-table" id="rr-groups"></table></div>
+  </section>
+  {% endif %}
+
+  <section class="md-card md-card--flush">
+    <div class="md-card__header">
+      <span class="md-avatar">{% include "admin/md/icon.html" with name="table" %}</span>
+      <div>
+        <h2 class="md-card__title">Savollar tahlili</h2>
+        <p class="md-card__subtitle">Imtihondagi asl raqami va harflari bilan, hozirgi javob kaliti bo‘yicha. Eng qiyin savollarni ko‘rish uchun “To‘g‘ri” ustunini bosing.</p>
+      </div>
+    </div>
+    <div class="md-table-scroll"><table class="md-table rr-table" id="rr-questions"></table></div>
+  </section>
+
+  <section class="md-card md-card--flush">
+    <div class="md-card__header rr-toolbar">
+      <span class="md-avatar">{% include "admin/md/icon.html" with name="person_add" %}</span>
+      <div class="rr-toolbar__title">
+        <h2 class="md-card__title">O‘quvchilar</h2>
+        <p class="md-card__subtitle" id="rr-pupils-count" aria-live="polite"></p>
+      </div>
+      <div class="rr-toolbar__tools">
+        <span class="md-chip md-chip--accent rr-active-filter" id="rr-active-filter" hidden></span>
+        <input type="search" id="rr-search" class="rr-search" placeholder="Ism, maktab yoki sinf" aria-label="O‘quvchilarni qidirish">
+      </div>
+    </div>
+    <div class="md-table-scroll rr-pupils-scroll"><table class="md-table rr-table" id="rr-pupils"></table></div>
+    <div class="md-foot rr-pager" id="rr-pager"></div>
+  </section>
+  {% endif %}
+
+  {{ report|json_script:"rr-data" }}
+  {{ drill_urls|json_script:"rr-drill" }}
+{% endif %}
+</div>
+{% endblock %}

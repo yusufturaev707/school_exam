@@ -1,0 +1,6 @@
+{% extends "admin/change_list.html" %}
+{# "Hisobot": charts, tables and files for the list exactly as it is filtered and searched. #}
+{% block object-tools-items %}
+  <li><a href="{% url 'admin:exams_examresult_report' %}{{ cl.get_query_string }}">Hisobot va yuklab olish</a></li>
+  {{ block.super }}
+{% endblock %}

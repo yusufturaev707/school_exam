@@ -1,6 +1,7 @@
 {% extends "admin/change_form.html" %}
 {% block object-tools-items %}
   {% if original %}
+    <li><a href="{% url 'admin:exams_examresult_report' %}?attempt__exam__id__exact={{ original.pk }}">Natijalar hisoboti</a></li>
     <li><a href="{% url 'admin:exams_exam_export_json' original.pk %}">JSON yuklab olish</a></li>
   {% endif %}
   {{ block.super }}

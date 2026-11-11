@@ -2,12 +2,14 @@ import json
 
 from django import forms
 from django.contrib import admin, messages
+from django.contrib.admin.options import IncorrectLookupParameters
 from django.core.exceptions import PermissionDenied, ValidationError
+from django.db.models import Count
 from django.forms.models import BaseInlineFormSet
-from django.http import Http404, JsonResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
-from django.urls import path
+from django.urls import path, reverse
 from django.utils.html import format_html, format_html_join
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
@@ -22,7 +24,9 @@ from apps.core.sheets import (
     SheetImportForm,
 )
 from apps.schools.filters import hierarchy_filters
+from apps.schools.models import Classroom, District, Region, School
 
+from . import report_files
 from .importer import export_exam_data, import_exams_data
 from .models import (
     AnswerOption,
@@ -35,10 +39,12 @@ from .models import (
     Question,
     Subject,
 )
+from .reports import PLACE_LEVELS, build_report
 from .resources import QuestionResource
 from .selectors import attempt_questions
 
 NO_TARGETS = "Hech kimga (biriktirilmagan)"
+PLACE_PARAMS = [param for param, _, _ in PLACE_LEVELS]
 
 
 class ExamSectionInline(admin.TabularInline):
@@ -445,3 +451,137 @@ class ExamResultAdmin(ReadOnlyAdmin):
     ]
     list_select_related = ["attempt__pupil", "attempt__exam"]
     search_fields = ["attempt__pupil__first_name", "attempt__pupil__last_name"]
+
+    # ------------------------------------------- the report and its files (apps.exams.reports)
+
+    EXAM_PARAM = "attempt__exam__id__exact"
+
+    def get_urls(self):
+        own = [
+            path(
+                "report/",
+                self.admin_site.admin_view(self.report_view),
+                name="exams_examresult_report",
+            ),
+            path(
+                "report/download/<str:file_format>/",
+                self.admin_site.admin_view(self.report_download_view),
+                name="exams_examresult_report_download",
+            ),
+        ]
+        return own + super().get_urls()  # own first: the default "<object_id>/" would catch them
+
+    def _report_input(self, request):
+        """The result list's own filters and search, so the report shows what the list shows."""
+        if not self.has_view_permission(request):
+            raise PermissionDenied
+        try:
+            changelist = self.get_changelist_instance(request)
+        except IncorrectLookupParameters:
+            raise Http404("Filtr noto‘g‘ri.") from None
+        return changelist, changelist.queryset
+
+    def _report_filters(self, request, exam) -> tuple[dict, list[dict]]:
+        chosen = {}
+        described = [{"label": "Imtihon", "value": exam.title}]
+        models = {"region": Region, "district": District, "school": School, "classroom": Classroom}
+        for param, label, _ in PLACE_LEVELS:
+            value = request.GET.get(param, "")
+            if value.isdigit():
+                place = models[param].objects.filter(pk=value).first()
+                if place is not None:
+                    chosen[param] = value
+                    described.append({"label": label, "value": getattr(place, "name", str(place))})
+        reason = request.GET.get("finish_reason__exact")
+        if reason in dict(ExamResult.FinishReason.choices):
+            described.append(
+                {"label": "Yakunlash", "value": str(ExamResult.FinishReason(reason).label)}
+            )
+        if request.GET.get("q"):
+            described.append({"label": "Qidiruv", "value": request.GET["q"]})
+        return chosen, described
+
+    def _report(self, request):
+        """(changelist, exam or None, report or None, exams to choose from)."""
+        changelist, results = self._report_input(request)
+        exam_id = request.GET.get(self.EXAM_PARAM)
+        if not exam_id:
+            exams = list(
+                results.order_by()
+                .values("attempt__exam_id", "attempt__exam__title")
+                .annotate(count=Count("id"))
+                .order_by("attempt__exam__title")
+            )
+            if len(exams) != 1:
+                return changelist, None, None, exams
+            exam_id = exams[0]["attempt__exam_id"]
+            results = results.filter(attempt__exam_id=exam_id)
+        exam = Exam.objects.filter(pk=exam_id).first()
+        if exam is None:
+            raise Http404
+        chosen, described = self._report_filters(request, exam)
+        report = build_report(exam, results, chosen=chosen, filters=described)
+        return changelist, exam, report, []
+
+    def report_view(self, request):
+        changelist, exam, report, exams = self._report(request)
+        query = changelist.get_query_string()
+        if exam is not None and self.EXAM_PARAM not in request.GET:
+            query = changelist.get_query_string({self.EXAM_PARAM: exam.pk})
+        groups = (report or {}).get("groups")
+        context = {
+            **self.admin_site.each_context(request),
+            "opts": self.opts,
+            "title": f"Natijalar hisoboti: {exam}" if exam else "Natijalar hisoboti",
+            "exam": exam,
+            "report": report,
+            "exam_choices": [
+                {
+                    "title": item["attempt__exam__title"],
+                    "count": item["count"],
+                    "url": changelist.get_query_string({self.EXAM_PARAM: item["attempt__exam_id"]}),
+                }
+                for item in exams
+            ],
+            "list_url": reverse("admin:exams_examresult_changelist") + query,
+            "downloads": [
+                {
+                    "format": file_format,
+                    "label": label,
+                    "hint": hint,
+                    "url": reverse("admin:exams_examresult_report_download", args=[file_format])
+                    + query,
+                }
+                for file_format, label, hint in [
+                    ("xlsx", "Excel", "Hamma jadvallar, filtr va saralash bilan"),
+                    ("pdf", "PDF", "Chop etish va yuborish uchun"),
+                    ("png", "Rasm (PNG)", "Telegram va taqdimot uchun qisqa ko‘rinish"),
+                    ("json", "JSON", "Boshqa dasturlar uchun to‘liq ma’lumot"),
+                ]
+            ],
+            # A row of the place table opens the report one level deeper.
+            "drill_urls": {
+                str(row["id"]): changelist.get_query_string(
+                    {groups["param"]: row["id"], **({self.EXAM_PARAM: exam.pk} if exam else {})},
+                    remove=[
+                        p for p, _, _ in PLACE_LEVELS[PLACE_PARAMS.index(groups["param"]) + 1 :]
+                    ],
+                )
+                for row in groups["rows"]
+            }
+            if groups
+            else {},
+        }
+        return TemplateResponse(request, "admin/exams/examresult/report.html", context)
+
+    def report_download_view(self, request, file_format):
+        if file_format not in report_files.FORMATS:
+            raise Http404
+        _, exam, report, _ = self._report(request)
+        if report is None:
+            raise Http404("Avval bitta imtihonni tanlang.")
+        content_type, _ = report_files.FORMATS[file_format]
+        response = HttpResponse(report_files.render(report, file_format), content_type=content_type)
+        name = report_files.file_name(report, file_format)
+        response["Content-Disposition"] = f'attachment; filename="{name}"'
+        return response
